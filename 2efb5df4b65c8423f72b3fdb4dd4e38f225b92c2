@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "37193f4f_25d0dc64",
+        "filename": "README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-08-09T14:07:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b14410ac_136e0c7c",
+      "revId": "2efb5df4b65c8423f72b3fdb4dd4e38f225b92c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e83ed78f_39971815",
         "filename": "src/main/java/com/ericsson/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2018-08-09T04:47:42Z",
       "side": 1,
       "message": "What about the indexed entries associated to the old projects?",
+      "range": {
+        "startLine": 139,
+        "startChar": 6,
+        "endLine": 139,
+        "endChar": 68
+      },
+      "revId": "2efb5df4b65c8423f72b3fdb4dd4e38f225b92c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53235b7a_6f4dc025",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-08-09T14:07:18Z",
+      "side": 1,
+      "message": "Nothing to be done. The old project name is indexed in the change document and when changes are indexed, the new project name is replacing the old one in the change document.",
+      "parentUuid": "e83ed78f_39971815",
       "range": {
         "startLine": 139,
         "startChar": 6,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "514c3d84_afacec19",
+        "filename": "src/main/java/com/ericsson/gerrit/plugins/renameproject/cache/CacheRenameHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-08-09T14:07:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56e55269_4df5b146",
+      "range": {
+        "startLine": 15,
+        "startChar": 8,
+        "endLine": 15,
+        "endChar": 20
+      },
+      "revId": "2efb5df4b65c8423f72b3fdb4dd4e38f225b92c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71cf72d3_1912475e",
         "filename": "src/main/resources/Documentation/build.md",
         "patchSetId": 4
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "e60fb04e_1dc15c92",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-08-09T14:07:18Z",
+      "side": 1,
+      "message": "I am not planning to implement support for 2.13. I already mentioned in the README that only 2.14 is supported currently.\n\nI am working on master branch for now but once this change is merged, I will create stable-2.14 branch and we will be able to start supporting 2.15 and eventually master.",
+      "parentUuid": "71cf72d3_1912475e",
+      "revId": "2efb5df4b65c8423f72b3fdb4dd4e38f225b92c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4735ee88_c443618e",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 4
@@ -93,6 +177,30 @@
       "writtenOn": "2018-08-09T04:47:42Z",
       "side": 1,
       "message": "What about reusing the indexing thread config in Gerrit?",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 14,
+        "endChar": 20
+      },
+      "revId": "2efb5df4b65c8423f72b3fdb4dd4e38f225b92c2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "303e81d7_1ea472cc",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2018-08-09T14:07:18Z",
+      "side": 1,
+      "message": "We considered that option but we ruled it out because we did not want the rename to affect core operations. Let\u0027s say you rename a project with 500k changes, this would hijack the core indexing threads for quite a while thus impacting core.\n\nI know this is dumb to rename such a project but we preferred to consider the worst case scenario. Rename capability can be delegated to users so you always have to plan for the worst.",
+      "parentUuid": "4735ee88_c443618e",
       "range": {
         "startLine": 14,
         "startChar": 3,
