@@ -49,7 +49,7 @@ public class FilesystemRenameHandler {
       throws IOException, RepositoryNotFoundException {
     Repository repository = repoManager.openRepository(oldProjectKey);
     File repoFile = repository.getDirectory();
-    closeAndRemoveFromCache(repository);
+    RepositoryCache.close(repository);
     pm.beginTask("Renaming git repository", ProgressMonitor.UNKNOWN);
     renameGitRepository(repoFile, newProjectKey, oldProjectKey);
   }
@@ -60,7 +60,7 @@ public class FilesystemRenameHandler {
     log.debug("Creating the new git repo - {}", newProjectKey.get());
     try (Repository newRepo = repoManager.createRepository(newProjectKey)) {
       File target = newRepo.getDirectory();
-      closeAndRemoveFromCache(newRepo);
+      RepositoryCache.close(newRepo);
       // delete the created repo, we just needed the absolute path from repo manager
       recursiveDelete(target.toPath());
       log.debug(
@@ -80,10 +80,5 @@ public class FilesystemRenameHandler {
       log.error("Failed to delete {}", oldFile.getFileName(), e);
       throw e;
     }
-  }
-
-  private void closeAndRemoveFromCache(Repository repository) {
-    repository.close();
-    RepositoryCache.close(repository);
   }
 }
