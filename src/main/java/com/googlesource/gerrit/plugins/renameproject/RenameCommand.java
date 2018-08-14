@@ -65,7 +65,7 @@ public final class RenameCommand extends SshCommand {
           renameProject.doRename(changeIds, rsrc, input, monitor);
         } else {
           String cancellationMsg = "Rename operation was cancelled by user.";
-          log.info(cancellationMsg);
+          log.debug(cancellationMsg);
           stdout.println(cancellationMsg);
           stdout.flush();
         }

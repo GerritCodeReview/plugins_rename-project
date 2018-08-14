@@ -115,7 +115,7 @@ public class RenameProject {
       assertNewNameNotNull(input);
       assertRenamePermission(rsrc);
       renamePreconditions.assertCanRename(rsrc, new Project.NameKey(input.name));
-      log.info("Rename preconditions check successful.");
+      log.debug("Rename preconditions check successful.");
     } catch (CannotRenameProjectException e) {
       throw new ResourceConflictException(e.getMessage());
     }
@@ -128,19 +128,19 @@ public class RenameProject {
     Exception ex = null;
     try {
       fsHandler.rename(oldProjectKey, newProjectKey, pm);
-      log.info("Renamed the git repo to {} successfully.", newProjectKey.get());
+      log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
       cacheHandler.update(rsrc.getControl().getProject(), newProjectKey);
 
       List<Change.Id> updatedChangeIds =
           dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
-      log.info("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
+      log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
 
       // if the DB update is successful, update the secondary index
       indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
-      log.info("Updated the secondary index successfully for project {}.", oldProjectKey.get());
+      log.debug("Updated the secondary index successfully for project {}.", oldProjectKey.get());
 
       lockUnlockProject.unlock(newProjectKey);
-      log.info("Unlocked the repo {} after rename operation.", newProjectKey.get());
+      log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
 
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
     } catch (Exception e) {

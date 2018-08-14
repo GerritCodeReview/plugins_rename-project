@@ -55,7 +55,7 @@ public class IndexUpdateHandler {
   public void updateIndex(
       List<Change.Id> changeIds, Project.NameKey newProjectKey, ProgressMonitor pm)
       throws InterruptedException {
-    log.info("Starting to index {} change(s).", changeIds.size());
+    log.debug("Starting to index {} change(s).", changeIds.size());
     ExecutorService executor =
         Executors.newFixedThreadPool(
             config.getIndexThreads(),
@@ -69,7 +69,7 @@ public class IndexUpdateHandler {
     executor.shutdown();
 
     if (verifyAllTasksCompleted(tasksCompleted)) {
-      log.info("Indexed {} change(s) successfully.", changeIds.size());
+      log.debug("Indexed {} change(s) successfully.", changeIds.size());
     }
   }
 

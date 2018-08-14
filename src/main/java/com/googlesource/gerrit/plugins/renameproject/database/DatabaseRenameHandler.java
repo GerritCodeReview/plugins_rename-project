@@ -60,7 +60,7 @@ public class DatabaseRenameHandler {
   }
 
   public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws OrmException {
-    log.info("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
+    log.debug("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
 
     List<Change.Id> changeIds = new ArrayList<>();
     Connection conn = ((JdbcSchema) schemaFactory.open()).getConnection();
@@ -72,7 +72,7 @@ public class DatabaseRenameHandler {
         Change.Id changeId = new Change.Id(changes.getInt(1));
         changeIds.add(changeId);
       }
-      log.info(
+      log.debug(
           "Number of changes related to the project {} are {}",
           oldProjectKey.get(),
           changeIds.size());
@@ -93,7 +93,7 @@ public class DatabaseRenameHandler {
     try (Statement stmt = conn.createStatement()) {
       conn.setAutoCommit(false);
       try {
-        log.info("Updating the changes in the DB related to project {}", oldProjectKey.get());
+        log.debug("Updating the changes in the DB related to project {}", oldProjectKey.get());
         for (Change.Id cd : changes) {
           stmt.addBatch(
               "update changes set dest_project_name='"
@@ -105,7 +105,7 @@ public class DatabaseRenameHandler {
         stmt.executeBatch();
         updateWatchEntries(oldProjectKey, newProjectKey);
         conn.commit();
-        log.info(
+        log.debug(
             "Successfully updated the changes in the DB related to project {}",
             oldProjectKey.get());
         return changes;

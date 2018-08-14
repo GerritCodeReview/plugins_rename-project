@@ -57,13 +57,13 @@ public class FilesystemRenameHandler {
   private void renameGitRepository(
       File source, Project.NameKey newProjectKey, Project.NameKey oldProjectKey)
       throws IOException {
-    log.info("Creating the new git repo - {}", newProjectKey.get());
+    log.debug("Creating the new git repo - {}", newProjectKey.get());
     try (Repository newRepo = repoManager.createRepository(newProjectKey)) {
       File target = newRepo.getDirectory();
       closeAndRemoveFromCache(newRepo);
       // delete the created repo, we just needed the absolute path from repo manager
       recursiveDelete(target.toPath());
-      log.info(
+      log.debug(
           "Moving the content of {} to new git repo - {}",
           oldProjectKey.get(),
           newProjectKey.get());
