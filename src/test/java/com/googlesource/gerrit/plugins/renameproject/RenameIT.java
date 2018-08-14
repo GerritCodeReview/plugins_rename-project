@@ -42,7 +42,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
     createChange();
     adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME);
 
-    assertThat(adminSshSession.hasError()).isFalse();
+    adminSshSession.assertSuccess();
     ProjectState projectState = projectCache.get(new Project.NameKey(NEW_PROJECT_NAME));
     assertThat(projectState).isNotNull();
     assertThat(queryProvider.get().byProject(project)).isEmpty();
@@ -56,7 +56,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
     String newProjectName = "";
     adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + newProjectName);
 
-    assertThat(adminSshSession.hasError()).isTrue();
+    adminSshSession.assertFailure();
     ProjectState projectState = projectCache.get(new Project.NameKey(newProjectName));
     assertThat(projectState).isNull();
   }
@@ -67,7 +67,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
     createChange();
     adminSshSession.exec(PLUGIN_NAME + " " + allProjects.get() + " " + NEW_PROJECT_NAME);
 
-    assertThat(adminSshSession.hasError()).isTrue();
+    adminSshSession.assertFailure();
     ProjectState projectState = projectCache.get(new Project.NameKey(NEW_PROJECT_NAME));
     assertThat(projectState).isNull();
   }
@@ -77,7 +77,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
   public void testRenameExistingProjectFail() throws Exception {
     createChange();
     adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + project.get());
-    assertThat(adminSshSession.hasError()).isTrue();
+    adminSshSession.assertFailure();
   }
 
   @Test
@@ -98,6 +98,6 @@ public class RenameIT extends LightweightPluginDaemonTest {
     SubmoduleUtil.createSubmoduleSubscription(cfg, superRepo, "master", subProject.get(), "master");
 
     adminSshSession.exec(PLUGIN_NAME + " " + subProject.get() + " " + NEW_PROJECT_NAME);
-    assertThat(adminSshSession.hasError()).isTrue();
+    adminSshSession.assertFailure();
   }
 }

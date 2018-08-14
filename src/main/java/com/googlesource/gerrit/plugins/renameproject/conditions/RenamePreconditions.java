@@ -22,7 +22,9 @@ import com.google.gerrit.server.config.AllProjectsName;
 import com.google.gerrit.server.config.AllUsersName;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.MergeOpRepoManager;
+import com.google.gerrit.server.git.SubmoduleException;
 import com.google.gerrit.server.git.SubmoduleOp;
+import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.project.ListChildProjects;
 import com.google.gerrit.server.project.ProjectResource;
 import com.google.inject.Inject;
@@ -87,14 +89,19 @@ public class RenamePreconditions {
   }
 
   private void assertHasNoChildProjects(ProjectResource rsrc) throws CannotRenameProjectException {
-    List<ProjectInfo> children = listChildProjectsProvider.get().apply(rsrc);
-    if (!children.isEmpty()) {
-      String childrenString =
-          String.join(", ", children.stream().map(info -> info.name).collect(Collectors.toList()));
-      String message =
-          String.format("Cannot rename project because it has children: %s", childrenString);
-      log.error(message);
-      throw new CannotRenameProjectException(message);
+    try {
+      List<ProjectInfo> children = listChildProjectsProvider.get().apply(rsrc);
+      if (!children.isEmpty()) {
+        String childrenString =
+            String.join(
+                ", ", children.stream().map(info -> info.name).collect(Collectors.toList()));
+        String message =
+            String.format("Cannot rename project because it has children: %s", childrenString);
+        log.error(message);
+        throw new CannotRenameProjectException(message);
+      }
+    } catch (PermissionBackendException e) {
+      throw new CannotRenameProjectException(e);
     }
   }
 
@@ -113,7 +120,7 @@ public class RenamePreconditions {
           throw new CannotRenameProjectException(message);
         }
       }
-    } catch (IOException e) {
+    } catch (IOException | SubmoduleException e) {
       throw new CannotRenameProjectException(e);
     }
   }

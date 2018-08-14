@@ -19,6 +19,7 @@ import static com.googlesource.gerrit.plugins.renameproject.RenameProjectCapabil
 
 import com.google.common.base.Strings;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.api.access.PluginPermission;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.ResourceConflictException;
@@ -26,8 +27,9 @@ import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
-import com.google.gerrit.server.account.CapabilityControl;
 import com.google.gerrit.server.extensions.events.PluginEvent;
+import com.google.gerrit.server.permissions.GlobalPermission;
+import com.google.gerrit.server.permissions.PermissionBackend;
 import com.google.gerrit.server.project.ProjectResource;
 import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
@@ -64,6 +66,7 @@ public class RenameProject {
   private final PluginEvent pluginEvent;
   private final String pluginName;
   private final RenameLog renameLog;
+  private final PermissionBackend permissionBackend;
 
   @Inject
   RenameProject(
@@ -76,7 +79,8 @@ public class RenameProject {
       LockUnlockProject lockUnlockProject,
       PluginEvent pluginEvent,
       @PluginName String pluginName,
-      RenameLog renameLog) {
+      RenameLog renameLog,
+      PermissionBackend permissionBackend) {
     this.dbHandler = dbHandler;
     this.fsHandler = fsHandler;
     this.cacheHandler = cacheHandler;
@@ -87,6 +91,7 @@ public class RenameProject {
     this.pluginEvent = pluginEvent;
     this.pluginName = pluginName;
     this.renameLog = renameLog;
+    this.permissionBackend = permissionBackend;
   }
 
   private void assertNewNameNotNull(Input input) throws BadRequestException {
@@ -102,10 +107,11 @@ public class RenameProject {
   }
 
   protected boolean canRename(ProjectResource rsrc) {
-    CapabilityControl ctl = userProvider.get().getCapabilities();
-    return ctl.canAdministrateServer()
-        || ctl.canPerform(pluginName + "-" + RENAME_PROJECT)
-        || (ctl.canPerform(pluginName + "-" + RENAME_OWN_PROJECT) && rsrc.getControl().isOwner());
+    PermissionBackend.WithUser userPermission = permissionBackend.user(userProvider);
+    return userPermission.testOrFalse(GlobalPermission.ADMINISTRATE_SERVER)
+        || userPermission.testOrFalse(new PluginPermission(pluginName, RENAME_PROJECT))
+        || (userPermission.testOrFalse(new PluginPermission(pluginName, RENAME_OWN_PROJECT))
+            && rsrc.getControl().isOwner());
   }
 
   void assertCanRename(ProjectResource rsrc, Input input, ProgressMonitor pm)

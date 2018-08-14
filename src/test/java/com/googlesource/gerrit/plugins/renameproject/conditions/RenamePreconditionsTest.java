@@ -24,6 +24,7 @@ import com.google.gerrit.server.config.AllUsersName;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.MergeOpRepoManager;
 import com.google.gerrit.server.git.SubmoduleOp;
+import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.project.ListChildProjects;
 import com.google.gerrit.server.project.ProjectControl;
 import com.google.gerrit.server.project.ProjectResource;
@@ -107,7 +108,8 @@ public class RenamePreconditionsTest {
 
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameHasChildren()
-      throws RepositoryNotFoundException, IOException, CannotRenameProjectException {
+      throws RepositoryNotFoundException, IOException, CannotRenameProjectException,
+          PermissionBackendException {
     Project oldProject = new Project(new Project.NameKey("oldProject"));
     when(control.getProject()).thenReturn(oldProject);
     when(objDb.exists()).thenReturn(false);
