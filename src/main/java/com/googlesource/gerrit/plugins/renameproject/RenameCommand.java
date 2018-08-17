@@ -20,7 +20,7 @@ import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.ResourceConflictException;
 import com.google.gerrit.extensions.restapi.ResourceNotFoundException;
 import com.google.gerrit.reviewdb.client.Change;
-import com.google.gerrit.server.project.ProjectControl;
+import com.google.gerrit.server.permissions.ProjectControl;
 import com.google.gerrit.server.project.ProjectResource;
 import com.google.gerrit.sshd.CommandMetaData;
 import com.google.gerrit.sshd.SshCommand;
@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
 @CommandMetaData(name = "rename", description = "Rename project")
 public final class RenameCommand extends SshCommand {
   @Argument(index = 0, required = true, metaVar = "OLDPROJECT", usage = "project to rename")
-  private ProjectControl projectControl;
+  private ProjectCache projectCache;
 
   @Argument(index = 1, required = true, metaVar = "NEWNAME", usage = "new name for the project")
   private String newProjectName;

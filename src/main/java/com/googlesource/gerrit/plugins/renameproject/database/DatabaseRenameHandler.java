@@ -19,9 +19,9 @@ import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.server.ReviewDb;
 import com.google.gerrit.server.account.AccountState;
-import com.google.gerrit.server.account.WatchConfig;
-import com.google.gerrit.server.account.WatchConfig.Accessor;
-import com.google.gerrit.server.account.WatchConfig.ProjectWatchKey;
+import com.google.gerrit.server.account.ProjectWatches;
+import com.google.gerrit.server.account.ProjectWatches.Accessor;
+import com.google.gerrit.server.account.ProjectWatches.ProjectWatchKey;
 import com.google.gerrit.server.query.account.InternalAccountQuery;
 import com.google.gwtorm.jdbc.JdbcSchema;
 import com.google.gwtorm.server.OrmException;
@@ -47,15 +47,15 @@ public class DatabaseRenameHandler {
 
   private final SchemaFactory<ReviewDb> schemaFactory;
   private final Provider<InternalAccountQuery> accountQueryProvider;
-  private final Provider<Accessor> watchConfig;
+  private final Provider<Accessor> projectWatches;
 
   @Inject
   public DatabaseRenameHandler(
       SchemaFactory<ReviewDb> schemaFactory,
       Provider<InternalAccountQuery> accountQueryProvider,
-      Provider<WatchConfig.Accessor> watchConfig) {
+      Provider<ProjectWatches.Accessor> projectWatches) {
     this.accountQueryProvider = accountQueryProvider;
-    this.watchConfig = watchConfig;
+    this.projectWatches = projectWatches;
     this.schemaFactory = schemaFactory;
   }
 
@@ -132,9 +132,9 @@ public class DatabaseRenameHandler {
       for (ProjectWatchKey watchKey : a.getProjectWatches().keySet()) {
         if (oldProjectKey.equals(watchKey.project())) {
           try {
-            watchConfig
+            projectWatches
                 .get()
-                .upsertProjectWatches(accountId, watchConfig.get().getProjectWatches(accountId));
+                .upsertProjectWatches(accountId, projectWatches.get().getProjectWatches(accountId));
           } catch (ConfigInvalidException e) {
             log.error(
                 "Updating watch entry for user {} in project {} failed. Watch config found invalid.",
