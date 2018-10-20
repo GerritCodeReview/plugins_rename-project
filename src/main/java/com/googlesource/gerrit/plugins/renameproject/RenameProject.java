@@ -39,7 +39,6 @@ import com.googlesource.gerrit.plugins.renameproject.database.DatabaseRenameHand
 import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler;
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
-import java.io.IOException;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -109,7 +108,7 @@ public class RenameProject {
   }
 
   void assertCanRename(ProjectResource rsrc, Input input, ProgressMonitor pm)
-      throws ResourceConflictException, IOException, BadRequestException, AuthException {
+      throws ResourceConflictException, BadRequestException, AuthException {
     try {
       pm.beginTask("Checking preconditions", ProgressMonitor.UNKNOWN);
       assertNewNameNotNull(input);
