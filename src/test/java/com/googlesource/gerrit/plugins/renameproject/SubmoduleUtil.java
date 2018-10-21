@@ -30,7 +30,7 @@ import org.junit.Test;
 
 /**
  * This class provides utility methods needed for testing submodule subscription. The methods are
- * copied from the class {@link com.google.gerrit.acceptance.git.AbstractSubmoduleSubscription}.
+ * copied from the class {@code com.google.gerrit.acceptance.git.AbstractSubmoduleSubscription}.
  * Once the change related to exposing this class in the acceptance framework is merged, remove this
  * class.
  */
