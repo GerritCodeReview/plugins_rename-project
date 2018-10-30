@@ -24,16 +24,13 @@ import com.google.gerrit.server.config.AllUsersName;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.MergeOpRepoManager;
 import com.google.gerrit.server.git.SubmoduleOp;
-import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.project.ListChildProjects;
 import com.google.gerrit.server.project.ProjectControl;
 import com.google.gerrit.server.project.ProjectResource;
 import com.google.inject.Provider;
 import com.googlesource.gerrit.plugins.renameproject.CannotRenameProjectException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.lib.ObjectDatabase;
 import org.eclipse.jgit.lib.Repository;
 import org.junit.Before;
@@ -62,7 +59,7 @@ public class RenamePreconditionsTest {
   private Project.NameKey newProjectKey = new Project.NameKey("newProject");
 
   @Before
-  public void setUp() throws RepositoryNotFoundException, IOException {
+  public void setUp() throws Exception {
     oldRsrc = new ProjectResource(control);
     when(repoManager.openRepository(newProjectKey)).thenReturn(repo);
     when(repo.getObjectDatabase()).thenReturn(objDb);
@@ -77,8 +74,7 @@ public class RenamePreconditionsTest {
   }
 
   @Test(expected = CannotRenameProjectException.class)
-  public void testAssertCannotRenameRepoExists()
-      throws RepositoryNotFoundException, IOException, CannotRenameProjectException {
+  public void testAssertCannotRenameRepoExists() throws Exception {
     Project oldProject = new Project(new Project.NameKey("oldProject"));
     when(control.getProject()).thenReturn(oldProject);
     when(objDb.exists()).thenReturn(true);
@@ -87,8 +83,7 @@ public class RenamePreconditionsTest {
   }
 
   @Test(expected = CannotRenameProjectException.class)
-  public void testAssertCannotRenameAllProjects()
-      throws RepositoryNotFoundException, IOException, CannotRenameProjectException {
+  public void testAssertCannotRenameAllProjects() throws Exception {
     Project oldProject = new Project(allProjects);
     when(control.getProject()).thenReturn(oldProject);
     when(objDb.exists()).thenReturn(false);
@@ -97,8 +92,7 @@ public class RenamePreconditionsTest {
   }
 
   @Test(expected = CannotRenameProjectException.class)
-  public void testAssertCannotRenameAllUsers()
-      throws RepositoryNotFoundException, IOException, CannotRenameProjectException {
+  public void testAssertCannotRenameAllUsers() throws Exception {
     Project oldProject = new Project(allUsersName);
     when(control.getProject()).thenReturn(oldProject);
     when(objDb.exists()).thenReturn(false);
@@ -107,9 +101,7 @@ public class RenamePreconditionsTest {
   }
 
   @Test(expected = CannotRenameProjectException.class)
-  public void testAssertCannotRenameHasChildren()
-      throws RepositoryNotFoundException, IOException, CannotRenameProjectException,
-          PermissionBackendException {
+  public void testAssertCannotRenameHasChildren() throws Exception {
     Project oldProject = new Project(new Project.NameKey("oldProject"));
     when(control.getProject()).thenReturn(oldProject);
     when(objDb.exists()).thenReturn(false);
