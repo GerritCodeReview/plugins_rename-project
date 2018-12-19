@@ -112,7 +112,7 @@ public class RenameProject {
   void assertCanRename(ProjectResource rsrc, Input input, ProgressMonitor pm)
       throws ResourceConflictException, BadRequestException, AuthException {
     try {
-      pm.beginTask("Checking preconditions", ProgressMonitor.UNKNOWN);
+      pm.beginTask("Checking preconditions");
       assertNewNameNotNull(input);
       assertRenamePermission(rsrc);
       renamePreconditions.assertCanRename(rsrc, new Project.NameKey(input.name));
@@ -153,7 +153,7 @@ public class RenameProject {
   }
 
   List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm) throws OrmException {
-    pm.beginTask("Retrieving the list of changes from DB", ProgressMonitor.UNKNOWN);
+    pm.beginTask("Retrieving the list of changes from DB");
     Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
     return dbHandler.getChangeIds(oldProjectKey);
   }
