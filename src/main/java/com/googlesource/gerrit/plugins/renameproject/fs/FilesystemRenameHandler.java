@@ -50,7 +50,7 @@ public class FilesystemRenameHandler {
     Repository repository = repoManager.openRepository(oldProjectKey);
     File repoFile = repository.getDirectory();
     RepositoryCache.close(repository);
-    pm.beginTask("Renaming git repository", ProgressMonitor.UNKNOWN);
+    pm.beginTask("Renaming git repository");
     renameGitRepository(repoFile, newProjectKey, oldProjectKey);
   }
 
