@@ -14,6 +14,8 @@
 
 package com.googlesource.gerrit.plugins.renameproject.database;
 
+import static com.googlesource.gerrit.plugins.renameproject.monitor.CommandProgressMonitor.UNKNOWN;
+
 import com.google.gerrit.reviewdb.client.Account;
 import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.Project;
@@ -88,7 +90,7 @@ public class DatabaseRenameHandler {
       Project.NameKey newProjectKey,
       ProgressMonitor pm)
       throws OrmException {
-    pm.beginTask("Updating changes in the database", ProgressMonitor.UNKNOWN);
+    pm.beginTask("Updating changes in the database", UNKNOWN);
     Connection conn = ((JdbcSchema) schemaFactory.open()).getConnection();
     try (Statement stmt = conn.createStatement()) {
       conn.setAutoCommit(false);

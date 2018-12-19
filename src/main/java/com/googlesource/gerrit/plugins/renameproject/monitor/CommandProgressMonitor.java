@@ -28,6 +28,9 @@ public class CommandProgressMonitor implements ProgressMonitor, AutoCloseable {
   private boolean write = true;
   private Task task;
 
+  // Constant indicating the total work units cannot be predicted in advance.
+  public static final int UNKNOWN = 0;
+
   public CommandProgressMonitor(Writer out) {
     this.out = out;
   }
@@ -35,7 +38,7 @@ public class CommandProgressMonitor implements ProgressMonitor, AutoCloseable {
   @Override
   public synchronized void beginTask(String taskName, int work) {
     endTask();
-    if (work == ProgressMonitor.UNKNOWN) {
+    if (work == UNKNOWN) {
       task = new UnknownTask(taskName);
     } else {
       task = new Task(taskName, work);
@@ -137,7 +140,7 @@ public class CommandProgressMonitor implements ProgressMonitor, AutoCloseable {
     private int animationCounter;
 
     UnknownTask(String taskName) {
-      super(taskName, ProgressMonitor.UNKNOWN);
+      super(taskName, UNKNOWN);
       executor =
           new ScheduledThreadPoolExecutor(
               1, new ThreadFactoryBuilder().setNameFormat("Rename-Monitoring-%d").build());

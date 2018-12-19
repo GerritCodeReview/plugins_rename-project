@@ -16,15 +16,11 @@ package com.googlesource.gerrit.plugins.renameproject.monitor;
 
 public interface ProgressMonitor {
 
-  /** Constant indicating the total work units cannot be predicted. */
-  int UNKNOWN = 0;
-
   /**
    * Begin processing a single task.
    *
    * @param title title to describe the task.
-   * @param totalWork total number of work units the application will perform; {@link #UNKNOWN} if
-   *     it cannot be predicted in advance.
+   * @param totalWork total number of work units the application will perform.
    */
   void beginTask(String title, int totalWork);
 

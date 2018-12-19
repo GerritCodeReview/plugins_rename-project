@@ -14,6 +14,8 @@
 
 package com.googlesource.gerrit.plugins.renameproject.fs;
 
+import static com.googlesource.gerrit.plugins.renameproject.monitor.CommandProgressMonitor.UNKNOWN;
+
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.inject.Inject;
@@ -50,7 +52,7 @@ public class FilesystemRenameHandler {
     Repository repository = repoManager.openRepository(oldProjectKey);
     File repoFile = repository.getDirectory();
     RepositoryCache.close(repository);
-    pm.beginTask("Renaming git repository", ProgressMonitor.UNKNOWN);
+    pm.beginTask("Renaming git repository", UNKNOWN);
     renameGitRepository(repoFile, newProjectKey, oldProjectKey);
   }
 

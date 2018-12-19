@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.renameproject;
 
 import static com.googlesource.gerrit.plugins.renameproject.RenameOwnProjectCapability.RENAME_OWN_PROJECT;
 import static com.googlesource.gerrit.plugins.renameproject.RenameProjectCapability.RENAME_PROJECT;
+import static com.googlesource.gerrit.plugins.renameproject.monitor.CommandProgressMonitor.UNKNOWN;
 
 import com.google.common.base.Strings;
 import com.google.gerrit.extensions.annotations.PluginName;
@@ -110,7 +111,7 @@ public class RenameProject {
   void assertCanRename(ProjectResource rsrc, Input input, ProgressMonitor pm)
       throws ResourceConflictException, BadRequestException, AuthException {
     try {
-      pm.beginTask("Checking preconditions", ProgressMonitor.UNKNOWN);
+      pm.beginTask("Checking preconditions", UNKNOWN);
       assertNewNameNotNull(input);
       assertRenamePermission(rsrc);
       renamePreconditions.assertCanRename(rsrc, new Project.NameKey(input.name));
@@ -151,7 +152,7 @@ public class RenameProject {
   }
 
   List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm) throws OrmException {
-    pm.beginTask("Retrieving the list of changes from DB", ProgressMonitor.UNKNOWN);
+    pm.beginTask("Retrieving the list of changes from DB", UNKNOWN);
     Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
     return dbHandler.getChangeIds(oldProjectKey);
   }
