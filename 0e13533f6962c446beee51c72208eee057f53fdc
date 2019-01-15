@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e6ee9ff_962d7e0e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/monitor/ProgressMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2019-01-15T20:16:14Z",
+      "side": 0,
+      "message": "I do not understand why moving this out of the interface. This is part of the contract, i.e. you pass this constant if you cannot predict the progress.\n\nIf you move this out as done in this change, now every user of the interface also need to know the implementation class to get the constant.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "0e13533f6962c446beee51c72208eee057f53fdc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
