@@ -22,6 +22,30 @@
       "revId": "0e13533f6962c446beee51c72208eee057f53fdc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8705b8f7_cd698db7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/monitor/ProgressMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-01-15T20:36:49Z",
+      "side": 0,
+      "message": "\u003e I do not understand why moving this out of the interface. This is part of the contract, i.e. you pass this constant if you cannot predict the progress.\n\nNot necessarily, as per the commit message\u0027s explanation, but I get your point. This is also based on Effective Java (J. Bloch\u0027s), reported as a static analysis or quality issue.\n\n\u003e If you move this out as done in this change, now every user of the interface also need to know the implementation class to get the constant.\n\nTrue. Is the benefit of this fix outweighed by that drawback?",
+      "parentUuid": "5e6ee9ff_962d7e0e",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "0e13533f6962c446beee51c72208eee057f53fdc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
