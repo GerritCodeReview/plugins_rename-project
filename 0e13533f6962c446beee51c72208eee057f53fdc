@@ -46,6 +46,30 @@
       "revId": "0e13533f6962c446beee51c72208eee057f53fdc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d4af2ce_203b984e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/monitor/ProgressMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2019-01-15T20:42:59Z",
+      "side": 0,
+      "message": "Any implementation of ProgressMonitor have to deal with UNKNOWN so when the second implementation comes in, this means it will have to import CommandProgressMonitor.UNKNOWN. I fail to see how this is better... but as you saw, I did not vote negatively, I just shared my 2 cents so do not mind my comments if you thing this change is making things better.",
+      "parentUuid": "8705b8f7_cd698db7",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "0e13533f6962c446beee51c72208eee057f53fdc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
