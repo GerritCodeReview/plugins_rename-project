@@ -118,6 +118,30 @@
       "revId": "0e13533f6962c446beee51c72208eee057f53fdc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "debe093b_a72e43f3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/monitor/ProgressMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-01-15T23:23:49Z",
+      "side": 0,
+      "message": "Instead of having this constant that the user has to provide, why not instead provide a separate method that can be called when the total work is unknown?  I.e.:\n\n  void beginTask(String title);\n\nin the implementation this can then delegate to the other one, passing the constant.  The constant can then be private in the implementation.",
+      "parentUuid": "6545a4e8_f7b97168",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "0e13533f6962c446beee51c72208eee057f53fdc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
