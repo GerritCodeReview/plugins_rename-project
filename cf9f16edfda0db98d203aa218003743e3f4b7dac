@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d57b492a_d8c5d391",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/monitor/CommandProgressMonitor.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-01-16T23:39:23Z",
+      "side": 1,
+      "message": "Delegate this to the other method? I.e.:\n\n getTask(taskName, UNKNOWN);",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 37
+      },
+      "revId": "cf9f16edfda0db98d203aa218003743e3f4b7dac",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
