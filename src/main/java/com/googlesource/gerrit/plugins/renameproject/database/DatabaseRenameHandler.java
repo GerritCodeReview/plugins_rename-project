@@ -88,7 +88,7 @@ public class DatabaseRenameHandler {
       Project.NameKey newProjectKey,
       ProgressMonitor pm)
       throws OrmException {
-    pm.beginTask("Updating changes in the database", ProgressMonitor.UNKNOWN);
+    pm.beginTask("Updating changes in the database");
     Connection conn = ((JdbcSchema) schemaFactory.open()).getConnection();
     try (Statement stmt = conn.createStatement()) {
       conn.setAutoCommit(false);

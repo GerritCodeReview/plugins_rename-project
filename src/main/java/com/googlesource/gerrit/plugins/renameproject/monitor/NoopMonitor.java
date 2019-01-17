@@ -29,6 +29,11 @@ public class NoopMonitor implements ProgressMonitor {
   }
 
   @Override
+  public void beginTask(String title) {
+    // Do not report.
+  }
+
+  @Override
   public void update(int completed) {
     // Do not report.
   }

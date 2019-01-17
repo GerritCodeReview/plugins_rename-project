@@ -16,9 +16,7 @@ package com.googlesource.gerrit.plugins.renameproject;
 
 import static com.googlesource.gerrit.plugins.renameproject.RenameProject.WARNING_LIMIT;
 
-import com.google.gerrit.extensions.restapi.AuthException;
-import com.google.gerrit.extensions.restapi.ResourceConflictException;
-import com.google.gerrit.extensions.restapi.ResourceNotFoundException;
+import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.server.project.ProjectControl;
 import com.google.gerrit.server.project.ProjectResource;
@@ -70,12 +68,7 @@ public final class RenameCommand extends SshCommand {
           stdout.flush();
         }
       }
-    } catch (CannotRenameProjectException
-        | AuthException
-        | ResourceNotFoundException
-        | ResourceConflictException
-        | OrmException
-        | IOException e) {
+    } catch (RestApiException | OrmException | IOException e) {
       throw die(e);
     }
   }
