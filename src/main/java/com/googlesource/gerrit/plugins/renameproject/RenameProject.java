@@ -41,7 +41,9 @@ import com.googlesource.gerrit.plugins.renameproject.database.DatabaseRenameHand
 import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler;
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
+import java.io.IOException;
 import java.util.List;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -116,7 +118,7 @@ public class RenameProject {
   void assertCanRename(ProjectResource rsrc, Input input, ProgressMonitor pm)
       throws ResourceConflictException, BadRequestException, AuthException {
     try {
-      pm.beginTask("Checking preconditions", ProgressMonitor.UNKNOWN);
+      pm.beginTask("Checking preconditions");
       assertNewNameNotNull(input);
       assertRenamePermission(rsrc);
       renamePreconditions.assertCanRename(rsrc, new Project.NameKey(input.name));
@@ -127,7 +129,7 @@ public class RenameProject {
   }
 
   void doRename(List<Change.Id> changeIds, ProjectResource rsrc, Input input, ProgressMonitor pm)
-      throws Exception {
+      throws InterruptedException, OrmException, ConfigInvalidException, IOException {
     Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
     Project.NameKey newProjectKey = new Project.NameKey(input.name);
     Exception ex = null;
@@ -157,7 +159,7 @@ public class RenameProject {
   }
 
   List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm) throws OrmException {
-    pm.beginTask("Retrieving the list of changes from DB", ProgressMonitor.UNKNOWN);
+    pm.beginTask("Retrieving the list of changes from DB");
     Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
     return dbHandler.getChangeIds(oldProjectKey);
   }
