@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff09d598_87beabb1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/monitor/CommandProgressMonitor.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-01-17T02:15:55Z",
+      "side": 1,
+      "message": "What\u0027s the benefit of using a switch here rather than if-else? I can see it making sense if there are likely to be any other magic values added in future, but otherwise this seems like an unnecessary change.",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 5
+      },
+      "revId": "9d4e179651976303044bde6cd63798ad5274132d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
