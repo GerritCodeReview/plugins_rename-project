@@ -27,6 +27,17 @@ There are a few caveats:
 
      If choosing to rename "All-Users", you cannot rename the project as this action is prohibited.
 
+* You cannot rename projects that are watched by users
+
+     If you rename a project that is actively watched by users, the watches are
+     not updated to the new project name, leading to the loss of the notifications
+     by all users that were watching the original project.
+
+* You should limit project renames to administrator users
+
+     Because of all the above caveats, it is not recommended to allow any non-admin
+     user to perform any project rename.
+
 Replication of project renaming
 -------------------------------
 
@@ -47,5 +58,5 @@ group that is granted the 'Rename Project' capability (provided by this
 plugin) or the 'Administrate Server' capability. Project owners are
 allowed to rename their own projects if they are members of a group that
 is granted the 'Rename Own Project' capability (provided by this
-plugin).
-
+plugin). However, because of all the caveats of this plugin, it is not
+recommended to delegate the 'Rename Project' capability to any non-admin user.
