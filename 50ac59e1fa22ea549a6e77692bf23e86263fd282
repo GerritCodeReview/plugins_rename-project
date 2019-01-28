@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "497a2378_de597f27",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2019-01-28T01:51:35Z",
+      "side": 1,
+      "message": "\"not\"\n\nIt would be better to say \"You should limit project renames to administrator users\"",
+      "range": {
+        "startLine": 36,
+        "startChar": 13,
+        "endLine": 36,
+        "endChar": 16
+      },
+      "revId": "50ac59e1fa22ea549a6e77692bf23e86263fd282",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
