@@ -74,8 +74,7 @@ public class IndexUpdateHandler {
   }
 
   private boolean verifyAllTasksCompleted(List<Future<Boolean>> executorOutput) {
-    return executorOutput
-        .stream()
+    return executorOutput.stream()
         .allMatch(
             task -> {
               try {
