@@ -18,7 +18,7 @@ gerrit_plugin(
 )
 
 junit_tests(
-    name = "rename_project_tests",
+    name = "rename-project_tests",
     srcs = glob(["src/test/java/**/*.java"]),
     tags = ["rename-project"],
     deps = [":rename-project__plugin_test_deps"],
