@@ -3,7 +3,7 @@ workspace(name = "rename_project")
 load("//:bazlets.bzl", "load_bazlets")
 
 load_bazlets(
-    commit = "62c3c8e0b4b767d1f3b78998ad1aba42a44a9661",
+    commit = "ed95a8cac495ef0c5321cc564e9ee826eb2517c8",
 )
 
 # Release Plugin API
