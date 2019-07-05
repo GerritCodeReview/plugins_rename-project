@@ -108,7 +108,7 @@ public class RenameProject {
   }
 
   protected boolean canRename(ProjectResource rsrc) {
-    PermissionBackend.WithUser userPermission = permissionBackend.user(userProvider);
+    PermissionBackend.WithUser userPermission = permissionBackend.user(userProvider.get());
     return userPermission.testOrFalse(GlobalPermission.ADMINISTRATE_SERVER)
         || userPermission.testOrFalse(new PluginPermission(pluginName, RENAME_PROJECT))
         || (userPermission.testOrFalse(new PluginPermission(pluginName, RENAME_OWN_PROJECT))
