@@ -19,14 +19,15 @@ import static org.mockito.Mockito.when;
 
 import com.google.gerrit.extensions.common.ProjectInfo;
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.config.AllProjectsName;
 import com.google.gerrit.server.config.AllUsersName;
 import com.google.gerrit.server.git.GitRepositoryManager;
-import com.google.gerrit.server.git.MergeOpRepoManager;
-import com.google.gerrit.server.git.SubmoduleOp;
-import com.google.gerrit.server.project.ListChildProjects;
-import com.google.gerrit.server.project.ProjectControl;
 import com.google.gerrit.server.project.ProjectResource;
+import com.google.gerrit.server.project.ProjectState;
+import com.google.gerrit.server.restapi.project.ListChildProjects;
+import com.google.gerrit.server.submit.MergeOpRepoManager;
+import com.google.gerrit.server.submit.SubmoduleOp;
 import com.google.inject.Provider;
 import com.googlesource.gerrit.plugins.renameproject.CannotRenameProjectException;
 import java.util.ArrayList;
@@ -50,7 +51,8 @@ public class RenamePreconditionsTest {
   @Mock private Provider<MergeOpRepoManager> ormProvider;
   @Mock private RenamePreconditions preconditions;
   @Mock private ObjectDatabase objDb;
-  @Mock private ProjectControl control;
+  @Mock private ProjectState control;
+  @Mock private CurrentUser user;
   @Mock private Repository repo;
   @Mock private ListChildProjects listChildProjects;
 
@@ -60,7 +62,7 @@ public class RenamePreconditionsTest {
 
   @Before
   public void setUp() throws Exception {
-    oldRsrc = new ProjectResource(control);
+    oldRsrc = new ProjectResource(control, user);
     when(repoManager.openRepository(newProjectKey)).thenReturn(repo);
     when(repo.getObjectDatabase()).thenReturn(objDb);
     preconditions =
@@ -75,8 +77,6 @@ public class RenamePreconditionsTest {
 
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameRepoExists() throws Exception {
-    Project oldProject = new Project(new Project.NameKey("oldProject"));
-    when(control.getProject()).thenReturn(oldProject);
     when(objDb.exists()).thenReturn(true);
 
     preconditions.assertCanRename(oldRsrc, newProjectKey);
@@ -85,7 +85,7 @@ public class RenamePreconditionsTest {
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameAllProjects() throws Exception {
     Project oldProject = new Project(allProjects);
-    when(control.getProject()).thenReturn(oldProject);
+    when(oldRsrc.getNameKey()).thenReturn(oldProject.getNameKey());
     when(objDb.exists()).thenReturn(false);
 
     preconditions.assertCanRename(oldRsrc, newProjectKey);
@@ -94,7 +94,7 @@ public class RenamePreconditionsTest {
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameAllUsers() throws Exception {
     Project oldProject = new Project(allUsersName);
-    when(control.getProject()).thenReturn(oldProject);
+    when(oldRsrc.getNameKey()).thenReturn(oldProject.getNameKey());
     when(objDb.exists()).thenReturn(false);
 
     preconditions.assertCanRename(oldRsrc, newProjectKey);
@@ -103,7 +103,7 @@ public class RenamePreconditionsTest {
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameHasChildren() throws Exception {
     Project oldProject = new Project(new Project.NameKey("oldProject"));
-    when(control.getProject()).thenReturn(oldProject);
+    when(oldRsrc.getNameKey()).thenReturn(oldProject.getNameKey());
     when(objDb.exists()).thenReturn(false);
 
     when(listChildProjectsProvider.get()).thenReturn(listChildProjects);
