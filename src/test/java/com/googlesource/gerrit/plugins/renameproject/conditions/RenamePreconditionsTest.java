@@ -22,11 +22,11 @@ import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.config.AllProjectsName;
 import com.google.gerrit.server.config.AllUsersName;
 import com.google.gerrit.server.git.GitRepositoryManager;
-import com.google.gerrit.server.git.MergeOpRepoManager;
-import com.google.gerrit.server.git.SubmoduleOp;
-import com.google.gerrit.server.project.ListChildProjects;
-import com.google.gerrit.server.project.ProjectControl;
 import com.google.gerrit.server.project.ProjectResource;
+import com.google.gerrit.server.project.ProjectState;
+import com.google.gerrit.server.restapi.project.ListChildProjects;
+import com.google.gerrit.server.submit.MergeOpRepoManager;
+import com.google.gerrit.server.submit.SubmoduleOp;
 import com.google.inject.Provider;
 import com.googlesource.gerrit.plugins.renameproject.CannotRenameProjectException;
 import java.util.ArrayList;
@@ -50,17 +50,17 @@ public class RenamePreconditionsTest {
   @Mock private Provider<MergeOpRepoManager> ormProvider;
   @Mock private RenamePreconditions preconditions;
   @Mock private ObjectDatabase objDb;
-  @Mock private ProjectControl control;
+  @Mock private ProjectResource oldRsrc;
   @Mock private Repository repo;
   @Mock private ListChildProjects listChildProjects;
 
-  private ProjectResource oldRsrc;
+  private ProjectState control;
   private List<ProjectInfo> children = new ArrayList<>();
   private Project.NameKey newProjectKey = new Project.NameKey("newProject");
 
   @Before
   public void setUp() throws Exception {
-    oldRsrc = new ProjectResource(control);
+    control = oldRsrc.getProjectState();
     when(repoManager.openRepository(newProjectKey)).thenReturn(repo);
     when(repo.getObjectDatabase()).thenReturn(objDb);
     preconditions =

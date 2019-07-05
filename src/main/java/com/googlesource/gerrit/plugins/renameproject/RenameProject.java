@@ -30,6 +30,8 @@ import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.extensions.events.PluginEvent;
 import com.google.gerrit.server.permissions.GlobalPermission;
 import com.google.gerrit.server.permissions.PermissionBackend;
+import com.google.gerrit.server.permissions.PermissionBackendException;
+import com.google.gerrit.server.permissions.ProjectPermission;
 import com.google.gerrit.server.project.ProjectResource;
 import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
@@ -108,11 +110,27 @@ public class RenameProject {
   }
 
   protected boolean canRename(ProjectResource rsrc) {
-    PermissionBackend.WithUser userPermission = permissionBackend.user(userProvider);
+    PermissionBackend.WithUser userPermission = permissionBackend.user(userProvider.get());
     return userPermission.testOrFalse(GlobalPermission.ADMINISTRATE_SERVER)
         || userPermission.testOrFalse(new PluginPermission(pluginName, RENAME_PROJECT))
         || (userPermission.testOrFalse(new PluginPermission(pluginName, RENAME_OWN_PROJECT))
-            && rsrc.getControl().isOwner());
+            && isOwner(rsrc));
+  }
+
+  private boolean isOwner(ProjectResource project) {
+    try {
+      permissionBackend
+          .user(project.getUser())
+          .project(project.getNameKey())
+          .check(ProjectPermission.WRITE_CONFIG);
+    } catch (AuthException | PermissionBackendException noWriter) {
+      try {
+        permissionBackend.user(project.getUser()).check(GlobalPermission.ADMINISTRATE_SERVER);
+      } catch (AuthException | PermissionBackendException noAdmin) {
+        return false;
+      }
+    }
+    return true;
   }
 
   void assertCanRename(ProjectResource rsrc, Input input, ProgressMonitor pm)
@@ -130,13 +148,13 @@ public class RenameProject {
 
   void doRename(List<Change.Id> changeIds, ProjectResource rsrc, Input input, ProgressMonitor pm)
       throws InterruptedException, OrmException, ConfigInvalidException, IOException {
-    Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
+    Project.NameKey oldProjectKey = rsrc.getNameKey();
     Project.NameKey newProjectKey = new Project.NameKey(input.name);
     Exception ex = null;
     try {
       fsHandler.rename(oldProjectKey, newProjectKey, pm);
       log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
-      cacheHandler.update(rsrc.getControl().getProject(), newProjectKey);
+      cacheHandler.update(rsrc.getProjectState().getProject(), newProjectKey);
 
       List<Change.Id> updatedChangeIds =
           dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
@@ -160,7 +178,7 @@ public class RenameProject {
 
   List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm) throws OrmException {
     pm.beginTask("Retrieving the list of changes from DB");
-    Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
+    Project.NameKey oldProjectKey = rsrc.getNameKey();
     return dbHandler.getChangeIds(oldProjectKey);
   }
 }

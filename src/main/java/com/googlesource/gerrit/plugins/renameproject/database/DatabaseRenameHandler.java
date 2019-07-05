@@ -14,14 +14,17 @@
 
 package com.googlesource.gerrit.plugins.renameproject.database;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.reviewdb.client.Account;
 import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.server.ReviewDb;
+import com.google.gerrit.server.account.AccountConfig;
 import com.google.gerrit.server.account.AccountState;
-import com.google.gerrit.server.account.WatchConfig;
-import com.google.gerrit.server.account.WatchConfig.Accessor;
-import com.google.gerrit.server.account.WatchConfig.ProjectWatchKey;
+import com.google.gerrit.server.account.AccountsUpdate;
+import com.google.gerrit.server.account.ProjectWatches.NotifyType;
+import com.google.gerrit.server.account.ProjectWatches.ProjectWatchKey;
 import com.google.gerrit.server.query.account.InternalAccountQuery;
 import com.google.gwtorm.jdbc.JdbcSchema;
 import com.google.gwtorm.server.OrmException;
@@ -36,7 +39,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,16 +53,19 @@ public class DatabaseRenameHandler {
 
   private final SchemaFactory<ReviewDb> schemaFactory;
   private final Provider<InternalAccountQuery> accountQueryProvider;
-  private final Provider<Accessor> watchConfig;
+  private final AccountConfig accountConfig;
+  private final AccountsUpdate accountsUpdate;
 
   @Inject
   public DatabaseRenameHandler(
       SchemaFactory<ReviewDb> schemaFactory,
       Provider<InternalAccountQuery> accountQueryProvider,
-      Provider<WatchConfig.Accessor> watchConfig) {
+      AccountConfig accountConfig,
+      AccountsUpdate accountsUpdate) {
     this.accountQueryProvider = accountQueryProvider;
-    this.watchConfig = watchConfig;
     this.schemaFactory = schemaFactory;
+    this.accountConfig = accountConfig;
+    this.accountsUpdate = accountsUpdate;
   }
 
   public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws OrmException {
@@ -129,12 +138,18 @@ public class DatabaseRenameHandler {
       throws OrmException {
     for (AccountState a : accountQueryProvider.get().byWatchedProject(newProjectKey)) {
       Account.Id accountId = a.getAccount().getId();
+      accountConfig.setAccount(a.getAccount());
+      ImmutableMap<ProjectWatchKey, ImmutableSet<NotifyType>> projectWatches =
+          accountConfig.getProjectWatches();
+      Map<ProjectWatchKey, Set<NotifyType>> newProjectWatches = new HashMap<>();
       for (ProjectWatchKey watchKey : a.getProjectWatches().keySet()) {
         if (oldProjectKey.equals(watchKey.project())) {
+          newProjectWatches.put(watchKey, projectWatches.get(watchKey));
           try {
-            watchConfig
-                .get()
-                .upsertProjectWatches(accountId, watchConfig.get().getProjectWatches(accountId));
+            accountsUpdate.update(
+                "Update watch entry",
+                accountId,
+                (accountState, update) -> update.updateProjectWatches(newProjectWatches).build());
           } catch (ConfigInvalidException e) {
             log.error(
                 "Updating watch entry for user {} in project {} failed. Watch config found invalid.",

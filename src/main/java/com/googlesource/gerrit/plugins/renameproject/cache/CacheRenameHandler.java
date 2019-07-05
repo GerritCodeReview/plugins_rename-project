@@ -18,6 +18,7 @@ import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import java.io.IOException;
 
 @Singleton
 public class CacheRenameHandler {
@@ -29,7 +30,7 @@ public class CacheRenameHandler {
     this.projectCache = projectCache;
   }
 
-  public void update(Project oldProject, Project.NameKey newProjectKey) {
+  public void update(Project oldProject, Project.NameKey newProjectKey) throws IOException {
     projectCache.remove(oldProject);
     projectCache.onCreateProject(newProjectKey);
   }
