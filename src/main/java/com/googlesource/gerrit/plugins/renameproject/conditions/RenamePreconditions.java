@@ -15,18 +15,20 @@
 package com.googlesource.gerrit.plugins.renameproject.conditions;
 
 import com.google.gerrit.extensions.common.ProjectInfo;
+import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.reviewdb.client.Branch;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.client.RefNames;
 import com.google.gerrit.server.config.AllProjectsName;
 import com.google.gerrit.server.config.AllUsersName;
 import com.google.gerrit.server.git.GitRepositoryManager;
-import com.google.gerrit.server.git.MergeOpRepoManager;
-import com.google.gerrit.server.git.SubmoduleException;
-import com.google.gerrit.server.git.SubmoduleOp;
 import com.google.gerrit.server.permissions.PermissionBackendException;
-import com.google.gerrit.server.project.ListChildProjects;
 import com.google.gerrit.server.project.ProjectResource;
+import com.google.gerrit.server.restapi.project.ListChildProjects;
+import com.google.gerrit.server.submit.MergeOpRepoManager;
+import com.google.gerrit.server.submit.SubmoduleException;
+import com.google.gerrit.server.submit.SubmoduleOp;
+import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
@@ -73,7 +75,7 @@ public class RenamePreconditions {
 
   public void assertCanRename(ProjectResource oldProjectRsrc, Project.NameKey newProjectKey)
       throws CannotRenameProjectException {
-    Project.NameKey oldProjectKey = oldProjectRsrc.getControl().getProject().getNameKey();
+    Project.NameKey oldProjectKey = oldProjectRsrc.getNameKey();
     assertNewRepoNotExists(newProjectKey);
     assertIsNotDefaultProject(oldProjectKey);
     assertHasNoChildProjects(oldProjectRsrc);
@@ -100,7 +102,7 @@ public class RenamePreconditions {
         log.error(message);
         throw new CannotRenameProjectException(message);
       }
-    } catch (PermissionBackendException e) {
+    } catch (PermissionBackendException | OrmException | RestApiException e) {
       throw new CannotRenameProjectException(e);
     }
   }
