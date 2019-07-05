@@ -13,4 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-`bazel query @com_googlesource_gerrit_bazlets//tools/eclipse:project --output location | sed s/BUILD:.*//`project.py -n rename-project -r .
+path=$(bazel query @com_googlesource_gerrit_bazlets//tools/eclipse:project \
+    --output location | sed s/BUILD:.*//)
+${path}project.py -n rename-project -r . "$@"
