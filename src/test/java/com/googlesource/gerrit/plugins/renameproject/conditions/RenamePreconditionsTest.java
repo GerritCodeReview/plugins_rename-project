@@ -25,7 +25,7 @@ import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.git.MergeOpRepoManager;
 import com.google.gerrit.server.git.SubmoduleOp;
 import com.google.gerrit.server.project.ListChildProjects;
-import com.google.gerrit.server.project.ProjectControl;
+import com.google.gerrit.server.permissions.ProjectControl;
 import com.google.gerrit.server.project.ProjectResource;
 import com.google.inject.Provider;
 import com.googlesource.gerrit.plugins.renameproject.CannotRenameProjectException;

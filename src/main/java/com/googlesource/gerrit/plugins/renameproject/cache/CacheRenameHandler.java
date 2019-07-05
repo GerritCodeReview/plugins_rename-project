@@ -14,6 +14,8 @@
 
 package com.googlesource.gerrit.plugins.renameproject.cache;
 
+import java.io.IOException;
+
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.inject.Inject;
@@ -29,7 +31,7 @@ public class CacheRenameHandler {
     this.projectCache = projectCache;
   }
 
-  public void update(Project oldProject, Project.NameKey newProjectKey) {
+  public void update(Project oldProject, Project.NameKey newProjectKey) throws IOException {
     projectCache.remove(oldProject);
     projectCache.onCreateProject(newProjectKey);
   }
