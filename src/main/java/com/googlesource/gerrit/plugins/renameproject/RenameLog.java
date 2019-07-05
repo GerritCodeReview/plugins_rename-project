@@ -16,15 +16,15 @@ package com.googlesource.gerrit.plugins.renameproject;
 
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.MultimapBuilder;
-import com.google.gerrit.audit.AuditEvent;
-import com.google.gerrit.audit.AuditService;
-import com.google.gerrit.common.TimeUtil;
 import com.google.gerrit.extensions.systemstatus.ServerInformation;
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.server.AuditEvent;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.OutputFormat;
+import com.google.gerrit.server.audit.AuditService;
 import com.google.gerrit.server.util.PluginLogFile;
 import com.google.gerrit.server.util.SystemLog;
+import com.google.gerrit.server.util.time.TimeUtil;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import org.apache.log4j.Level;
@@ -68,7 +68,7 @@ class RenameLog extends PluginLogFile {
             null);
 
     event.setProperty(ACCOUNT_ID, user.getAccountId().toString());
-    event.setProperty(USER_NAME, user.getUserName());
+    event.setProperty(USER_NAME, user.getUserName().get());
     event.setProperty(PROJECT_NAME, project.get());
 
     if (options != null) {
