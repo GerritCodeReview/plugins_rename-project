@@ -16,6 +16,24 @@
       "revId": "80886f63f45875fe8442bb14e1998e8a0790762a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90142ca9_5ffc7ee8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-07-18T22:03:03Z",
+      "side": 1,
+      "message": "\u003e For my understanding: which issue does this empty file solve?\n\u003e \n\u003e I checked a couple of plugins and didn\u0027t find any with an empty BUILD file.\n\nSome other plugins now have such a file. But I lost track of the exact reason why it was needed. @David knows I think as he (IIRC) fixed that originally.",
+      "parentUuid": "8a15a939_80ca4751",
+      "revId": "80886f63f45875fe8442bb14e1998e8a0790762a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
