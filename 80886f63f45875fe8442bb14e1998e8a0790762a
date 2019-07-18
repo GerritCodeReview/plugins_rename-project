@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a15a939_80ca4751",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2019-07-18T21:06:34Z",
+      "side": 1,
+      "message": "For my understanding: which issue does this empty file solve?\n\nI checked a couple of plugins and didn\u0027t find any with an empty BUILD file.",
+      "revId": "80886f63f45875fe8442bb14e1998e8a0790762a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
