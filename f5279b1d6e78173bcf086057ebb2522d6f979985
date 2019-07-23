@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d52bb79_88c0554b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameCommand.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-07-23T21:34:31Z",
+      "side": 1,
+      "message": "I propose to leave this renaming or refactoring to a follow-up change instead.",
+      "range": {
+        "startLine": 43,
+        "startChar": 17,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "f5279b1d6e78173bcf086057ebb2522d6f979985",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
