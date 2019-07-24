@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fefcb9ae_2f34dc21",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-07-24T21:47:01Z",
+      "side": 1,
+      "message": "This is solely to adapt this method to 2.16 and a base for upstream. It is still not covered by tests AFAIK, and appears flawed to me, likely causing Issue 10618 (to fix through a follow-up).",
+      "revId": "074fe1ed49c086ae4cd9d83d06a3d9e62c17f8fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
