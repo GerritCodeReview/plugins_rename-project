@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5ef6c7f_91e6bad2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameCommand.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-07-24T21:23:40Z",
+      "side": 1,
+      "message": "Provider\u003cProjectCache\u003e, rather?",
+      "range": {
+        "startLine": 50,
+        "startChar": 16,
+        "endLine": 50,
+        "endChar": 28
+      },
+      "revId": "1f4d3c6725ddf160733d20c9b9428c266de2add6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
