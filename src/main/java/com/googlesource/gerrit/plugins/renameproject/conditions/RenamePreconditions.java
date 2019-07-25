@@ -28,7 +28,6 @@ import com.google.gerrit.server.restapi.project.ListChildProjects;
 import com.google.gerrit.server.submit.MergeOpRepoManager;
 import com.google.gerrit.server.submit.SubmoduleException;
 import com.google.gerrit.server.submit.SubmoduleOp;
-import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
@@ -102,7 +101,7 @@ public class RenamePreconditions {
         log.error(message);
         throw new CannotRenameProjectException(message);
       }
-    } catch (PermissionBackendException | OrmException | RestApiException e) {
+    } catch (PermissionBackendException | RestApiException e) {
       throw new CannotRenameProjectException(e);
     }
   }
