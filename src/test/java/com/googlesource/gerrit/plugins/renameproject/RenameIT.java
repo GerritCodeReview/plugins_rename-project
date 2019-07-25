@@ -83,12 +83,13 @@ public class RenameIT extends LightweightPluginDaemonTest {
   @Test
   @UseLocalDisk
   public void testRenameSubscribedFail() throws Exception {
-    NameKey superProject = createProject("super-project");
+    NameKey superProject = createProjectOverAPI("super-project", null, true, null);
     TestRepository<?> superRepo = cloneProject(superProject);
-    NameKey subProject = createProject("subscribed-to-project");
+    NameKey subProject = createProjectOverAPI("subscribed-to-project", null, true, null);
     SubmoduleUtil.allowSubmoduleSubscription(
         metaDataUpdateFactory,
         projectCache,
+        projectConfigFactory,
         subProject,
         "refs/heads/master",
         superProject,
