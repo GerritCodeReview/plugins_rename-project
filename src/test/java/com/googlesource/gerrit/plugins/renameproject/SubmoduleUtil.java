@@ -45,6 +45,7 @@ public class SubmoduleUtil {
   static void allowSubmoduleSubscription(
       Server metaDataUpdateFactory,
       ProjectCache projectCache,
+      ProjectConfig.Factory projectConfigFactory,
       NameKey sub,
       String subBranch,
       NameKey superName,
@@ -54,7 +55,7 @@ public class SubmoduleUtil {
     try (MetaDataUpdate md = metaDataUpdateFactory.create(sub)) {
       md.setMessage("Added superproject subscription");
       SubscribeSection s;
-      ProjectConfig pc = ProjectConfig.read(md);
+      ProjectConfig pc = projectConfigFactory.read(md);
       if (pc.getSubscribeSections().containsKey(superName)) {
         s = pc.getSubscribeSections().get(superName);
       } else {
