@@ -33,7 +33,6 @@ import com.google.gerrit.server.permissions.PermissionBackend;
 import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.gerrit.server.permissions.ProjectPermission;
 import com.google.gerrit.server.project.ProjectResource;
-import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
@@ -147,7 +146,7 @@ public class RenameProject {
   }
 
   void doRename(List<Change.Id> changeIds, ProjectResource rsrc, Input input, ProgressMonitor pm)
-      throws InterruptedException, OrmException, ConfigInvalidException, IOException {
+      throws InterruptedException, ConfigInvalidException, IOException {
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     Project.NameKey newProjectKey = new Project.NameKey(input.name);
     Exception ex = null;
@@ -176,7 +175,7 @@ public class RenameProject {
     }
   }
 
-  List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm) throws OrmException {
+  List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm) {
     pm.beginTask("Retrieving the list of changes from DB");
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     return dbHandler.getChangeIds(oldProjectKey);

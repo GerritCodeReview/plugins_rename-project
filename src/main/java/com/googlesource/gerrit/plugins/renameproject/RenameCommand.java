@@ -24,7 +24,6 @@ import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectResource;
 import com.google.gerrit.sshd.CommandMetaData;
 import com.google.gerrit.sshd.SshCommand;
-import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.googlesource.gerrit.plugins.renameproject.monitor.CommandProgressMonitor;
@@ -80,7 +79,7 @@ public final class RenameCommand extends SshCommand {
           stdout.flush();
         }
       }
-    } catch (RestApiException | OrmException | IOException e) {
+    } catch (RestApiException | IOException e) {
       throw die(e);
     }
   }
