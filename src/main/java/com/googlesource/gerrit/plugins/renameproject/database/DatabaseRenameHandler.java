@@ -19,16 +19,12 @@ import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.reviewdb.client.Account;
 import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.Project;
-import com.google.gerrit.reviewdb.server.ReviewDb;
 import com.google.gerrit.server.ServerInitiated;
 import com.google.gerrit.server.account.AccountState;
 import com.google.gerrit.server.account.AccountsUpdate;
 import com.google.gerrit.server.account.ProjectWatches.NotifyType;
 import com.google.gerrit.server.account.ProjectWatches.ProjectWatchKey;
 import com.google.gerrit.server.query.account.InternalAccountQuery;
-import com.google.gwtorm.jdbc.JdbcSchema;
-import com.google.gwtorm.server.OrmException;
-import com.google.gwtorm.server.SchemaFactory;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
@@ -65,7 +61,7 @@ public class DatabaseRenameHandler {
     this.accountsUpdateProvider = accountsUpdateProvider;
   }
 
-  public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws OrmException {
+  public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws SQLException {
     log.debug("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
 
     List<Change.Id> changeIds = new ArrayList<>();
@@ -83,8 +79,6 @@ public class DatabaseRenameHandler {
           oldProjectKey.get(),
           changeIds.size());
       return changeIds;
-    } catch (SQLException e) {
-      throw new OrmException(e);
     }
   }
 
@@ -93,7 +87,7 @@ public class DatabaseRenameHandler {
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
       ProgressMonitor pm)
-      throws OrmException {
+      throws SQLException {
     pm.beginTask("Updating changes in the database");
     Connection conn = ((JdbcSchema) schemaFactory.open()).getConnection();
     try (Statement stmt = conn.createStatement()) {
@@ -119,20 +113,15 @@ public class DatabaseRenameHandler {
         conn.setAutoCommit(true);
       }
     } catch (SQLException e) {
-      try {
-        log.error(
-            "Failed to update changes in the DB for the project {}, rolling back the operation.",
-            oldProjectKey.get());
-        conn.rollback();
-      } catch (SQLException ex) {
-        throw new OrmException(ex);
-      }
-      throw new OrmException(e);
+      log.error(
+          "Failed to update changes in the DB for the project {}, rolling back the operation.",
+          oldProjectKey.get());
+      conn.rollback();
+      throw e;
     }
   }
 
-  private void updateWatchEntries(Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
-      throws OrmException {
+  private void updateWatchEntries(Project.NameKey oldProjectKey, Project.NameKey newProjectKey) {
     for (AccountState a : accountQueryProvider.get().byWatchedProject(newProjectKey)) {
       Account.Id accountId = a.getAccount().getId();
       ImmutableMap<ProjectWatchKey, ImmutableSet<NotifyType>> projectWatches =
