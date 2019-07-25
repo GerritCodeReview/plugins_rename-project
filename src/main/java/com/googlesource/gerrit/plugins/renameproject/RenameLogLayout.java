@@ -33,8 +33,8 @@ final class RenameLogLayout extends Layout {
    * +0100] INFO 1000000 admin OK \ myProject {"name": newName}
    *
    * <p>The log entry for a failed project rename will look like this: [2015-03-05 12:14:30,180
-   * +0100] ERROR 1000000 admin FAIL \ myProject {"name": newName}
-   * com.google.gwtorm.server.OrmException: \ Failed to access the database
+   * +0100] ERROR 1000000 admin FAIL \ myProject {"name": newName} TODO(mmiller): \ Failed to access
+   * the database
    */
   @Override
   public String format(LoggingEvent event) {
