@@ -17,15 +17,11 @@ package com.googlesource.gerrit.plugins.renameproject.database;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.Project;
-import com.google.gerrit.reviewdb.server.ReviewDb;
 import com.google.gerrit.server.index.change.ChangeIndexer;
-import com.google.gwtorm.server.OrmException;
-import com.google.gwtorm.server.SchemaFactory;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.renameproject.Configuration;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -40,14 +36,11 @@ import org.slf4j.LoggerFactory;
 public class IndexUpdateHandler {
   private static final Logger log = LoggerFactory.getLogger(IndexUpdateHandler.class);
 
-  private final SchemaFactory<ReviewDb> schemaFactory;
   private final ChangeIndexer indexer;
   private final Configuration config;
 
   @Inject
-  public IndexUpdateHandler(
-      SchemaFactory<ReviewDb> schemaFactory, ChangeIndexer indexer, Configuration config) {
-    this.schemaFactory = schemaFactory;
+  public IndexUpdateHandler(ChangeIndexer indexer, Configuration config) {
     this.indexer = indexer;
     this.config = config;
   }
@@ -100,14 +93,9 @@ public class IndexUpdateHandler {
 
     @Override
     public Boolean call() throws Exception {
-      try (ReviewDb db = schemaFactory.open()) {
-        indexer.index(db, newProjectKey, changeId);
-        monitor.update(1);
-        return Boolean.TRUE;
-      } catch (OrmException | IOException e) {
-        log.error("Failed to reindex change {} from index, Cause: {}", changeId, e);
-        throw e;
-      }
+      indexer.index(newProjectKey, changeId);
+      monitor.update(1);
+      return Boolean.TRUE;
     }
   }
 }
