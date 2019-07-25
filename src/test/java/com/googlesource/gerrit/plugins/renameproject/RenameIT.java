@@ -22,7 +22,9 @@ import com.google.gerrit.acceptance.UseLocalDisk;
 import com.google.gerrit.acceptance.UseSsh;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.client.Project.NameKey;
+import com.google.gerrit.server.project.ProjectConfig;
 import com.google.gerrit.server.project.ProjectState;
+import com.google.inject.Inject;
 import org.eclipse.jgit.junit.TestRepository;
 import org.junit.Test;
 
@@ -35,6 +37,8 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
   private static final String PLUGIN_NAME = "rename-project";
   private static final String NEW_PROJECT_NAME = "newProject";
+
+  @Inject ProjectConfig.Factory projectConfigFactory;
 
   @Test
   @UseLocalDisk
@@ -83,12 +87,13 @@ public class RenameIT extends LightweightPluginDaemonTest {
   @Test
   @UseLocalDisk
   public void testRenameSubscribedFail() throws Exception {
-    NameKey superProject = createProject("super-project");
+    NameKey superProject = createProjectOverAPI("super-project", null, true, null);
     TestRepository<?> superRepo = cloneProject(superProject);
-    NameKey subProject = createProject("subscribed-to-project");
+    NameKey subProject = createProjectOverAPI("subscribed-to-project", null, true, null);
     SubmoduleUtil.allowSubmoduleSubscription(
         metaDataUpdateFactory,
         projectCache,
+        projectConfigFactory,
         subProject,
         "refs/heads/master",
         superProject,

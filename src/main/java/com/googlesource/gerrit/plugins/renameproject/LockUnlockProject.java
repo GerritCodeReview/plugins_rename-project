@@ -28,17 +28,22 @@ import org.eclipse.jgit.errors.ConfigInvalidException;
 public class LockUnlockProject {
   private final MetaDataUpdate.Server metaDataUpdateFactory;
   private final ProjectCache projectCache;
+  private final ProjectConfig.Factory projectConfigFactory;
 
   @Inject
-  LockUnlockProject(MetaDataUpdate.Server metaDataUpdateFactory, ProjectCache projectCache) {
+  LockUnlockProject(
+      MetaDataUpdate.Server metaDataUpdateFactory,
+      ProjectCache projectCache,
+      ProjectConfig.Factory projectConfigFactory) {
     this.metaDataUpdateFactory = metaDataUpdateFactory;
     this.projectCache = projectCache;
+    this.projectConfigFactory = projectConfigFactory;
   }
 
   public void lock(Project.NameKey key) throws IOException, ConfigInvalidException {
     MetaDataUpdate md = metaDataUpdateFactory.create(key);
 
-    ProjectConfig projectConfig = ProjectConfig.read(md);
+    ProjectConfig projectConfig = projectConfigFactory.read(md);
     Project p = projectConfig.getProject();
     p.setState(ProjectState.READ_ONLY);
 
@@ -50,7 +55,7 @@ public class LockUnlockProject {
   public void unlock(Project.NameKey key) throws IOException, ConfigInvalidException {
     MetaDataUpdate md = metaDataUpdateFactory.create(key);
 
-    ProjectConfig projectConfig = ProjectConfig.read(md);
+    ProjectConfig projectConfig = projectConfigFactory.read(md);
     Project p = projectConfig.getProject();
     p.setState(ProjectState.ACTIVE);
 
