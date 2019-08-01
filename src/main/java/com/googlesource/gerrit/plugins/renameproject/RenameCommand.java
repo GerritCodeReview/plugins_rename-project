@@ -66,7 +66,7 @@ public final class RenameCommand extends SshCommand {
       input.name = newProjectName;
       ProjectResource rsrc =
           new ProjectResource(
-              projectCacheProvider.get().get(new Project.NameKey(projectControl)), self.get());
+              projectCacheProvider.get().get(Project.nameKey(projectControl)), self.get());
       try (CommandProgressMonitor monitor = new CommandProgressMonitor(stdout)) {
         renameProject.assertCanRename(rsrc, input, monitor);
         List<Change.Id> changeIds = renameProject.getChanges(rsrc, monitor);

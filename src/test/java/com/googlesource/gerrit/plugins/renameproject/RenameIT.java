@@ -43,10 +43,10 @@ public class RenameIT extends LightweightPluginDaemonTest {
     adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME);
 
     adminSshSession.assertSuccess();
-    ProjectState projectState = projectCache.get(new Project.NameKey(NEW_PROJECT_NAME));
+    ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
     assertThat(projectState).isNotNull();
     assertThat(queryProvider.get().byProject(project)).isEmpty();
-    assertThat(queryProvider.get().byProject(new Project.NameKey(NEW_PROJECT_NAME))).isNotEmpty();
+    assertThat(queryProvider.get().byProject(Project.nameKey(NEW_PROJECT_NAME))).isNotEmpty();
   }
 
   @Test
@@ -57,7 +57,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
     adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + newProjectName);
 
     adminSshSession.assertFailure();
-    ProjectState projectState = projectCache.get(new Project.NameKey(newProjectName));
+    ProjectState projectState = projectCache.get(Project.nameKey(newProjectName));
     assertThat(projectState).isNull();
   }
 
@@ -68,7 +68,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
     adminSshSession.exec(PLUGIN_NAME + " " + allProjects.get() + " " + NEW_PROJECT_NAME);
 
     adminSshSession.assertFailure();
-    ProjectState projectState = projectCache.get(new Project.NameKey(NEW_PROJECT_NAME));
+    ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
     assertThat(projectState).isNull();
   }
 
