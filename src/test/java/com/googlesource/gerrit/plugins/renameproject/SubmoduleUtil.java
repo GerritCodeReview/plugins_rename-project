@@ -18,10 +18,10 @@ import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gerrit.common.data.SubscribeSection;
 import com.google.gerrit.reviewdb.client.Project.NameKey;
-import com.google.gerrit.server.git.MetaDataUpdate;
-import com.google.gerrit.server.git.MetaDataUpdate.Server;
-import com.google.gerrit.server.git.ProjectConfig;
+import com.google.gerrit.server.git.meta.MetaDataUpdate;
+import com.google.gerrit.server.git.meta.MetaDataUpdate.Server;
 import com.google.gerrit.server.project.ProjectCache;
+import com.google.gerrit.server.project.ProjectConfig;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.ObjectId;
@@ -45,6 +45,7 @@ public class SubmoduleUtil {
   static void allowSubmoduleSubscription(
       Server metaDataUpdateFactory,
       ProjectCache projectCache,
+      ProjectConfig.Factory projectConfigFactory,
       NameKey sub,
       String subBranch,
       NameKey superName,
@@ -54,7 +55,7 @@ public class SubmoduleUtil {
     try (MetaDataUpdate md = metaDataUpdateFactory.create(sub)) {
       md.setMessage("Added superproject subscription");
       SubscribeSection s;
-      ProjectConfig pc = ProjectConfig.read(md);
+      ProjectConfig pc = projectConfigFactory.read(md);
       if (pc.getSubscribeSections().containsKey(superName)) {
         s = pc.getSubscribeSections().get(superName);
       } else {

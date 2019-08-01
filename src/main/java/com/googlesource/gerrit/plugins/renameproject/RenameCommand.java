@@ -18,12 +18,14 @@ import static com.googlesource.gerrit.plugins.renameproject.RenameProject.WARNIN
 
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.reviewdb.client.Change;
-import com.google.gerrit.server.project.ProjectControl;
+import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.server.CurrentUser;
+import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectResource;
 import com.google.gerrit.sshd.CommandMetaData;
 import com.google.gerrit.sshd.SshCommand;
-import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import com.googlesource.gerrit.plugins.renameproject.monitor.CommandProgressMonitor;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.BufferedReader;
@@ -37,17 +39,24 @@ import org.slf4j.LoggerFactory;
 @CommandMetaData(name = "rename", description = "Rename project")
 public final class RenameCommand extends SshCommand {
   @Argument(index = 0, required = true, metaVar = "OLDPROJECT", usage = "project to rename")
-  private ProjectControl projectControl;
+  private String projectControl;
 
   @Argument(index = 1, required = true, metaVar = "NEWNAME", usage = "new name for the project")
   private String newProjectName;
 
   private static final Logger log = LoggerFactory.getLogger(RenameCommand.class);
   private final RenameProject renameProject;
+  private final Provider<ProjectCache> projectCacheProvider;
+  private final Provider<CurrentUser> self;
 
   @Inject
-  protected RenameCommand(RenameProject renameProject) {
+  protected RenameCommand(
+      RenameProject renameProject,
+      Provider<ProjectCache> projectCacheProvider,
+      Provider<CurrentUser> self) {
     this.renameProject = renameProject;
+    this.projectCacheProvider = projectCacheProvider;
+    this.self = self;
   }
 
   @Override
@@ -55,7 +64,9 @@ public final class RenameCommand extends SshCommand {
     try {
       RenameProject.Input input = new RenameProject.Input();
       input.name = newProjectName;
-      ProjectResource rsrc = new ProjectResource(projectControl);
+      ProjectResource rsrc =
+          new ProjectResource(
+              projectCacheProvider.get().get(new Project.NameKey(projectControl)), self.get());
       try (CommandProgressMonitor monitor = new CommandProgressMonitor(stdout)) {
         renameProject.assertCanRename(rsrc, input, monitor);
         List<Change.Id> changeIds = renameProject.getChanges(rsrc, monitor);
@@ -68,7 +79,7 @@ public final class RenameCommand extends SshCommand {
           stdout.flush();
         }
       }
-    } catch (RestApiException | OrmException | IOException e) {
+    } catch (RestApiException | IOException e) {
       throw die(e);
     }
   }
