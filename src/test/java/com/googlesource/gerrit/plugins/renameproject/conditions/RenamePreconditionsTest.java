@@ -21,7 +21,9 @@ import com.google.gerrit.extensions.common.ProjectInfo;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.config.AllProjectsName;
+import com.google.gerrit.server.config.AllProjectsNameProvider;
 import com.google.gerrit.server.config.AllUsersName;
+import com.google.gerrit.server.config.AllUsersNameProvider;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.project.ProjectResource;
 import com.google.gerrit.server.project.ProjectState;
@@ -43,8 +45,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class RenamePreconditionsTest {
 
-  @Mock private AllProjectsName allProjects;
-  @Mock private AllUsersName allUsersName;
   @Mock private Provider<ListChildProjects> listChildProjectsProvider;
   @Mock private GitRepositoryManager repoManager;
   @Mock private SubmoduleOp.Factory subOpFactory;
@@ -56,12 +56,16 @@ public class RenamePreconditionsTest {
   @Mock private Repository repo;
   @Mock private ListChildProjects listChildProjects;
 
+  private AllProjectsName allProjects;
+  private AllUsersName allUsersName;
   private ProjectResource oldRsrc;
   private List<ProjectInfo> children = new ArrayList<>();
-  private Project.NameKey newProjectKey = new Project.NameKey("newProject");
+  private Project.NameKey newProjectKey = Project.nameKey("newProject");
 
   @Before
   public void setUp() throws Exception {
+    allProjects = new AllProjectsName(AllProjectsNameProvider.DEFAULT);
+    allUsersName = new AllUsersName(AllUsersNameProvider.DEFAULT);
     oldRsrc = new ProjectResource(control, user);
     when(repoManager.openRepository(newProjectKey)).thenReturn(repo);
     when(repo.getObjectDatabase()).thenReturn(objDb);
@@ -102,7 +106,7 @@ public class RenamePreconditionsTest {
 
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameHasChildren() throws Exception {
-    Project oldProject = new Project(new Project.NameKey("oldProject"));
+    Project oldProject = new Project(Project.nameKey("oldProject"));
     when(oldRsrc.getNameKey()).thenReturn(oldProject.getNameKey());
     when(objDb.exists()).thenReturn(false);
 

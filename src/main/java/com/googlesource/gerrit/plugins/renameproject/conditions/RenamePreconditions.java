@@ -16,7 +16,7 @@ package com.googlesource.gerrit.plugins.renameproject.conditions;
 
 import com.google.gerrit.extensions.common.ProjectInfo;
 import com.google.gerrit.extensions.restapi.RestApiException;
-import com.google.gerrit.reviewdb.client.Branch;
+import com.google.gerrit.reviewdb.client.BranchNameKey;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.client.RefNames;
 import com.google.gerrit.server.config.AllProjectsName;
@@ -109,12 +109,12 @@ public class RenamePreconditions {
   private void assertIsNotSubscribed(Project.NameKey key) throws CannotRenameProjectException {
     try (Repository repo = repoManager.openRepository(key);
         MergeOpRepoManager orm = ormProvider.get()) {
-      Set<Branch.NameKey> branches = new HashSet<>();
+      Set<BranchNameKey> branches = new HashSet<>();
       for (Ref ref : repo.getRefDatabase().getRefs(RefNames.REFS_HEADS).values()) {
-        branches.add(new Branch.NameKey(key, ref.getName()));
+        branches.add(BranchNameKey.create(key, ref.getName()));
       }
       SubmoduleOp sub = subOpFactory.create(branches, orm);
-      for (Branch.NameKey b : branches) {
+      for (BranchNameKey b : branches) {
         if (!sub.superProjectSubscriptionsForSubmoduleBranch(b).isEmpty()) {
           String message = "Cannot rename a project subscribed to by the other projects";
           log.error(message);
