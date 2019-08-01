@@ -58,7 +58,7 @@ public class RenamePreconditionsTest {
 
   private ProjectResource oldRsrc;
   private List<ProjectInfo> children = new ArrayList<>();
-  private Project.NameKey newProjectKey = new Project.NameKey("newProject");
+  private Project.NameKey newProjectKey = Project.nameKey("newProject");
 
   @Before
   public void setUp() throws Exception {
@@ -102,7 +102,7 @@ public class RenamePreconditionsTest {
 
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameHasChildren() throws Exception {
-    Project oldProject = new Project(new Project.NameKey("oldProject"));
+    Project oldProject = new Project(Project.nameKey("oldProject"));
     when(oldRsrc.getNameKey()).thenReturn(oldProject.getNameKey());
     when(objDb.exists()).thenReturn(false);
 

@@ -158,7 +158,7 @@ public class DatabaseRenameHandler {
 
   private void updateWatchEntries(Project.NameKey newProjectKey) {
     for (AccountState a : accountQueryProvider.get().byWatchedProject(newProjectKey)) {
-      Account.Id accountId = a.getAccount().getId();
+      Account.Id accountId = a.getAccount().id();
       ImmutableMap<ProjectWatchKey, ImmutableSet<NotifyType>> projectWatches =
           a.getProjectWatches();
       Map<ProjectWatchKey, Set<NotifyType>> newProjectWatches = new HashMap<>();

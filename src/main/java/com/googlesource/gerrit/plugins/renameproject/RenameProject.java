@@ -138,7 +138,7 @@ public class RenameProject {
       pm.beginTask("Checking preconditions");
       assertNewNameNotNull(input);
       assertRenamePermission(rsrc);
-      renamePreconditions.assertCanRename(rsrc, new Project.NameKey(input.name));
+      renamePreconditions.assertCanRename(rsrc, Project.nameKey(input.name));
       log.debug("Rename preconditions check successful.");
     } catch (CannotRenameProjectException e) {
       throw new ResourceConflictException(e.getMessage());
@@ -148,15 +148,14 @@ public class RenameProject {
   void doRename(List<Change.Id> changeIds, ProjectResource rsrc, Input input, ProgressMonitor pm)
       throws InterruptedException, ConfigInvalidException, IOException {
     Project.NameKey oldProjectKey = rsrc.getNameKey();
-    Project.NameKey newProjectKey = new Project.NameKey(input.name);
+    Project.NameKey newProjectKey = Project.nameKey(input.name);
     Exception ex = null;
     try {
       fsHandler.rename(oldProjectKey, newProjectKey, pm);
       log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
       cacheHandler.update(rsrc.getProjectState().getProject(), newProjectKey);
 
-      List<Change.Id> updatedChangeIds =
-          dbHandler.rename(changeIds, newProjectKey, pm);
+      List<Change.Id> updatedChangeIds = dbHandler.rename(changeIds, newProjectKey, pm);
       log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
 
       // if the DB update is successful, update the secondary index
