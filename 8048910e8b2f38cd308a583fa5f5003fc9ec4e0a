@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cff0de35_96b30eaa",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-08-02T17:11:11Z",
+      "side": 1,
+      "message": "Since Iaf2fc09d, this version of the plugin (and other plugins in master) no longer build stand-alone or against the snapshot api; at least for me locally. Not sure how this auto-value plays into that api if anything. Other auto-value conversions work in the api.",
+      "range": {
+        "startLine": 161,
+        "startChar": 43,
+        "endLine": 161,
+        "endChar": 48
+      },
+      "revId": "8048910e8b2f38cd308a583fa5f5003fc9ec4e0a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
