@@ -21,6 +21,7 @@ import com.google.gerrit.reviewdb.server.ReviewDb;
 import com.google.gerrit.server.account.AccountState;
 import com.google.gerrit.server.account.WatchConfig;
 import com.google.gerrit.server.account.WatchConfig.Accessor;
+import com.google.gerrit.server.account.WatchConfig.NotifyType;
 import com.google.gerrit.server.account.WatchConfig.ProjectWatchKey;
 import com.google.gerrit.server.query.account.InternalAccountQuery;
 import com.google.gwtorm.jdbc.JdbcSchema;
@@ -37,6 +38,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -127,14 +130,23 @@ public class DatabaseRenameHandler {
 
   private void updateWatchEntries(Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
       throws OrmException {
-    for (AccountState a : accountQueryProvider.get().byWatchedProject(newProjectKey)) {
+    for (AccountState a : accountQueryProvider.get().byWatchedProject(oldProjectKey)) {
       Account.Id accountId = a.getAccount().getId();
       for (ProjectWatchKey watchKey : a.getProjectWatches().keySet()) {
         if (oldProjectKey.equals(watchKey.project())) {
           try {
-            watchConfig
-                .get()
-                .upsertProjectWatches(accountId, watchConfig.get().getProjectWatches(accountId));
+            Map<ProjectWatchKey, Set<NotifyType>> newProjectWatches =
+                watchConfig.get().getProjectWatches(accountId);
+
+            newProjectWatches.put(
+                ProjectWatchKey.create(newProjectKey, watchKey.filter()),
+                a.getProjectWatches().get(watchKey));
+
+            newProjectWatches.remove(watchKey);
+
+            watchConfig.get().deleteAllProjectWatches(accountId);
+            watchConfig.get().upsertProjectWatches(accountId, newProjectWatches);
+
           } catch (ConfigInvalidException e) {
             log.error(
                 "Updating watch entry for user {} in project {} failed. Watch config found invalid.",
