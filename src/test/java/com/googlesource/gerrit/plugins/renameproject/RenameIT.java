@@ -20,9 +20,11 @@ import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.UseLocalDisk;
 import com.google.gerrit.acceptance.UseSsh;
+import com.google.gerrit.extensions.client.ProjectWatchInfo;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.project.ProjectState;
+import java.util.List;
 import org.eclipse.jgit.junit.TestRepository;
 import org.junit.Test;
 
@@ -99,5 +101,24 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
     adminSshSession.exec(PLUGIN_NAME + " " + subProject.get() + " " + NEW_PROJECT_NAME);
     adminSshSession.assertFailure();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameWatchedProject() throws Exception {
+    String oldProject = project.get();
+    watch(oldProject);
+
+    List<ProjectWatchInfo> watchedProjects = gApi.accounts().self().getWatchedProjects();
+    assertThat(watchedProjects.stream().allMatch(pwi -> pwi.project.equals(oldProject))).isTrue();
+
+    adminSshSession.exec(PLUGIN_NAME + " " + oldProject + " " + NEW_PROJECT_NAME);
+    adminSshSession.assertSuccess();
+
+    watchedProjects = gApi.accounts().self().getWatchedProjects();
+    assertThat(watchedProjects.stream().allMatch(pwi -> pwi.project.equals(NEW_PROJECT_NAME)))
+        .isTrue();
+    assertThat(watchedProjects.stream().noneMatch(pwi -> pwi.project.equals(oldProject))).isTrue();
+    assertThat(watchedProjects.size()).isEqualTo(1);
   }
 }
