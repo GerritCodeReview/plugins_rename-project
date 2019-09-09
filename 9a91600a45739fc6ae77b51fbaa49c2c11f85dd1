@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c2c02218_3b57ce97",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-09T23:48:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3417eff3_582dca27",
+      "range": {
+        "startLine": 112,
+        "startChar": 10,
+        "endLine": 112,
+        "endChar": 23
+      },
+      "revId": "9a91600a45739fc6ae77b51fbaa49c2c11f85dd1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb3e17b0_f1a1c0ed",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b868d535_0f51f1d8",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-09T23:48:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb3e17b0_f1a1c0ed",
+      "range": {
+        "startLine": 114,
+        "startChar": 45,
+        "endLine": 114,
+        "endChar": 58
+      },
+      "revId": "9a91600a45739fc6ae77b51fbaa49c2c11f85dd1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e169627_f3819a6a",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
         "patchSetId": 1
@@ -62,6 +110,24 @@
       "revId": "9a91600a45739fc6ae77b51fbaa49c2c11f85dd1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db314ea9_6b61440d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-09T23:48:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e169627_f3819a6a",
+      "revId": "9a91600a45739fc6ae77b51fbaa49c2c11f85dd1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "412dc572_48a949e5",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-09T23:48:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aafba31f_6ba934d8",
+      "range": {
+        "startLine": 120,
+        "startChar": 45,
+        "endLine": 120,
+        "endChar": 82
+      },
+      "revId": "9a91600a45739fc6ae77b51fbaa49c2c11f85dd1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "895c9414_2c71e7e0",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
         "patchSetId": 1
@@ -108,6 +198,30 @@
       "revId": "9a91600a45739fc6ae77b51fbaa49c2c11f85dd1",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91619d61_4019dfca",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-09T23:48:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "895c9414_2c71e7e0",
+      "range": {
+        "startLine": 130,
+        "startChar": 6,
+        "endLine": 132,
+        "endChar": 8
+      },
+      "revId": "9a91600a45739fc6ae77b51fbaa49c2c11f85dd1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
