@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3417eff3_582dca27",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-09T22:53:05Z",
+      "side": 1,
+      "message": "oldProject",
+      "range": {
+        "startLine": 112,
+        "startChar": 10,
+        "endLine": 112,
+        "endChar": 23
+      },
+      "revId": "9a91600a45739fc6ae77b51fbaa49c2c11f85dd1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb3e17b0_f1a1c0ed",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-09T22:53:05Z",
+      "side": 1,
+      "message": "oldProject",
+      "range": {
+        "startLine": 114,
+        "startChar": 45,
+        "endLine": 114,
+        "endChar": 58
+      },
+      "revId": "9a91600a45739fc6ae77b51fbaa49c2c11f85dd1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e169627_f3819a6a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-09T22:53:05Z",
+      "side": 1,
+      "message": "Would move this blank line to after current line 116 below.",
+      "revId": "9a91600a45739fc6ae77b51fbaa49c2c11f85dd1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aafba31f_6ba934d8",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-09T22:53:05Z",
+      "side": 1,
+      "message": "Duplication, would remove, also to secure maintainability versus proper test outcome.",
+      "range": {
+        "startLine": 120,
+        "startChar": 45,
+        "endLine": 120,
+        "endChar": 82
+      },
+      "revId": "9a91600a45739fc6ae77b51fbaa49c2c11f85dd1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "895c9414_2c71e7e0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-09T22:53:05Z",
+      "side": 1,
+      "message": "} else if {",
+      "range": {
+        "startLine": 130,
+        "startChar": 6,
+        "endLine": 132,
+        "endChar": 8
+      },
+      "revId": "9a91600a45739fc6ae77b51fbaa49c2c11f85dd1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
