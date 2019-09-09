@@ -16,13 +16,18 @@ package com.googlesource.gerrit.plugins.renameproject;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import com.google.common.cache.Cache;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
+import com.google.gerrit.acceptance.PushOneCommit.Result;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.UseLocalDisk;
 import com.google.gerrit.acceptance.UseSsh;
+import com.google.gerrit.reviewdb.client.Change.Id;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.project.ProjectState;
+import com.google.inject.Inject;
+import javax.inject.Named;
 import org.eclipse.jgit.junit.TestRepository;
 import org.junit.Test;
 
@@ -35,6 +40,11 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
   private static final String PLUGIN_NAME = "rename-project";
   private static final String NEW_PROJECT_NAME = "newProject";
+  private static final String CACHE_NAME = "changeid_project";
+
+  @Inject
+  @Named(CACHE_NAME)
+  Cache<Id, String> changeIdProjectCache;
 
   @Test
   @UseLocalDisk
@@ -99,5 +109,20 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
     adminSshSession.exec(PLUGIN_NAME + " " + subProject.get() + " " + NEW_PROJECT_NAME);
     adminSshSession.assertFailure();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameClearedOldChangeIdLinkInCaches() throws Exception {
+    Result result = createChange();
+    String oldProject = project.get();
+
+    Id changeID = result.getChange().getId();
+    changeIdProjectCache.put(changeID, oldProject);
+
+    adminSshSession.exec(PLUGIN_NAME + " " + oldProject + " " + NEW_PROJECT_NAME);
+    adminSshSession.assertSuccess();
+
+    assertThat(changeIdProjectCache.getIfPresent(changeID)).isNull();
   }
 }
