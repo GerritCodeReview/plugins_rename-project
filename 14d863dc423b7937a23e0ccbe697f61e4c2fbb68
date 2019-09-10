@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d216bc56_aea8652d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-10T19:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8033f7f4_fb11dd9c",
+      "range": {
+        "startLine": 10,
+        "startChar": 65,
+        "endLine": 10,
+        "endChar": 71
+      },
+      "revId": "14d863dc423b7937a23e0ccbe697f61e4c2fbb68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "132c60eb_add18551",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "14d863dc423b7937a23e0ccbe697f61e4c2fbb68",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4981e1ee_d1d1ce7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-10T19:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "132c60eb_add18551",
+      "range": {
+        "startLine": 13,
+        "startChar": 29,
+        "endLine": 13,
+        "endChar": 49
+      },
+      "revId": "14d863dc423b7937a23e0ccbe697f61e4c2fbb68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c5e4bf14_f97fc528",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-10T19:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51f5184f_7584743f",
+      "range": {
+        "startLine": 116,
+        "startChar": 14,
+        "endLine": 116,
+        "endChar": 53
+      },
+      "revId": "14d863dc423b7937a23e0ccbe697f61e4c2fbb68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d83c9e3_a403d68a",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2019-09-10T18:30:18Z",
       "side": 1,
       "message": "Replace with expecting equal to new project/name instead? -To be more accurate.",
+      "range": {
+        "startLine": 126,
+        "startChar": 60,
+        "endLine": 126,
+        "endChar": 72
+      },
+      "revId": "14d863dc423b7937a23e0ccbe697f61e4c2fbb68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9781f44c_7e828be5",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-10T19:19:29Z",
+      "side": 1,
+      "message": "I agree with replacing to another check, but not to new project name. Since I am just flushing the changeid_project cache we would expect the cache to not have given changeid instead, so getIfPresent will return null.",
+      "parentUuid": "8d83c9e3_a403d68a",
       "range": {
         "startLine": 126,
         "startChar": 60,
