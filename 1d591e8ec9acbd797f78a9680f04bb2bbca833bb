@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23444e71_785e1a64",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-10T17:51:40Z",
+      "side": 1,
+      "message": "Necessary? -Especially after having removed the project checking (unrelated, yes) lines.",
+      "range": {
+        "startLine": 110,
+        "startChar": 4,
+        "endLine": 110,
+        "endChar": 19
+      },
+      "revId": "1d591e8ec9acbd797f78a9680f04bb2bbca833bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ca310e5_ac366c1c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-10T17:51:40Z",
+      "side": 1,
+      "message": "Would assert this being successful.",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 112,
+        "endChar": 22
+      },
+      "revId": "1d591e8ec9acbd797f78a9680f04bb2bbca833bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4537349_ab4ce7a7",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-10T17:51:40Z",
+      "side": 1,
+      "message": "Should we add an else block failing the test if entered? -So the below final assertions get completed by that orthogonal check.",
+      "revId": "1d591e8ec9acbd797f78a9680f04bb2bbca833bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "939b65d2_ba025510",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-10T17:51:40Z",
+      "side": 1,
+      "message": "Would replace with an exact expectation of just one, matching NEW_PROJECT_NAME.",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 37
+      },
+      "revId": "1d591e8ec9acbd797f78a9680f04bb2bbca833bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
