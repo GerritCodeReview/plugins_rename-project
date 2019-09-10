@@ -175,6 +175,30 @@
       "revId": "75a8e644de0914c4bf8edcda01a66c469f58dde2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "040404fe_c7dc9079",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-10T20:41:38Z",
+      "side": 1,
+      "message": "This line (121) is now redundant with lines 119 and 122; would remove.",
+      "parentUuid": "afda4ad2_943945f0",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 99
+      },
+      "revId": "75a8e644de0914c4bf8edcda01a66c469f58dde2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
