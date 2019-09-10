@@ -187,6 +187,30 @@
       "revId": "14d863dc423b7937a23e0ccbe697f61e4c2fbb68",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71ff07d8_2b89c425",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-10T19:45:39Z",
+      "side": 1,
+      "message": "Right. Also as Gerrit should naturally re-provision the cache upon new project name/url access.",
+      "parentUuid": "9781f44c_7e828be5",
+      "range": {
+        "startLine": 126,
+        "startChar": 60,
+        "endLine": 126,
+        "endChar": 72
+      },
+      "revId": "14d863dc423b7937a23e0ccbe697f61e4c2fbb68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
