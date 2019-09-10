@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71d01b8b_bd334bb6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-10T19:35:07Z",
+      "side": 1,
+      "message": "Extra blank line to remove.",
+      "revId": "75a8e644de0914c4bf8edcda01a66c469f58dde2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b47a4562_c1f0c971",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-10T19:35:07Z",
+      "side": 1,
+      "message": "allMatch (I think it would be a stronger assertion.) -Or, replace with expecting exactly just oldProject.",
+      "range": {
+        "startLine": 113,
+        "startChar": 40,
+        "endLine": 113,
+        "endChar": 48
+      },
+      "revId": "75a8e644de0914c4bf8edcda01a66c469f58dde2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "071773db_0908060e",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-10T19:35:07Z",
+      "side": 1,
+      "message": "Same comment as above for this similar assertion.",
+      "range": {
+        "startLine": 119,
+        "startChar": 40,
+        "endLine": 119,
+        "endChar": 48
+      },
+      "revId": "75a8e644de0914c4bf8edcda01a66c469f58dde2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2c16948_dc1639fe",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-10T19:35:07Z",
+      "side": 1,
+      "message": "Depending on how the above comments are applied, this line would likely go away.",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 99
+      },
+      "revId": "75a8e644de0914c4bf8edcda01a66c469f58dde2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
