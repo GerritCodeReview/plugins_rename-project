@@ -199,6 +199,30 @@
       "revId": "75a8e644de0914c4bf8edcda01a66c469f58dde2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d11d60e9_6a381019",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-11T17:50:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "040404fe_c7dc9079",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 99
+      },
+      "revId": "75a8e644de0914c4bf8edcda01a66c469f58dde2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
