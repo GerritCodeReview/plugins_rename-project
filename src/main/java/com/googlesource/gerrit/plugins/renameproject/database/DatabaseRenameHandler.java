@@ -138,17 +138,29 @@ public class DatabaseRenameHandler {
       ImmutableMap<ProjectWatchKey, ImmutableSet<NotifyType>> projectWatches =
           a.getProjectWatches();
       Map<ProjectWatchKey, Set<NotifyType>> newProjectWatches = new HashMap<>();
+      List<ProjectWatchKey> oldProjectWatches = new ArrayList<>();
       for (ProjectWatchKey watchKey : a.getProjectWatches().keySet()) {
         if (oldProjectKey.equals(watchKey.project())) {
-          newProjectWatches.put(watchKey, projectWatches.get(watchKey));
+          newProjectWatches.put(
+              ProjectWatchKey.create(newProjectKey, watchKey.filter()),
+              projectWatches.get(watchKey));
+          oldProjectWatches.add(watchKey);
           try {
             accountsUpdateProvider
                 .get()
                 .update(
-                    "Update watch entry",
+                    "Add watch entry",
                     accountId,
                     (accountState, update) ->
                         update.updateProjectWatches(newProjectWatches).build());
+
+            accountsUpdateProvider
+                .get()
+                .update(
+                    "Remove watch entry",
+                    accountId,
+                    (accountState, update) ->
+                        update.deleteProjectWatches(oldProjectWatches).build());
           } catch (ConfigInvalidException e) {
             log.error(
                 "Updating watch entry for user {} in project {} failed. Watch config found invalid.",
