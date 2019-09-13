@@ -16,13 +16,21 @@ package com.googlesource.gerrit.plugins.renameproject.database;
 
 import com.google.gerrit.reviewdb.client.Account;
 import com.google.gerrit.reviewdb.client.Change;
+import com.google.gerrit.reviewdb.client.Change.Id;
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.reviewdb.server.DisallowReadFromChangesReviewDbWrapper;
 import com.google.gerrit.reviewdb.server.ReviewDb;
+import com.google.gerrit.reviewdb.server.ReviewDbUtil;
+import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.account.AccountState;
 import com.google.gerrit.server.account.WatchConfig;
 import com.google.gerrit.server.account.WatchConfig.Accessor;
 import com.google.gerrit.server.account.WatchConfig.NotifyType;
 import com.google.gerrit.server.account.WatchConfig.ProjectWatchKey;
+import com.google.gerrit.server.git.GitRepositoryManager;
+import com.google.gerrit.server.notedb.ChangeNotes;
+import com.google.gerrit.server.notedb.ChangeNotes.Factory.ChangeNotesResult;
+import com.google.gerrit.server.notedb.ChangeUpdate;
 import com.google.gerrit.server.query.account.InternalAccountQuery;
 import com.google.gwtorm.jdbc.JdbcSchema;
 import com.google.gwtorm.server.OrmException;
@@ -33,13 +41,17 @@ import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Stream;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,37 +64,52 @@ public class DatabaseRenameHandler {
   private final Provider<InternalAccountQuery> accountQueryProvider;
   private final Provider<Accessor> watchConfig;
 
+  private final ChangeNotes.Factory schemaFactoryNoteDB;
+  private final GitRepositoryManager repoManager;
+  private final ChangeUpdate.Factory updateFactory;
+  private final Provider<CurrentUser> userProvider;
+  private final Map<Id, ChangeNotes> changeNotes = new HashMap<>();
+
+  private Project.NameKey oldProjectKey;
+
   @Inject
   public DatabaseRenameHandler(
+      ChangeNotes.Factory schemaFactoryNoteDB,
+      ChangeUpdate.Factory updateFactory,
+      GitRepositoryManager repoManager,
+      Provider<CurrentUser> userProvider,
       SchemaFactory<ReviewDb> schemaFactory,
       Provider<InternalAccountQuery> accountQueryProvider,
       Provider<WatchConfig.Accessor> watchConfig) {
+    this.schemaFactoryNoteDB = schemaFactoryNoteDB;
+    this.updateFactory = updateFactory;
+    this.repoManager = repoManager;
+    this.userProvider = userProvider;
     this.accountQueryProvider = accountQueryProvider;
     this.watchConfig = watchConfig;
     this.schemaFactory = schemaFactory;
   }
 
-  public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws OrmException {
+  public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey)
+      throws OrmException, IOException {
     log.debug("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
-
     List<Change.Id> changeIds = new ArrayList<>();
-    Connection conn = ((JdbcSchema) schemaFactory.open()).getConnection();
-    String query =
-        "select change_id from changes where dest_project_name ='" + oldProjectKey.get() + "';";
-    try (Statement stmt = conn.createStatement();
-        ResultSet changes = stmt.executeQuery(query)) {
-      while (changes != null && changes.next()) {
-        Change.Id changeId = new Change.Id(changes.getInt(1));
-        changeIds.add(changeId);
-      }
-      log.debug(
-          "Number of changes related to the project {} are {}",
-          oldProjectKey.get(),
-          changeIds.size());
-      return changeIds;
-    } catch (SQLException e) {
-      throw new OrmException(e);
+    ReviewDb openDB = schemaFactory.open();
+    this.oldProjectKey = oldProjectKey;
+    Stream<ChangeNotesResult> changes =
+        schemaFactoryNoteDB.scan(repoManager.openRepository(oldProjectKey), openDB, oldProjectKey);
+    Iterator<ChangeNotesResult> iterator = changes.iterator();
+    while (iterator.hasNext()) {
+      ChangeNotesResult change = iterator.next();
+      Change.Id changeId = change.id();
+      changeIds.add(changeId);
+      changeNotes.put(changeId, change.notes());
     }
+    log.debug(
+        "Number of changes related to the project {} are {}",
+        oldProjectKey.get(),
+        changeIds.size());
+    return changeIds;
   }
 
   public List<Change.Id> rename(
@@ -90,42 +117,106 @@ public class DatabaseRenameHandler {
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
       ProgressMonitor pm)
-      throws OrmException {
+      throws OrmException, IOException {
     pm.beginTask("Updating changes in the database");
-    Connection conn = ((JdbcSchema) schemaFactory.open()).getConnection();
-    try (Statement stmt = conn.createStatement()) {
-      conn.setAutoCommit(false);
-      try {
-        log.debug("Updating the changes in the DB related to project {}", oldProjectKey.get());
-        for (Change.Id cd : changes) {
-          stmt.addBatch(
-              "update changes set dest_project_name='"
-                  + newProjectKey.get()
-                  + "' where change_id ="
-                  + cd.id
-                  + ";");
+    ReviewDb openDB = schemaFactory.open();
+    if (!(openDB instanceof DisallowReadFromChangesReviewDbWrapper)) {
+      Connection conn = ((JdbcSchema) openDB).getConnection();
+      try (Statement stmt = conn.createStatement()) {
+        conn.setAutoCommit(false);
+        try {
+          log.debug("Updating the changes in the DB related to project {}", oldProjectKey.get());
+          for (Change.Id cd : changes) {
+            stmt.addBatch(
+                "update changes set dest_project_name='"
+                    + newProjectKey.get()
+                    + "' where change_id ="
+                    + cd.id
+                    + ";");
+          }
+          stmt.executeBatch();
+          updateWatchEntries(oldProjectKey, newProjectKey);
+          conn.commit();
+          log.debug(
+              "Successfully updated the changes in the DB related to project {}",
+              oldProjectKey.get());
+          return changes;
+        } finally {
+          conn.setAutoCommit(true);
         }
-        stmt.executeBatch();
-        updateWatchEntries(oldProjectKey, newProjectKey);
-        conn.commit();
-        log.debug(
-            "Successfully updated the changes in the DB related to project {}",
-            oldProjectKey.get());
-        return changes;
-      } finally {
-        conn.setAutoCommit(true);
+      } catch (SQLException e) {
+        try {
+          log.error(
+              "Failed to update changes in the DB for the project {}, rolling back the operation.",
+              oldProjectKey.get());
+          conn.rollback();
+        } catch (SQLException ex) {
+          throw new OrmException(ex);
+        }
+        throw new OrmException(e);
       }
-    } catch (SQLException e) {
+
+    } else {
+      log.debug("Updating the changes in the DB related to project {}", oldProjectKey.get());
+      List<ChangeUpdate> updates =
+          getChangeUpdates(changes, newProjectKey, ReviewDbUtil.unwrapDb(openDB));
+
+      List<Change> updated = new ArrayList<>();
       try {
+        for (ChangeUpdate update : updates) {
+          update.commit();
+          updated.add(update.getChange());
+        }
+        updateWatchEntries(oldProjectKey, newProjectKey);
+      } catch (IOException e) {
+        // TODO(mmiller): Consider covering this path with tests, albeit exceptional.
         log.error(
             "Failed to update changes in the DB for the project {}, rolling back the operation.",
             oldProjectKey.get());
-        conn.rollback();
-      } catch (SQLException ex) {
-        throw new OrmException(ex);
+        rollback(updated, newProjectKey);
+        throw e;
       }
-      throw new OrmException(e);
+      log.debug(
+          "Successfully updated the changes in the DB related to project {}", oldProjectKey.get());
+      return changes;
     }
+  }
+
+  private void rollback(List<Change> changes, Project.NameKey newProjectKey) {
+    Date from = Date.from(Instant.now());
+    changes.forEach(
+        change -> {
+          ChangeNotes notes = changeNotes.get(change.getId());
+          ChangeUpdate revert = updateFactory.create(notes, userProvider.get(), from);
+          revert.setRevertOf(change.getChangeId());
+          try {
+            revert.commit();
+          } catch (IOException | OrmException ex) {
+            log.error(
+                "Failed to rollback change {} in DB from project {} to {}; rolling back others still.",
+                change.getChangeId(),
+                newProjectKey.get(),
+                oldProjectKey.get());
+          }
+        });
+  }
+
+  private List<ChangeUpdate> getChangeUpdates(
+      List<Change.Id> changeIds, Project.NameKey nameKey, ReviewDb db) {
+    List<ChangeUpdate> updates = new ArrayList<>();
+    Date from = Date.from(Instant.now());
+    changeIds.forEach(
+        changeId -> {
+          ChangeNotes notes = null;
+          try {
+            notes = schemaFactoryNoteDB.create(db, nameKey, changeId);
+          } catch (OrmException e) {
+            e.printStackTrace();
+          }
+          ChangeUpdate update = updateFactory.create(notes, userProvider.get(), from);
+          updates.add(update);
+        });
+    return updates;
   }
 
   private void updateWatchEntries(Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
