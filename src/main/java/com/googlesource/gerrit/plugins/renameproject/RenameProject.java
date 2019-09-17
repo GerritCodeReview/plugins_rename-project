@@ -18,6 +18,7 @@ import static com.googlesource.gerrit.plugins.renameproject.RenameOwnProjectCapa
 import static com.googlesource.gerrit.plugins.renameproject.RenameProjectCapability.RENAME_PROJECT;
 
 import com.google.common.base.Strings;
+import com.google.common.cache.Cache;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.api.access.PluginPermission;
 import com.google.gerrit.extensions.restapi.AuthException;
@@ -37,6 +38,7 @@ import com.google.gwtorm.server.OrmException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 import com.googlesource.gerrit.plugins.renameproject.cache.CacheRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.conditions.RenamePreconditions;
 import com.googlesource.gerrit.plugins.renameproject.database.DatabaseRenameHandler;
@@ -58,6 +60,7 @@ public class RenameProject {
 
   static final int WARNING_LIMIT = 5000;
   private static final Logger log = LoggerFactory.getLogger(RenameProject.class);
+  private static final String CACHE_NAME = "changeid_project";
 
   private final DatabaseRenameHandler dbHandler;
   private final FilesystemRenameHandler fsHandler;
@@ -70,6 +73,7 @@ public class RenameProject {
   private final String pluginName;
   private final RenameLog renameLog;
   private final PermissionBackend permissionBackend;
+  private final Cache<Change.Id, String> changeIdProjectCache;
 
   @Inject
   RenameProject(
@@ -83,7 +87,8 @@ public class RenameProject {
       PluginEvent pluginEvent,
       @PluginName String pluginName,
       RenameLog renameLog,
-      PermissionBackend permissionBackend) {
+      PermissionBackend permissionBackend,
+      @Named(CACHE_NAME) Cache<Change.Id, String> changeIdProjectCache) {
     this.dbHandler = dbHandler;
     this.fsHandler = fsHandler;
     this.cacheHandler = cacheHandler;
@@ -95,6 +100,7 @@ public class RenameProject {
     this.pluginName = pluginName;
     this.renameLog = renameLog;
     this.permissionBackend = permissionBackend;
+    this.changeIdProjectCache = changeIdProjectCache;
   }
 
   private void assertNewNameNotNull(Input input) throws BadRequestException {
@@ -166,6 +172,9 @@ public class RenameProject {
 
       lockUnlockProject.unlock(newProjectKey);
       log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
+
+      // flush old changeId -> Project cache for given changeIds
+      changeIdProjectCache.invalidateAll(changeIds);
 
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
     } catch (Exception e) {
