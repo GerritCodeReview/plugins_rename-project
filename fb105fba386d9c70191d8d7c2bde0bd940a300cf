@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "032f84e1_b6c0440a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-17T19:31:07Z",
+      "side": 1,
+      "message": "noteDb\n\n1. Consistently with the below chosen case.\n2. This is the rename-project repo/project.",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08d41049_e8686354",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-17T19:31:07Z",
+      "side": 1,
+      "message": "behavior",
+      "range": {
+        "startLine": 9,
+        "startChar": 17,
+        "endLine": 9,
+        "endChar": 25
+      },
+      "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d94b9a0_4b8b74f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-17T19:31:07Z",
+      "side": 1,
+      "message": "), extra checks are",
+      "range": {
+        "startLine": 10,
+        "startChar": 22,
+        "endLine": 10,
+        "endChar": 41
+      },
+      "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71f6917a_b069dffb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-17T19:31:07Z",
+      "side": 1,
+      "message": "Would it be possible to mostly preserve this class as the ReviewDB implementation, thus instead provide a new class or implementation for NoteDB? With maybe binding either one depending on the configured DB? An interface might be required.\n\nBasically wondering if this can be done while minimizing changes in upstream branches as we\u0027d merge this up. Meaning, considering the gradual disappearance of ReviewDB in upstream versions.\n\nIf this class is the one becoming the NoteDB implementation upstream, then it might be worth it to start doing so here. This would mean doing the opposite of what I bring up in the above first paragraph: change this class so it becomes NoteDB, and extract ReviewDB to another.",
+      "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
