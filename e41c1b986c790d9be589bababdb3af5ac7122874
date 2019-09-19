@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70c74010_1dd5cb0d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2019-09-19T15:35:23Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this now be .insert?\n\nIIUC, this code wants to delete watches on the oldProjectKey and create (not update)\nwatches on the newProjectKey?",
+      "revId": "e41c1b986c790d9be589bababdb3af5ac7122874",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
