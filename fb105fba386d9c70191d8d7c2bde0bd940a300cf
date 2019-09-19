@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "09e74b58_5014267f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-19T19:59:06Z",
+      "side": 1,
+      "message": "I think you forgot to push that \u00271. Done\u0027(?)\n\nBy 2. I mean, no need I think to mention the name of the project in the commit message this way. We already know that this change or commit is about rename-project (this very repository).",
+      "parentUuid": "bdd75406_c15af953",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08d41049_e8686354",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "08d41049_e8686354",
+      "range": {
+        "startLine": 9,
+        "startChar": 17,
+        "endLine": 9,
+        "endChar": 25
+      },
+      "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96aec6e1_bc185c1c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-19T19:59:06Z",
+      "side": 1,
+      "message": "Pushed?",
+      "parentUuid": "abd9c990_ea649070",
       "range": {
         "startLine": 9,
         "startChar": 17,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "ae3dd21e_8896b5ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-19T19:59:06Z",
+      "side": 1,
+      "message": "(Pushed?)",
+      "parentUuid": "683743e2_2c6bf266",
+      "range": {
+        "startLine": 10,
+        "startChar": 22,
+        "endLine": 10,
+        "endChar": 41
+      },
+      "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71f6917a_b069dffb",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
         "patchSetId": 4
@@ -172,6 +244,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "71f6917a_b069dffb",
+      "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "986c635c_e55ab69f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-19T19:59:06Z",
+      "side": 1,
+      "message": "Because of the other missing patch pushes, I wonder if this one was fully pushed (or not).",
+      "parentUuid": "87c3c8c6_45ebde2b",
       "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
