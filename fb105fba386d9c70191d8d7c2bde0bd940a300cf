@@ -337,6 +337,24 @@
       "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35426806_f674b98e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-20T20:21:20Z",
+      "side": 1,
+      "message": "Seems not (yet), right? -Or this could still be WIP(?)",
+      "parentUuid": "986c635c_e55ab69f",
+      "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
