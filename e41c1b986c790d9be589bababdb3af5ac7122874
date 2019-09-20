@@ -16,6 +16,24 @@
       "revId": "e41c1b986c790d9be589bababdb3af5ac7122874",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf9802c0_fa7effab",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-20T12:59:32Z",
+      "side": 1,
+      "message": ".insert() will insert a new account for us, but we want to just update some properties (in our case watched projects). That\u0027s why it is .update here. However, I agree that the message will need to be changed.\n\nYes, the code will add a new project to watched projects and then remove the old project. (since project name got changed watched project name should also be changed under account-\u003ewatched projects to reflect that)",
+      "parentUuid": "70c74010_1dd5cb0d",
+      "revId": "e41c1b986c790d9be589bababdb3af5ac7122874",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
