@@ -64,9 +64,14 @@ public class DatabaseRenameHandler {
 
   public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws OrmException {
     log.debug("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
+    ReviewDb db = schemaFactory.open();
+    return getChangeIdsFromReviewDb(oldProjectKey, db);
+  }
 
+  private List<Change.Id> getChangeIdsFromReviewDb(Project.NameKey oldProjectKey, ReviewDb db)
+      throws OrmException {
     List<Change.Id> changeIds = new ArrayList<>();
-    Connection conn = ((JdbcSchema) schemaFactory.open()).getConnection();
+    Connection conn = ((JdbcSchema) db).getConnection();
     String query =
         "select change_id from changes where dest_project_name ='" + oldProjectKey.get() + "';";
     try (Statement stmt = conn.createStatement();
@@ -92,7 +97,17 @@ public class DatabaseRenameHandler {
       ProgressMonitor pm)
       throws OrmException {
     pm.beginTask("Updating changes in the database");
-    Connection conn = ((JdbcSchema) schemaFactory.open()).getConnection();
+    ReviewDb db = schemaFactory.open();
+    return renameInReviewDb(changes, oldProjectKey, newProjectKey, db);
+  }
+
+  private List<Change.Id> renameInReviewDb(
+      List<Change.Id> changes,
+      Project.NameKey oldProjectKey,
+      Project.NameKey newProjectKey,
+      ReviewDb db)
+      throws OrmException {
+    Connection conn = ((JdbcSchema) db).getConnection();
     try (Statement stmt = conn.createStatement()) {
       conn.setAutoCommit(false);
       try {
