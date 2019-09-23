@@ -92,7 +92,17 @@ public class DatabaseRenameHandler {
       ProgressMonitor pm)
       throws OrmException {
     pm.beginTask("Updating changes in the database");
-    Connection conn = ((JdbcSchema) schemaFactory.open()).getConnection();
+    ReviewDb db = schemaFactory.open();
+    return renameInReviewDb(changes, oldProjectKey, newProjectKey, db);
+  }
+
+  private List<Change.Id> renameInReviewDb(
+      List<Change.Id> changes,
+      Project.NameKey oldProjectKey,
+      Project.NameKey newProjectKey,
+      ReviewDb db)
+      throws OrmException {
+    Connection conn = ((JdbcSchema) db).getConnection();
     try (Statement stmt = conn.createStatement()) {
       conn.setAutoCommit(false);
       try {
