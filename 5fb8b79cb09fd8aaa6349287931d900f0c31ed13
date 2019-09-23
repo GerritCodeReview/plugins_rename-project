@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb7e411f_e023aa61",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-23T15:39:16Z",
+      "side": 1,
+      "message": "Merge this added list (block) of declarations with the existing private-final one above?",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 67
+      },
+      "revId": "5fb8b79cb09fd8aaa6349287931d900f0c31ed13",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0ca9be0_a3b3b52c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-23T15:39:16Z",
+      "side": 1,
+      "message": "We usually either insert or append (better here) such new parameters -added to the list.",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 79,
+        "endChar": 41
+      },
+      "revId": "5fb8b79cb09fd8aaa6349287931d900f0c31ed13",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1829dea_d4f80405",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-23T15:39:16Z",
+      "side": 1,
+      "message": "This addition would then follow the same logic as above.",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 37
+      },
+      "revId": "5fb8b79cb09fd8aaa6349287931d900f0c31ed13",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5010716e_3c507b9d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-23T15:39:16Z",
+      "side": 1,
+      "message": "Rename to \u0027db\u0027?",
+      "range": {
+        "startLine": 96,
+        "startChar": 13,
+        "endLine": 96,
+        "endChar": 19
+      },
+      "revId": "5fb8b79cb09fd8aaa6349287931d900f0c31ed13",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "deafae9a_c39b213c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-23T15:39:16Z",
+      "side": 1,
+      "message": "Would assign this field only once successfully passed line 100 below. Meaning, only right before starting to potentially alter changeNotes. Just to make sure that this field doesn\u0027t get properly provisioned (with a usable value assumed) too prematurely -in case of exceptions thrown herein.",
+      "range": {
+        "startLine": 97,
+        "startChar": 4,
+        "endLine": 97,
+        "endChar": 39
+      },
+      "revId": "5fb8b79cb09fd8aaa6349287931d900f0c31ed13",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd133105_00852464",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-23T15:39:16Z",
+      "side": 1,
+      "message": "Would extract into a local variable.",
+      "range": {
+        "startLine": 99,
+        "startChar": 33,
+        "endLine": 99,
+        "endChar": 74
+      },
+      "revId": "5fb8b79cb09fd8aaa6349287931d900f0c31ed13",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

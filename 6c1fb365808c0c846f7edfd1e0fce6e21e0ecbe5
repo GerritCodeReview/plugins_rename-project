@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "140596d4_5e612e8b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-23T15:39:16Z",
+      "side": 0,
+      "message": "This altered code above is moving as per this change or so. Such preparatory refactorings can be effectively reviewed only when split into their own base change(s). Needed then is a review-able balance between too many changes or commits and just one heavily squashed. -I\u0027m pausing my review here until we can resume it that way; thanks.",
+      "revId": "6c1fb365808c0c846f7edfd1e0fce6e21e0ecbe5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
