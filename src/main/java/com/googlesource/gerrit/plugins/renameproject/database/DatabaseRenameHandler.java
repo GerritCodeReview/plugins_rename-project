@@ -23,6 +23,10 @@ import com.google.gerrit.server.account.WatchConfig;
 import com.google.gerrit.server.account.WatchConfig.Accessor;
 import com.google.gerrit.server.account.WatchConfig.NotifyType;
 import com.google.gerrit.server.account.WatchConfig.ProjectWatchKey;
+import com.google.gerrit.server.git.GitRepositoryManager;
+import com.google.gerrit.server.notedb.ChangeNotes;
+import com.google.gerrit.server.notedb.ChangeNotes.Factory.ChangeNotesResult;
+import com.google.gerrit.server.notedb.NotesMigration;
 import com.google.gerrit.server.query.account.InternalAccountQuery;
 import com.google.gwtorm.jdbc.JdbcSchema;
 import com.google.gwtorm.server.OrmException;
@@ -37,9 +41,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Stream;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,22 +55,35 @@ public class DatabaseRenameHandler {
   private static final Logger log = LoggerFactory.getLogger(DatabaseRenameHandler.class);
 
   private final SchemaFactory<ReviewDb> schemaFactory;
+  private final ChangeNotes.Factory schemaFactoryNoteDb;
+  private final GitRepositoryManager repoManager;
   private final Provider<InternalAccountQuery> accountQueryProvider;
   private final Provider<Accessor> watchConfig;
+  private NotesMigration migration;
 
   @Inject
   public DatabaseRenameHandler(
       SchemaFactory<ReviewDb> schemaFactory,
+      ChangeNotes.Factory schemaFactoryNoteDb,
+      GitRepositoryManager repoManager,
+      NotesMigration migration,
       Provider<InternalAccountQuery> accountQueryProvider,
       Provider<WatchConfig.Accessor> watchConfig) {
     this.accountQueryProvider = accountQueryProvider;
     this.watchConfig = watchConfig;
     this.schemaFactory = schemaFactory;
+    this.schemaFactoryNoteDb = schemaFactoryNoteDb;
+    this.repoManager = repoManager;
+    this.migration = migration;
   }
 
-  public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws OrmException {
+  public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey)
+      throws OrmException, IOException {
     log.debug("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
-    return getChangeIdsFromReviewDb(oldProjectKey, schemaFactory.open());
+    ReviewDb db = schemaFactory.open();
+    return (isNoteDb())
+        ? getChangeIdsFromNoteDb(oldProjectKey, db)
+        : getChangeIdsFromReviewDb(oldProjectKey, db);
   }
 
   private List<Change.Id> getChangeIdsFromReviewDb(Project.NameKey oldProjectKey, ReviewDb db)
@@ -80,7 +99,7 @@ public class DatabaseRenameHandler {
         changeIds.add(changeId);
       }
       log.debug(
-          "Number of changes related to the project {} are {}",
+          "Number of changes in reviewDb related to the project {} are {}",
           oldProjectKey.get(),
           changeIds.size());
       return changeIds;
@@ -89,14 +108,39 @@ public class DatabaseRenameHandler {
     }
   }
 
+  private List<Change.Id> getChangeIdsFromNoteDb(Project.NameKey oldProjectKey, ReviewDb db)
+      throws IOException {
+    List<Change.Id> changeIds = new ArrayList<>();
+    Stream<ChangeNotesResult> changes =
+        schemaFactoryNoteDb.scan(repoManager.openRepository(oldProjectKey), db, oldProjectKey);
+    Iterator<ChangeNotesResult> iterator = changes.iterator();
+    while (iterator.hasNext()) {
+      ChangeNotesResult change = iterator.next();
+      Change.Id changeId = change.id();
+      changeIds.add(changeId);
+    }
+    log.debug(
+        "Number of changes in noteDb related to the project {} are {}",
+        oldProjectKey.get(),
+        changeIds.size());
+    return changeIds;
+  }
+
+  private boolean isNoteDb() {
+    return migration.disableChangeReviewDb();
+  }
+
   public List<Change.Id> rename(
       List<Change.Id> changes,
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
       ProgressMonitor pm)
-      throws OrmException {
+      throws OrmException, IOException {
     pm.beginTask("Updating changes in the database");
-    return renameInReviewDb(changes, oldProjectKey, newProjectKey, schemaFactory.open());
+    ReviewDb db = schemaFactory.open();
+    return (isNoteDb())
+        ? renameInNoteDb(changes, oldProjectKey, newProjectKey)
+        : renameInReviewDb(changes, oldProjectKey, newProjectKey, db);
   }
 
   private List<Change.Id> renameInReviewDb(
@@ -109,7 +153,7 @@ public class DatabaseRenameHandler {
     try (Statement stmt = conn.createStatement()) {
       conn.setAutoCommit(false);
       try {
-        log.debug("Updating the changes in the DB related to project {}", oldProjectKey.get());
+        log.debug("Updating the changes in reviewDb related to project {}", oldProjectKey.get());
         for (Change.Id cd : changes) {
           stmt.addBatch(
               "update changes set dest_project_name='"
@@ -122,7 +166,7 @@ public class DatabaseRenameHandler {
         updateWatchEntries(oldProjectKey, newProjectKey);
         conn.commit();
         log.debug(
-            "Successfully updated the changes in the DB related to project {}",
+            "Successfully updated the changes in reviewDb related to project {}",
             oldProjectKey.get());
         return changes;
       } finally {
@@ -131,7 +175,7 @@ public class DatabaseRenameHandler {
     } catch (SQLException e) {
       try {
         log.error(
-            "Failed to update changes in the DB for the project {}, rolling back the operation.",
+            "Failed to update changes in reviewDb for the project {}, rolling back the operation.",
             oldProjectKey.get());
         conn.rollback();
       } catch (SQLException ex) {
@@ -139,6 +183,30 @@ public class DatabaseRenameHandler {
       }
       throw new OrmException(e);
     }
+  }
+
+  private List<Change.Id> renameInNoteDb(
+      List<Change.Id> changes, Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
+      throws OrmException {
+    log.debug("Updating the changes in noteDb related to project {}", oldProjectKey.get());
+    try {
+      updateWatchEntries(oldProjectKey, newProjectKey);
+    } catch (OrmException e) {
+      log.error(
+          "Failed to update changes in noteDb for the project {}, rolling back the operation.",
+          oldProjectKey.get());
+      try {
+        updateWatchEntries(newProjectKey, oldProjectKey);
+      } catch (OrmException ex) {
+        log.error("Failed to revert watched projects after catching {}", e.getMessage());
+        throw ex;
+      }
+      throw e;
+    }
+
+    log.debug(
+        "Successfully updated the changes in noteDb related to project {}", oldProjectKey.get());
+    return changes;
   }
 
   private void updateWatchEntries(Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
