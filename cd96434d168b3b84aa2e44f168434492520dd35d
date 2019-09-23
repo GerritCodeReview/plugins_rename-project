@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15a13115_5abc9719",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-23T15:10:14Z",
+      "side": 1,
+      "message": "Should be oldProjectKey",
+      "range": {
+        "startLine": 160,
+        "startChar": 70,
+        "endLine": 160,
+        "endChar": 83
+      },
+      "revId": "cd96434d168b3b84aa2e44f168434492520dd35d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
