@@ -355,6 +355,24 @@
       "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "acb4a0da_f8dc3b54",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-23T14:59:37Z",
+      "side": 1,
+      "message": "\u003e Seems not (yet), right? -Or this could still be WIP(?)\n\nKhang just told me that this latest patch is the one ready for review.",
+      "parentUuid": "35426806_f674b98e",
+      "revId": "fb105fba386d9c70191d8d7c2bde0bd940a300cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
