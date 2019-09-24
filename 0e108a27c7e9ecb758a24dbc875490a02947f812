@@ -1,0 +1,216 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a007cfab_2039bd89",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T18:38:02Z",
+      "side": 1,
+      "message": "Missing a blank line as these look like two paragraphs.",
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73ec36fc_409f557c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T18:38:02Z",
+      "side": 1,
+      "message": "Reverting the (typo)",
+      "range": {
+        "startLine": 152,
+        "startChar": 24,
+        "endLine": 152,
+        "endChar": 32
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76b4d045_277a157a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T18:38:02Z",
+      "side": 1,
+      "message": "Should an attempt at doing dbHandler.rename from new to old be made, here?\n\nShould a debug log trace then be inserted after, for consistency?",
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d1af28d_bab93630",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T18:38:02Z",
+      "side": 1,
+      "message": "failed (would rename this)",
+      "range": {
+        "startLine": 155,
+        "startChar": 27,
+        "endLine": 155,
+        "endChar": 29
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba8a35ec_927d270f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T18:38:02Z",
+      "side": 1,
+      "message": "If an exception gets thrown back above, what is the lock state of newProjectKey?",
+      "range": {
+        "startLine": 166,
+        "startChar": 24,
+        "endLine": 166,
+        "endChar": 45
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e0013c2_49c991eb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T18:38:02Z",
+      "side": 1,
+      "message": "If the rename (or revert) partially worked above for some changeIds, should this also be done before letting exceptions throw up (above)?",
+      "range": {
+        "startLine": 170,
+        "startChar": 27,
+        "endLine": 170,
+        "endChar": 51
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b6ba240_cdc79a5f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T18:38:02Z",
+      "side": 1,
+      "message": "Based on the use of \u0027ex\u0027, should it also be set in above cases of exceptions being catched and re-thrown?",
+      "range": {
+        "startLine": 174,
+        "startChar": 6,
+        "endLine": 174,
+        "endChar": 8
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02dfe6be_8adb3e04",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T18:38:02Z",
+      "side": 1,
+      "message": "If willing to revert in this case here too, some calls to fsHandler.rename and cacheHandler.update would be as necessary.",
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4468bae2_ef930dbb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T18:38:02Z",
+      "side": 1,
+      "message": "Would this need an onRenameRevert as well? Also, this onRename call is done no matter if the rename was successful or not (reverted -or not); normal?",
+      "range": {
+        "startLine": 177,
+        "startChar": 6,
+        "endLine": 177,
+        "endChar": 15
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cae73676_c1c22ee7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T18:38:02Z",
+      "side": 1,
+      "message": "Why this move? Would also not introduce that many blank lines.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 0
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
