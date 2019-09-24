@@ -138,15 +138,29 @@ public class RenameProject {
       throws InterruptedException, OrmException, ConfigInvalidException, IOException {
     Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
     Project.NameKey newProjectKey = new Project.NameKey(input.name);
+    List<Change.Id> updatedChangeIds = null;
     Exception ex = null;
     try {
       fsHandler.rename(oldProjectKey, newProjectKey, pm);
       log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
       cacheHandler.update(rsrc.getControl().getProject(), newProjectKey);
 
-      List<Change.Id> updatedChangeIds =
-          dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
-      log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
+      try {
+        updatedChangeIds = dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
+        log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
+      } catch (Exception e) {
+        try {
+          log.debug("Update changes in DB failed, reverting changes");
+          pm.beginTask("Reverting the rename procedure");
+          fsHandler.rename(newProjectKey, oldProjectKey, pm);
+          log.debug("Renamed the git repo back to {} successfully.", oldProjectKey.get());
+          cacheHandler.update(rsrc.getControl().getProject(), oldProjectKey);
+        } catch (Exception revertException) {
+          log.error("Failed to revert git repo to {}.", oldProjectKey.get());
+          throw revertException;
+        }
+        throw e;
+      }
 
       // if the DB update is successful, update the secondary index
       indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
@@ -155,14 +169,13 @@ public class RenameProject {
       lockUnlockProject.unlock(newProjectKey);
       log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
 
-      // flush old changeId -> Project cache for given changeIds
-      changeIdProjectCache.invalidateAll(changeIds);
-
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
     } catch (Exception e) {
       ex = e;
       throw e;
     } finally {
+      // flush old changeId -> Project cache for given changeIds
+      changeIdProjectCache.invalidateAll(changeIds);
       renameLog.onRename((IdentifiedUser) userProvider.get(), oldProjectKey, input, ex);
     }
   }
