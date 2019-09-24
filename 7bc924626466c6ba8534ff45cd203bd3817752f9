@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fda9658_aac1d6dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T16:17:18Z",
+      "side": 1,
+      "message": "Merge into just the slogan? E.g., could replace all with this:\n\nDatabaseRenameHandler: Prepare for noteDb support",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 67
+      },
+      "revId": "7bc924626466c6ba8534ff45cd203bd3817752f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b88c3f7_98028e65",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T16:17:18Z",
+      "side": 1,
+      "message": "schemaFactory.open() -Would inline then remove the introduced \u0027db\u0027 local variable.",
+      "range": {
+        "startLine": 68,
+        "startChar": 51,
+        "endLine": 68,
+        "endChar": 53
+      },
+      "revId": "7bc924626466c6ba8534ff45cd203bd3817752f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08a9adc1_c76143fe",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T16:17:18Z",
+      "side": 1,
+      "message": "Alternative is to continue using schemaFactory[.open()], here, removing the \u0027db\u0027 parameter.",
+      "range": {
+        "startLine": 74,
+        "startChar": 36,
+        "endLine": 74,
+        "endChar": 38
+      },
+      "revId": "7bc924626466c6ba8534ff45cd203bd3817752f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a987b7e7_3e9b291a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-24T16:17:18Z",
+      "side": 1,
+      "message": "Same comments as above would apply here too.",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 110,
+        "endChar": 38
+      },
+      "revId": "7bc924626466c6ba8534ff45cd203bd3817752f9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
