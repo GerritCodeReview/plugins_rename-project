@@ -16,7 +16,6 @@ package com.googlesource.gerrit.plugins.renameproject.database;
 
 import com.google.gerrit.reviewdb.client.Account;
 import com.google.gerrit.reviewdb.client.Change;
-import com.google.gerrit.reviewdb.client.Change.Id;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.server.DisallowReadFromChangesReviewDbWrapper;
 import com.google.gerrit.reviewdb.server.ReviewDb;
@@ -43,10 +42,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -67,7 +63,6 @@ public class DatabaseRenameHandler {
   private final Provider<InternalAccountQuery> accountQueryProvider;
   private final Provider<CurrentUser> userProvider;
   private final Provider<Accessor> watchConfig;
-  private final Map<Id, ChangeNotes> changeNotes = new HashMap<>();
 
   @Inject
   public DatabaseRenameHandler(
@@ -128,7 +123,6 @@ public class DatabaseRenameHandler {
       ChangeNotesResult change = iterator.next();
       Change.Id changeId = change.id();
       changeIds.add(changeId);
-      changeNotes.put(changeId, change.notes());
     }
     log.debug(
         "Number of changes in noteDb related to the project {} are {}",
@@ -180,18 +174,37 @@ public class DatabaseRenameHandler {
             "Successfully updated the changes in reviewDb related to project {}",
             oldProjectKey.get());
         return changes;
+      } catch (SQLException | OrmException e) {
+        try {
+          log.error(
+              "Failed to update changes in reviewDb for the project {}, Exception caught: {}. Rolling back the operation.",
+              oldProjectKey.get(),
+              e.toString());
+          conn.rollback();
+        } catch (SQLException revertEx) {
+          log.error(
+              "Failed to rollback changes in reviewDb from project {} to project {}, exception caught {}",
+              newProjectKey.get(),
+              oldProjectKey.get(),
+              revertEx.toString());
+          throw new OrmException(revertEx);
+        }
+        try {
+          updateWatchEntries(newProjectKey, oldProjectKey);
+
+        } catch (OrmException revertEx) {
+          log.error(
+              "Failed to update watched changes in reviewDb from project {} to project {}, exception caught {}",
+              newProjectKey.get(),
+              oldProjectKey.get(),
+              revertEx.toString());
+        }
+
+        throw new OrmException(e);
       } finally {
         conn.setAutoCommit(true);
       }
     } catch (SQLException e) {
-      try {
-        log.error(
-            "Failed to update changes in reviewDb for the project {}, rolling back the operation.",
-            oldProjectKey.get());
-        conn.rollback();
-      } catch (SQLException ex) {
-        throw new OrmException(ex);
-      }
       throw new OrmException(e);
     }
   }
@@ -204,51 +217,23 @@ public class DatabaseRenameHandler {
       updateWatchEntries(oldProjectKey, newProjectKey);
     } catch (OrmException e) {
       log.error(
-          "Failed to update changes in noteDb for the project {}, rolling back the operation.",
-          oldProjectKey.get());
+          "Failed to update changes in noteDb for the project {}, rolling back the operation. Exception {}",
+          oldProjectKey.get(),
+          e.toString());
+      try {
+        updateWatchEntries(newProjectKey, oldProjectKey);
+      } catch (OrmException revertEx) {
+        log.error(
+            "Failed to rollback changes in noteDb for the project {}, Exception caught: {}",
+            oldProjectKey.get(),
+            revertEx.toString());
+        throw revertEx;
+      }
       throw e;
     }
-
     log.debug(
         "Successfully updated the changes in noteDb related to project {}", oldProjectKey.get());
     return changes;
-  }
-
-  private void rollback(
-      List<Change> changes, Project.NameKey newProjectKey, Project.NameKey oldProjectKey) {
-    Date from = Date.from(Instant.now());
-    changes.forEach(
-        change -> {
-          ChangeNotes notes = changeNotes.get(change.getId());
-          ChangeUpdate revert = updateFactory.create(notes, userProvider.get(), from);
-          revert.setRevertOf(change.getChangeId());
-          try {
-            revert.commit();
-          } catch (IOException | OrmException ex) {
-            log.error(
-                "Failed to rollback change {} in noteDb from project {} to {}; rolling back others still.",
-                change.getChangeId(),
-                newProjectKey.get(),
-                oldProjectKey.get());
-          }
-        });
-    try {
-      updateWatchEntries(newProjectKey, oldProjectKey);
-    } catch (OrmException ex) {
-      log.error("Failed to revert watched projects");
-    }
-  }
-
-  private List<ChangeUpdate> getChangeUpdates(
-      List<Change.Id> changeIds, Project.NameKey nameKey, ReviewDb db) throws OrmException {
-    List<ChangeUpdate> updates = new ArrayList<>();
-    Date from = Date.from(Instant.now());
-    for (Id changeId : changeIds) {
-      ChangeNotes notes = schemaFactoryNoteDb.create(db, nameKey, changeId);
-      ChangeUpdate update = updateFactory.create(notes, userProvider.get(), from);
-      updates.add(update);
-    }
-    return updates;
   }
 
   private void updateWatchEntries(Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
