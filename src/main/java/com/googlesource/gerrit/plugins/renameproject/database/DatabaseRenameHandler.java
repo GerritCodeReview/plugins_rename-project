@@ -106,8 +106,10 @@ public class DatabaseRenameHandler {
                   + ";");
         }
         stmt.executeBatch();
-        updateWatchEntries(oldProjectKey, newProjectKey);
         conn.commit();
+
+        updateWatchEntries(oldProjectKey, newProjectKey);
+
         log.debug(
             "Successfully updated the changes in the DB related to project {}",
             oldProjectKey.get());
