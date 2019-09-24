@@ -34,6 +34,7 @@ import com.google.gwtorm.server.SchemaFactory;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
+import com.googlesource.gerrit.plugins.renameproject.RenameException;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.sql.Connection;
@@ -135,7 +136,7 @@ public class DatabaseRenameHandler {
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
       ProgressMonitor pm)
-      throws OrmException, IOException {
+      throws OrmException, RenameException {
     pm.beginTask("Updating changes in the database");
     ReviewDb db = schemaFactory.open();
     return (isNoteDb())
@@ -169,41 +170,70 @@ public class DatabaseRenameHandler {
             "Successfully updated the changes in reviewDb related to project {}",
             oldProjectKey.get());
         return changes;
+      } catch (SQLException | OrmException e) {
+        try {
+          log.error(
+              "Failed to update changes in reviewDb for the project {}, Exception caught: {}. Rolling back the operation.",
+              oldProjectKey.get(),
+              e.toString());
+          conn.rollback();
+        } catch (SQLException revertEx) {
+          log.error(
+              "Failed to rollback changes in reviewDb from project {} to project {}, exception caught {}",
+              newProjectKey.get(),
+              oldProjectKey.get(),
+              revertEx.toString());
+          throw new RenameException(
+              "Failed to revert after failed rename. Revert cause: " + e.getMessage(),
+              revertEx.initCause(e));
+        }
+        try {
+          updateWatchEntries(newProjectKey, oldProjectKey);
+
+        } catch (OrmException revertEx) {
+          log.error(
+              "Failed to update watched changes in reviewDb from project {} to project {}, exception caught {}",
+              newProjectKey.get(),
+              oldProjectKey.get(),
+              revertEx.toString());
+          throw new RenameException(
+              "Failed to revert after failed rename. Revert cause: " + e.getMessage(),
+              revertEx.initCause(e));
+        }
+
+        throw new OrmException(e);
       } finally {
         conn.setAutoCommit(true);
       }
-    } catch (SQLException e) {
-      try {
-        log.error(
-            "Failed to update changes in reviewDb for the project {}, rolling back the operation.",
-            oldProjectKey.get());
-        conn.rollback();
-      } catch (SQLException ex) {
-        throw new OrmException(ex);
-      }
+    } catch (SQLException | RenameException e) {
       throw new OrmException(e);
     }
   }
 
   private List<Change.Id> renameInNoteDb(
       List<Change.Id> changes, Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
-      throws OrmException {
+      throws OrmException, RenameException {
     log.debug("Updating the changes in noteDb related to project {}", oldProjectKey.get());
     try {
       updateWatchEntries(oldProjectKey, newProjectKey);
     } catch (OrmException e) {
       log.error(
-          "Failed to update changes in noteDb for the project {}, rolling back the operation.",
-          oldProjectKey.get());
+          "Failed to update changes in noteDb for the project {}, rolling back the operation. Exception {}",
+          oldProjectKey.get(),
+          e.toString());
       try {
         updateWatchEntries(newProjectKey, oldProjectKey);
-      } catch (OrmException ex) {
-        log.error("Failed to revert watched projects after catching {}", e.getMessage());
-        throw ex;
+      } catch (OrmException revertEx) {
+        log.error(
+            "Failed to rollback changes in noteDb for the project {}, Exception caught: {}",
+            oldProjectKey.get(),
+            revertEx.toString());
+        throw new RenameException(
+            "Failed to revert after failed rename. Revert cause: " + e.getMessage(),
+            revertEx.initCause(e));
       }
       throw e;
     }
-
     log.debug(
         "Successfully updated the changes in noteDb related to project {}", oldProjectKey.get());
     return changes;
