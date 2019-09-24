@@ -190,6 +190,7 @@ public class DatabaseRenameHandler {
             "Failed to update changes in the reviewDb for the project {}, rolling back the operation.",
             oldProjectKey.get());
         conn.rollback();
+        updateWatchEntries(oldProjectKey, newProjectKey);
       } catch (SQLException ex) {
         throw new OrmException(ex);
       }
