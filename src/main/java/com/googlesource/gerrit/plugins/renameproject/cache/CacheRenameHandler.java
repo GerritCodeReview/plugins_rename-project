@@ -29,8 +29,8 @@ public class CacheRenameHandler {
     this.projectCache = projectCache;
   }
 
-  public void update(Project oldProject, Project.NameKey newProjectKey) {
-    projectCache.remove(oldProject);
-    projectCache.onCreateProject(newProjectKey);
+  public void update(Project.NameKey nameKeyToRemove, Project.NameKey nameKeyToAdd) {
+    projectCache.remove(nameKeyToRemove);
+    projectCache.onCreateProject(nameKeyToAdd);
   }
 }

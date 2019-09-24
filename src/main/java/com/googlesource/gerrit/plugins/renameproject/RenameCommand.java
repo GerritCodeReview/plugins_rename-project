@@ -68,7 +68,7 @@ public final class RenameCommand extends SshCommand {
           stdout.flush();
         }
       }
-    } catch (RestApiException | OrmException | IOException e) {
+    } catch (RestApiException | OrmException | IOException | RenameException e) {
       throw die(e);
     }
   }
