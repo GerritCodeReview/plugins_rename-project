@@ -34,6 +34,7 @@ import com.google.gwtorm.server.SchemaFactory;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
+import com.googlesource.gerrit.plugins.renameproject.RenameRevertException;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.sql.Connection;
@@ -99,7 +100,7 @@ public class DatabaseRenameHandler {
         changeIds.add(changeId);
       }
       log.debug(
-          "Number of changes in reviewDb related to the project {} are {}",
+          "Number of changes in reviewDb related to project {} are {}",
           oldProjectKey.get(),
           changeIds.size());
       return changeIds;
@@ -119,7 +120,7 @@ public class DatabaseRenameHandler {
       changeIds.add(change.id());
     }
     log.debug(
-        "Number of changes in noteDb related to the project {} are {}",
+        "Number of changes in noteDb related to project {} are {}",
         oldProjectKey.get(),
         changeIds.size());
     return changeIds;
@@ -134,7 +135,7 @@ public class DatabaseRenameHandler {
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
       ProgressMonitor pm)
-      throws OrmException, IOException {
+      throws OrmException, RenameRevertException {
     pm.beginTask("Updating changes in the database");
     ReviewDb db = schemaFactory.open();
     return (isNoteDb())
@@ -152,34 +153,56 @@ public class DatabaseRenameHandler {
     try (Statement stmt = conn.createStatement()) {
       conn.setAutoCommit(false);
       try {
-        log.debug("Updating the changes in reviewDb related to project {}", oldProjectKey.get());
-        for (Change.Id cd : changes) {
-          stmt.addBatch(
-              "update changes set dest_project_name='"
-                  + newProjectKey.get()
-                  + "' where change_id ="
-                  + cd.id
-                  + ";");
+        try {
+          log.debug("Updating the changes in reviewDb related to project {}", oldProjectKey.get());
+          for (Change.Id cd : changes) {
+            stmt.addBatch(
+                "update changes set dest_project_name='"
+                    + newProjectKey.get()
+                    + "' where change_id ="
+                    + cd.id
+                    + ";");
+          }
+          stmt.executeBatch();
+          conn.commit();
+        } catch (SQLException e) {
+          throw new OrmException(e);
         }
-        stmt.executeBatch();
         updateWatchEntries(oldProjectKey, newProjectKey);
-        conn.commit();
         log.debug(
             "Successfully updated the changes in reviewDb related to project {}",
             oldProjectKey.get());
         return changes;
+      } catch (OrmException e) {
+        try {
+          log.error(
+              "Failed to update changes in reviewDb for project {}, exception caught: {}. Rolling back the operation.",
+              oldProjectKey.get(),
+              e.toString());
+          conn.rollback();
+        } catch (SQLException revertEx) {
+          log.error(
+              "Failed to rollback changes in reviewDb from project {} to project {}, exception caught: {}",
+              newProjectKey.get(),
+              oldProjectKey.get(),
+              revertEx.toString());
+          throw new RenameRevertException(revertEx, e);
+        }
+        try {
+          updateWatchEntries(newProjectKey, oldProjectKey);
+        } catch (OrmException revertEx) {
+          log.error(
+              "Failed to update watched changes in reviewDb from project {} to project {}, exception caught: {}",
+              newProjectKey.get(),
+              oldProjectKey.get(),
+              revertEx.toString());
+          throw new RenameRevertException(revertEx, e);
+        }
+        throw e;
       } finally {
         conn.setAutoCommit(true);
       }
     } catch (SQLException e) {
-      try {
-        log.error(
-            "Failed to update changes in reviewDb for the project {}, rolling back the operation.",
-            oldProjectKey.get());
-        conn.rollback();
-      } catch (SQLException ex) {
-        throw new OrmException(ex);
-      }
       throw new OrmException(e);
     }
   }
@@ -232,12 +255,14 @@ public class DatabaseRenameHandler {
                 a.getUserName(),
                 newProjectKey.get(),
                 e);
+            throw new OrmException(e);
           } catch (IOException e) {
             log.error(
                 "Updating watch entry for user {} in project {} failed.",
                 a.getUserName(),
                 newProjectKey.get(),
                 e);
+            throw new OrmException(e);
           }
         }
       }
