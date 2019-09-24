@@ -46,7 +46,6 @@ import java.sql.Statement;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -67,7 +66,6 @@ public class DatabaseRenameHandler {
   private final Provider<InternalAccountQuery> accountQueryProvider;
   private final Provider<CurrentUser> userProvider;
   private final Provider<Accessor> watchConfig;
-  private final Map<Id, ChangeNotes> changeNotes = new HashMap<>();
 
   @Inject
   public DatabaseRenameHandler(
@@ -128,7 +126,6 @@ public class DatabaseRenameHandler {
       ChangeNotesResult change = iterator.next();
       Change.Id changeId = change.id();
       changeIds.add(changeId);
-      changeNotes.put(changeId, change.notes());
     }
     log.debug(
         "Number of changes in noteDb related to the project {} are {}",
@@ -180,19 +177,22 @@ public class DatabaseRenameHandler {
             "Successfully updated the changes in reviewDb related to project {}",
             oldProjectKey.get());
         return changes;
+      } catch (SQLException | OrmException e) {
+        try {
+          log.error(
+              "Failed to update changes in reviewDb for the project {}, rolling back the operation.",
+              oldProjectKey.get());
+          conn.rollback();
+          updateWatchEntries(newProjectKey, oldProjectKey);
+        } catch (SQLException revertEx) {
+          throw new OrmException(revertEx);
+        }
+        throw new OrmException(e);
       } finally {
         conn.setAutoCommit(true);
       }
-    } catch (SQLException e) {
-      try {
-        log.error(
-            "Failed to update changes in reviewDb for the project {}, rolling back the operation.",
-            oldProjectKey.get());
-        conn.rollback();
-      } catch (SQLException ex) {
-        throw new OrmException(ex);
-      }
-      throw new OrmException(e);
+    } catch (SQLException ex) {
+      throw new OrmException(ex);
     }
   }
 
@@ -203,20 +203,19 @@ public class DatabaseRenameHandler {
       ReviewDb db)
       throws OrmException, IOException {
     log.debug("Updating the changes in noteDb related to project {}", oldProjectKey.get());
-    List<Change> updated = new ArrayList<>();
     try {
       List<ChangeUpdate> updates = getChangeUpdates(changes, newProjectKey, db);
       try {
         for (ChangeUpdate update : updates) {
           update.commit();
-          updated.add(update.getChange());
         }
+
         updateWatchEntries(oldProjectKey, newProjectKey);
       } catch (OrmException | IOException e) {
         log.error(
             "Failed to update changes in noteDb for the project {}, rolling back the operation.",
             oldProjectKey.get());
-        rollback(updated, newProjectKey, oldProjectKey);
+        updateWatchEntries(newProjectKey, oldProjectKey);
         throw e;
       }
     } catch (OrmException e) {
@@ -226,31 +225,6 @@ public class DatabaseRenameHandler {
     log.debug(
         "Successfully updated the changes in noteDb related to project {}", oldProjectKey.get());
     return changes;
-  }
-
-  private void rollback(
-      List<Change> changes, Project.NameKey newProjectKey, Project.NameKey oldProjectKey) {
-    Date from = Date.from(Instant.now());
-    changes.forEach(
-        change -> {
-          ChangeNotes notes = changeNotes.get(change.getId());
-          ChangeUpdate revert = updateFactory.create(notes, userProvider.get(), from);
-          revert.setRevertOf(change.getChangeId());
-          try {
-            revert.commit();
-          } catch (IOException | OrmException ex) {
-            log.error(
-                "Failed to rollback change {} in noteDb from project {} to {}; rolling back others still.",
-                change.getChangeId(),
-                newProjectKey.get(),
-                oldProjectKey.get());
-          }
-        });
-    try {
-      updateWatchEntries(newProjectKey, oldProjectKey);
-    } catch (OrmException ex) {
-      log.error("Failed to revert watched projects");
-    }
   }
 
   private List<ChangeUpdate> getChangeUpdates(

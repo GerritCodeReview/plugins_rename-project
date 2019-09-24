@@ -46,6 +46,7 @@ import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.util.List;
 import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -138,33 +139,80 @@ public class RenameProject {
       throws InterruptedException, OrmException, ConfigInvalidException, IOException {
     Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
     Project.NameKey newProjectKey = new Project.NameKey(input.name);
+    List<Change.Id> updatedChangeIds;
     Exception ex = null;
+    revert whatToRevert = revert.ALL;
     try {
-      fsHandler.rename(oldProjectKey, newProjectKey, pm);
-      log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
-      cacheHandler.update(rsrc.getControl().getProject(), newProjectKey);
-
-      List<Change.Id> updatedChangeIds =
-          dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
-      log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
-
+      try {
+        fsHandler.rename(oldProjectKey, newProjectKey, pm);
+        log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
+        cacheHandler.update(rsrc.getControl().getProject(), newProjectKey);
+      } catch (IOException e) {
+        whatToRevert = revert.FS_RENAME;
+        throw e;
+      }
+      try {
+        updatedChangeIds = dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
+        log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
+      } catch (IOException | OrmException e) {
+        whatToRevert = revert.FS_RENAME;
+        throw e;
+      }
       // if the DB update is successful, update the secondary index
       indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
       log.debug("Updated the secondary index successfully for project {}.", oldProjectKey.get());
-
       lockUnlockProject.unlock(newProjectKey);
       log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
-
       // flush old changeId -> Project cache for given changeIds
       changeIdProjectCache.invalidateAll(changeIds);
-
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
     } catch (Exception e) {
+      log.debug("Renaming procedure failed. Reverting operations.");
+      try {
+        errorHandling(whatToRevert, changeIds, oldProjectKey, newProjectKey, pm);
+      } catch (Exception revertEx) {
+        log.error("Failed to revert renaming procedure for {}", oldProjectKey.get());
+        ex = revertEx;
+        throw revertEx;
+      }
       ex = e;
       throw e;
     } finally {
       renameLog.onRename((IdentifiedUser) userProvider.get(), oldProjectKey, input, ex);
     }
+  }
+
+  private enum revert {
+    FS_RENAME,
+    DB_RENAME,
+    ALL
+  }
+
+  private void errorHandling(
+      revert revertFrom,
+      List<Change.Id> changeIds,
+      Project.NameKey oldProjectKey,
+      Project.NameKey newProjectKey,
+      ProgressMonitor pm)
+      throws IOException, OrmException, InterruptedException {
+    pm.beginTask("Reverting the rename procedure.");
+    try {
+      fsHandler.rename(newProjectKey, oldProjectKey, pm);
+    } catch (RepositoryNotFoundException e) {
+      log.debug("Revert: Expected error caught, new repository was not created yet.");
+    }
+
+    log.debug("Revert: Renamed the git repo to {} successfully.", oldProjectKey.get());
+    cacheHandler.update(newProjectKey, oldProjectKey);
+    if (revertFrom == revert.FS_RENAME) return;
+    List<Change.Id> updatedChangeIds =
+        dbHandler.rename(changeIds, newProjectKey, oldProjectKey, pm);
+    log.debug(
+        "Revert: Updated the changes in DB successfully for project {}.", newProjectKey.get());
+    if (revertFrom == revert.DB_RENAME) return;
+    indexHandler.updateIndex(updatedChangeIds, oldProjectKey, pm);
+    log.debug(
+        "Revert: Updated the secondary index successfully for project {}.", newProjectKey.get());
   }
 
   List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm)
