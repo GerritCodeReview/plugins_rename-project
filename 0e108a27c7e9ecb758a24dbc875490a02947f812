@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "df6e1d13_ad66a1dd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-24T19:59:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73ec36fc_409f557c",
+      "range": {
+        "startLine": 152,
+        "startChar": 24,
+        "endLine": 152,
+        "endChar": 32
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76b4d045_277a157a",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 1
@@ -56,6 +80,24 @@
       "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "758879a2_cfd0bace",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-24T19:59:55Z",
+      "side": 1,
+      "message": "I think dbHandler should resolve it from inside, then throw an Error out.\n\nAck",
+      "parentUuid": "76b4d045_277a157a",
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +124,30 @@
     },
     {
       "key": {
+        "uuid": "a68caeaf_116fcef6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-24T19:59:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d1af28d_bab93630",
+      "range": {
+        "startLine": 155,
+        "startChar": 27,
+        "endLine": 155,
+        "endChar": 29
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba8a35ec_927d270f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 1
@@ -102,6 +168,30 @@
       "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8844a10c_5dba7236",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-24T19:59:55Z",
+      "side": 1,
+      "message": "At this point the only thing that can fail is secondary index. Otherwise newProject was never crated to be unlocked. I am still not sure how harmful is secondary index.",
+      "parentUuid": "ba8a35ec_927d270f",
+      "range": {
+        "startLine": 166,
+        "startChar": 24,
+        "endLine": 166,
+        "endChar": 45
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -128,6 +218,30 @@
     },
     {
       "key": {
+        "uuid": "afd28090_b7d8572c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-24T19:59:55Z",
+      "side": 1,
+      "message": "I think we can make this step to be performed anyways, since it even if everything succeeds or fails flashing cache will not harm anything. I will move it to finally block.",
+      "parentUuid": "6e0013c2_49c991eb",
+      "range": {
+        "startLine": 170,
+        "startChar": 27,
+        "endLine": 170,
+        "endChar": 51
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b6ba240_cdc79a5f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 1
@@ -148,6 +262,30 @@
       "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46662b2d_96d4a45c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-24T19:59:55Z",
+      "side": 1,
+      "message": "This was done for the renameLog, to log all the errors that happens. Also all exceptions above will be caught here.",
+      "parentUuid": "0b6ba240_cdc79a5f",
+      "range": {
+        "startLine": 174,
+        "startChar": 6,
+        "endLine": 174,
+        "endChar": 8
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -191,6 +329,30 @@
     },
     {
       "key": {
+        "uuid": "503bafb6_d5d8a131",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-24T19:59:55Z",
+      "side": 1,
+      "message": "I think it is a normal behavior. We want to log all activities. Also one of the argument is ex, which is the exception caught above.",
+      "parentUuid": "4468bae2_ef930dbb",
+      "range": {
+        "startLine": 177,
+        "startChar": 6,
+        "endLine": 177,
+        "endChar": 15
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cae73676_c1c22ee7",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
         "patchSetId": 1
@@ -211,6 +373,30 @@
       "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1406ff9_c1f58e2d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-24T19:59:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cae73676_c1c22ee7",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 0
+      },
+      "revId": "0e108a27c7e9ecb758a24dbc875490a02947f812",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
