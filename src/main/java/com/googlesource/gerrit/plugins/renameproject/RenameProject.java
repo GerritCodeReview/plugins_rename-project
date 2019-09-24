@@ -138,33 +138,65 @@ public class RenameProject {
       throws InterruptedException, OrmException, ConfigInvalidException, IOException {
     Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
     Project.NameKey newProjectKey = new Project.NameKey(input.name);
+    List<Change.Id> updatedChangeIds;
     Exception ex = null;
+    int progress = 0;
     try {
       fsHandler.rename(oldProjectKey, newProjectKey, pm);
       log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
       cacheHandler.update(rsrc.getControl().getProject(), newProjectKey);
+      progress += 1;
 
-      List<Change.Id> updatedChangeIds =
-          dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
+      updatedChangeIds = dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
       log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
-
+      progress += 1;
       // if the DB update is successful, update the secondary index
       indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
       log.debug("Updated the secondary index successfully for project {}.", oldProjectKey.get());
-
+      progress += 1;
       lockUnlockProject.unlock(newProjectKey);
       log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
+      progress += 1;
 
       // flush old changeId -> Project cache for given changeIds
       changeIdProjectCache.invalidateAll(changeIds);
 
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
     } catch (Exception e) {
+      log.debug("Renaming procedure failed. Reverting operations.");
+      try {
+        errorHandling(progress, changeIds, rsrc, oldProjectKey, newProjectKey, pm);
+      } catch (Exception revertEx) {
+        log.error("Failed to revert renaming procedure for {}", oldProjectKey.get());
+        ex = revertEx;
+        throw revertEx;
+      }
       ex = e;
       throw e;
     } finally {
       renameLog.onRename((IdentifiedUser) userProvider.get(), oldProjectKey, input, ex);
     }
+  }
+
+  private void errorHandling(
+      int progress,
+      List<Change.Id> changeIds,
+      ProjectResource rsrc,
+      Project.NameKey oldProjectKey,
+      Project.NameKey newProjectKey,
+      ProgressMonitor pm)
+      throws IOException, OrmException, InterruptedException {
+    pm.beginTask("Reverting the rename procedure. To do: " + progress);
+    List<Change.Id> updatedChangeIds;
+    fsHandler.rename(newProjectKey, oldProjectKey, pm);
+    log.debug("Renamed the git repo to {} successfully.", oldProjectKey.get());
+    cacheHandler.update(rsrc.getControl().getProject(), oldProjectKey);
+    if (progress == 1) return;
+    updatedChangeIds = dbHandler.rename(changeIds, newProjectKey, oldProjectKey, pm);
+    log.debug("Updated the changes in DB successfully for project {}.", newProjectKey.get());
+    if (progress == 2) return;
+    indexHandler.updateIndex(updatedChangeIds, oldProjectKey, pm);
+    log.debug("Updated the secondary index successfully for project {}.", newProjectKey.get());
   }
 
   List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm)
