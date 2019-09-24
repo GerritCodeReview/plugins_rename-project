@@ -132,7 +132,7 @@ public class DatabaseRenameHandler {
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
       ProgressMonitor pm)
-      throws OrmException, IOException {
+      throws OrmException {
     pm.beginTask("Updating changes in the database");
     ReviewDb db = schemaFactory.open();
     return (isNoteDb(db))
@@ -166,18 +166,37 @@ public class DatabaseRenameHandler {
             "Successfully updated the changes in reviewDb related to project {}",
             oldProjectKey.get());
         return changes;
+      } catch (SQLException | OrmException e) {
+        try {
+          log.error(
+              "Failed to update changes in reviewDb for the project {}, Exception caught: {}. Rolling back the operation.",
+              oldProjectKey.get(),
+              e.toString());
+          conn.rollback();
+        } catch (SQLException revertEx) {
+          log.error(
+              "Failed to rollback changes in reviewDb from project {} to project {}, exception caught {}",
+              newProjectKey.get(),
+              oldProjectKey.get(),
+              revertEx.toString());
+          throw new OrmException(revertEx);
+        }
+        try {
+          updateWatchEntries(newProjectKey, oldProjectKey);
+
+        } catch (OrmException revertEx) {
+          log.error(
+              "Failed to update watched changes in reviewDb from project {} to project {}, exception caught {}",
+              newProjectKey.get(),
+              oldProjectKey.get(),
+              revertEx.toString());
+        }
+
+        throw new OrmException(e);
       } finally {
         conn.setAutoCommit(true);
       }
     } catch (SQLException e) {
-      try {
-        log.error(
-            "Failed to update changes in reviewDb for the project {}, rolling back the operation.",
-            oldProjectKey.get());
-        conn.rollback();
-      } catch (SQLException ex) {
-        throw new OrmException(ex);
-      }
       throw new OrmException(e);
     }
   }
@@ -190,16 +209,20 @@ public class DatabaseRenameHandler {
       updateWatchEntries(oldProjectKey, newProjectKey);
     } catch (OrmException e) {
       log.error(
-          "Failed to update changes in noteDb for the project {}, rolling back the operation.",
-          oldProjectKey.get());
+          "Failed to update changes in noteDb for the project {}, rolling back the operation. Exception {}",
+          oldProjectKey.get(),
+          e.toString());
       try {
         updateWatchEntries(newProjectKey, oldProjectKey);
-      } catch (OrmException ex) {
-        log.error("Failed to revert watched projects");
+      } catch (OrmException revertEx) {
+        log.error(
+            "Failed to rollback changes in noteDb for the project {}, Exception caught: {}",
+            oldProjectKey.get(),
+            revertEx.toString());
+        throw revertEx;
       }
       throw e;
     }
-
     log.debug(
         "Successfully updated the changes in noteDb related to project {}", oldProjectKey.get());
     return changes;
