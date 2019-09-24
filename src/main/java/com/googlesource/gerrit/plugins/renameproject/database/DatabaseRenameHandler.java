@@ -164,8 +164,7 @@ public class DatabaseRenameHandler {
     try (Statement stmt = conn.createStatement()) {
       conn.setAutoCommit(false);
       try {
-        log.debug(
-            "Updating the changes in the reviewDb related to project {}", oldProjectKey.get());
+        log.debug("Updating the changes in reviewDb related to project {}", oldProjectKey.get());
         for (Change.Id cd : changes) {
           stmt.addBatch(
               "update changes set dest_project_name='"
@@ -178,7 +177,7 @@ public class DatabaseRenameHandler {
         updateWatchEntries(oldProjectKey, newProjectKey);
         conn.commit();
         log.debug(
-            "Successfully updated the changes in the reviewDb related to project {}",
+            "Successfully updated the changes in reviewDb related to project {}",
             oldProjectKey.get());
         return changes;
       } finally {
@@ -187,7 +186,7 @@ public class DatabaseRenameHandler {
     } catch (SQLException e) {
       try {
         log.error(
-            "Failed to update changes in the reviewDb for the project {}, rolling back the operation.",
+            "Failed to update changes in reviewDb for the project {}, rolling back the operation.",
             oldProjectKey.get());
         conn.rollback();
       } catch (SQLException ex) {
@@ -203,7 +202,7 @@ public class DatabaseRenameHandler {
       Project.NameKey newProjectKey,
       ReviewDb db)
       throws OrmException, IOException {
-    log.debug("Updating the changes in the noteDb related to project {}", oldProjectKey.get());
+    log.debug("Updating the changes in noteDb related to project {}", oldProjectKey.get());
     List<Change> updated = new ArrayList<>();
     try {
       List<ChangeUpdate> updates = getChangeUpdates(changes, newProjectKey, db);
@@ -215,7 +214,7 @@ public class DatabaseRenameHandler {
         updateWatchEntries(oldProjectKey, newProjectKey);
       } catch (OrmException | IOException e) {
         log.error(
-            "Failed to update changes in the noteDb for the project {}, rolling back the operation.",
+            "Failed to update changes in noteDb for the project {}, rolling back the operation.",
             oldProjectKey.get());
         rollback(updated, newProjectKey, oldProjectKey);
         throw e;
@@ -225,7 +224,7 @@ public class DatabaseRenameHandler {
       throw e;
     }
     log.debug(
-        "Successfully updated the changes in the DB related to project {}", oldProjectKey.get());
+        "Successfully updated the changes in noteDb related to project {}", oldProjectKey.get());
     return changes;
   }
 
@@ -241,7 +240,7 @@ public class DatabaseRenameHandler {
             revert.commit();
           } catch (IOException | OrmException ex) {
             log.error(
-                "Failed to rollback change {} in DB from project {} to {}; rolling back others still.",
+                "Failed to rollback change {} in noteDb from project {} to {}; rolling back others still.",
                 change.getChangeId(),
                 newProjectKey.get(),
                 oldProjectKey.get());
@@ -250,7 +249,7 @@ public class DatabaseRenameHandler {
     try {
       updateWatchEntries(newProjectKey, oldProjectKey);
     } catch (OrmException ex) {
-      log.error("Failed to revert watch propjects");
+      log.error("Failed to revert watched projects");
     }
   }
 
@@ -258,18 +257,11 @@ public class DatabaseRenameHandler {
       List<Change.Id> changeIds, Project.NameKey nameKey, ReviewDb db) throws OrmException {
     List<ChangeUpdate> updates = new ArrayList<>();
     Date from = Date.from(Instant.now());
-
-    changeIds.forEach(
-        changeId -> {
-          try {
-            ChangeNotes notes = schemaFactoryNoteDb.create(db, nameKey, changeId);
-            ChangeUpdate update = updateFactory.create(notes, userProvider.get(), from);
-            updates.add(update);
-          } catch (OrmException e) {
-            e.printStackTrace();
-          }
-        });
-    if (updates.size() != changeIds.size()) throw new OrmException("Failed to get change updates");
+    for (Id changeId : changeIds) {
+      ChangeNotes notes = schemaFactoryNoteDb.create(db, nameKey, changeId);
+      ChangeUpdate update = updateFactory.create(notes, userProvider.get(), from);
+      updates.add(update);
+    }
     return updates;
   }
 
