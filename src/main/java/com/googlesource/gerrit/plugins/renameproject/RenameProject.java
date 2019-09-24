@@ -44,6 +44,8 @@ import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
@@ -135,35 +137,113 @@ public class RenameProject {
   }
 
   void doRename(List<Change.Id> changeIds, ProjectResource rsrc, Input input, ProgressMonitor pm)
-      throws InterruptedException, OrmException, ConfigInvalidException, IOException {
+      throws InterruptedException, OrmException, ConfigInvalidException, IOException,
+          RenameException {
     Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
     Project.NameKey newProjectKey = new Project.NameKey(input.name);
+    List<Change.Id> updatedChangeIds;
     Exception ex = null;
+    List<Stage> stepsPerformed = new ArrayList<>();
     try {
       fsHandler.rename(oldProjectKey, newProjectKey, pm);
+      stepsPerformed.add(Stage.FS_STAGE);
       log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
-      cacheHandler.update(rsrc.getControl().getProject(), newProjectKey);
-
-      List<Change.Id> updatedChangeIds =
-          dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
+      cacheHandler.update(rsrc.getControl().getProject().getNameKey(), newProjectKey);
+      stepsPerformed.add(Stage.CACHE_STAGE);
+      updatedChangeIds = dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
+      stepsPerformed.add(Stage.DB_STAGE);
       log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
-
       // if the DB update is successful, update the secondary index
       indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
+      stepsPerformed.add(Stage.INDEX_STAGE);
       log.debug("Updated the secondary index successfully for project {}.", oldProjectKey.get());
-
+      // no need to revert this since newProjectKey will be removed from project cache before
       lockUnlockProject.unlock(newProjectKey);
       log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
-
       // flush old changeId -> Project cache for given changeIds
       changeIdProjectCache.invalidateAll(changeIds);
-
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
     } catch (Exception e) {
+      log.error(
+          "Renaming procedure failed. Reverting operations. Exception caught:{}", e.toString());
       ex = e;
+      try {
+        performRevert(stepsPerformed, changeIds, oldProjectKey, newProjectKey, pm);
+      } catch (Exception revertEx) {
+        log.error(
+            "Failed to Stage renaming procedure for {}. Exception caught: {}",
+            oldProjectKey.get(),
+            revertEx.toString());
+        throw new RenameException(
+            "Failed to revert after failed rename. Revert cause: " + e.getMessage(),
+            revertEx.initCause(e));
+      }
+
       throw e;
     } finally {
       renameLog.onRename((IdentifiedUser) userProvider.get(), oldProjectKey, input, ex);
+    }
+  }
+
+  private enum Stage {
+    FS_STAGE,
+    CACHE_STAGE,
+    DB_STAGE,
+    INDEX_STAGE
+  }
+
+  private void performRevert(
+      List<Stage> toRevert,
+      List<Change.Id> changeIds,
+      Project.NameKey oldProjectKey,
+      Project.NameKey newProjectKey,
+      ProgressMonitor pm)
+      throws IOException, OrmException, RenameException {
+    pm.beginTask("Reverting the rename procedure.");
+    if (toRevert.contains(Stage.FS_STAGE)) {
+      try {
+        fsHandler.rename(newProjectKey, oldProjectKey, pm);
+        log.debug("Stage: Renamed the git repo to {} successfully.", oldProjectKey.get());
+      } catch (IOException e) {
+        log.error(
+            "Failed to perform FS revert. Aborting revert. Exception caught: {}", e.toString());
+        throw e;
+      }
+    }
+    if (toRevert.contains(Stage.CACHE_STAGE)) {
+      cacheHandler.update(newProjectKey, oldProjectKey);
+      log.debug("Successfully removed project {} from project cache", newProjectKey.get());
+    }
+    List<Change.Id> updatedChangeIds = Collections.emptyList();
+    if (toRevert.contains(Stage.DB_STAGE)) {
+      try {
+        updatedChangeIds = dbHandler.rename(changeIds, newProjectKey, oldProjectKey, pm);
+        log.debug(
+            "Stage: Updated the changes in DB successfully from project {} to project {}.",
+            newProjectKey.get(),
+            oldProjectKey.get());
+      } catch (OrmException | RenameException e) {
+        log.error(
+            "Stage: Failed to Stage changes in DB for project {}. Exception caught: {}"
+                + "\nSecondary indexes are not going to be reverted",
+            oldProjectKey.get(),
+            e.toString());
+        throw e;
+      }
+    }
+    if (toRevert.contains(Stage.INDEX_STAGE)) {
+      try {
+        indexHandler.updateIndex(updatedChangeIds, oldProjectKey, pm);
+        log.debug(
+            "Stage: Updated the secondary index successfully from project {} to project {}.",
+            newProjectKey.get(),
+            oldProjectKey.get());
+      } catch (InterruptedException e) {
+        log.error(
+            "Stage: Secondary index update failed for {}. Exception caught: {}",
+            oldProjectKey.get(),
+            e.toString());
+      }
     }
   }
 
