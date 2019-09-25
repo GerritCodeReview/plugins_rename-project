@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "491abbbe_38facfe3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T14:53:37Z",
+      "side": 1,
+      "message": "How is this new method covered by tests, compared to the reviewDb case?",
+      "range": {
+        "startLine": 121,
+        "startChar": 26,
+        "endLine": 121,
+        "endChar": 48
+      },
+      "revId": "eb59effd0643e210d9bbc0d399850aff7d220448",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22083a85_fd6a0666",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T14:53:37Z",
+      "side": 1,
+      "message": "Is this a fix out of this change scope? If so, would move it to a follow-up change.",
+      "range": {
+        "startLine": 192,
+        "startChar": 8,
+        "endLine": 192,
+        "endChar": 57
+      },
+      "revId": "eb59effd0643e210d9bbc0d399850aff7d220448",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18b2b5a8_b66deb3d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T14:53:37Z",
+      "side": 1,
+      "message": "Covered by tests? -All of its flows?",
+      "range": {
+        "startLine": 200,
+        "startChar": 26,
+        "endLine": 200,
+        "endChar": 40
+      },
+      "revId": "eb59effd0643e210d9bbc0d399850aff7d220448",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c1496e0_b3f5979d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T14:53:37Z",
+      "side": 1,
+      "message": "Mention this noteDb case in the trace message? Line 167 would need the same thing for reviewDb.",
+      "range": {
+        "startLine": 206,
+        "startChar": 14,
+        "endLine": 206,
+        "endChar": 68
+      },
+      "revId": "eb59effd0643e210d9bbc0d399850aff7d220448",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57d4ec78_8aec0c79",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T14:53:37Z",
+      "side": 1,
+      "message": "This TODO does not show in the renameInReviewDb method; consistency issue?",
+      "range": {
+        "startLine": 216,
+        "startChar": 9,
+        "endLine": 216,
+        "endChar": 13
+      },
+      "revId": "eb59effd0643e210d9bbc0d399850aff7d220448",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74bded96_0bf769af",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T14:53:37Z",
+      "side": 1,
+      "message": "Should move to the rollback method.",
+      "range": {
+        "startLine": 221,
+        "startChar": 6,
+        "endLine": 225,
+        "endChar": 7
+      },
+      "revId": "eb59effd0643e210d9bbc0d399850aff7d220448",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "333cc293_82741a67",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T14:53:37Z",
+      "side": 1,
+      "message": "ChangeNotes notes (if applying the below comment about the null check)",
+      "range": {
+        "startLine": 262,
+        "startChar": 12,
+        "endLine": 262,
+        "endChar": 17
+      },
+      "revId": "eb59effd0643e210d9bbc0d399850aff7d220448",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e532418f_f66bb7a1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T14:53:37Z",
+      "side": 1,
+      "message": "If getting the updates fail somehow this way, then the caller of this method doesn\u0027t get that signal at all. It will then likely assume usable updates returned from here, which is problematic.",
+      "range": {
+        "startLine": 263,
+        "startChar": 35,
+        "endLine": 265,
+        "endChar": 11
+      },
+      "revId": "eb59effd0643e210d9bbc0d399850aff7d220448",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b14cf03e_9adbf4c3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T14:53:37Z",
+      "side": 1,
+      "message": "If moving this block after line 262 above, no more need for the null check.",
+      "range": {
+        "startLine": 266,
+        "startChar": 10,
+        "endLine": 269,
+        "endChar": 11
+      },
+      "revId": "eb59effd0643e210d9bbc0d399850aff7d220448",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
