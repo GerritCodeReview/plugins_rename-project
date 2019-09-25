@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd7ecd1c_29fa2e26",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T18:09:02Z",
+      "side": 1,
+      "message": "I already posted this comment before: need to insert a blank line here to separate these two paragraphs.",
+      "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9d52e28_11c44833",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T18:09:02Z",
+      "side": 1,
+      "message": "Would initialize to an empty list instead.",
+      "range": {
+        "startLine": 141,
+        "startChar": 39,
+        "endLine": 141,
+        "endChar": 43
+      },
+      "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7b359a5_10f9f1c6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T18:09:02Z",
+      "side": 1,
+      "message": "If this throws an exception, then I think it is counter-productive to invalidate the cache (in the finally block).",
+      "range": {
+        "startLine": 144,
+        "startChar": 6,
+        "endLine": 144,
+        "endChar": 22
+      },
+      "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f8c466a_5971a860",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T18:09:02Z",
+      "side": 1,
+      "message": "If this throws an exception, then the rollback procedure below does not call dbHandler.rename to revert that part too.",
+      "range": {
+        "startLine": 153,
+        "startChar": 21,
+        "endLine": 153,
+        "endChar": 32
+      },
+      "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a8317fb_bcd5569a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T18:09:02Z",
+      "side": 1,
+      "message": "Need to then become an empty check instead.",
+      "range": {
+        "startLine": 163,
+        "startChar": 30,
+        "endLine": 163,
+        "endChar": 38
+      },
+      "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbeea425_f278c4c2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T18:09:02Z",
+      "side": 1,
+      "message": "dbHandler.rename needs to be called again, to revert, right before this call.",
+      "range": {
+        "startLine": 164,
+        "startChar": 25,
+        "endLine": 164,
+        "endChar": 36
+      },
+      "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0ab9b79_6015be78",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T18:09:02Z",
+      "side": 1,
+      "message": "What would be safer could be to refactor the code above overall, to not duplicate steps that always go together. Helper method(s) would help consistently execute steps A-B-C in the needed order, all the time, either when renaming or reverting.",
+      "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e07aed6a_ac22637b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T18:09:02Z",
+      "side": 1,
+      "message": "This is an unrelated fix as per this change scope. Would move to another change.",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 57
+      },
+      "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45176d0e_77b29460",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-09-25T18:09:02Z",
+      "side": 1,
+      "message": "newProjectKey, oldProjectKey",
+      "range": {
+        "startLine": 193,
+        "startChar": 27,
+        "endLine": 193,
+        "endChar": 55
+      },
+      "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
