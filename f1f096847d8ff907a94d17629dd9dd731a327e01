@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0dcfdf8_7c737d14",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-27T18:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db59a0a8_5ddccb35",
+      "range": {
+        "startLine": 168,
+        "startChar": 34,
+        "endLine": 168,
+        "endChar": 49
+      },
+      "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2102aced_1391e36f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
         "patchSetId": 22
@@ -45,6 +69,30 @@
       "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faf17138_f4dd5ba6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-27T18:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2102aced_1391e36f",
+      "range": {
+        "startLine": 181,
+        "startChar": 46,
+        "endLine": 181,
+        "endChar": 61
+      },
+      "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "10d47376_84189807",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-27T18:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "830cc14e_9ca4d126",
+      "range": {
+        "startLine": 190,
+        "startChar": 38,
+        "endLine": 190,
+        "endChar": 53
+      },
+      "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edcb8098_a1c0a6af",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
         "patchSetId": 22
@@ -91,6 +163,30 @@
       "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b37d2833_bff60fc6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-27T18:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edcb8098_a1c0a6af",
+      "range": {
+        "startLine": 206,
+        "startChar": 36,
+        "endLine": 206,
+        "endChar": 49
+      },
+      "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "c381534d_78dc2a2c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-27T18:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a214a37f_3dc54597",
+      "range": {
+        "startLine": 218,
+        "startChar": 38,
+        "endLine": 218,
+        "endChar": 51
+      },
+      "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c9226f5_e5497a42",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
         "patchSetId": 22
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "7a1628cf_e4e6646b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-27T18:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c9226f5_e5497a42",
+      "range": {
+        "startLine": 253,
+        "startChar": 34,
+        "endLine": 253,
+        "endChar": 49
+      },
+      "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1effe602_e4abf56e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
         "patchSetId": 22
@@ -154,6 +298,24 @@
       "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "669e8050_9e65c5e1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-27T18:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1effe602_e4abf56e",
+      "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "b644bbcf_194d6da2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-27T18:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef62bd4d_6f100076",
+      "range": {
+        "startLine": 268,
+        "startChar": 32,
+        "endLine": 268,
+        "endChar": 33
+      },
+      "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "025b53fd_799dbff4",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
         "patchSetId": 22
@@ -200,6 +386,30 @@
       "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "315fa8d8_234204cf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-09-27T18:45:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "025b53fd_799dbff4",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 99
+      },
+      "revId": "f1f096847d8ff907a94d17629dd9dd731a327e01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
