@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "4e687ea6_83e591ea",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-02T21:22:10Z",
+      "side": 1,
+      "message": "\u003e Running the test with bazel option --test_env\u003dGERRIT_NOTEDB\u003dON covers the notedDb part of the code.\n\nHow to automate, when running plugin\u0027s regular bazel test commands?",
+      "parentUuid": "c63f172a_55b88d66",
+      "range": {
+        "startLine": 121,
+        "startChar": 26,
+        "endLine": 121,
+        "endChar": 48
+      },
+      "revId": "eb59effd0643e210d9bbc0d399850aff7d220448",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22083a85_fd6a0666",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
         "patchSetId": 21
