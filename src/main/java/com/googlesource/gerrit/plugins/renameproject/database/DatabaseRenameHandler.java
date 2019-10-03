@@ -158,12 +158,11 @@ public class DatabaseRenameHandler {
 
   private void updateWatchEntries(Project.NameKey newProjectKey) {
     for (AccountState a : accountQueryProvider.get().byWatchedProject(oldProjectKey)) {
-      Account.Id accountId = a.getAccount().id();
-      ImmutableMap<ProjectWatchKey, ImmutableSet<NotifyType>> projectWatches =
-          a.getProjectWatches();
+      Account.Id accountId = a.account().id();
+      ImmutableMap<ProjectWatchKey, ImmutableSet<NotifyType>> projectWatches = a.projectWatches();
       Map<ProjectWatchKey, Set<NotifyType>> newProjectWatches = new HashMap<>();
       List<ProjectWatchKey> oldProjectWatches = new ArrayList<>();
-      for (ProjectWatchKey watchKey : a.getProjectWatches().keySet()) {
+      for (ProjectWatchKey watchKey : a.projectWatches().keySet()) {
         if (oldProjectKey.equals(watchKey.project())) {
           newProjectWatches.put(
               ProjectWatchKey.create(newProjectKey, watchKey.filter()),
@@ -187,13 +186,13 @@ public class DatabaseRenameHandler {
           } catch (ConfigInvalidException e) {
             log.error(
                 "Updating watch entry for user {} in project {} failed. Watch config found invalid.",
-                a.getUserName(),
+                a.userName(),
                 newProjectKey.get(),
                 e);
           } catch (IOException e) {
             log.error(
                 "Updating watch entry for user {} in project {} failed.",
-                a.getUserName(),
+                a.userName(),
                 newProjectKey.get(),
                 e);
           }
