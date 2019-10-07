@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "58c3260f_d441db95",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-07T18:57:15Z",
+      "side": 1,
+      "message": "Because initiating it to an empty list create new warning. updateChangeIds will be assigned a value. And check for empty is done within the method updateIndex.",
+      "parentUuid": "69833887_635fcc9b",
+      "range": {
+        "startLine": 141,
+        "startChar": 39,
+        "endLine": 141,
+        "endChar": 43
+      },
+      "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7b359a5_10f9f1c6",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 4
@@ -466,6 +490,54 @@
         "startChar": 27,
         "endLine": 193,
         "endChar": 55
+      },
+      "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e292ef0_2d72f320",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-07T18:57:15Z",
+      "side": 1,
+      "message": "Was done in patchset 7 (was removed)",
+      "parentUuid": "0a5f622e_33c1e8cb",
+      "range": {
+        "startLine": 193,
+        "startChar": 27,
+        "endLine": 193,
+        "endChar": 55
+      },
+      "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e06857e_b4855fab",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-07T18:57:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb001ffc_075968a7",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 57
       },
       "revId": "fcb7e3ac2dd8ef1fbfb44b7b5d00448eb0df4292",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
