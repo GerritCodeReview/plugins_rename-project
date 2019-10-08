@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ca72459_ef450c93",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 0,
+      "message": "The above blank line removals are unrelated to this change, distracting to the review.",
+      "revId": "b658cab94b723b3d35a89df603017807dc856d95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
