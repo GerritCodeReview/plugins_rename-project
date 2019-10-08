@@ -1,0 +1,882 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "241a4e80_665e81e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "that",
+      "range": {
+        "startLine": 13,
+        "startChar": 32,
+        "endLine": 13,
+        "endChar": 34
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4936120e_b6b9f71d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "handling",
+      "range": {
+        "startLine": 16,
+        "startChar": 10,
+        "endLine": 16,
+        "endChar": 17
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae8d7934_e9a18804",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "succeeded",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "058ed04c_0cb9492a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "true",
+      "range": {
+        "startLine": 21,
+        "startChar": 25,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1561e09_a2617496",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "fail",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 10
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9e2358f_9fea2b42",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "remove the rollback function, due",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0473b06_fa3167ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "setRevertOf() which can\u0027t",
+      "range": {
+        "startLine": 25,
+        "startChar": 38,
+        "endLine": 25,
+        "endChar": 57
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e4f49d5_a75251ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "ID passed (rather?)",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 51
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3d8e04d_b21c7edb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Rather than indenting that way, the above items could become two distinct paragraphs instead, for readability.",
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "523b142c_25d20587",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Meaning? -Would clarify or rewrite/reconsider this part.",
+      "range": {
+        "startLine": 30,
+        "startChar": 45,
+        "endLine": 30,
+        "endChar": 70
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95616d73_74cd6d5c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "shortcomings explained",
+      "range": {
+        "startLine": 31,
+        "startChar": 28,
+        "endLine": 31,
+        "endChar": 60
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9762b412_cea7f7d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Below are file names, not classes or class names.",
+      "range": {
+        "startLine": 35,
+        "startChar": 5,
+        "endLine": 35,
+        "endChar": 12
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f64fc70_19ef7098",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Would replace line 35\u0027s question and these indented items with cleaner formatting, including the double dashes \u0027--\u0027 (to replace).",
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a06a7f71_90723a4d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Maybe this change would benefit from a Monorail issue, new or existing (related of course). This would allow to move some of the above problem description(s) to that Issue instead.",
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c0d384e_e46ea493",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "revert",
+      "range": {
+        "startLine": 144,
+        "startChar": 11,
+        "endLine": 144,
+        "endChar": 23
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6dec03b_87e37c16",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Even if fsHandler.rename was the one throwing e? See also below comment about how to initialize whatToRevert (line 144).",
+      "range": {
+        "startLine": 151,
+        "startChar": 8,
+        "endLine": 151,
+        "endChar": 40
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8b3fbd4_8f14696c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Would assign BOTH to revert, here. -Unless introducing CACHE_UPDATE...",
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b01e5ea2_a922e7fb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Could be removed if initializing whatToRevert to Revert.FS_RENAME instead at line 144, further above. -Unless introducing CACHE_UPDATE (later comment).",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 40
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cc73c67_dd80bfef",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "The above try block could be merged into/after the previous one\u0027s implementation, unless introducing CACHE_UPDATE (below comment).",
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0240294b_fbdb70a7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "If locking the project is done before reaching line 162 above, then unlocking also needs to be part of reverts. Otherwise, I propose to add a clarifying comment in this code about it.",
+      "range": {
+        "startLine": 164,
+        "startChar": 24,
+        "endLine": 164,
+        "endChar": 30
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e54893f_ae15f684",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "If any of the lines 164-168 happen to throw an exception, then line 162\u0027s action will not be reverted, at least not explicitly (through Revert).",
+      "range": {
+        "startLine": 172,
+        "startChar": 22,
+        "endLine": 172,
+        "endChar": 34
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79794bc4_ffb70049",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "We are not logging this way after line 169 above; inconsistent? Also knowing that we end up logging through \u0027ex\u0027 anyway.",
+      "range": {
+        "startLine": 174,
+        "startChar": 8,
+        "endLine": 174,
+        "endChar": 17
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5467e2b_d09d8305",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Removes above \u0027e\u0027 information from \u0027ex\u0027.",
+      "range": {
+        "startLine": 175,
+        "startChar": 8,
+        "endLine": 175,
+        "endChar": 21
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e14ec32_344f4b98",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Revert",
+      "range": {
+        "startLine": 185,
+        "startChar": 15,
+        "endLine": 185,
+        "endChar": 21
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88d80aa4_d7026ac2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "BOTH, unless applying the below comment, in which case this binary approach will not suffice anymore.",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 7
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4496fa9_baf831db",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Should this also include CACHE_UPDATE? If so, would rename the above this way, to also solve the binary-only issue: FS_STAGE, DB_STAGE (and including CACHE_STAGE if applicable). This new \u0027stage\u0027 approach could help solve other comments further above, independently of needing CACHE_UPDATE/STAGE or not.",
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6133c742_bdc3dd05",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "performRevert or similar; action-driven.",
+      "range": {
+        "startLine": 191,
+        "startChar": 15,
+        "endLine": 191,
+        "endChar": 28
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b99a0529_a4888125",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "revertFor (or toRevert, also depending on how to name the variable at line 144; consistency.)",
+      "range": {
+        "startLine": 192,
+        "startChar": 13,
+        "endLine": 192,
+        "endChar": 23
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d39b0df_dab1a177",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Should also logically be based on how the revert enum passed in was set. Meaning, does it include an FS stage or revert? -This means also that the enum would require a \"NONE\" value added to it. Doing so would make this method more robust and reliable overall, and more atomic or autonomous.",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 200,
+        "endChar": 56
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54bfffe8_6c1b2a32",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Can this throw an Exception, and if so, maybe we should still pursue the other reverts below.",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 23
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63977e2a_47e71955",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Not GJF-styled (curly braces missing). Also, I would revise this approach, and instead consider replacing it as previously proposed. (For each revert step, perform that step independently, and only if enum value says so.)",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 47
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b18fdbf9_43e1b085",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Can this throw an Exception, and if so, maybe the resulting error log should mention this and the fact that index was not reverted (below line 213 skipped).",
+      "range": {
+        "startLine": 209,
+        "startChar": 8,
+        "endLine": 209,
+        "endChar": 24
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdccec99_5cd7ea26",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Maybe these two log traces should also mention oldProjectKey instead?",
+      "range": {
+        "startLine": 211,
+        "startChar": 74,
+        "endLine": 215,
+        "endChar": 89
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53f44959_98e12d35",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/cache/CacheRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Identical to lines 33-34 above. This method needs to reuse the other update method instead (above). In fact, maybe a new method is not needed, i.e., only call sites are to be adapted to calling the existing method.",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 48
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "745ea398_1333e535",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Can this trace also include details from \u0027e\u0027? Otherwise the latter will be lost if throwing revertEx below.",
+      "range": {
+        "startLine": 182,
+        "startChar": 10,
+        "endLine": 184,
+        "endChar": 35
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c85d532_b655ae88",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "Should be moved out of this try block.",
+      "range": {
+        "startLine": 186,
+        "startChar": 10,
+        "endLine": 186,
+        "endChar": 59
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85509343_c4a70d68",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "I think we should add a log.error trace above this line, to log information about having failed the rollback.",
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81361c8d_4d3474fd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "e",
+      "range": {
+        "startLine": 194,
+        "startChar": 26,
+        "endLine": 194,
+        "endChar": 28
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8529364c_d084b513",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "If this is reached and throws an OrmException, then the automatic noteDb rollback will not be performed, as noteDb was successfully updated (above).",
+      "range": {
+        "startLine": 213,
+        "startChar": 8,
+        "endLine": 213,
+        "endChar": 26
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4d451a2_ac6400b7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-08T16:12:33Z",
+      "side": 1,
+      "message": "If this throws an OrmException, then lines 222-223 will be executed (misleading log.error), and above e\u0027s information will be lost.",
+      "range": {
+        "startLine": 218,
+        "startChar": 8,
+        "endLine": 218,
+        "endChar": 26
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
