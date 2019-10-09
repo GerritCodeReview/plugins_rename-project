@@ -624,6 +624,24 @@
     },
     {
       "key": {
+        "uuid": "75da1624_2f1ffade",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-09T20:25:18Z",
+      "side": 1,
+      "message": "I\u0027d rather do it as soon as you can, so we can then review a so-cleaner commit message, upfront. We will also review that new Issue\u0027s description, which should be readily writable (I think).",
+      "parentUuid": "7106612d_68957848",
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0d384e_e46ea493",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 9
@@ -762,6 +780,30 @@
       "side": 1,
       "message": "If we didn\u0027t reach here newProject will not be created, so unlocking it would be pointless. However, we can unlock oldProject just to be on the safe side.",
       "parentUuid": "0240294b_fbdb70a7",
+      "range": {
+        "startLine": 164,
+        "startChar": 24,
+        "endLine": 164,
+        "endChar": 30
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "411262fe_d2bdb2bc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-09T20:25:18Z",
+      "side": 1,
+      "message": "\u003e If we didn\u0027t reach here newProject will not be created, so unlocking it would be pointless. However, we can unlock oldProject just to be on the safe side.\n\nMaybe my original comment\u0027s point was missed? Rephrasing it starting with this question, in case it was: which line(s) or set of instructions is locking the projects? -Based on the answer, we can know where/when to unlock which project(s) exactly, including for the exception handling cases.",
+      "parentUuid": "906a7c8a_0900f733",
       "range": {
         "startLine": 164,
         "startChar": 24,
@@ -1493,6 +1535,30 @@
       "side": 1,
       "message": "I tried but what actually happens is this method throws OrmException, everything will rollback without calling any rollback function since git repo will be renamed back to original on the outside. The interesting thing is even if everything succeeds, changing name of the repo will rename the project. My speculation is changes are linked to project repo. Renaming it will ultimately rename the project. This is just speculation for now. Better to keep everything for consistency. NoteDb part can be removed later if it doesn\u0027t affect other plugins",
       "parentUuid": "8529364c_d084b513",
+      "range": {
+        "startLine": 213,
+        "startChar": 8,
+        "endLine": 213,
+        "endChar": 26
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97fef173_34e4f10a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-09T20:25:18Z",
+      "side": 1,
+      "message": "\u003e this method throws OrmException, everything will rollback without calling any rollback function since git repo will be renamed back to original on the outside.\n\nI don\u0027t see how updateWatchEntries\u0027 implementation is linked to renaming the git repo.\n\n\u003e The interesting thing is even if everything succeeds, changing name of the repo will rename the project. My speculation is changes are linked to project repo. Renaming it will ultimately rename the project. This is just speculation for now. Better to keep everything for consistency.\n\nI\u0027d rather confirm this for sure now, then remove unneeded logic accordingly. Test(s) should be able to verify all of those assumptions anyway.\n\n\u003e NoteDb part can be removed later if it doesn\u0027t affect other plugins\n\nI don\u0027t understand what is meant by that last sentence.",
+      "parentUuid": "8229f363_1e0bc275",
       "range": {
         "startLine": 213,
         "startChar": 8,
