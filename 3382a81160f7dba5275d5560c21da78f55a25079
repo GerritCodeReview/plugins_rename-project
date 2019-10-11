@@ -665,6 +665,30 @@
     },
     {
       "key": {
+        "uuid": "810e3dc6_f8af304c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7c0d384e_e46ea493",
+      "range": {
+        "startLine": 144,
+        "startChar": 11,
+        "endLine": 144,
+        "endChar": 23
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6dec03b_87e37c16",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 9
@@ -688,6 +712,30 @@
     },
     {
       "key": {
+        "uuid": "4d8b911e_1e53455f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e6dec03b_87e37c16",
+      "range": {
+        "startLine": 151,
+        "startChar": 8,
+        "endLine": 151,
+        "endChar": 40
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8b3fbd4_8f14696c",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 9
@@ -702,6 +750,24 @@
       "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d09937c3_3f7feeb0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8b3fbd4_8f14696c",
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -728,6 +794,30 @@
     },
     {
       "key": {
+        "uuid": "5781b925_54e7f6b2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b01e5ea2_a922e7fb",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 40
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0cc73c67_dd80bfef",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 9
@@ -742,6 +832,24 @@
       "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b622572b_311523c8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cc73c67_dd80bfef",
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -804,6 +912,30 @@
       "side": 1,
       "message": "\u003e If we didn\u0027t reach here newProject will not be created, so unlocking it would be pointless. However, we can unlock oldProject just to be on the safe side.\n\nMaybe my original comment\u0027s point was missed? Rephrasing it starting with this question, in case it was: which line(s) or set of instructions is locking the projects? -Based on the answer, we can know where/when to unlock which project(s) exactly, including for the exception handling cases.",
       "parentUuid": "906a7c8a_0900f733",
+      "range": {
+        "startLine": 164,
+        "startChar": 24,
+        "endLine": 164,
+        "endChar": 30
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a215c9d_cc3c02ac",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "Based on my observation lock() project never been done anywhere, should we adapt lock practice? From my understanding Lock or Unlock operations are changing project state between Active and Read only. Project state is being taken from project cache. But when rename operation is called project cache of old project is being flushed, so locking it doesn\u0027t make sense. However while doing revert, we are adding old project back to cache, so we need to set oldProject to active state after that. Also unit Test showed that even without unlock project state of a new project will be active, I see no point in doing lock/unlock operations unless we want to set specific messages for project metadata (i.e: \"Lock/unlock project while/after renaming the project\")",
+      "parentUuid": "411262fe_d2bdb2bc",
       "range": {
         "startLine": 164,
         "startChar": 24,
@@ -1156,6 +1288,30 @@
     },
     {
       "key": {
+        "uuid": "b04c3902_a16be21a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b99a0529_a4888125",
+      "range": {
+        "startLine": 192,
+        "startChar": 13,
+        "endLine": 192,
+        "endChar": 23
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d39b0df_dab1a177",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 9
@@ -1176,6 +1332,30 @@
       "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fac8d40e_4d3e19f6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d39b0df_dab1a177",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 200,
+        "endChar": 56
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -1437,6 +1617,30 @@
     },
     {
       "key": {
+        "uuid": "c1a9cfeb_65d7d175",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "745ea398_1333e535",
+      "range": {
+        "startLine": 182,
+        "startChar": 10,
+        "endLine": 184,
+        "endChar": 35
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c85d532_b655ae88",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
         "patchSetId": 9
@@ -1460,6 +1664,30 @@
     },
     {
       "key": {
+        "uuid": "361aa2b4_1e1d6f72",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c85d532_b655ae88",
+      "range": {
+        "startLine": 186,
+        "startChar": 10,
+        "endLine": 186,
+        "endChar": 59
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85509343_c4a70d68",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
         "patchSetId": 9
@@ -1474,6 +1702,24 @@
       "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47cab7fc_162fae70",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85509343_c4a70d68",
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -1497,6 +1743,30 @@
       "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbf104c0_64963f6e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81361c8d_4d3474fd",
+      "range": {
+        "startLine": 194,
+        "startChar": 26,
+        "endLine": 194,
+        "endChar": 28
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -1559,6 +1829,30 @@
       "side": 1,
       "message": "\u003e this method throws OrmException, everything will rollback without calling any rollback function since git repo will be renamed back to original on the outside.\n\nI don\u0027t see how updateWatchEntries\u0027 implementation is linked to renaming the git repo.\n\n\u003e The interesting thing is even if everything succeeds, changing name of the repo will rename the project. My speculation is changes are linked to project repo. Renaming it will ultimately rename the project. This is just speculation for now. Better to keep everything for consistency.\n\nI\u0027d rather confirm this for sure now, then remove unneeded logic accordingly. Test(s) should be able to verify all of those assumptions anyway.\n\n\u003e NoteDb part can be removed later if it doesn\u0027t affect other plugins\n\nI don\u0027t understand what is meant by that last sentence.",
       "parentUuid": "8229f363_1e0bc275",
+      "range": {
+        "startLine": 213,
+        "startChar": 8,
+        "endLine": 213,
+        "endChar": 26
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75cbc7bf_3d5f8703",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-11T14:59:02Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t see how updateWatchEntries\u0027 implementation is linked to renaming the git repo.\nRenaming of the git repo is done on the outside, for it to happened rename chagnes should throw an exception out.\n\u003e I\u0027d rather confirm this for sure now, then remove unneeded logic accordingly. Test(s) should be able to verify all of those assumptions anyway.\nRemoved it in the adapt rename noteDb change (previous one) and both unit tests and manual test shows that everything works as expected.",
+      "parentUuid": "97fef173_34e4f10a",
       "range": {
         "startLine": 213,
         "startChar": 8,
