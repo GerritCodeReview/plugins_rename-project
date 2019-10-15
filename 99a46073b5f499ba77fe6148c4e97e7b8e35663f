@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd09df5a_9c915d5c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-15T15:51:44Z",
+      "side": 1,
+      "message": "watched",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 31
+      },
+      "revId": "99a46073b5f499ba77fe6148c4e97e7b8e35663f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "523d98bf_c7aa45e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-15T15:51:44Z",
+      "side": 1,
+      "message": "renaming",
+      "range": {
+        "startLine": 9,
+        "startChar": 50,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "99a46073b5f499ba77fe6148c4e97e7b8e35663f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1e80bc3_bb7eb7a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-15T15:51:44Z",
+      "side": 1,
+      "message": "Ic6b471bf.",
+      "range": {
+        "startLine": 10,
+        "startChar": 55,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "99a46073b5f499ba77fe6148c4e97e7b8e35663f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
