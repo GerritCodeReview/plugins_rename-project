@@ -948,6 +948,30 @@
     },
     {
       "key": {
+        "uuid": "fbc21fc0_a5a9a408",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-15T15:51:36Z",
+      "side": 1,
+      "message": "Removing Lock/Unlock part completely showed that it doesn\u0027t affect unit test. New project that is being crated is always in an active state.",
+      "parentUuid": "1a215c9d_cc3c02ac",
+      "range": {
+        "startLine": 164,
+        "startChar": 24,
+        "endLine": 164,
+        "endChar": 30
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e54893f_ae15f684",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 9
@@ -1853,6 +1877,30 @@
       "side": 1,
       "message": "\u003e I don\u0027t see how updateWatchEntries\u0027 implementation is linked to renaming the git repo.\nRenaming of the git repo is done on the outside, for it to happened rename chagnes should throw an exception out.\n\u003e I\u0027d rather confirm this for sure now, then remove unneeded logic accordingly. Test(s) should be able to verify all of those assumptions anyway.\nRemoved it in the adapt rename noteDb change (previous one) and both unit tests and manual test shows that everything works as expected.",
       "parentUuid": "97fef173_34e4f10a",
+      "range": {
+        "startLine": 213,
+        "startChar": 8,
+        "endLine": 213,
+        "endChar": 26
+      },
+      "revId": "3382a81160f7dba5275d5560c21da78f55a25079",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5dd6b385_c6a2c354",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-15T15:51:36Z",
+      "side": 1,
+      "message": "it got jammed together I am just clarifying the previous reply:\nI removed it in the adapt rename noteDb change (previous one) and both unit tests and manual test shows that everything works as expected.",
+      "parentUuid": "75cbc7bf_3d5f8703",
       "range": {
         "startLine": 213,
         "startChar": 8,
