@@ -27,12 +27,6 @@ There are a few caveats:
 
      If choosing to rename "All-Users", you cannot rename the project as this action is prohibited.
 
-* You cannot rename projects that are watched by users
-
-     If you rename a project that is actively watched by users, the watches are
-     not updated to the new project name, leading to the loss of the notifications
-     by all users that were watching the original project.
-
 * You should limit project renames to administrator users
 
      Because of all the above caveats, it is not recommended to allow any non-admin
