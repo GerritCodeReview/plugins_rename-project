@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e17c1458_a91caec4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-16T19:51:28Z",
+      "side": 1,
+      "message": "And we don\u0027t know why. Can \u0027ex\u0027 information be added to this trace?\n\nOr, below, \u0027e\u0027 is thrown also in this case. Re-throw \u0027ex\u0027 instead? But then, we lose \u0027e\u0027 information since it is not part of line 192\u0027s trace. Can we chain the exceptions?",
+      "range": {
+        "startLine": 198,
+        "startChar": 8,
+        "endLine": 198,
+        "endChar": 55
+      },
+      "revId": "4f1caecf120ea1ab3928bcdd5c8924f50609ee72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

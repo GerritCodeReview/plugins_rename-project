@@ -93,6 +93,52 @@
       "revId": "a3731313d498249e106104f084f24e8bd5c37678",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f626c756_e93b9b4c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-16T19:51:28Z",
+      "side": 1,
+      "message": "The latest patches removed this method, but I can\u0027t find the corresponding call removal.\n\nAlso, how about summarizing why this isn\u0027t needed, in the commit message?",
+      "range": {
+        "startLine": 217,
+        "startChar": 15,
+        "endLine": 217,
+        "endChar": 23
+      },
+      "revId": "a3731313d498249e106104f084f24e8bd5c37678",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e187dcc2_42bb5d18",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-16T19:51:28Z",
+      "side": 1,
+      "message": "Can\u0027t find the as-removed or corresponding method call, either.",
+      "range": {
+        "startLine": 242,
+        "startChar": 29,
+        "endLine": 242,
+        "endChar": 45
+      },
+      "revId": "a3731313d498249e106104f084f24e8bd5c37678",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }
