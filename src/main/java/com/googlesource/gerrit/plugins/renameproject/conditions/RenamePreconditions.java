@@ -110,7 +110,7 @@ public class RenamePreconditions {
     try (Repository repo = repoManager.openRepository(key);
         MergeOpRepoManager orm = ormProvider.get()) {
       Set<BranchNameKey> branches = new HashSet<>();
-      for (Ref ref : repo.getRefDatabase().getRefs(RefNames.REFS_HEADS).values()) {
+      for (Ref ref : repo.getRefDatabase().getRefsByPrefix(RefNames.REFS_HEADS)) {
         branches.add(BranchNameKey.create(key, ref.getName()));
       }
       SubmoduleOp sub = subOpFactory.create(branches, orm);
