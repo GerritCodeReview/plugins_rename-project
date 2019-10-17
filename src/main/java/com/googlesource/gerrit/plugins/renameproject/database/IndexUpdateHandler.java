@@ -15,8 +15,8 @@
 package com.googlesource.gerrit.plugins.renameproject.database;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.google.gerrit.reviewdb.client.Change;
-import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.entities.Change;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.index.change.ChangeIndexer;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;

@@ -17,9 +17,9 @@ package com.googlesource.gerrit.plugins.renameproject.conditions;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.common.ProjectInfo;
 import com.google.gerrit.extensions.restapi.Response;
-import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.config.AllProjectsName;
 import com.google.gerrit.server.config.AllProjectsNameProvider;

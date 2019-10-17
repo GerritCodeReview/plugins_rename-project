@@ -17,7 +17,7 @@ package com.googlesource.gerrit.plugins.renameproject;
 import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gerrit.common.data.SubscribeSection;
-import com.google.gerrit.reviewdb.client.Project.NameKey;
+import com.google.gerrit.entities.Project.NameKey;
 import com.google.gerrit.server.git.meta.MetaDataUpdate;
 import com.google.gerrit.server.git.meta.MetaDataUpdate.Server;
 import com.google.gerrit.server.project.ProjectCache;

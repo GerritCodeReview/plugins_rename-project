@@ -14,8 +14,8 @@
 
 package com.googlesource.gerrit.plugins.renameproject;
 
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.client.ProjectState;
-import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.git.meta.MetaDataUpdate;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectConfig;

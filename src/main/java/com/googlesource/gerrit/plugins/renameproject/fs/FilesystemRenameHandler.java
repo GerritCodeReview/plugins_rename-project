@@ -14,7 +14,7 @@
 
 package com.googlesource.gerrit.plugins.renameproject.fs;
 
-import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;

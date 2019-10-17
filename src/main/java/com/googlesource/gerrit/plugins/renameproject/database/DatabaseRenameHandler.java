@@ -16,9 +16,9 @@ package com.googlesource.gerrit.plugins.renameproject.database;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.google.gerrit.reviewdb.client.Account;
-import com.google.gerrit.reviewdb.client.Change;
-import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.entities.Account;
+import com.google.gerrit.entities.Change;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.ServerInitiated;
 import com.google.gerrit.server.account.AccountState;

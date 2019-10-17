@@ -16,9 +16,9 @@ package com.googlesource.gerrit.plugins.renameproject;
 
 import static com.googlesource.gerrit.plugins.renameproject.RenameProject.WARNING_LIMIT;
 
+import com.google.gerrit.entities.Change;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.restapi.RestApiException;
-import com.google.gerrit.reviewdb.client.Change;
-import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectResource;
