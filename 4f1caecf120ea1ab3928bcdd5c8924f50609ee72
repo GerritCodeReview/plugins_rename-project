@@ -46,6 +46,30 @@
       "revId": "4f1caecf120ea1ab3928bcdd5c8924f50609ee72",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66db0a0c_096e201a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-18T15:31:06Z",
+      "side": 1,
+      "message": "Done, However except chaining was done in the follow-up change",
+      "parentUuid": "521c8491_0bb51031",
+      "range": {
+        "startLine": 198,
+        "startChar": 8,
+        "endLine": 198,
+        "endChar": 55
+      },
+      "revId": "4f1caecf120ea1ab3928bcdd5c8924f50609ee72",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
