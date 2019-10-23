@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9d4f33e_bde9e91e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 38
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-23T20:00:34Z",
+      "side": 1,
+      "message": "I don\u0027t see that diff in this change.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 29
+      },
+      "revId": "f2580f55eec3d5ca50f6c48040dc1f82b0a53208",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1b7022e_203ccdb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 38
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-23T20:00:34Z",
+      "side": 1,
+      "message": "Not sure I fully understand that fragment; diff also missing from this change.",
+      "range": {
+        "startLine": 17,
+        "startChar": 1,
+        "endLine": 17,
+        "endChar": 36
+      },
+      "revId": "f2580f55eec3d5ca50f6c48040dc1f82b0a53208",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c7e95d4_383871cb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameException.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-23T20:00:34Z",
+      "side": 1,
+      "message": "Unused by this change.",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 28
+      },
+      "revId": "f2580f55eec3d5ca50f6c48040dc1f82b0a53208",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
