@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e55ba913_896cf839",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 38
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-25T13:09:52Z",
+      "side": 1,
+      "message": "Because I took NoteDb adaptation that you introduced in stable 3.0, and after doing tests on my part I found out those issues. I can remove this part from commit message if it creates confusion.",
+      "parentUuid": "d9d4f33e_bde9e91e",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 29
+      },
+      "revId": "f2580f55eec3d5ca50f6c48040dc1f82b0a53208",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1b7022e_203ccdb9",
         "filename": "/COMMIT_MSG",
         "patchSetId": 38
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bc189aec_107ad634",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 38
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-25T13:09:52Z",
+      "side": 1,
+      "message": "Reason why diff is missis is explained above.",
+      "parentUuid": "c1b7022e_203ccdb9",
+      "range": {
+        "startLine": 17,
+        "startChar": 1,
+        "endLine": 17,
+        "endChar": 36
+      },
+      "revId": "f2580f55eec3d5ca50f6c48040dc1f82b0a53208",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c7e95d4_383871cb",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameException.java",
         "patchSetId": 38
@@ -68,6 +116,30 @@
       "revId": "f2580f55eec3d5ca50f6c48040dc1f82b0a53208",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab38fa9d_f00e6221",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameException.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-10-25T13:09:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c7e95d4_383871cb",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 28
+      },
+      "revId": "f2580f55eec3d5ca50f6c48040dc1f82b0a53208",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
