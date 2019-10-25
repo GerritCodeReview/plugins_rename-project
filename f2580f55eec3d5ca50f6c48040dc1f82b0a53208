@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8cce0361_c7f58098",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 38
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-10-25T14:42:45Z",
+      "side": 1,
+      "message": "\u003e Because I took NoteDb adaptation that you introduced in stable 3.0, and after doing tests on my part I found out those issues. I can remove this part from commit message if it creates confusion.\n\nThe commit message usually doesn\u0027t mention things not done in its corresponding change. I\u0027d then remove this and the similar parts below, yes.",
+      "parentUuid": "e55ba913_896cf839",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 29
+      },
+      "revId": "f2580f55eec3d5ca50f6c48040dc1f82b0a53208",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1b7022e_203ccdb9",
         "filename": "/COMMIT_MSG",
         "patchSetId": 38
