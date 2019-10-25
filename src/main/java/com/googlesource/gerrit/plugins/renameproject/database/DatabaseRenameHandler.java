@@ -82,6 +82,8 @@ public class DatabaseRenameHandler {
     log.debug("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
     this.oldProjectKey = oldProjectKey;
 
+  private List<Change.Id> getChangeIdsFromReviewDb(Project.NameKey oldProjectKey, ReviewDb db)
+      throws OrmException {
     List<Change.Id> changeIds = new ArrayList<>();
     Stream<ChangeNotesResult> changes =
         schemaFactory.scan(repoManager.openRepository(oldProjectKey), oldProjectKey);
