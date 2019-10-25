@@ -81,6 +81,10 @@ public class DatabaseRenameHandler {
   public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws IOException {
     log.debug("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
     this.oldProjectKey = oldProjectKey;
+    return getChangeIdsFromNoteDb();
+  }
+
+  private List<Change.Id> getChangeIdsFromNoteDb() throws IOException {
 
     List<Change.Id> changeIds = new ArrayList<>();
     Stream<ChangeNotesResult> changes =
@@ -103,6 +107,11 @@ public class DatabaseRenameHandler {
       List<Change.Id> changes, Project.NameKey newProjectKey, ProgressMonitor pm)
       throws IOException {
     pm.beginTask("Updating changes in the database");
+    return renameInNoteDb(changes, newProjectKey);
+  }
+
+  private List<Change.Id> renameInNoteDb(List<Change.Id> changes, Project.NameKey newProjectKey)
+      throws IOException {
     log.debug("Updating the changes in the DB related to project {}", oldProjectKey.get());
     List<ChangeUpdate> updates = getChangeUpdates(changes, newProjectKey);
     updateWatchEntries(newProjectKey);
