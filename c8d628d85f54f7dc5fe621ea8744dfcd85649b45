@@ -16,6 +16,24 @@
       "revId": "c8d628d85f54f7dc5fe621ea8744dfcd85649b45",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dedee52_efd89c36",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-04T20:44:12Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "303dcfc7_5d628323",
+      "revId": "c8d628d85f54f7dc5fe621ea8744dfcd85649b45",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
