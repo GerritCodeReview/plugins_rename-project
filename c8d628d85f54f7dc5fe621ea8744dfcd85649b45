@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e477dd47_fdc793a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 43
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T18:30:29Z",
+      "side": 1,
+      "message": "disabled",
+      "range": {
+        "startLine": 9,
+        "startChar": 46,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "c8d628d85f54f7dc5fe621ea8744dfcd85649b45",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b329d5d_788fbe79",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 43
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T18:30:29Z",
+      "side": 1,
+      "message": "If willing to start a new paragraph, missing a blank line above. Otherwise, premature line wrap.",
+      "revId": "c8d628d85f54f7dc5fe621ea8744dfcd85649b45",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97c7adbd_540db199",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T18:30:29Z",
+      "side": 1,
+      "message": "change.id() -would inline instead of introducing a trivial local variable.",
+      "range": {
+        "startLine": 120,
+        "startChar": 20,
+        "endLine": 120,
+        "endChar": 28
+      },
+      "revId": "c8d628d85f54f7dc5fe621ea8744dfcd85649b45",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
