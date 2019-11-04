@@ -1,0 +1,354 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "465f91fa_6408286a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 35
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "Would make this more explicit as a message. Otherwise, can merge with the slogan above (repetitive).",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 48
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b957da7_d5981120",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameException.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "Would add some standard class javadoc.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 28
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d0d71f9_e750cc06",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "Would move this part of the change to another, follow-up change. So for this very change, I\u0027d only adapt this class to a minimum from DatabaseRenameHandler\u0027s own changes, as a first step.\n\nThe follow-up change would be the second step, both steps being independent. And each change\u0027s commit message should then become more precise about the change scope.",
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "305304f0_ff60b096",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/cache/CacheRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "oldProjectKey, to fit with previous design; unrelated change otherwise.",
+      "range": {
+        "startLine": 32,
+        "startChar": 37,
+        "endLine": 32,
+        "endChar": 52
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea847bf4_d38c44fa",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/cache/CacheRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "newProjectKey (Unrelated otherwise.)",
+      "range": {
+        "startLine": 32,
+        "startChar": 70,
+        "endLine": 32,
+        "endChar": 82
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6b6609e_41527ecf",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "Before, this type was not necessary in that catch. Why is it now?\n\nAlso conflicts with line 204.",
+      "range": {
+        "startLine": 173,
+        "startChar": 30,
+        "endLine": 173,
+        "endChar": 42
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3ccd4a2_7b271789",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "exception",
+      "range": {
+        "startLine": 176,
+        "startChar": 72,
+        "endLine": 176,
+        "endChar": 81
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e3b73b0_8e727667",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "caught:",
+      "range": {
+        "startLine": 182,
+        "startChar": 95,
+        "endLine": 182,
+        "endChar": 101
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db36d396_89b3c49c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "Extra blank line, would remove.",
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f46ac86_a4940097",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "caught:",
+      "range": {
+        "startLine": 195,
+        "startChar": 101,
+        "endLine": 195,
+        "endChar": 107
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b000297_ceda5a78",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "This exception type looks more like a RenameRevertException, based on its current use; rename?\n\nAlso, there could be a constructor that only takes \u0027e\u0027 and revertEx in, to remove duplication.",
+      "range": {
+        "startLine": 199,
+        "startChar": 20,
+        "endLine": 201,
+        "endChar": 36
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c3b20eb_a1bc24f5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "Extra blank line?",
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d03df98c_c33f314b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "Make this type extend OrmException, so it can be thrown straight as is? -Versus line 209 if \u0027e\u0027 is of this type.",
+      "range": {
+        "startLine": 208,
+        "startChar": 28,
+        "endLine": 208,
+        "endChar": 43
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12e98100_bfa282fb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "No longer necessary if becoming an OrmException sub-type.",
+      "range": {
+        "startLine": 215,
+        "startChar": 27,
+        "endLine": 215,
+        "endChar": 42
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a4da303_7bdff86d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "Not consistent with other trace above for the as-failing reviewDb case.",
+      "range": {
+        "startLine": 221,
+        "startChar": 66,
+        "endLine": 221,
+        "endChar": 108
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd4ca515_d8ea906e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 35
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-04T19:32:06Z",
+      "side": 1,
+      "message": "exception",
+      "range": {
+        "startLine": 228,
+        "startChar": 70,
+        "endLine": 228,
+        "endChar": 79
+      },
+      "revId": "f585d4371c4ace2155b85be21332694b108d2865",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
