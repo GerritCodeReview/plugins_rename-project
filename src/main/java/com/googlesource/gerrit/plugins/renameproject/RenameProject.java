@@ -44,6 +44,7 @@ import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
@@ -138,18 +139,22 @@ public class RenameProject {
       throws InterruptedException, OrmException, ConfigInvalidException, IOException {
     Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
     Project.NameKey newProjectKey = new Project.NameKey(input.name);
+    List<Change.Id> updatedChangeIds;
     Exception ex = null;
+    List<Stage> stepsPerformed = new ArrayList<>();
     try {
       fsHandler.rename(oldProjectKey, newProjectKey, pm);
+      stepsPerformed.add(Stage.FS_STAGE);
       log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
       cacheHandler.update(rsrc.getControl().getProject(), newProjectKey);
-
-      List<Change.Id> updatedChangeIds =
-          dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
+      stepsPerformed.add(Stage.CACHE_STAGE);
+      updatedChangeIds = dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
+      stepsPerformed.add(Stage.DB_STAGE);
       log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
 
       // if the DB update is successful, update the secondary index
       indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
+      stepsPerformed.add(Stage.INDEX_STAGE);
       log.debug("Updated the secondary index successfully for project {}.", oldProjectKey.get());
 
       lockUnlockProject.unlock(newProjectKey);
@@ -160,11 +165,22 @@ public class RenameProject {
 
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
     } catch (Exception e) {
+      log.error(
+          "Renaming procedure failed after step {}. Exception caught:{}",
+          stepsPerformed.get(stepsPerformed.size() - 1).toString(),
+          e.toString());
       ex = e;
       throw e;
     } finally {
       renameLog.onRename((IdentifiedUser) userProvider.get(), oldProjectKey, input, ex);
     }
+  }
+
+  private enum Stage {
+    FS_STAGE,
+    CACHE_STAGE,
+    DB_STAGE,
+    INDEX_STAGE
   }
 
   List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm)
