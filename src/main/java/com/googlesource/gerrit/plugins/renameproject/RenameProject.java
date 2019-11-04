@@ -44,6 +44,7 @@ import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
@@ -73,6 +74,8 @@ public class RenameProject {
   private final PermissionBackend permissionBackend;
   private final Cache<Change.Id, String> changeIdProjectCache;
 
+  private List<Step> stepsPerformed;
+
   @Inject
   RenameProject(
       DatabaseRenameHandler dbHandler,
@@ -99,6 +102,7 @@ public class RenameProject {
     this.renameLog = renameLog;
     this.permissionBackend = permissionBackend;
     this.changeIdProjectCache = changeIdProjectCache;
+    this.stepsPerformed = new ArrayList<>();
   }
 
   private void assertNewNameNotNull(Input input) throws BadRequestException {
@@ -139,18 +143,16 @@ public class RenameProject {
     Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
     Project.NameKey newProjectKey = new Project.NameKey(input.name);
     Exception ex = null;
+    stepsPerformed.clear();
     try {
-      fsHandler.rename(oldProjectKey, newProjectKey, pm);
-      log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
-      cacheHandler.update(rsrc.getControl().getProject(), newProjectKey);
+      fsRenameStep(oldProjectKey, newProjectKey, pm);
 
-      List<Change.Id> updatedChangeIds =
-          dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
-      log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
+      cacheRenameStep(rsrc.getControl().getProject(), newProjectKey);
+
+      List<Change.Id> updatedChangeIds = dbRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
 
       // if the DB update is successful, update the secondary index
-      indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
-      log.debug("Updated the secondary index successfully for project {}.", oldProjectKey.get());
+      indexRenameStep(updatedChangeIds, oldProjectKey, newProjectKey, pm);
 
       lockUnlockProject.unlock(newProjectKey);
       log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
@@ -160,10 +162,76 @@ public class RenameProject {
 
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
     } catch (Exception e) {
+      if (stepsPerformed.isEmpty()) {
+        log.error("Renaming procedure failed. Exception caught: {}", e.toString());
+      } else {
+        log.error(
+            "Renaming procedure failed, last successful step {}. Exception caught: {}",
+            stepsPerformed.get(stepsPerformed.size() - 1).toString(),
+            e.toString());
+      }
       ex = e;
       throw e;
     } finally {
       renameLog.onRename((IdentifiedUser) userProvider.get(), oldProjectKey, input, ex);
+    }
+  }
+
+  void fsRenameStep(Project.NameKey oldProjectKey, Project.NameKey newProjectKey, ProgressMonitor pm)
+      throws IOException {
+    fsHandler.rename(oldProjectKey, newProjectKey, pm);
+    logPerformedStep(Step.FILESYSTEM, newProjectKey, oldProjectKey);
+  }
+
+  void cacheRenameStep(Project oldProject, Project.NameKey newProjectKey) {
+    cacheHandler.update(oldProject, newProjectKey);
+    logPerformedStep(Step.CACHE, newProjectKey, oldProject.getNameKey());
+  }
+
+  List<Change.Id> dbRenameStep(
+      List<Change.Id> changeIds,
+      Project.NameKey oldProjectKey,
+      Project.NameKey newProjectKey,
+      ProgressMonitor pm)
+      throws OrmException {
+    List<Change.Id> updatedChangeIds =
+        dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
+    logPerformedStep(Step.DATABASE, newProjectKey, oldProjectKey);
+    return updatedChangeIds;
+  }
+
+  void indexRenameStep(
+      List<Change.Id> updatedChangeIds,
+      Project.NameKey oldProjectKey,
+      Project.NameKey newProjectKey,
+      ProgressMonitor pm)
+      throws InterruptedException {
+    indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
+    logPerformedStep(Step.INDEX, newProjectKey, oldProjectKey);
+  }
+
+  private enum Step {
+    FILESYSTEM,
+    CACHE,
+    DATABASE,
+    INDEX
+  }
+
+  private void logPerformedStep(
+      Step step, Project.NameKey newProjectKey, Project.NameKey oldProjectKey) {
+    stepsPerformed.add(step);
+    switch (step) {
+      case FILESYSTEM:
+        log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
+        break;
+      case CACHE:
+        log.debug("Successfully updated project cache for project {}.", newProjectKey.get());
+        break;
+      case DATABASE:
+        log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
+        break;
+      case INDEX:
+        log.debug("Updated the secondary index successfully for project {}.", oldProjectKey.get());
     }
   }
 
