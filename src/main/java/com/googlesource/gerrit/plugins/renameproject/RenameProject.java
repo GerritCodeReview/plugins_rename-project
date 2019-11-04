@@ -44,6 +44,7 @@ import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
@@ -72,6 +73,8 @@ public class RenameProject {
   private final RenameLog renameLog;
   private final PermissionBackend permissionBackend;
   private final Cache<Change.Id, String> changeIdProjectCache;
+
+  private List<Step> stepsPerformed;
 
   @Inject
   RenameProject(
@@ -139,18 +142,21 @@ public class RenameProject {
     Project.NameKey oldProjectKey = rsrc.getControl().getProject().getNameKey();
     Project.NameKey newProjectKey = new Project.NameKey(input.name);
     Exception ex = null;
+    stepsPerformed = new ArrayList<>();
     try {
       fsHandler.rename(oldProjectKey, newProjectKey, pm);
-      log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
+      logPerformedStep(Step.FILESYSTEM, newProjectKey, oldProjectKey);
+
       cacheHandler.update(rsrc.getControl().getProject(), newProjectKey);
+      logPerformedStep(Step.CACHE, newProjectKey, oldProjectKey);
 
       List<Change.Id> updatedChangeIds =
           dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
-      log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
+      logPerformedStep(Step.DATABASE, newProjectKey, oldProjectKey);
 
       // if the DB update is successful, update the secondary index
       indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
-      log.debug("Updated the secondary index successfully for project {}.", oldProjectKey.get());
+      logPerformedStep(Step.INDEX, newProjectKey, oldProjectKey);
 
       lockUnlockProject.unlock(newProjectKey);
       log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
@@ -160,10 +166,43 @@ public class RenameProject {
 
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
     } catch (Exception e) {
+      if (stepsPerformed.isEmpty()) {
+        log.error("Renaming procedure failed. Exception caught: {}", e.toString());
+      } else {
+        log.error(
+            "Renaming procedure failed last successful step {}. Exception caught: {}",
+            stepsPerformed.get(stepsPerformed.size() - 1).toString(),
+            e.toString());
+      }
       ex = e;
       throw e;
     } finally {
       renameLog.onRename((IdentifiedUser) userProvider.get(), oldProjectKey, input, ex);
+    }
+  }
+
+  private enum Step {
+    FILESYSTEM,
+    CACHE,
+    DATABASE,
+    INDEX
+  }
+
+  private void logPerformedStep(
+      Step step, Project.NameKey newProjectKey, Project.NameKey oldProjectKey) {
+    stepsPerformed.add(step);
+    switch (step) {
+      case FILESYSTEM:
+        log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
+        break;
+      case CACHE:
+        log.debug("Successfully updated project cache for project {}.", newProjectKey.get());
+        break;
+      case DATABASE:
+        log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
+        break;
+      case INDEX:
+        log.debug("Updated the secondary index successfully for project {}.", oldProjectKey.get());
     }
   }
 
