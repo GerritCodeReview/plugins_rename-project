@@ -185,7 +185,8 @@ public class RenameProject {
     }
   }
 
-  List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm) throws OrmException {
+  List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm)
+      throws OrmException, IOException {
     pm.beginTask("Retrieving the list of changes from DB");
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     return dbHandler.getChangeIds(oldProjectKey);
