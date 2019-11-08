@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09c492fb_20ef0b83",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 38
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-08T19:20:55Z",
+      "side": 1,
+      "message": "I would move these noteDb fixes to a follow-up change instead. So this very change would solely focus on fixing reviewDb.",
+      "range": {
+        "startLine": 210,
+        "startChar": 26,
+        "endLine": 210,
+        "endChar": 40
+      },
+      "revId": "f29bcdc555a48366a84ac1550fc8c465dc5aceb4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
