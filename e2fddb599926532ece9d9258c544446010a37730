@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09619587_63ce9bf4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-08T19:23:44Z",
+      "side": 1,
+      "message": "I would move this second step to another /follow-up change instead.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "e2fddb599926532ece9d9258c544446010a37730",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "461b79d8_ba222200",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/cache/CacheRenameHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-08T19:23:44Z",
+      "side": 1,
+      "message": "My previous comment was proposing to not include unrelated renaming refactorings in this change. I would move them then to another change.",
+      "revId": "e2fddb599926532ece9d9258c544446010a37730",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
