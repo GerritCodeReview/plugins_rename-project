@@ -44,5 +44,6 @@ public class Module extends AbstractModule {
     bind(FilesystemRenameHandler.class);
     bind(RenamePreconditions.class);
     bind(IndexUpdateHandler.class);
+    bind(RevertRenameProject.class);
   }
 }
