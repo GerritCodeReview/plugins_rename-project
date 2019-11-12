@@ -215,13 +215,18 @@ public class DatabaseRenameHandler {
       updateWatchEntries(oldProjectKey, newProjectKey);
     } catch (OrmException e) {
       log.error(
-          "Failed to update changes in noteDb for the project {}, rolling back the operation.",
-          oldProjectKey.get());
+          "Failed to update changes in noteDb for project {}, exception caught: {}. Rolling back the operation.",
+          oldProjectKey.get(),
+          e.toString());
       try {
         updateWatchEntries(newProjectKey, oldProjectKey);
-      } catch (OrmException ex) {
-        log.error("Failed to revert watched projects after catching {}", e.getMessage());
-        throw ex;
+      } catch (OrmException revertEx) {
+        log.error(
+            "Failed to rollback changes in noteDb from project {} to project {}, exception caught: {}",
+            newProjectKey.get(),
+            oldProjectKey.get(),
+            revertEx.toString());
+        throw new RenameRevertException(revertEx, e);
       }
       throw e;
     }
