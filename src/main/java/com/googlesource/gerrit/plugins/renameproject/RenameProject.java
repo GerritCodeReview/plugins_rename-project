@@ -17,6 +17,7 @@ package com.googlesource.gerrit.plugins.renameproject;
 import static com.googlesource.gerrit.plugins.renameproject.RenameOwnProjectCapability.RENAME_OWN_PROJECT;
 import static com.googlesource.gerrit.plugins.renameproject.RenameProjectCapability.RENAME_PROJECT;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Strings;
 import com.google.common.cache.Cache;
 import com.google.gerrit.extensions.annotations.PluginName;
@@ -73,6 +74,7 @@ public class RenameProject {
   private final RenameLog renameLog;
   private final PermissionBackend permissionBackend;
   private final Cache<Change.Id, String> changeIdProjectCache;
+  private final RevertRenameProject revertRenameProject;
 
   private List<Step> stepsPerformed;
 
@@ -85,6 +87,7 @@ public class RenameProject {
       IndexUpdateHandler indexHandler,
       Provider<CurrentUser> userProvider,
       LockUnlockProject lockUnlockProject,
+      RevertRenameProject revertRenameProject,
       PluginEvent pluginEvent,
       @PluginName String pluginName,
       RenameLog renameLog,
@@ -97,6 +100,7 @@ public class RenameProject {
     this.indexHandler = indexHandler;
     this.userProvider = userProvider;
     this.lockUnlockProject = lockUnlockProject;
+    this.revertRenameProject = revertRenameProject;
     this.pluginEvent = pluginEvent;
     this.pluginName = pluginName;
     this.renameLog = renameLog;
@@ -154,6 +158,7 @@ public class RenameProject {
       // if the DB update is successful, update the secondary index
       indexRenameStep(updatedChangeIds, oldProjectKey, newProjectKey, pm);
 
+      // no need to revert this since newProjectKey will be removed from project cache before
       lockUnlockProject.unlock(newProjectKey);
       log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
 
@@ -169,6 +174,17 @@ public class RenameProject {
             "Renaming procedure failed, last successful step {}. Exception caught: {}",
             stepsPerformed.get(stepsPerformed.size() - 1).toString(),
             e.toString());
+      }
+      try {
+        revertRenameProject.performRevert(
+            stepsPerformed, changeIds, oldProjectKey, newProjectKey, pm);
+      } catch (Exception revertEx) {
+        log.error(
+            "Failed to revert renaming procedure for {}. Exception caught: {}",
+            oldProjectKey.get(),
+            revertEx.toString());
+        ex = revertEx;
+        throw new RenameRevertException(revertEx, e);
       }
       ex = e;
       throw e;
@@ -211,7 +227,7 @@ public class RenameProject {
     logPerformedStep(Step.INDEX, newProjectKey, oldProjectKey);
   }
 
-  private enum Step {
+  enum Step {
     FILESYSTEM,
     CACHE,
     DATABASE,
@@ -234,6 +250,11 @@ public class RenameProject {
       case INDEX:
         log.debug("Updated the secondary index successfully for project {}.", oldProjectKey.get());
     }
+  }
+
+  @VisibleForTesting
+  List<Step> getStepsPerformed() {
+    return stepsPerformed;
   }
 
   List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm)
