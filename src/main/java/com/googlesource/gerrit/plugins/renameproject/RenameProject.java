@@ -45,6 +45,7 @@ import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
@@ -147,7 +148,7 @@ public class RenameProject {
       fsHandler.rename(oldProjectKey, newProjectKey, pm);
       logSuccessStep(Step.FILESYSTEM, newProjectKey, oldProjectKey);
 
-      cacheHandler.update(rsrc.getControl().getProject(), newProjectKey);
+      cacheHandler.update(rsrc.getControl().getProject().getNameKey(), newProjectKey);
       logSuccessStep(Step.CACHE, newProjectKey, oldProjectKey);
 
       List<Change.Id> updatedChangeIds =
@@ -157,6 +158,7 @@ public class RenameProject {
       indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
       logSuccessStep(Step.INDEX, newProjectKey, oldProjectKey);
 
+      // no need to revert this since newProjectKey will be removed from project cache before
       lockUnlockProject.unlock(newProjectKey);
       log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
 
@@ -166,10 +168,19 @@ public class RenameProject {
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
     } catch (Exception e) {
       log.error(
-          "Renaming procedure failed after successful  step {}. Exception caught: {}",
+          "Renaming procedure failed after successful step {}. Exception caught: {}",
           stepsPerformed.get(stepsPerformed.size() - 1).toString(),
           e.toString());
-      ex = e;
+      try {
+        performRevert(stepsPerformed, changeIds, oldProjectKey, newProjectKey, pm);
+      } catch (Exception revertEx) {
+        log.error(
+            "Failed to revert renaming procedure for {}. Exception caught: {}",
+            oldProjectKey.get(),
+            revertEx.toString());
+        throw new RenameRevertException(revertEx, e);
+      }
+
       throw e;
     } finally {
       renameLog.onRename((IdentifiedUser) userProvider.get(), oldProjectKey, input, ex);
@@ -199,6 +210,62 @@ public class RenameProject {
         log.debug("Rename step: {} completed successfully.", step.toString());
     }
     stepsPerformed.add(step);
+  }
+
+  private void performRevert(
+      List<Step> toRevert,
+      List<Change.Id> changeIds,
+      Project.NameKey oldProjectKey,
+      Project.NameKey newProjectKey,
+      ProgressMonitor pm)
+      throws IOException, OrmException {
+    pm.beginTask("Reverting the rename procedure.");
+    if (toRevert.contains(Step.FILESYSTEM)) {
+      try {
+        fsHandler.rename(newProjectKey, oldProjectKey, pm);
+        log.debug("FILESYSTEM: Renamed the git repo to {} successfully.", oldProjectKey.get());
+      } catch (IOException e) {
+        log.error(
+            "FILESYSTEM: Failed to perform FS revert. Aborting revert. Exception caught: {}",
+            e.toString());
+        throw e;
+      }
+    }
+    if (toRevert.contains(Step.CACHE)) {
+      cacheHandler.update(newProjectKey, oldProjectKey);
+      log.debug("CACHE: Successfully removed project {} from project cache", newProjectKey.get());
+    }
+    List<Change.Id> updatedChangeIds = Collections.emptyList();
+    if (toRevert.contains(Step.DATABASE)) {
+      try {
+        updatedChangeIds = dbHandler.rename(changeIds, newProjectKey, oldProjectKey, pm);
+        log.debug(
+            "DATABASE: Updated the changes in DB successfully from project {} to project {}.",
+            newProjectKey.get(),
+            oldProjectKey.get());
+      } catch (OrmException e) {
+        log.error(
+            "DATABASE: Failed to Step changes in DB for project {}. Exception caught: {}"
+                + "\nSecondary indexes are not going to be reverted",
+            oldProjectKey.get(),
+            e.toString());
+        throw e;
+      }
+    }
+    if (toRevert.contains(Step.INDEX)) {
+      try {
+        indexHandler.updateIndex(updatedChangeIds, oldProjectKey, pm);
+        log.debug(
+            "INDEX: Updated the secondary index successfully from project {} to project {}.",
+            newProjectKey.get(),
+            oldProjectKey.get());
+      } catch (InterruptedException e) {
+        log.error(
+            "INDEX: Secondary index update failed for {}. Exception caught: {}",
+            oldProjectKey.get(),
+            e.toString());
+      }
+    }
   }
 
   List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm)
