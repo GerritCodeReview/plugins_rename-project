@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c572a045_8461c2c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-13T23:43:01Z",
+      "side": 1,
+      "message": "RenameProject: Make each renaming step correspond to a specific stage",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cb378a2_cbf98d44",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-13T23:43:01Z",
+      "side": 1,
+      "message": "Declaration extraction unnecessary, AFAIK. Would move back to below /local location.",
+      "range": {
+        "startLine": 142,
+        "startChar": 4,
+        "endLine": 142,
+        "endChar": 37
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "039f8167_0883e6e8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-13T23:43:01Z",
+      "side": 1,
+      "message": "Would choose between either stage or step as the term.",
+      "range": {
+        "startLine": 144,
+        "startChar": 9,
+        "endLine": 144,
+        "endChar": 21
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77586313_bfe72b15",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-13T23:43:01Z",
+      "side": 1,
+      "message": "Add a blank line after each step performed? Also, if willing to log a trace after every step, would then make this .add and log a reused method instead.",
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce0ff000_d381cbe3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-13T23:43:01Z",
+      "side": 1,
+      "message": ": {",
+      "range": {
+        "startLine": 169,
+        "startChar": 68,
+        "endLine": 169,
+        "endChar": 70
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce6b22f7_03aa5b1e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-13T23:43:01Z",
+      "side": 1,
+      "message": "Did we at least manually test this error log trace, to make sure it renders as expected?",
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa9c3c8b_af26b954",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-13T23:43:01Z",
+      "side": 1,
+      "message": "FILESYSTEM",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 180,
+        "endChar": 12
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f1726b1_8f84aae2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-13T23:43:01Z",
+      "side": 1,
+      "message": "CACHE",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 15
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e821cc6_93588e4c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-13T23:43:01Z",
+      "side": 1,
+      "message": "DATABASE",
+      "range": {
+        "startLine": 182,
+        "startChar": 4,
+        "endLine": 182,
+        "endChar": 12
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5d6e50e_944e7918",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-13T23:43:01Z",
+      "side": 1,
+      "message": "INDEX",
+      "range": {
+        "startLine": 183,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 15
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
