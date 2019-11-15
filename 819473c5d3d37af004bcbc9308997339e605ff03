@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e5e4e59b_eef94f6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-15T15:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c572a045_8461c2c0",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cb378a2_cbf98d44",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f20291e6_1cdb02f5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-15T15:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cb378a2_cbf98d44",
+      "range": {
+        "startLine": 142,
+        "startChar": 4,
+        "endLine": 142,
+        "endChar": 37
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c4815c55_ec9d3ee2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-15T15:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "039f8167_0883e6e8",
+      "range": {
+        "startLine": 144,
+        "startChar": 9,
+        "endLine": 144,
+        "endChar": 21
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77586313_bfe72b15",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 7
@@ -85,6 +157,24 @@
       "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba922613_2810d13c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-15T15:23:29Z",
+      "side": 1,
+      "message": "Done. Pulled out all the log.debug into separate function. Do we want to keep original log message or we change to look like in default case?",
+      "parentUuid": "77586313_bfe72b15",
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "c837346c_c27fdf41",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-15T15:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce0ff000_d381cbe3",
+      "range": {
+        "startLine": 169,
+        "startChar": 68,
+        "endLine": 169,
+        "endChar": 70
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce6b22f7_03aa5b1e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 7
@@ -125,6 +239,24 @@
       "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4493b8e0_c0f3a415",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-15T15:23:29Z",
+      "side": 1,
+      "message": "Yes it does, it will print the last successful step performed. Or you suggest to do more implicit like: \"Progress 1/5\" if failed on second step?",
+      "parentUuid": "ce6b22f7_03aa5b1e",
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "881cf42e_0814ce72",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-15T15:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa9c3c8b_af26b954",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 180,
+        "endChar": 12
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f1726b1_8f84aae2",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 7
@@ -171,6 +327,30 @@
       "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "569cd878_b48fc3b2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-15T15:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f1726b1_8f84aae2",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 15
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -197,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "c1cef552_9e8ec61b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-15T15:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e821cc6_93588e4c",
+      "range": {
+        "startLine": 182,
+        "startChar": 4,
+        "endLine": 182,
+        "endChar": 12
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5d6e50e_944e7918",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 7
@@ -217,6 +421,30 @@
       "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfb148a8_ed2c0f38",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-15T15:23:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5d6e50e_944e7918",
+      "range": {
+        "startLine": 183,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 15
+      },
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
