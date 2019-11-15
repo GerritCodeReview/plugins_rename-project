@@ -152,7 +152,7 @@ public class RenameProject {
   }
 
   void doRename(List<Change.Id> changeIds, ProjectResource rsrc, Input input, ProgressMonitor pm)
-      throws InterruptedException, ConfigInvalidException, IOException {
+      throws InterruptedException, ConfigInvalidException, IOException, RenameRevertException {
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     Project.NameKey newProjectKey = new Project.NameKey(input.name);
     Exception ex = null;
@@ -161,8 +161,7 @@ public class RenameProject {
       log.debug("Renamed the git repo to {} successfully.", newProjectKey.get());
       cacheHandler.update(rsrc.getProjectState().getProject(), newProjectKey);
 
-      List<Change.Id> updatedChangeIds =
-          dbHandler.rename(changeIds, newProjectKey, pm);
+      List<Change.Id> updatedChangeIds = dbHandler.rename(changeIds, newProjectKey, pm);
       log.debug("Updated the changes in DB successfully for project {}.", oldProjectKey.get());
 
       // if the DB update is successful, update the secondary index
