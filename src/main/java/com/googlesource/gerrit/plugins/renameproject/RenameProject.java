@@ -152,7 +152,7 @@ public class RenameProject {
   }
 
   void doRename(List<Change.Id> changeIds, ProjectResource rsrc, Input input, ProgressMonitor pm)
-      throws InterruptedException, ConfigInvalidException, IOException {
+      throws InterruptedException, ConfigInvalidException, IOException, RenameRevertException {
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     Project.NameKey newProjectKey = Project.nameKey(input.name);
     Exception ex = null;
