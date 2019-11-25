@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0130df73_c84a6aae",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-25T20:26:46Z",
+      "side": 1,
+      "message": "Would have kept the blank line right above.",
+      "revId": "bf2fe2cb40cdb24afbdc55e4f1b6cb062dddad7a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b777bf0_99e22847",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-25T20:26:46Z",
+      "side": 1,
+      "message": "successful step",
+      "range": {
+        "startLine": 169,
+        "startChar": 43,
+        "endLine": 169,
+        "endChar": 59
+      },
+      "revId": "bf2fe2cb40cdb24afbdc55e4f1b6cb062dddad7a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dfdad4f_071f882b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-25T20:26:46Z",
+      "side": 1,
+      "message": "Performed",
+      "range": {
+        "startLine": 186,
+        "startChar": 18,
+        "endLine": 186,
+        "endChar": 25
+      },
+      "revId": "bf2fe2cb40cdb24afbdc55e4f1b6cb062dddad7a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "247c14ed_825d4e99",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-25T20:26:46Z",
+      "side": 1,
+      "message": "Missing explicit case CACHE handling (Eclipse warning).",
+      "revId": "bf2fe2cb40cdb24afbdc55e4f1b6cb062dddad7a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0f7caf4_b7d2a623",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-25T20:26:46Z",
+      "side": 1,
+      "message": "The default case should never happen.",
+      "revId": "bf2fe2cb40cdb24afbdc55e4f1b6cb062dddad7a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e490fa7_35082b06",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-25T20:26:46Z",
+      "side": 1,
+      "message": "Should move to above line 188.",
+      "range": {
+        "startLine": 201,
+        "startChar": 4,
+        "endLine": 201,
+        "endChar": 29
+      },
+      "revId": "bf2fe2cb40cdb24afbdc55e4f1b6cb062dddad7a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
