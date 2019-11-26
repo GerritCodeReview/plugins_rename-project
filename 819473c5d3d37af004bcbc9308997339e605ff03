@@ -196,6 +196,24 @@
     },
     {
       "key": {
+        "uuid": "ecff28fd_36ee5247",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-26T16:52:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f70351ed_ec295633",
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce0ff000_d381cbe3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 7
@@ -290,6 +308,24 @@
       "side": 1,
       "message": "\u003e Yes it does, it will print the last successful step performed. Or you suggest to do more implicit like: \"Progress 1/5\" if failed on second step?\n\nWe can leave it as is for now I think.",
       "parentUuid": "4493b8e0_c0f3a415",
+      "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76f0fc0a_b9cf45ac",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-26T16:52:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26a8d523_6e40e553",
       "revId": "819473c5d3d37af004bcbc9308997339e605ff03",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
