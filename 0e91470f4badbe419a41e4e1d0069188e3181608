@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11c570d7_c8c1bda6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:33:38Z",
+      "side": 1,
+      "message": "Would move this one to above line 194, same order as enum\u0027s or logical steps.",
+      "range": {
+        "startLine": 200,
+        "startChar": 6,
+        "endLine": 200,
+        "endChar": 17
+      },
+      "revId": "0e91470f4badbe419a41e4e1d0069188e3181608",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
