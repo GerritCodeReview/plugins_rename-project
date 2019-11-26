@@ -1,0 +1,268 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "710d18e6_fd0a50f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:29:23Z",
+      "side": 1,
+      "message": "executed up until",
+      "range": {
+        "startLine": 10,
+        "startChar": 52,
+        "endLine": 10,
+        "endChar": 71
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99c8ab32_7ceb9250",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:29:23Z",
+      "side": 1,
+      "message": "operation",
+      "range": {
+        "startLine": 18,
+        "startChar": 30,
+        "endLine": 18,
+        "endChar": 39
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b28d3f7_dc5a37a2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:29:23Z",
+      "side": 1,
+      "message": "May remove this blank line, fitting with style above.",
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16ff45f7_94cf5a70",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:29:23Z",
+      "side": 1,
+      "message": "Reverted the git repo name to",
+      "range": {
+        "startLine": 227,
+        "startChar": 31,
+        "endLine": 227,
+        "endChar": 54
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef8a301e_6a48ff51",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:29:23Z",
+      "side": 1,
+      "message": "revert git repo name",
+      "range": {
+        "startLine": 230,
+        "startChar": 35,
+        "endLine": 230,
+        "endChar": 52
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee7903ed_713a7293",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:29:23Z",
+      "side": 1,
+      "message": "I think these prefixes can be removed, as implementation details and redundant in log messages.",
+      "range": {
+        "startLine": 237,
+        "startChar": 17,
+        "endLine": 237,
+        "endChar": 24
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e49dbf2c_2d1944fd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:29:23Z",
+      "side": 1,
+      "message": "Reverted",
+      "range": {
+        "startLine": 244,
+        "startChar": 23,
+        "endLine": 244,
+        "endChar": 30
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9206512d_f96f5221",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:29:23Z",
+      "side": 1,
+      "message": "Not sure what this means; would rewrite.",
+      "range": {
+        "startLine": 249,
+        "startChar": 23,
+        "endLine": 249,
+        "endChar": 45
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e39e45e_4d9e04da",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:29:23Z",
+      "side": 1,
+      "message": "Would then merge this information into line 249\u0027s.",
+      "range": {
+        "startLine": 250,
+        "startChar": 21,
+        "endLine": 250,
+        "endChar": 67
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a93bc04_ecc5d1ce",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:29:23Z",
+      "side": 1,
+      "message": "Reverted",
+      "range": {
+        "startLine": 260,
+        "startChar": 20,
+        "endLine": 260,
+        "endChar": 27
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0359fec_279c7df2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:29:23Z",
+      "side": 1,
+      "message": "revert",
+      "range": {
+        "startLine": 265,
+        "startChar": 36,
+        "endLine": 265,
+        "endChar": 42
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07ef0d57_2de745e7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-26T20:29:23Z",
+      "side": 1,
+      "message": "The sequential if statements above show that those \"steps\" should be \"stages\" instead. If done performing stage x, then it means that all previous stages -up to x, included- need to be reverted altogether. Meaning, it is not possible for stage x-y (y\u003cx) to not be reverted if needing to revert x.\n\nThe revert order above might need to be changed, reversed or so. Similarly with a stack data structure, here for stages, reverted in LIFO order. If stage x fails and needs revert, then stage x-1 gets reverted first, followed by x-2, \u0026c. This should make sense if the original performing order was logically done.",
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
