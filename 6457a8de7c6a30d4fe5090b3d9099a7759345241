@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ab7274d5_a90c1c99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-27T18:41:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "710d18e6_fd0a50f2",
+      "range": {
+        "startLine": 10,
+        "startChar": 52,
+        "endLine": 10,
+        "endChar": 71
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99c8ab32_7ceb9250",
         "filename": "/COMMIT_MSG",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "dab07c3d_09a612bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-27T18:41:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99c8ab32_7ceb9250",
+      "range": {
+        "startLine": 18,
+        "startChar": 30,
+        "endLine": 18,
+        "endChar": 39
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b28d3f7_dc5a37a2",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 8
@@ -62,6 +110,24 @@
       "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "526bb549_abd68cad",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-27T18:41:54Z",
+      "side": 1,
+      "message": "Done, forgot to assign ex \u003d e;",
+      "parentUuid": "0b28d3f7_dc5a37a2",
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "939ebd6d_b6ef7ded",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-27T18:41:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16ff45f7_94cf5a70",
+      "range": {
+        "startLine": 227,
+        "startChar": 31,
+        "endLine": 227,
+        "endChar": 54
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef8a301e_6a48ff51",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 8
@@ -108,6 +198,30 @@
       "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "759a2aab_c014d838",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-27T18:41:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef8a301e_6a48ff51",
+      "range": {
+        "startLine": 230,
+        "startChar": 35,
+        "endLine": 230,
+        "endChar": 52
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "0837f909_40973ca1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-27T18:41:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee7903ed_713a7293",
+      "range": {
+        "startLine": 237,
+        "startChar": 17,
+        "endLine": 237,
+        "endChar": 24
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e49dbf2c_2d1944fd",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 8
@@ -154,6 +292,30 @@
       "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68aab3a8_756ea531",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-27T18:41:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e49dbf2c_2d1944fd",
+      "range": {
+        "startLine": 244,
+        "startChar": 23,
+        "endLine": 244,
+        "endChar": 30
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "cb8ffb87_cb078e02",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-27T18:41:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9206512d_f96f5221",
+      "range": {
+        "startLine": 249,
+        "startChar": 23,
+        "endLine": 249,
+        "endChar": 45
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e39e45e_4d9e04da",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 8
@@ -200,6 +386,30 @@
       "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b93c494_c6586867",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-27T18:41:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e39e45e_4d9e04da",
+      "range": {
+        "startLine": 250,
+        "startChar": 21,
+        "endLine": 250,
+        "endChar": 67
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "fec999f8_fd4093b5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-27T18:41:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a93bc04_ecc5d1ce",
+      "range": {
+        "startLine": 260,
+        "startChar": 20,
+        "endLine": 260,
+        "endChar": 27
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0359fec_279c7df2",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 8
@@ -249,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "b095e33b_b6520fd5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-27T18:41:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0359fec_279c7df2",
+      "range": {
+        "startLine": 265,
+        "startChar": 36,
+        "endLine": 265,
+        "endChar": 42
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07ef0d57_2de745e7",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 8
@@ -263,6 +521,24 @@
       "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "383b0661_da729530",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-27T18:41:54Z",
+      "side": 1,
+      "message": "Switching order make revert to fail. Revert was designed by undoing rename step by step. There is a data dependency between steps, switching order breaks that dependency.",
+      "parentUuid": "07ef0d57_2de745e7",
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
