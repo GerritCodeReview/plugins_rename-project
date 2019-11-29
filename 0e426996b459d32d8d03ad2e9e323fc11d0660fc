@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54d486e2_aca9ed00",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-29T15:21:09Z",
+      "side": 1,
+      "message": "If case CACHE, then this will fall through DATABASE\u0027s below.",
+      "range": {
+        "startLine": 194,
+        "startChar": 6,
+        "endLine": 196,
+        "endChar": 20
+      },
+      "revId": "0e426996b459d32d8d03ad2e9e323fc11d0660fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e86282e7_3f6f830a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-29T15:21:09Z",
+      "side": 1,
+      "message": "Does Eclipse issue a warning about this potentially superfluous break statement?",
+      "range": {
+        "startLine": 201,
+        "startChar": 8,
+        "endLine": 201,
+        "endChar": 14
+      },
+      "revId": "0e426996b459d32d8d03ad2e9e323fc11d0660fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
