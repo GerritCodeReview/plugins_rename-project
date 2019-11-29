@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c151f367_61cc3eee",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-29T15:40:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54d486e2_aca9ed00",
+      "range": {
+        "startLine": 194,
+        "startChar": 6,
+        "endLine": 196,
+        "endChar": 20
+      },
+      "revId": "0e426996b459d32d8d03ad2e9e323fc11d0660fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e86282e7_3f6f830a",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 13
@@ -45,6 +69,30 @@
       "revId": "0e426996b459d32d8d03ad2e9e323fc11d0660fc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e0c4a29_09b024a3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-29T15:40:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e86282e7_3f6f830a",
+      "range": {
+        "startLine": 201,
+        "startChar": 8,
+        "endLine": 201,
+        "endChar": 14
+      },
+      "revId": "0e426996b459d32d8d03ad2e9e323fc11d0660fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
