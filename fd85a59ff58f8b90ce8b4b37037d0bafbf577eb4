@@ -22,6 +22,30 @@
       "revId": "fd85a59ff58f8b90ce8b4b37037d0bafbf577eb4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b4f6566_94f1d3ba",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-11-29T20:29:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea47fad8_3f9a52ba",
+      "range": {
+        "startLine": 249,
+        "startChar": 78,
+        "endLine": 249,
+        "endChar": 97
+      },
+      "revId": "fd85a59ff58f8b90ce8b4b37037d0bafbf577eb4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
