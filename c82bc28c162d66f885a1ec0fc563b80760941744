@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45a544b7_d501c3d5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-29T15:39:30Z",
+      "side": 1,
+      "message": "Can we merge the trailing sentence into the first one, making this just one (sentence) -to all show before the Exception string? To also be more consistent with other similar traces in this file.",
+      "range": {
+        "startLine": 249,
+        "startChar": 13,
+        "endLine": 249,
+        "endChar": 128
+      },
+      "revId": "c82bc28c162d66f885a1ec0fc563b80760941744",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "decfa962_ce291d44",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-29T15:39:30Z",
+      "side": 1,
+      "message": "Should not even build. How were you able to Verify this patch?",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 68
+      },
+      "revId": "c82bc28c162d66f885a1ec0fc563b80760941744",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}

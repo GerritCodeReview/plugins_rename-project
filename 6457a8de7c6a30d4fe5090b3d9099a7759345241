@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f8b4bc6d_4154d382",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-29T15:39:30Z",
+      "side": 1,
+      "message": "\u003e Done\n\nPushed? -Not done.",
+      "parentUuid": "ab7274d5_a90c1c99",
+      "range": {
+        "startLine": 10,
+        "startChar": 52,
+        "endLine": 10,
+        "endChar": 71
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99c8ab32_7ceb9250",
         "filename": "/COMMIT_MSG",
         "patchSetId": 8
@@ -125,6 +149,24 @@
       "side": 1,
       "message": "Done, forgot to assign ex \u003d e;",
       "parentUuid": "0b28d3f7_dc5a37a2",
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d988b3e_4edee218",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-29T15:39:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "526bb549_abd68cad",
       "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -413,6 +455,30 @@
     },
     {
       "key": {
+        "uuid": "f3e62704_0ceb7b0e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-29T15:39:30Z",
+      "side": 1,
+      "message": "\u003e Done\n\nPushed? Please see my latest comment.",
+      "parentUuid": "2b93c494_c6586867",
+      "range": {
+        "startLine": 250,
+        "startChar": 21,
+        "endLine": 250,
+        "endChar": 67
+      },
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a93bc04_ecc5d1ce",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 8
@@ -536,6 +602,24 @@
       "side": 1,
       "message": "Switching order make revert to fail. Revert was designed by undoing rename step by step. There is a data dependency between steps, switching order breaks that dependency.",
       "parentUuid": "07ef0d57_2de745e7",
+      "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9958e42f_1ffe11ff",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-11-29T15:39:30Z",
+      "side": 1,
+      "message": "\u003e Switching order make revert to fail. Revert was designed by undoing rename step by step. There is a data dependency between steps, switching order breaks that dependency.\n\nAre you sure about this current /precise ordering, is it already optimal?",
+      "parentUuid": "383b0661_da729530",
       "revId": "6457a8de7c6a30d4fe5090b3d9099a7759345241",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
