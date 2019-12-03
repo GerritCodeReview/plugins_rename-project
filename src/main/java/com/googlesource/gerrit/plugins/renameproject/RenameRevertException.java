@@ -17,6 +17,8 @@ import com.google.gwtorm.server.OrmException;
 
 /** Add cause for exception during revert operation */
 public class RenameRevertException extends OrmException {
+  private static final long serialVersionUID = 1L;
+
   public RenameRevertException(Throwable revertException, Throwable cause) {
     super(
         "Failed to revert after failed rename. Revert cause: " + cause.getMessage(),
