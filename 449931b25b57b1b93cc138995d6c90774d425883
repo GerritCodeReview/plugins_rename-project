@@ -1,0 +1,388 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06550d45_a4366b8e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "Revisit this paragraph, now that tests are automated?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6302e48b_230994dc",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "Missing standard project file header.",
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52f10ed9_ba91e115",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "Should rename based on 1. name of class under test and 2. the standard project IT suffix.",
+      "range": {
+        "startLine": 30,
+        "startChar": 13,
+        "endLine": 30,
+        "endChar": 36
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c65c728f_6abb2ba2",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "Would move this line elsewhere, as unrelated to \u0027control\u0027 use.",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 45
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06dd2d5e_bec9fda1",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "oldProjectKey",
+      "range": {
+        "startLine": 55,
+        "startChar": 54,
+        "endLine": 55,
+        "endChar": 61
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b493cc47_ff760ab4",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "FsHandler",
+      "range": {
+        "startLine": 61,
+        "startChar": 28,
+        "endLine": 61,
+        "endChar": 38
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9d6148b_5fc953a9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "Code below already says so; would replace these comments with a blank line.",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 32
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88febf08_8510e0bb",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "This instruction should always be performed (if rename goes well) by fsHandler.rename itself. Same would go for the other similar instructions going together (in logical or transactional pairs like that).",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 34
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f88dc4fc_fdf86c68",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "Code below already says so; would replace with blank line.",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 36
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f810cbf_5f2e37d7",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "Would remove this blank line, as these lines go together.",
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f712504_1f480f7d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "Comments stated in the previous test method would apply here and below, too.",
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f521589_de7e4169",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "oldProjectState",
+      "range": {
+        "startLine": 132,
+        "startChar": 17,
+        "endLine": 132,
+        "endChar": 29
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2710fc7_c8170a1d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "oldProjectKey",
+      "range": {
+        "startLine": 132,
+        "startChar": 49,
+        "endLine": 132,
+        "endChar": 56
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65c29a18_05fd978d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "Blank line below?",
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73098eff_1e987502",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "newProjectState",
+      "range": {
+        "startLine": 134,
+        "startChar": 4,
+        "endLine": 134,
+        "endChar": 16
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "615b4fc8_58129e81",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "Blank line below.",
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d27c757_9b837396",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "oldProjectKey",
+      "range": {
+        "startLine": 136,
+        "startChar": 45,
+        "endLine": 136,
+        "endChar": 52
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f07d029_f1eeb57b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-09T16:27:18Z",
+      "side": 1,
+      "message": "Reuse newProjectState\u0027s nameKey straight instead, for consistency?",
+      "range": {
+        "startLine": 137,
+        "startChar": 45,
+        "endLine": 137,
+        "endChar": 83
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
