@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d26d54b9_f0010e81",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-12-13T19:51:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06550d45_a4366b8e",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6302e48b_230994dc",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
         "patchSetId": 16
@@ -315,6 +339,30 @@
       "revId": "449931b25b57b1b93cc138995d6c90774d425883",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "987f7d82_cba56037",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectRevertTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-12-13T19:51:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88febf08_8510e0bb",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 34
+      },
+      "revId": "449931b25b57b1b93cc138995d6c90774d425883",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
