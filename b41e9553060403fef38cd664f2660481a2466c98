@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "66a1677f_6efdd731",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 24
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-20T20:46:00Z",
+      "side": 1,
+      "message": "(Done; thanks.)",
+      "parentUuid": "e6e18bc3_05b024e0",
+      "revId": "b41e9553060403fef38cd664f2660481a2466c98",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a05b01f_7d577101",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RevertRenameProjectTest.java",
         "patchSetId": 24
