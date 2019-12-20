@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "0a0cf523_e28d216e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2019-12-20T17:13:27Z",
+      "side": 1,
+      "message": "\u003e Revert flow is undoing succeeded steps. Each step needs to be done in a specific order, so if any of the revert step fails I am aborting revert. So, if any of the steps fails it is really over.\n\nAck, assuming that the following revert steps are irrelevant if the current one fails. Now, if the current revert step succeeds, then the following code still checks to potentially execute more revert steps. This means that in case of current revert step failure, then there might still be some leftover cleanup (reverting) to do.",
+      "parentUuid": "103d3651_135111fc",
+      "range": {
+        "startLine": 268,
+        "startChar": 8,
+        "endLine": 268,
+        "endChar": 16
+      },
+      "revId": "a78eb0dc1cca9d0dcb8b95c5d9d2612663e2f579",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "088c21b6_00d00dcf",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 21
