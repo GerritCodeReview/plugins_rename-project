@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "edc4810f_c0a65161",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2019-12-20T19:35:07Z",
+      "side": 1,
+      "message": "We don\u0027t want to continues. That is why we are trying to throw error here and finish reverting.",
+      "parentUuid": "0a0cf523_e28d216e",
+      "range": {
+        "startLine": 268,
+        "startChar": 8,
+        "endLine": 268,
+        "endChar": 16
+      },
+      "revId": "a78eb0dc1cca9d0dcb8b95c5d9d2612663e2f579",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "088c21b6_00d00dcf",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 21
