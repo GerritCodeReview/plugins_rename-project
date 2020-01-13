@@ -30,8 +30,9 @@ public class CacheRenameHandler {
     this.projectCache = projectCache;
   }
 
-  public void update(Project oldProject, Project.NameKey newProjectKey) throws IOException {
-    projectCache.remove(oldProject);
+  public void update(Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
+      throws IOException {
+    projectCache.remove(oldProjectKey);
     projectCache.onCreateProject(newProjectKey);
   }
 }
