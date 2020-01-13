@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5837f9bb_0d9d2840",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RevertRenameProject.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-01-13T23:27:13Z",
+      "side": 1,
+      "message": "Google-java-format changes this line/file ending differently.",
+      "revId": "d590f704122cb50536e75613303af92f1235efcf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
