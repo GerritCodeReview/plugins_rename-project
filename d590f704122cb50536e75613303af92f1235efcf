@@ -16,6 +16,24 @@
       "revId": "d590f704122cb50536e75613303af92f1235efcf",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d126740b_441da535",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RevertRenameProject.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-01-14T13:51:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5837f9bb_0d9d2840",
+      "revId": "d590f704122cb50536e75613303af92f1235efcf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
