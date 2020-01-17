@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95cb0e07_20b5784d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-01-17T17:22:11Z",
+      "side": 1,
+      "message": "These lines should show here by now, right below this line 10 and before lines 11 and 12 down below:\n\n  Upgrade bazlets to latest stable-3.0\n  Upgrade bazlets to latest stable-2.16\n  Upgrade bazlets to latest stable-2.15\n  Upgrade bazlets to latest stable-2.14",
+      "revId": "95ed2394cf63b262d69e6b75f3d109ec1f71b318",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
