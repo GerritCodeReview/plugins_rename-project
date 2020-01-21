@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5417a1a_1bb48a8e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-01-21T21:29:50Z",
+      "side": 1,
+      "message": "In this plugin case, a similar addition is also needed for standalone. See my other related comment.",
+      "range": {
+        "startLine": 7,
+        "startChar": 50,
+        "endLine": 7,
+        "endChar": 57
+      },
+      "revId": "9da1437af62cdd45d10346ce40a9eceb9b550f48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ac37338_80e07f94",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-01-21T21:29:50Z",
+      "side": 1,
+      "message": "To execute the tests run:\n\n```\n  bazel test //...\n```",
+      "revId": "9da1437af62cdd45d10346ce40a9eceb9b550f48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bdfc47d_8c678c94",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-01-21T21:29:50Z",
+      "side": 1,
+      "message": "Would do this insertion before the above eclipse-related section.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 0
+      },
+      "revId": "9da1437af62cdd45d10346ce40a9eceb9b550f48",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
