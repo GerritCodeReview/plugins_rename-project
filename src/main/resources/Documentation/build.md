@@ -35,6 +35,12 @@ The output is created in:
   bazel-bin/lib@PLUGIN@__plugin-src.jar
 ```
 
+To execute the tests run:
+
+```
+  bazel test //...
+```
+
 This project can be imported into the Eclipse IDE. Execute:
 
 ```
@@ -59,6 +65,12 @@ The output is created in
   bazel-bin/plugins/@PLUGIN@/@PLUGIN@.jar
 ```
 
+To execute the tests run either one of:
+
+```
+  bazel test --test_tag_filters=@PLUGIN@ //...
+  bazel test plugins/@PLUGIN@:@PLUGIN@_tests
+```
 
 This project can be imported into the Eclipse IDE.
 Add the plugin name to the `CUSTOM_PLUGINS` set in
