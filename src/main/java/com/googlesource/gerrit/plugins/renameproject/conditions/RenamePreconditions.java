@@ -25,7 +25,7 @@ import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.project.ProjectResource;
 import com.google.gerrit.server.restapi.project.ListChildProjects;
 import com.google.gerrit.server.submit.MergeOpRepoManager;
-import com.google.gerrit.server.submit.SubmoduleException;
+import com.google.gerrit.server.submit.SubmoduleConflictException;
 import com.google.gerrit.server.submit.SubmoduleOp;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -121,7 +121,7 @@ public class RenamePreconditions {
           throw new CannotRenameProjectException(message);
         }
       }
-    } catch (IOException | SubmoduleException e) {
+    } catch (IOException | SubmoduleConflictException e) {
       throw new CannotRenameProjectException(e);
     }
   }

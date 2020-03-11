@@ -29,6 +29,7 @@ import com.google.gerrit.extensions.client.ProjectWatchInfo;
 import com.google.gerrit.server.project.ProjectState;
 import com.google.inject.Inject;
 import java.util.List;
+import java.util.Optional;
 import javax.inject.Named;
 import org.eclipse.jgit.junit.TestRepository;
 import org.junit.Test;
@@ -55,8 +56,8 @@ public class RenameIT extends LightweightPluginDaemonTest {
     adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME);
 
     adminSshSession.assertSuccess();
-    ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
-    assertThat(projectState).isNotNull();
+    Optional<ProjectState> projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState.isPresent()).isTrue();
     assertThat(queryProvider.get().byProject(project)).isEmpty();
     assertThat(queryProvider.get().byProject(Project.nameKey(NEW_PROJECT_NAME))).isNotEmpty();
   }
@@ -69,8 +70,8 @@ public class RenameIT extends LightweightPluginDaemonTest {
     adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + newProjectName);
 
     adminSshSession.assertFailure();
-    ProjectState projectState = projectCache.get(Project.nameKey(newProjectName));
-    assertThat(projectState).isNull();
+    Optional<ProjectState> projectState = projectCache.get(Project.nameKey(newProjectName));
+    assertThat(projectState.isPresent()).isFalse();
   }
 
   @Test
@@ -80,8 +81,8 @@ public class RenameIT extends LightweightPluginDaemonTest {
     adminSshSession.exec(PLUGIN_NAME + " " + allProjects.get() + " " + NEW_PROJECT_NAME);
 
     adminSshSession.assertFailure();
-    ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
-    assertThat(projectState).isNull();
+    Optional<ProjectState> projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState.isPresent()).isFalse();
   }
 
   @Test
