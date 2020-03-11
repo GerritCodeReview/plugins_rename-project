@@ -32,6 +32,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.NoSuchElementException;
 import org.kohsuke.args4j.Argument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,7 +67,7 @@ public final class RenameCommand extends SshCommand {
       input.name = newProjectName;
       ProjectResource rsrc =
           new ProjectResource(
-              projectCacheProvider.get().get(Project.nameKey(projectControl)), self.get());
+              projectCacheProvider.get().get(Project.nameKey(projectControl)).get(), self.get());
       try (CommandProgressMonitor monitor = new CommandProgressMonitor(stdout)) {
         renameProject.assertCanRename(rsrc, input, monitor);
         List<Change.Id> changeIds = renameProject.getChanges(rsrc, monitor);
@@ -79,7 +80,7 @@ public final class RenameCommand extends SshCommand {
           stdout.flush();
         }
       }
-    } catch (RestApiException | IOException e) {
+    } catch (NoSuchElementException | RestApiException | IOException e) {
       throw die(e);
     }
   }
