@@ -7,16 +7,6 @@ load_bazlets(
     #local_path = "/home/<user>/projects/bazlets",
 )
 
-# Snapshot Plugin API
-#load(
-#    "@com_googlesource_gerrit_bazlets//:gerrit_api_maven_local.bzl",
-#    "gerrit_api_maven_local",
-#)
-
-# Load snapshot Plugin API
-#gerrit_api_maven_local()
-
-# Release Plugin API
 load(
     "@com_googlesource_gerrit_bazlets//:gerrit_api.bzl",
     "gerrit_api",
@@ -24,6 +14,9 @@ load(
 
 # Load release Plugin API
 gerrit_api()
+
+# Load snapshot Plugin API
+#gerrit_api(version = "3.0.xy-SNAPSHOT")
 
 load("//:external_plugin_deps.bzl", "external_plugin_deps")
 
