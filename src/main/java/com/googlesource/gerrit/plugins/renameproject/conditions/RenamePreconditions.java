@@ -115,7 +115,7 @@ public class RenamePreconditions {
       }
       SubmoduleOp sub = subOpFactory.create(branches, orm);
       for (BranchNameKey b : branches) {
-        if (!sub.superProjectSubscriptionsForSubmoduleBranch(b).isEmpty()) {
+        if (sub.hasSuperproject(b)) {
           String message = "Cannot rename a project subscribed to by the other projects";
           log.error(message);
           throw new CannotRenameProjectException(message);

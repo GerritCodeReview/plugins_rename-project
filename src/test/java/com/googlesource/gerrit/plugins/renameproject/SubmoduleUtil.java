@@ -54,12 +54,12 @@ public class SubmoduleUtil {
       throws Exception {
     try (MetaDataUpdate md = metaDataUpdateFactory.create(sub)) {
       md.setMessage("Added superproject subscription");
-      SubscribeSection s;
+      SubscribeSection.Builder s;
       ProjectConfig pc = projectConfigFactory.read(md);
       if (pc.getSubscribeSections().containsKey(superName)) {
-        s = pc.getSubscribeSections().get(superName);
+        s = pc.getSubscribeSections().get(superName).toBuilder();
       } else {
-        s = new SubscribeSection(superName);
+        s = SubscribeSection.builder(superName);
       }
       String refspec;
       if (superBranch == null) {
@@ -72,7 +72,7 @@ public class SubmoduleUtil {
       } else {
         s.addMultiMatchRefSpec(refspec);
       }
-      pc.addSubscribeSection(s);
+      pc.addSubscribeSection(s.build());
       ObjectId oldId = pc.getRevision();
       ObjectId newId = pc.commit(md);
       assertThat(newId).isNotEqualTo(oldId);

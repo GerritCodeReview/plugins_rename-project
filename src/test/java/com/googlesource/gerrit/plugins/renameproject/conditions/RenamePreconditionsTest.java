@@ -89,7 +89,7 @@ public class RenamePreconditionsTest {
 
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameAllProjects() throws Exception {
-    Project oldProject = new Project(allProjects);
+    Project oldProject = Project.builder(allProjects).build();
     when(oldRsrc.getNameKey()).thenReturn(oldProject.getNameKey());
     when(objDb.exists()).thenReturn(false);
 
@@ -98,7 +98,7 @@ public class RenamePreconditionsTest {
 
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameAllUsers() throws Exception {
-    Project oldProject = new Project(allUsersName);
+    Project oldProject = Project.builder(allUsersName).build();
     when(oldRsrc.getNameKey()).thenReturn(oldProject.getNameKey());
     when(objDb.exists()).thenReturn(false);
 
@@ -107,7 +107,7 @@ public class RenamePreconditionsTest {
 
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameHasChildren() throws Exception {
-    Project oldProject = new Project(Project.nameKey("oldProject"));
+    Project oldProject = Project.builder(Project.nameKey("oldProject")).build();
     when(oldRsrc.getNameKey()).thenReturn(oldProject.getNameKey());
     when(objDb.exists()).thenReturn(false);
 
