@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d1d2239_9da0c603",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-02T18:07:49Z",
+      "side": 1,
+      "message": "@Khang, could you please review this change? Your help in fixing the failing RevertRenameProjectTest.testRevertFromFsHandler would be welcome too. Thanks.",
+      "revId": "18606f856f0d3963073d133528c595c329fee65e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
