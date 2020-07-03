@@ -16,6 +16,23 @@
       "revId": "18606f856f0d3963073d133528c595c329fee65e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cdf7e9_6a5f1b0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-07-03T05:30:22Z",
+      "side": 1,
+      "message": "CI failure seems to be justified:\n\nTime: 113.057\nThere was 1 failure:\n1) testRevertFromFsHandler(com.googlesource.gerrit.plugins.renameproject.RevertRenameProjectTest)\nexpected to be false\n\tat com.googlesource.gerrit.plugins.renameproject.RevertRenameProjectTest.assertRenamed(RevertRenameProjectTest.java:141)\n\tat com.googlesource.gerrit.plugins.renameproject.RevertRenameProjectTest.testRevertFromFsHandler(RevertRenameProjectTest.java:73)",
+      "revId": "18606f856f0d3963073d133528c595c329fee65e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
