@@ -126,6 +126,9 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   }
 
   private void assertReverted() throws Exception {
+    projectCache.evict(oldProjectKey);
+    projectCache.evict(newProjectKey);
+
     Optional<ProjectState> oldProjectState = projectCache.get(oldProjectKey);
     assertThat(oldProjectState.isPresent()).isTrue();
 
@@ -137,6 +140,9 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   }
 
   private void assertRenamed(Result result) throws Exception {
+    projectCache.evict(oldProjectKey);
+    projectCache.evict(newProjectKey);
+
     Optional<ProjectState> oldProjectState = projectCache.get(oldProjectKey);
     assertThat(oldProjectState.isPresent()).isFalse();
 
