@@ -1,11 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_rename-project": {
-      "state": "RUNNING",
-      "message": "Jobs have started running",
+      "state": "SUCCESSFUL",
+      "message": "Change passed all voting jobs",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/dd973fcaa504456790e577224660168c",
       "started": "2020-07-03T22:48:02Z",
+      "finished": "2020-07-03T22:59:55Z",
       "created": "2020-07-03T22:48:02Z",
-      "updated": "2020-07-03T22:48:05Z"
+      "updated": "2020-07-03T22:59:55Z"
     }
   }
 }
