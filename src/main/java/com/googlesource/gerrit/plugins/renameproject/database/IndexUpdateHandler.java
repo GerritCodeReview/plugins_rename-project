@@ -28,6 +28,7 @@ import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -38,6 +39,7 @@ import org.slf4j.LoggerFactory;
 
 @Singleton
 public class IndexUpdateHandler {
+
   private static final Logger log = LoggerFactory.getLogger(IndexUpdateHandler.class);
 
   private final SchemaFactory<ReviewDb> schemaFactory;
@@ -53,17 +55,17 @@ public class IndexUpdateHandler {
   }
 
   public void updateIndex(
-      List<Change.Id> changeIds, Project.NameKey newProjectKey, ProgressMonitor pm)
+      List<Change.Id> changeIds, Project.NameKey newProjectKey, Optional<ProgressMonitor> opm)
       throws InterruptedException {
     log.debug("Starting to index {} change(s).", changeIds.size());
     ExecutorService executor =
         Executors.newFixedThreadPool(
             config.getIndexThreads(),
             new ThreadFactoryBuilder().setNameFormat("Rename-Index-%d").build());
-    pm.beginTask("Indexing changes", changeIds.size());
+    opm.ifPresent(pm -> pm.beginTask("Indexing changes", changeIds.size()));
     List<Callable<Boolean>> callableTasks = new ArrayList<>(changeIds.size());
     for (Change.Id id : changeIds) {
-      callableTasks.add(new IndexTask(id, newProjectKey, pm));
+      callableTasks.add(new IndexTask(id, newProjectKey, opm));
     }
     List<Future<Boolean>> tasksCompleted = executor.invokeAll(callableTasks);
     executor.shutdown();
@@ -90,9 +92,10 @@ public class IndexUpdateHandler {
 
     private Change.Id changeId;
     private Project.NameKey newProjectKey;
-    private ProgressMonitor monitor;
+    private Optional<ProgressMonitor> monitor;
 
-    IndexTask(Change.Id changeId, Project.NameKey newProjectKey, ProgressMonitor monitor) {
+    IndexTask(
+        Change.Id changeId, Project.NameKey newProjectKey, Optional<ProgressMonitor> monitor) {
       this.changeId = changeId;
       this.newProjectKey = newProjectKey;
       this.monitor = monitor;
@@ -102,7 +105,7 @@ public class IndexUpdateHandler {
     public Boolean call() throws Exception {
       try (ReviewDb db = schemaFactory.open()) {
         indexer.index(db, newProjectKey, changeId);
-        monitor.update(1);
+        monitor.ifPresent(monitor -> monitor.update(1));
         return Boolean.TRUE;
       } catch (OrmException | IOException e) {
         log.error("Failed to reindex change {} from index, Cause: {}", changeId, e);

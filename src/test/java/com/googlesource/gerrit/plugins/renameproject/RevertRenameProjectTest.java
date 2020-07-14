@@ -46,7 +46,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   private RevertRenameProject revertRenameProject;
   private Project.NameKey oldProjectKey;
   private Project.NameKey newProjectKey;
-  private ProgressMonitor pm;
+  private Optional<ProgressMonitor> pm;
   private ProjectResource oldRsrc;
 
   @Before
@@ -57,7 +57,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     oldProjectKey = project;
     newProjectKey = new Project.NameKey(NEW_PROJECT_NAME);
 
-    pm = Mockito.mock(ProgressMonitor.class);
+    pm = Optional.of(Mockito.mock(ProgressMonitor.class));
 
     oldRsrc = Mockito.mock(ProjectResource.class);
     when(oldRsrc.getNameKey()).thenReturn(oldProjectKey);
@@ -69,7 +69,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     Result result = createChange();
     List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
-    renameProject.fsRenameStep(oldProjectKey, newProjectKey, Optional.of(pm));
+    renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
     assertRenamed(result);
 
     revertRenameProject.performRevert(
@@ -83,7 +83,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     Result result = createChange();
     List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
-    renameProject.fsRenameStep(oldProjectKey, newProjectKey, Optional.of(pm));
+    renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
     renameProject.cacheRenameStep(oldProjectKey, newProjectKey);
     assertRenamed(result);
 
@@ -98,7 +98,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     Result result = createChange();
     List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
-    renameProject.fsRenameStep(oldProjectKey, newProjectKey, Optional.of(pm));
+    renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
     renameProject.cacheRenameStep(oldProjectKey, newProjectKey);
     renameProject.dbRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
     assertRenamed(result);
@@ -114,7 +114,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     Result result = createChange();
     List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
-    renameProject.fsRenameStep(oldProjectKey, newProjectKey, Optional.of(pm));
+    renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
     renameProject.cacheRenameStep(oldProjectKey, newProjectKey);
     renameProject.dbRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
     renameProject.indexRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
