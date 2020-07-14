@@ -13,6 +13,7 @@ gerrit_plugin(
     manifest_entries = [
         "Gerrit-PluginName: rename-project",
         "Gerrit-Module: com.googlesource.gerrit.plugins.renameproject.Module",
+        "Gerrit-HttpModule: com.googlesource.gerrit.plugins.renameproject.HttpModule",
         "Gerrit-SshModule: com.googlesource.gerrit.plugins.renameproject.SshModule",
     ],
     resources = glob(["src/main/resources/**/*"]),
