@@ -19,30 +19,38 @@ import static com.google.common.truth.Truth.assertThat;
 import com.google.common.cache.Cache;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.PushOneCommit.Result;
+import com.google.gerrit.acceptance.RestResponse;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.UseLocalDisk;
 import com.google.gerrit.acceptance.UseSsh;
+import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
 import com.google.gerrit.extensions.client.ProjectWatchInfo;
 import com.google.gerrit.reviewdb.client.Change.Id;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.project.ProjectState;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.inject.Inject;
 import java.util.List;
 import javax.inject.Named;
 import org.eclipse.jgit.junit.TestRepository;
 import org.junit.Test;
 
+@UseSsh
 @TestPlugin(
     name = "rename-project",
     sysModule = "com.googlesource.gerrit.plugins.renameproject.Module",
-    sshModule = "com.googlesource.gerrit.plugins.renameproject.SshModule")
-@UseSsh
+    sshModule = "com.googlesource.gerrit.plugins.renameproject.SshModule",
+    httpModule = "com.googlesource.gerrit.plugins.renameproject.HttpModule")
 public class RenameIT extends LightweightPluginDaemonTest {
 
   private static final String PLUGIN_NAME = "rename-project";
+  private static final String PLUGIN_ENDPOINT = "/plugins/rename-project/rename";
   private static final String NEW_PROJECT_NAME = "newProject";
   private static final String CACHE_NAME = "changeid_project";
+
+  @Inject private RequestScopeOperations requestScopeOperations;
 
   @Inject
   @Named(CACHE_NAME)
@@ -145,5 +153,39 @@ public class RenameIT extends LightweightPluginDaemonTest {
     adminSshSession.assertSuccess();
 
     assertThat(changeIdProjectCache.getIfPresent(changeID)).isNull();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameViaHttpSuccessful() throws Exception {
+    createChange();
+    RestResponse r = httpRenameProjectHelper(NEW_PROJECT_NAME);
+    r.assertNoContent();
+
+    ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNotNull();
+    assertThat(queryProvider.get().byProject(project)).isEmpty();
+    assertThat(queryProvider.get().byProject(Project.nameKey(NEW_PROJECT_NAME))).isNotEmpty();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameViaHttpWithEmptyNewName() throws Exception {
+    createChange();
+    String newProjectName = "";
+    RestResponse r = httpRenameProjectHelper(newProjectName);
+    r.assertBadRequest();
+
+    ProjectState projectState = projectCache.get(Project.nameKey(newProjectName));
+    assertThat(projectState).isNull();
+  }
+
+  private RestResponse httpRenameProjectHelper(String newName) throws Exception {
+    requestScopeOperations.setApiUser(user.id());
+    sender.clear();
+    JsonElement jsonElement = new JsonObject();
+    jsonElement.getAsJsonObject().addProperty("oldProjectName", project.get());
+    jsonElement.getAsJsonObject().addProperty("newProjectName", newName);
+    return adminRestSession.post(PLUGIN_ENDPOINT, jsonElement);
   }
 }
