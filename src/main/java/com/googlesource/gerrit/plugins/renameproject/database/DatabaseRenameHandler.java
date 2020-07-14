@@ -48,6 +48,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -137,9 +138,9 @@ public class DatabaseRenameHandler {
       List<Change.Id> changes,
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
-      ProgressMonitor pm)
+      Optional<ProgressMonitor> opm)
       throws OrmException, RenameRevertException {
-    pm.beginTask("Updating changes in the database");
+    opm.ifPresent(pm -> pm.beginTask("Updating changes in the database"));
     ReviewDb db = schemaFactory.open();
     return (isNoteDb())
         ? renameInNoteDb(changes, oldProjectKey, newProjectKey)
