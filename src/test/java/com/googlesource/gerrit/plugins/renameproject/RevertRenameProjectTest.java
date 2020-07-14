@@ -30,6 +30,7 @@ import com.google.gerrit.server.project.ProjectState;
 import com.googlesource.gerrit.plugins.renameproject.RenameProject.Step;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.util.List;
+import java.util.Optional;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -45,7 +46,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   private RevertRenameProject revertRenameProject;
   private Project.NameKey oldProjectKey;
   private Project.NameKey newProjectKey;
-  private ProgressMonitor pm;
+  private Optional<ProgressMonitor> pm;
   private ProjectResource oldRsrc;
 
   @Before
@@ -56,7 +57,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     oldProjectKey = project;
     newProjectKey = new Project.NameKey(NEW_PROJECT_NAME);
 
-    pm = Mockito.mock(ProgressMonitor.class);
+    pm = Optional.of(Mockito.mock(ProgressMonitor.class));
 
     oldRsrc = Mockito.mock(ProjectResource.class);
     when(oldRsrc.getNameKey()).thenReturn(oldProjectKey);
