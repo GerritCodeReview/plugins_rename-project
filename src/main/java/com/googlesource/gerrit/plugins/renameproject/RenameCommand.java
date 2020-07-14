@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.renameproject;
 
+import static com.googlesource.gerrit.plugins.renameproject.RenameProject.CANCELLATION_MSG;
 import static com.googlesource.gerrit.plugins.renameproject.RenameProject.WARNING_LIMIT;
 
 import com.google.gerrit.extensions.restapi.AuthException;
@@ -84,10 +85,10 @@ public final class RenameCommand extends SshCommand {
         }
       } else {
         try (CommandProgressMonitor monitor = new CommandProgressMonitor(stdout)) {
-          renameProject.assertCanRename(rsrc, input, monitor);
-          List<Change.Id> changeIds = renameProject.getChanges(rsrc, monitor);
+          renameProject.assertCanRename(rsrc, input, Optional.of(monitor));
+          List<Change.Id> changeIds = renameProject.getChanges(rsrc, Optional.of(monitor));
           if (continueRename(changeIds, monitor)) {
-            renameProject.doRename(changeIds, rsrc, input, monitor);
+            renameProject.doRename(changeIds, rsrc, input, Optional.of(monitor));
           } else {
             String cancellationMsg = "Rename operation was cancelled by user.";
             log.debug(cancellationMsg);

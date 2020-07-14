@@ -14,12 +14,14 @@
 
 package com.googlesource.gerrit.plugins.renameproject;
 
+import static com.google.gerrit.server.project.ProjectResource.PROJECT_KIND;
 import static com.googlesource.gerrit.plugins.renameproject.RenameOwnProjectCapability.RENAME_OWN_PROJECT;
 import static com.googlesource.gerrit.plugins.renameproject.RenameProjectCapability.RENAME_PROJECT;
 
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.config.CapabilityDefinition;
 import com.google.gerrit.extensions.events.LifecycleListener;
+import com.google.gerrit.extensions.restapi.RestApiModule;
 import com.google.inject.AbstractModule;
 import com.google.inject.internal.UniqueAnnotations;
 import com.googlesource.gerrit.plugins.renameproject.cache.CacheRenameHandler;
@@ -47,5 +49,14 @@ public class Module extends AbstractModule {
     bind(IndexUpdateHandler.class);
     bind(RevertRenameProject.class);
     bind(SshSessionFactory.class).toProvider(RenameReplicationSshSessionFactoryProvider.class);
+
+    install(
+        new RestApiModule() {
+          @Override
+          protected void configure() {
+            post(PROJECT_KIND, "rename").to(RenameProject.class);
+          }
+        });
+
   }
 }
