@@ -25,7 +25,10 @@ import com.google.gerrit.extensions.api.access.PluginPermission;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.ResourceConflictException;
+import com.google.gerrit.extensions.restapi.Response;
+import com.google.gerrit.extensions.restapi.RestModifyView;
 import com.google.gerrit.reviewdb.client.Change;
+import com.google.gerrit.reviewdb.client.Change.Id;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
@@ -39,13 +42,17 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
+import com.googlesource.gerrit.plugins.renameproject.RenameProject.Input;
 import com.googlesource.gerrit.plugins.renameproject.cache.CacheRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.conditions.RenamePreconditions;
 import com.googlesource.gerrit.plugins.renameproject.database.DatabaseRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler;
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
+import com.googlesource.gerrit.plugins.renameproject.monitor.CommandProgressMonitor;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -53,7 +60,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Singleton
-public class RenameProject {
+public class RenameProject implements RestModifyView<ProjectResource, Input> {
+
+  @Override
+  public Object apply(ProjectResource resource, Input input)
+      throws IOException, AuthException, BadRequestException, ResourceConflictException,
+          InterruptedException, ConfigInvalidException, RenameRevertException {
+    CommandProgressMonitor monitor =
+        new CommandProgressMonitor(new PrintWriter(new StringWriter()));
+    assertCanRename(resource, input, monitor);
+
+    List<Id> changeIds = getChanges(resource, monitor);
+    doRename(changeIds, resource, input, monitor);
+    return Response.none();
+  }
 
   static class Input {
     String name;
