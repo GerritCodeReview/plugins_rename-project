@@ -39,6 +39,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -89,9 +90,11 @@ public class DatabaseRenameHandler {
   }
 
   public List<Change.Id> rename(
-      List<Change.Id> changes, Project.NameKey newProjectKey, ProgressMonitor pm)
+      List<Change.Id> changes,
+      Project.NameKey newProjectKey,
+      Optional<ProgressMonitor> progressMonitor)
       throws RenameRevertException, IOException, ConfigInvalidException {
-    pm.beginTask("Updating changes in the database");
+    progressMonitor.ifPresent(pm -> pm.beginTask("Updating changes in the database"));
     log.debug("Updating the changes in noteDb related to project {}", oldProjectKey.get());
     try {
       updateWatchEntries(newProjectKey);
