@@ -26,6 +26,7 @@ import com.google.common.cache.Cache;
 import com.google.gerrit.acceptance.GerritConfig;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.PushOneCommit.Result;
+import com.google.gerrit.acceptance.RestResponse;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.UseLocalDisk;
 import com.google.gerrit.acceptance.UseSsh;
@@ -51,6 +52,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
   private static final String PLUGIN_NAME = "rename-project";
   private static final String NEW_PROJECT_NAME = "newProject";
+  private static final String NON_EXISTING_NAME = "nonExistingProject";
   private static final String CACHE_NAME = "changeid_project";
   private static final String REPLICATION_OPTION = "--replication";
   private static final String URL = "ssh://localhost:19888";
@@ -128,6 +130,15 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
   @Test
   @UseLocalDisk
+  public void testRenameNonExistingProjectFail() throws Exception {
+    createChange();
+    adminSshSession.exec(PLUGIN_NAME + " " + NON_EXISTING_NAME + " " + project.get());
+    assertThat(adminSshSession.getError()).contains("Project does not exist");
+    adminSshSession.assertFailure();
+  }
+
+  @Test
+  @UseLocalDisk
   public void testRenameSubscribedFail() throws Exception {
     NameKey superProject = createProject("super-project");
     TestRepository<?> superRepo = cloneProject(superProject);
@@ -198,5 +209,40 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
     renameProject.replicateRename(sshHelper, input, project);
     verify(sshHelper, atLeastOnce()).executeRemoteSsh(any(), eq(expectedCommand), eq(errStream));
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameViaHttpSuccessful() throws Exception {
+    createChange();
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME);
+    r.assertOK();
+
+    ProjectState projectState = projectCache.get(new Project.NameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNotNull();
+    assertThat(queryProvider.get().byProject(project)).isEmpty();
+    assertThat(queryProvider.get().byProject(new Project.NameKey(NEW_PROJECT_NAME))).isNotEmpty();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameViaHttpWithEmptyNewName() throws Exception {
+    createChange();
+    String newProjectName = "";
+    RestResponse r = renameProjectTo(newProjectName);
+    r.assertBadRequest();
+
+    ProjectState projectState = projectCache.get(new Project.NameKey(newProjectName));
+    assertThat(projectState).isNull();
+  }
+
+  private RestResponse renameProjectTo(String newName) throws Exception {
+    setApiUser(user);
+    sender.clear();
+    String endPoint = "/projects/" + project.get() + "/" + PLUGIN_NAME + "~rename";
+    Input i = new Input();
+    i.name = newName;
+    i.continueWithRename = true;
+    return adminRestSession.post(endPoint, i);
   }
 }
