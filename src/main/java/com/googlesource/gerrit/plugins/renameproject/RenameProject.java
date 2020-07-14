@@ -25,6 +25,8 @@ import com.google.gerrit.extensions.api.access.PluginPermission;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.ResourceConflictException;
+import com.google.gerrit.extensions.restapi.Response;
+import com.google.gerrit.extensions.restapi.RestModifyView;
 import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.Change.Id;
 import com.google.gerrit.reviewdb.client.Project;
@@ -41,6 +43,7 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
+import com.googlesource.gerrit.plugins.renameproject.RenameProject.Input;
 import com.googlesource.gerrit.plugins.renameproject.cache.CacheRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.conditions.RenamePreconditions;
 import com.googlesource.gerrit.plugins.renameproject.database.DatabaseRenameHandler;
@@ -59,13 +62,34 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Singleton
-public class RenameProject {
+public class RenameProject implements RestModifyView<ProjectResource, Input> {
+
+  @Override
+  public Object apply(ProjectResource resource, Input input)
+      throws IOException, AuthException, BadRequestException, ResourceConflictException,
+          InterruptedException, ConfigInvalidException, OrmException {
+    assertCanRename(resource, input, Optional.empty());
+    List<Id> changeIds = getChanges(resource, Optional.empty());
+
+    if (changeIds == null || changeIds.size() <= WARNING_LIMIT || input.continueWithRename) {
+      doRename(changeIds, resource, input, Optional.empty());
+    } else {
+      log.debug(CANCELLATION_MSG);
+      return Response.none();
+    }
+    return Response.ok("");
+  }
 
   static class Input {
+
     String name;
+    boolean continueWithRename;
   }
 
   static final int WARNING_LIMIT = 5000;
+  static final String CANCELLATION_MSG =
+      "Rename cancelled due to number of changes exceeding warning limit and user's will to not continue";
+
   private static final Logger log = LoggerFactory.getLogger(RenameProject.class);
   private static final String CACHE_NAME = "changeid_project";
 
@@ -166,10 +190,11 @@ public class RenameProject {
     return true;
   }
 
-  void assertCanRename(ProjectResource rsrc, Input input, ProgressMonitor pm)
+  void assertCanRename(ProjectResource rsrc, Input input, Optional<ProgressMonitor> pm)
       throws ResourceConflictException, BadRequestException, AuthException {
     try {
-      pm.beginTask("Checking preconditions");
+      pm.ifPresent(progressMonitor -> progressMonitor.beginTask("Checking preconditions"));
+
       assertNewNameNotNull(input);
       assertRenamePermission(rsrc);
       renamePreconditions.assertCanRename(rsrc, new Project.NameKey(input.name));
@@ -179,14 +204,15 @@ public class RenameProject {
     }
   }
 
-  void doRename(List<Change.Id> changeIds, ProjectResource rsrc, Input input, ProgressMonitor pm)
-      throws InterruptedException, OrmException, ConfigInvalidException, IOException {
+  void doRename(
+      List<Change.Id> changeIds, ProjectResource rsrc, Input input, Optional<ProgressMonitor> pm)
+      throws InterruptedException, ConfigInvalidException, IOException, OrmException {
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     Project.NameKey newProjectKey = new Project.NameKey(input.name);
     Exception ex = null;
     stepsPerformed.clear();
     try {
-      fsRenameStep(oldProjectKey, newProjectKey, Optional.of(pm));
+      fsRenameStep(oldProjectKey, newProjectKey, pm);
 
       cacheRenameStep(rsrc.getNameKey(), newProjectKey);
 
@@ -234,9 +260,9 @@ public class RenameProject {
   }
 
   void fsRenameStep(
-      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, Optional<ProgressMonitor> opm)
+      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, Optional<ProgressMonitor> pm)
       throws IOException {
-    fsHandler.rename(oldProjectKey, newProjectKey, opm);
+    fsHandler.rename(oldProjectKey, newProjectKey, pm);
     logPerformedStep(Step.FILESYSTEM, newProjectKey, oldProjectKey);
   }
 
@@ -250,10 +276,10 @@ public class RenameProject {
       List<Change.Id> changeIds,
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
-      ProgressMonitor pm)
-      throws OrmException {
+      Optional<ProgressMonitor> opm)
+      throws IOException, ConfigInvalidException, OrmException {
     List<Change.Id> updatedChangeIds =
-        dbHandler.rename(changeIds, oldProjectKey, newProjectKey, pm);
+        dbHandler.rename(changeIds, oldProjectKey, newProjectKey, opm);
     logPerformedStep(Step.DATABASE, newProjectKey, oldProjectKey);
     return updatedChangeIds;
   }
@@ -262,7 +288,7 @@ public class RenameProject {
       List<Change.Id> updatedChangeIds,
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
-      ProgressMonitor pm)
+      Optional<ProgressMonitor> pm)
       throws InterruptedException {
     indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
     logPerformedStep(Step.INDEX, newProjectKey, oldProjectKey);
@@ -298,9 +324,9 @@ public class RenameProject {
     return stepsPerformed;
   }
 
-  List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm)
-      throws OrmException, IOException {
-    pm.beginTask("Retrieving the list of changes from DB");
+  List<Change.Id> getChanges(ProjectResource rsrc, Optional<ProgressMonitor> opm)
+      throws IOException, OrmException {
+    opm.ifPresent(pm -> pm.beginTask("Retrieving the list of changes from DB"));
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     return dbHandler.getChangeIds(oldProjectKey);
   }
