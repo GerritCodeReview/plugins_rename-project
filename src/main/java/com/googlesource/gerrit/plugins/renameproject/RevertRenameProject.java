@@ -28,10 +28,13 @@ import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class RevertRenameProject {
+
   private static final Logger log = LoggerFactory.getLogger(RevertRenameProject.class);
 
   private final DatabaseRenameHandler dbHandler;
@@ -56,13 +59,13 @@ public class RevertRenameProject {
       List<Id> changeIds,
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
-      ProgressMonitor pm)
-      throws IOException, OrmException {
-    pm.beginTask("Reverting the rename procedure.");
+      Optional<ProgressMonitor> opm)
+      throws IOException, OrmException, ConfigInvalidException {
+    opm.ifPresent(pm -> pm.beginTask("Reverting the rename procedure."));
     List<Change.Id> updatedChangeIds = Collections.emptyList();
     if (stepsPerformed.contains(Step.FILESYSTEM)) {
       try {
-        fsHandler.rename(newProjectKey, oldProjectKey, pm);
+        fsHandler.rename(newProjectKey, oldProjectKey, opm);
         log.debug("Reverted the git repo name to {} successfully.", oldProjectKey.get());
       } catch (IOException e) {
         log.error(
@@ -76,7 +79,8 @@ public class RevertRenameProject {
     }
     if (stepsPerformed.contains(Step.DATABASE)) {
       try {
-        updatedChangeIds = dbHandler.rename(changeIds, newProjectKey, oldProjectKey, pm);
+
+        updatedChangeIds = dbHandler.rename(changeIds, newProjectKey, oldProjectKey, opm);
         log.debug(
             "Reverted the changes in DB successfully from project {} to project {}.",
             newProjectKey.get(),
@@ -91,7 +95,7 @@ public class RevertRenameProject {
     }
     if (stepsPerformed.contains(Step.INDEX)) {
       try {
-        indexHandler.updateIndex(updatedChangeIds, oldProjectKey, pm);
+        indexHandler.updateIndex(updatedChangeIds, oldProjectKey, opm);
         log.debug(
             "Reverted the secondary index successfully from project {} to project {}.",
             newProjectKey.get(),

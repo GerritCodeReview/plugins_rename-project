@@ -19,6 +19,7 @@ import static com.google.common.truth.Truth.assertThat;
 import com.google.common.cache.Cache;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.PushOneCommit.Result;
+import com.google.gerrit.acceptance.RestResponse;
 import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.UseLocalDisk;
 import com.google.gerrit.acceptance.UseSsh;
@@ -28,6 +29,7 @@ import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.project.ProjectState;
 import com.google.inject.Inject;
+import com.googlesource.gerrit.plugins.renameproject.RenameProject.Input;
 import java.util.List;
 import javax.inject.Named;
 import org.eclipse.jgit.junit.TestRepository;
@@ -144,5 +146,40 @@ public class RenameIT extends LightweightPluginDaemonTest {
     adminSshSession.assertSuccess();
 
     assertThat(changeIdProjectCache.getIfPresent(changeID)).isNull();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameViaHttpSuccessful() throws Exception {
+    createChange();
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME);
+    r.assertOK();
+
+    ProjectState projectState = projectCache.get(new Project.NameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNotNull();
+    assertThat(queryProvider.get().byProject(project)).isEmpty();
+    assertThat(queryProvider.get().byProject(new Project.NameKey(NEW_PROJECT_NAME))).isNotEmpty();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameViaHttpWithEmptyNewName() throws Exception {
+    createChange();
+    String newProjectName = "";
+    RestResponse r = renameProjectTo(newProjectName);
+    r.assertBadRequest();
+
+    ProjectState projectState = projectCache.get(new Project.NameKey(newProjectName));
+    assertThat(projectState).isNull();
+  }
+
+  private RestResponse renameProjectTo(String newName) throws Exception {
+    setApiUser(user);
+    sender.clear();
+    String endPoint = "/projects/" + project.get() + "/" + PLUGIN_NAME + "~rename";
+    Input i = new Input();
+    i.name = newName;
+    i.continueWithRename = true;
+    return adminRestSession.post(endPoint, i);
   }
 }
