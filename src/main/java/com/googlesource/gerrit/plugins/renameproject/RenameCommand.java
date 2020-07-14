@@ -45,6 +45,7 @@ public final class RenameCommand extends SshCommand {
   private String newProjectName;
 
   private static final Logger log = LoggerFactory.getLogger(RenameCommand.class);
+
   private final RenameProject renameProject;
   private final Provider<ProjectCache> projectCacheProvider;
   private final Provider<CurrentUser> self;
