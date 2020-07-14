@@ -18,6 +18,7 @@ import static com.googlesource.gerrit.plugins.renameproject.RenameProject.WARNIN
 
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.reviewdb.client.Change;
+import com.google.gerrit.reviewdb.client.Change.Id;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.project.ProjectCache;
@@ -45,6 +46,7 @@ public final class RenameCommand extends SshCommand {
   private String newProjectName;
 
   private static final Logger log = LoggerFactory.getLogger(RenameCommand.class);
+
   private final RenameProject renameProject;
   private final Provider<ProjectCache> projectCacheProvider;
   private final Provider<CurrentUser> self;
@@ -69,7 +71,7 @@ public final class RenameCommand extends SshCommand {
               projectCacheProvider.get().get(new Project.NameKey(projectControl)), self.get());
       try (CommandProgressMonitor monitor = new CommandProgressMonitor(stdout)) {
         renameProject.assertCanRename(rsrc, input, monitor);
-        List<Change.Id> changeIds = renameProject.getChanges(rsrc, monitor);
+        List<Id> changeIds = renameProject.getChanges(rsrc, monitor);
         if (continueRename(changeIds, monitor)) {
           renameProject.doRename(changeIds, rsrc, input, monitor);
         } else {
