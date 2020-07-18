@@ -16,6 +16,24 @@
       "revId": "586754a2280462b187f7ba118b7f7dc77abab930",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "52916778_fa9ce38a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-07-18T16:57:47Z",
+      "side": 1,
+      "message": "Fixed in: [1]. But I created stable-3.2 before merging the fix, so that this merge should be re-done against stable-3.2 branch.\n\n[1] https://gerrit-review.googlesource.com/c/plugins/rename-project/+/275915",
+      "parentUuid": "53b81ed4_739093ae",
+      "revId": "586754a2280462b187f7ba118b7f7dc77abab930",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
