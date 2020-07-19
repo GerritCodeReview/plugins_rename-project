@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6a6b210_bc18bdc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2020-07-19T06:40:39Z",
+      "side": 1,
+      "message": "The failure is justified. I did a mistake and created the stable-3.2 branch from master.\nHowever, you already adapted the plugin to core change that was already done after 3.2 branch was cut off:\n\n  I3c467e2f1fc42c2c6d7a9c02f1244518931cda17\n\nI am going to abandon for now all stable-3.2 related changed, delete the stable-3.2 branch and re-create it from the right commit. Sorry again.",
+      "revId": "8003bbd48e2cd14154aeb0db6c37c5007d0cdd1f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
