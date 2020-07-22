@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "86611ab0_d8c0fb70",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-22T02:56:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41e50d2c_982089be",
+      "range": {
+        "startLine": 10,
+        "startChar": 49,
+        "endLine": 10,
+        "endChar": 53
+      },
+      "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8d72667_6c85a2f1",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "59d3c5f6_c2111c9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-22T02:56:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8d72667_6c85a2f1",
+      "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02f77c0b_cd2e4817",
         "filename": "BUILD",
         "patchSetId": 2
@@ -56,6 +98,24 @@
       "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7538be32_8892ae24",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-22T02:56:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02f77c0b_cd2e4817",
+      "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "d169ec31_7496e968",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectServlet.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-22T02:56:31Z",
+      "side": 1,
+      "message": "Done. Ssh back end is more user interactive, so some refactoring needed to be done for reusing.",
+      "parentUuid": "ea4decf9_651ef068",
+      "range": {
+        "startLine": 99,
+        "startChar": 15,
+        "endLine": 99,
+        "endChar": 28
+      },
+      "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aff93b66_d777b10b",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 2
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "30497e7b_de5264b6",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-22T02:56:31Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "aff93b66_d777b10b",
+      "range": {
+        "startLine": 1,
+        "startChar": 12,
+        "endLine": 1,
+        "endChar": 23
+      },
+      "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee438339_c85a8d01",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 2
@@ -119,6 +227,24 @@
       "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22dbc777_88b9a1b3",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-22T02:56:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee438339_c85a8d01",
+      "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -145,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "c9ddb699_29b4b1b2",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-22T02:56:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed21fdfb_b3851de6",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 6
+      },
+      "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a19f0550_f12c033a",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 2
@@ -165,6 +315,30 @@
       "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c0acc9c_1dd87fd6",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-22T02:56:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a19f0550_f12c033a",
+      "range": {
+        "startLine": 37,
+        "startChar": 27,
+        "endLine": 37,
+        "endChar": 41
+      },
+      "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -214,6 +388,54 @@
     },
     {
       "key": {
+        "uuid": "8c8436ca_27ee3e8c",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-22T02:56:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bc5ebdb_f7694e54",
+      "range": {
+        "startLine": 38,
+        "startChar": 43,
+        "endLine": 38,
+        "endChar": 49
+      },
+      "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "863dbba1_5e0fbbe3",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-22T02:56:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc911428_a52d9563",
+      "range": {
+        "startLine": 38,
+        "startChar": 72,
+        "endLine": 38,
+        "endChar": 82
+      },
+      "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a0c5ef6_c5e1f991",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
         "patchSetId": 2
@@ -237,6 +459,30 @@
     },
     {
       "key": {
+        "uuid": "649ca107_ad11aaeb",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-22T02:56:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a0c5ef6_c5e1f991",
+      "range": {
+        "startLine": 183,
+        "startChar": 23,
+        "endLine": 183,
+        "endChar": 46
+      },
+      "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7b8b2ee_658c2ac6",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
         "patchSetId": 2
@@ -257,6 +503,30 @@
       "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a7d68d6_1c95204e",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-22T02:56:31Z",
+      "side": 1,
+      "message": "NEW_PROJECT_NAME is taken i will use NEW_PROJECT_NAME_PROPERTY, same with OLD",
+      "parentUuid": "f7b8b2ee_658c2ac6",
+      "range": {
+        "startLine": 188,
+        "startChar": 46,
+        "endLine": 188,
+        "endChar": 62
+      },
+      "revId": "3cc2ba94f95c5ee5914552dd1575d7007b77ec31",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
