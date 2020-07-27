@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "1dd16ec7_7469a5d0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectHandler.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-27T19:03:06Z",
+      "side": 1,
+      "message": "This could then become a follow-up change or fix.",
+      "parentUuid": "e01aedff_930f841d",
+      "range": {
+        "startLine": 82,
+        "startChar": 6,
+        "endLine": 83,
+        "endChar": 38
+      },
+      "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0236c08_1898b362",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectHandler.java",
         "patchSetId": 6
@@ -175,6 +199,30 @@
       "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "299e8eb1_93f4c2ac",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectHandler.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-27T19:03:06Z",
+      "side": 1,
+      "message": "\u003e In the servlet class I already passed \"y\" as an answer.\n\nIs this clean enough though?",
+      "parentUuid": "8e14d665_c74d9c9c",
+      "range": {
+        "startLine": 87,
+        "startChar": 18,
+        "endLine": 87,
+        "endChar": 32
+      },
+      "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     },
     {
       "key": {
@@ -351,6 +399,30 @@
       "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94ad4acd_300c1451",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-27T19:03:06Z",
+      "side": 1,
+      "message": "\u003e I didn\u0027t do all of the test cases for http since both ssh and http versions reuse the same class to perform rename.\n\nAck. Which criteria did you base your selection on, then? You may document this in the commit message. Class-level java-doc might be even better. An alternative could have been to put the added http tests in their own class, in which case the @UseSsh annotation would be class-level again. There could be existing examples of that alternate approach in other plugins already.",
+      "parentUuid": "b86884bb_b078731f",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     },
     {
       "key": {
