@@ -226,6 +226,30 @@
     },
     {
       "key": {
+        "uuid": "cd87cc65_8a80215b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectHandler.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-27T23:00:33Z",
+      "side": 1,
+      "message": "I will make a constant to see it cleanly. It also, I can also make this an option in the json request body, but that will be \"yes\" 99% of the time i think.",
+      "parentUuid": "299e8eb1_93f4c2ac",
+      "range": {
+        "startLine": 87,
+        "startChar": 18,
+        "endLine": 87,
+        "endChar": 32
+      },
+      "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac55bf6b_5088c503",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 6
@@ -423,6 +447,30 @@
       "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e6144f9_86dc3873",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-27T23:00:33Z",
+      "side": 1,
+      "message": "I\u0027ve chosen one positive test and one negative test. This IT test fix was inspired by delete-project, since they look similar.",
+      "parentUuid": "94ad4acd_300c1451",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
