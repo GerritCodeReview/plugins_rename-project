@@ -167,7 +167,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
   @UseLocalDisk
   public void testRenameViaHttpSuccessful() throws Exception {
     createChange();
-    RestResponse r = renameProjectTo(NEW_PROJECT_NAME);
+    RestResponse r = renameProject(project.get(), NEW_PROJECT_NAME);
     r.assertNoContent();
 
     ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
@@ -181,18 +181,30 @@ public class RenameIT extends LightweightPluginDaemonTest {
   public void testRenameViaHttpWithEmptyNewName() throws Exception {
     createChange();
     String newProjectName = "";
-    RestResponse r = renameProjectTo(newProjectName);
+    RestResponse r = renameProject(project.get(), newProjectName);
     r.assertBadRequest();
 
     ProjectState projectState = projectCache.get(Project.nameKey(newProjectName));
     assertThat(projectState).isNull();
   }
 
-  private RestResponse renameProjectTo(String newName) throws Exception {
+  @Test
+  @UseLocalDisk
+  public void testRenameViaHttpNonExistingProject() throws Exception {
+    createChange();
+    String nonExistingProject = "nonExistingProject";
+    RestResponse r = renameProject(nonExistingProject, NEW_PROJECT_NAME);
+    r.assertBadRequest();
+
+    ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNull();
+  }
+
+  private RestResponse renameProject(String oldName, String newName) throws Exception {
     requestScopeOperations.setApiUser(user.id());
     sender.clear();
     JsonElement jsonElement = new JsonObject();
-    jsonElement.getAsJsonObject().addProperty(OLD_PROJECT_NAME_PROPERTY, project.get());
+    jsonElement.getAsJsonObject().addProperty(OLD_PROJECT_NAME_PROPERTY, oldName);
     jsonElement.getAsJsonObject().addProperty(NEW_PROJECT_NAME_PROPERTY, newName);
     return adminRestSession.post(PLUGIN_ENDPOINT, jsonElement);
   }

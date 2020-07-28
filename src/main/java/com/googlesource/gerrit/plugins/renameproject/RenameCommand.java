@@ -15,10 +15,12 @@
 package com.googlesource.gerrit.plugins.renameproject;
 
 import com.google.gerrit.extensions.restapi.RestApiException;
+import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.gerrit.sshd.CommandMetaData;
 import com.google.gerrit.sshd.SshCommand;
 import com.google.inject.Inject;
 import java.io.IOException;
+import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.kohsuke.args4j.Argument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,10 +42,15 @@ public final class RenameCommand extends SshCommand {
   }
 
   @Override
-  public void run() throws Exception {
+  public void run() throws Exception{
     try {
       renameProjectHandler.renameProject(newProjectName, projectControl, stdout, in);
-    } catch (RestApiException | IOException e) {
+    } catch (RestApiException
+        | IOException
+        | InterruptedException
+        | ConfigInvalidException
+        | RenameRevertException
+        | NoSuchProjectException e) {
       throw die(e);
     }
   }

@@ -24,6 +24,7 @@ import com.google.gerrit.extensions.annotations.RequiresCapability;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.ResourceConflictException;
+import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.inject.Inject;
@@ -67,7 +68,10 @@ public class RenameProjectServlet extends HttpServlet {
       renameProjectHandler.renameProject(
           input.get("newProjectName"), input.get("oldProjectName"), printWriter, in);
       res.setStatus(SC_NO_CONTENT);
-    } catch (AuthException | BadRequestException | ResourceConflictException e) {
+    } catch (AuthException
+        | BadRequestException
+        | ResourceConflictException
+        | NoSuchProjectException e) {
       res.sendError(SC_BAD_REQUEST);
       logger.atSevere().withCause(e).log(e.getMessage());
     } catch (ConfigInvalidException
