@@ -24,6 +24,7 @@ import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.Change.Id;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.server.CurrentUser;
+import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.gerrit.server.project.ProjectCache;
 import com.google.gerrit.server.project.ProjectResource;
 import com.google.gerrit.server.project.ProjectState;
@@ -59,22 +60,27 @@ public class RenameProjectHandler {
   void renameProject(
       String newProjectName, String oldProjectName, PrintWriter stdout, InputStream in)
       throws AuthException, BadRequestException, ResourceConflictException, IOException,
-          InterruptedException, ConfigInvalidException, RenameRevertException {
+          InterruptedException, ConfigInvalidException, RenameRevertException,
+          NoSuchProjectException {
     RenameProject.Input input = new RenameProject.Input();
     input.name = newProjectName;
     ProjectState oldProjectState = projectCacheProvider.get().get(Project.nameKey(oldProjectName));
-    ProjectResource rsrc = new ProjectResource(oldProjectState, self.get());
-    try (CommandProgressMonitor monitor = new CommandProgressMonitor(stdout)) {
-      renameProject.assertCanRename(rsrc, input, monitor);
-      List<Id> changeIds = renameProject.getChanges(rsrc, monitor);
-      if (continueRename(changeIds, monitor, stdout, in)) {
-        renameProject.doRename(changeIds, rsrc, input, monitor);
-      } else {
-        String cancellationMsg = "Rename operation was cancelled by user.";
-        logger.atFine().log(cancellationMsg);
-        stdout.println(cancellationMsg);
-        stdout.flush();
+    if (oldProjectState != null) {
+      ProjectResource rsrc = new ProjectResource(oldProjectState, self.get());
+      try (CommandProgressMonitor monitor = new CommandProgressMonitor(stdout)) {
+        renameProject.assertCanRename(rsrc, input, monitor);
+        List<Id> changeIds = renameProject.getChanges(rsrc, monitor);
+        if (continueRename(changeIds, monitor, stdout, in)) {
+          renameProject.doRename(changeIds, rsrc, input, monitor);
+        } else {
+          String cancellationMsg = "Rename operation was cancelled by user.";
+          logger.atFine().log(cancellationMsg);
+          stdout.println(cancellationMsg);
+          stdout.flush();
+        }
       }
+    } else {
+      throw new NoSuchProjectException(Project.nameKey(oldProjectName));
     }
   }
 
