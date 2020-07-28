@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c060be7_01e1b3bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-28T00:33:11Z",
+      "side": 1,
+      "message": "Unrelated Zuul failure prior; re-running. Following change passed.",
+      "revId": "3f061a6569302d2b79c8f26f0c0c09ab318592da",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
