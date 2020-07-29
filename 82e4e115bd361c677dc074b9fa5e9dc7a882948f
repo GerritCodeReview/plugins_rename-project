@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0644214b_0e0589d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-29T18:11:07Z",
+      "side": 1,
+      "message": "This change involves more classes than just this one.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "82e4e115bd361c677dc074b9fa5e9dc7a882948f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a319522f_684eebb5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-29T18:11:07Z",
+      "side": 1,
+      "message": "Typo.",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "82e4e115bd361c677dc074b9fa5e9dc7a882948f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78de0ea7_2aa16202",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-29T18:11:07Z",
+      "side": 1,
+      "message": "exists",
+      "range": {
+        "startLine": 10,
+        "startChar": 38,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "82e4e115bd361c677dc074b9fa5e9dc7a882948f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49a20b39_f8f2da57",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameCommand.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-29T18:11:07Z",
+      "side": 1,
+      "message": "Google-java-formatted properly (this whole change)?",
+      "range": {
+        "startLine": 45,
+        "startChar": 27,
+        "endLine": 45,
+        "endChar": 37
+      },
+      "revId": "82e4e115bd361c677dc074b9fa5e9dc7a882948f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d7f9c25_56372171",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameCommand.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-29T18:11:07Z",
+      "side": 1,
+      "message": "Is this list accurate, or on which base do we decide to die below, versus re-throwing the exception as is instead?\n\nThis change only adds NoSuchProjectException as a now thrown exception. Are the other added (now catched) exceptions above related to this change?",
+      "range": {
+        "startLine": 48,
+        "startChar": 13,
+        "endLine": 53,
+        "endChar": 32
+      },
+      "revId": "82e4e115bd361c677dc074b9fa5e9dc7a882948f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
