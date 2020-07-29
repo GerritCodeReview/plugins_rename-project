@@ -250,6 +250,30 @@
     },
     {
       "key": {
+        "uuid": "2f757d71_00252086",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectHandler.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-29T17:58:44Z",
+      "side": 1,
+      "message": "My comment was more about, why involving ssh command-only code (such as user-interactive prompting) in a rest call flow? Is this a pattern noticeable in other plugins?",
+      "parentUuid": "cd87cc65_8a80215b",
+      "range": {
+        "startLine": 87,
+        "startChar": 18,
+        "endLine": 87,
+        "endChar": 32
+      },
+      "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac55bf6b_5088c503",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 6
@@ -471,6 +495,30 @@
       "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96f80d2e_b4da6bb2",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-29T17:58:44Z",
+      "side": 1,
+      "message": "Ok, so this choice of test methods is based on delete-project\u0027s; LGTM. Does the latter also have a mix of @UseSsh and otherwise non-annotated test methods in the same suite or test class?",
+      "parentUuid": "4e6144f9_86dc3873",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     },
     {
       "key": {

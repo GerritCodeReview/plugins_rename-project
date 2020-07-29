@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "e6cbec79_9099f33a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectHandler.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-29T17:58:44Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "68cbd539_7b4ff7ff",
+      "range": {
+        "startLine": 44,
+        "startChar": 60,
+        "endLine": 44,
+        "endChar": 80
+      },
+      "revId": "882c28ef47abb3328decbc903c03dfbfdd7139ac",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2e091d6_7ece8300",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectServlet.java",
         "patchSetId": 10
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "I will fix it in a follow-up. With some tests to indicate that.",
       "parentUuid": "e2e091d6_7ece8300",
+      "range": {
+        "startLine": 72,
+        "startChar": 10,
+        "endLine": 72,
+        "endChar": 30
+      },
+      "revId": "882c28ef47abb3328decbc903c03dfbfdd7139ac",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0eb99ca7_ae25ad40",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectServlet.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-29T17:58:44Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "a6b1d80b_18830f5b",
       "range": {
         "startLine": 72,
         "startChar": 10,
