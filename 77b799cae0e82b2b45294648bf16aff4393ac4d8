@@ -274,6 +274,30 @@
     },
     {
       "key": {
+        "uuid": "b21785b4_fe69e745",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectHandler.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-30T13:41:29Z",
+      "side": 1,
+      "message": "Continue delete-project as an example it passes command through json request body. I will also do the same.",
+      "parentUuid": "2f757d71_00252086",
+      "range": {
+        "startLine": 87,
+        "startChar": 18,
+        "endLine": 87,
+        "endChar": 32
+      },
+      "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac55bf6b_5088c503",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 6
@@ -510,6 +534,30 @@
       "side": 1,
       "message": "Ok, so this choice of test methods is based on delete-project\u0027s; LGTM. Does the latter also have a mix of @UseSsh and otherwise non-annotated test methods in the same suite or test class?",
       "parentUuid": "4e6144f9_86dc3873",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de8c3184_cdfdde02",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-30T13:41:29Z",
+      "side": 1,
+      "message": "The delete project  IT tests has a single @UseSsh for the whole test suit.",
+      "parentUuid": "96f80d2e_b4da6bb2",
       "range": {
         "startLine": 40,
         "startChar": 0,
