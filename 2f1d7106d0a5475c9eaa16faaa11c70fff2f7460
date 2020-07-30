@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a7c7c5e_a3b73671",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectServlet.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-30T17:50:58Z",
+      "side": 1,
+      "message": "The previous patch had \"yes\" in lowercase, and this is No with an uppercase. What is the standard value to use?",
+      "range": {
+        "startLine": 48,
+        "startChar": 64,
+        "endLine": 48,
+        "endChar": 66
+      },
+      "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4524792f_5371f71b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectServlet.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-30T17:50:58Z",
+      "side": 1,
+      "message": "Are these two values duplicated from the ssh case?",
+      "range": {
+        "startLine": 67,
+        "startChar": 20,
+        "endLine": 68,
+        "endChar": 36
+      },
+      "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bdaded9_e567d742",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectServlet.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-30T17:50:58Z",
+      "side": 1,
+      "message": "Is this the standard value to use?",
+      "range": {
+        "startLine": 71,
+        "startChar": 49,
+        "endLine": 71,
+        "endChar": 59
+      },
+      "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "156f4eb2_97f4fe2b",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-30T17:50:58Z",
+      "side": 1,
+      "message": "changes, the rename",
+      "range": {
+        "startLine": 26,
+        "startChar": 44,
+        "endLine": 26,
+        "endChar": 58
+      },
+      "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc7427ea_3104a619",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-30T17:50:58Z",
+      "side": 1,
+      "message": "the following request",
+      "range": {
+        "startLine": 28,
+        "startChar": 47,
+        "endLine": 28,
+        "endChar": 65
+      },
+      "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cc9420e_57ce694f",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-30T17:50:58Z",
+      "side": 1,
+      "message": "rename a project",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff41e8ae_df0c5397",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-30T17:50:58Z",
+      "side": 1,
+      "message": "\"",
+      "range": {
+        "startLine": 34,
+        "startChar": 13,
+        "endLine": 34,
+        "endChar": 14
+      },
+      "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9e326ab_2d3ec919",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-07-30T17:50:58Z",
+      "side": 1,
+      "message": "Here and elsewhere in this file, we still use the \u0027rename-project\u0027 literal rather than @PLUGIN@. Is that ok, or should we instead replace most/all of them with the latter?",
+      "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
