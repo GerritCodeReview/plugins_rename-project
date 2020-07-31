@@ -322,6 +322,30 @@
     },
     {
       "key": {
+        "uuid": "aed31e54_ff86c60e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectHandler.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-31T20:15:19Z",
+      "side": 1,
+      "message": "Thanks for [1]. I adjusted the change to use rest-api-projects.",
+      "parentUuid": "1842499f_9e25730c",
+      "range": {
+        "startLine": 87,
+        "startChar": 18,
+        "endLine": 87,
+        "endChar": 32
+      },
+      "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac55bf6b_5088c503",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 6
@@ -606,6 +630,30 @@
       "side": 1,
       "message": "\u003e The delete project  IT tests has a single @UseSsh for the whole test suit.\n\nAre there also non-ssh (http, rest) test methods in that delete-project IT class?\n\nIf so, then I think we can revert back to having just one, class-level annotation here too; sorry for the hassle if so.",
       "parentUuid": "de8c3184_cdfdde02",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73d1d8fc_3ad07a5b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-07-31T20:15:19Z",
+      "side": 1,
+      "message": "Done, it was no hassle at all. Yes, there were both http and ssh methods in delete-project IT class.",
+      "parentUuid": "9507658e_9cdd64ce",
       "range": {
         "startLine": 40,
         "startChar": 0,
