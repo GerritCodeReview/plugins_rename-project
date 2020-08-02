@@ -66,9 +66,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
   public Object apply(ProjectResource resource, Input input)
       throws IOException, AuthException, BadRequestException, ResourceConflictException,
           InterruptedException, ConfigInvalidException, RenameRevertException {
-    StringWriter stringWriter = new StringWriter();
-    PrintWriter stdout = new PrintWriter(stringWriter);
-    CommandProgressMonitor monitor = new CommandProgressMonitor(stdout);
+    CommandProgressMonitor monitor =
+        new CommandProgressMonitor(new PrintWriter(new StringWriter()));
     assertCanRename(resource, input, monitor);
 
     List<Id> changeIds = getChanges(resource, monitor);
