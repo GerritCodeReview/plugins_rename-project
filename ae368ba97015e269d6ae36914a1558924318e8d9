@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fc0ba115_4210e11e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-03T14:44:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ca78fb4_db9a17a4",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 55
+      },
+      "revId": "ae368ba97015e269d6ae36914a1558924318e8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d21aefd_fbfc712f",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
         "patchSetId": 18
@@ -36,6 +60,30 @@
       "writtenOn": "2020-08-03T14:08:51Z",
       "side": 1,
       "message": "If some tests use HTTP, does this have to be applied to all the tests?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 7
+      },
+      "revId": "ae368ba97015e269d6ae36914a1558924318e8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9dedfdb_f67f7e9b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-03T14:44:46Z",
+      "side": 1,
+      "message": "The same is done on delete-project side.",
+      "parentUuid": "4d21aefd_fbfc712f",
       "range": {
         "startLine": 43,
         "startChar": 0,
