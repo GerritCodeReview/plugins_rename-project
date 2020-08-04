@@ -666,6 +666,30 @@
     },
     {
       "key": {
+        "uuid": "45b463a0_5ad10db2",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-04T16:49:28Z",
+      "side": 1,
+      "message": "(Resolved.)",
+      "parentUuid": "73d1d8fc_3ad07a5b",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "77b799cae0e82b2b45294648bf16aff4393ac4d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3e649ef_969a38a5",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
         "patchSetId": 6

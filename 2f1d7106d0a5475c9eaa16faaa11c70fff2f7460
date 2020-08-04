@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1592ae96_d29a85f8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectServlet.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-04T16:49:28Z",
+      "side": 1,
+      "message": "(Resolved.)",
+      "parentUuid": "1bdaded9_e567d742",
+      "range": {
+        "startLine": 71,
+        "startChar": 49,
+        "endLine": 71,
+        "endChar": 59
+      },
+      "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "156f4eb2_97f4fe2b",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 14
@@ -339,6 +363,23 @@
       "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "030da8c8_9e403031",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-04T16:49:28Z",
+      "side": 1,
+      "message": "Do we still need to cover the over-5000 changes case? Why was this prompt or switch needed in the first place? -Likely for performance. Should this new request still include a defaulted \u0027continue\u0027 (well, similar -better) option? Something like a maximum threshold for which to not process the request(?)",
+      "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
     }
   ]
 }

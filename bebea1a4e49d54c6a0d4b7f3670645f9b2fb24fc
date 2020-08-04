@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "847a0e5e_d9ccb046",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-04T16:49:28Z",
+      "side": 1,
+      "message": "In RenameCommand::run, this resource is automatically closed through a try-with-resource.",
+      "range": {
+        "startLine": 69,
+        "startChar": 27,
+        "endLine": 69,
+        "endChar": 35
+      },
+      "revId": "bebea1a4e49d54c6a0d4b7f3670645f9b2fb24fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c0f68ac_d45c115d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-04T16:49:28Z",
+      "side": 1,
+      "message": "Is this monitor actually used in this rest case? If not, I would remove the use of it -in this case. If this requires a significant, unrelated refactoring, then maybe to leave for a potential follow-up change. Add a one-liner simple comment above?",
+      "range": {
+        "startLine": 70,
+        "startChar": 35,
+        "endLine": 70,
+        "endChar": 70
+      },
+      "revId": "bebea1a4e49d54c6a0d4b7f3670645f9b2fb24fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30b16580_25b4f11e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-04T16:49:28Z",
+      "side": 1,
+      "message": "\u0027ok\u0027, rather, since this is not a resource deletion case a such?",
+      "range": {
+        "startLine": 75,
+        "startChar": 20,
+        "endLine": 75,
+        "endChar": 24
+      },
+      "revId": "bebea1a4e49d54c6a0d4b7f3670645f9b2fb24fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c4fb1e7_8da3a617",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-04T16:49:28Z",
+      "side": 1,
+      "message": "PLUGIN_NAME",
+      "range": {
+        "startLine": 183,
+        "startChar": 55,
+        "endLine": 183,
+        "endChar": 69
+      },
+      "revId": "bebea1a4e49d54c6a0d4b7f3670645f9b2fb24fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
