@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fb5a8ebf_124a0e51",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-04T20:56:40Z",
+      "side": 1,
+      "message": "I replaced CommandProgressMonitor to Optional of it, this way not a lot of refactoring is needed.",
+      "parentUuid": "847a0e5e_d9ccb046",
+      "range": {
+        "startLine": 69,
+        "startChar": 27,
+        "endLine": 69,
+        "endChar": 35
+      },
+      "revId": "bebea1a4e49d54c6a0d4b7f3670645f9b2fb24fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c0f68ac_d45c115d",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 19
@@ -45,6 +69,30 @@
       "revId": "bebea1a4e49d54c6a0d4b7f3670645f9b2fb24fc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c91ecd5_bd7a11d7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-04T20:56:40Z",
+      "side": 1,
+      "message": "Monitor removed for Rest case",
+      "parentUuid": "6c0f68ac_d45c115d",
+      "range": {
+        "startLine": 70,
+        "startChar": 35,
+        "endLine": 70,
+        "endChar": 70
+      },
+      "revId": "bebea1a4e49d54c6a0d4b7f3670645f9b2fb24fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4afe4a6c_d37b0afe",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-04T20:56:40Z",
+      "side": 1,
+      "message": "Done. I am also passing cancel message of it was canceled due to number of changes exceeding warning limit",
+      "parentUuid": "30b16580_25b4f11e",
+      "range": {
+        "startLine": 75,
+        "startChar": 20,
+        "endLine": 75,
+        "endChar": 24
+      },
+      "revId": "bebea1a4e49d54c6a0d4b7f3670645f9b2fb24fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c4fb1e7_8da3a617",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
         "patchSetId": 19
@@ -91,6 +163,30 @@
       "revId": "bebea1a4e49d54c6a0d4b7f3670645f9b2fb24fc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de1884f5_be526a75",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-04T20:56:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c4fb1e7_8da3a617",
+      "range": {
+        "startLine": 183,
+        "startChar": 55,
+        "endLine": 183,
+        "endChar": 69
+      },
+      "revId": "bebea1a4e49d54c6a0d4b7f3670645f9b2fb24fc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }

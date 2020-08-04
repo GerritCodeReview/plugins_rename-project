@@ -380,6 +380,24 @@
       "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19ac27a8_62c95de6",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-04T20:56:40Z",
+      "side": 1,
+      "message": "Done in json body. By default it will not rename projects with over 5000 changes, to save on performance. If you suggest that we should allow it by default I will make it so.",
+      "parentUuid": "030da8c8_9e403031",
+      "revId": "2f1d7106d0a5475c9eaa16faaa11c70fff2f7460",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
