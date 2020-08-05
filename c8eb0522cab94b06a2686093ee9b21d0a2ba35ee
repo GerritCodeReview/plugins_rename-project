@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "151528b6_df26ca96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T21:45:32Z",
+      "side": 1,
+      "message": "Some rework needed, yes.",
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c6a7056_ee1c9eb9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T21:45:32Z",
+      "side": 1,
+      "message": "Rename cancelled due to number of changes exceeding warning limit and user\u0027s will\n\n(Or similar; goal being, to shorten and adjust a bit.)",
+      "range": {
+        "startLine": 86,
+        "startChar": 7,
+        "endLine": 86,
+        "endChar": 111
+      },
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91fcbce6_404adf2a",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 23
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T21:45:32Z",
+      "side": 1,
+      "message": "succeeded:",
+      "range": {
+        "startLine": 39,
+        "startChar": 10,
+        "endLine": 39,
+        "endChar": 32
+      },
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4dfe4f9_c1c08d02",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 23
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T21:45:32Z",
+      "side": 1,
+      "message": "intent to not",
+      "range": {
+        "startLine": 45,
+        "startChar": 38,
+        "endLine": 45,
+        "endChar": 51
+      },
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "099215b7_7aa5ae05",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 23
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T21:45:32Z",
+      "side": 1,
+      "message": "the number of changes exceeds the",
+      "range": {
+        "startLine": 45,
+        "startChar": 65,
+        "endLine": 45,
+        "endChar": 90
+      },
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b34f5079_18b91a60",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 23
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T21:45:32Z",
+      "side": 1,
+      "message": "Typo.",
+      "range": {
+        "startLine": 45,
+        "startChar": 14,
+        "endLine": 45,
+        "endChar": 23
+      },
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
