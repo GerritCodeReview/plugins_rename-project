@@ -1,0 +1,308 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ebd804e_90223bb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "Getting cleaner I think.",
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1a53323_7397fb3a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "Would insert a blank line above.",
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5287a152_63bc7447",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "Can we make this message standard compared to the ssh-case one? (For user-facing consistency purposes.)",
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a781100_b41ef572",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "Trace needed here? -Since already returning the same message right below anyway.",
+      "range": {
+        "startLine": 74,
+        "startChar": 10,
+        "endLine": 74,
+        "endChar": 15
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb9a9381_e16b07f9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "204 in this case, rather than 200 as below?",
+      "range": {
+        "startLine": 75,
+        "startChar": 22,
+        "endLine": 75,
+        "endChar": 24
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1a0f884_a54f4271",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "pm",
+      "range": {
+        "startLine": 305,
+        "startChar": 8,
+        "endLine": 305,
+        "endChar": 23
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9676af4_401f0c78",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RevertRenameProject.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "pm",
+      "range": {
+        "startLine": 62,
+        "startChar": 17,
+        "endLine": 62,
+        "endChar": 32
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8347e432_2945b9e7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "pm, to get closer to the original code; relatedness.",
+      "range": {
+        "startLine": 95,
+        "startChar": 17,
+        "endLine": 95,
+        "endChar": 32
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e860bc28_7b739155",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/IndexUpdateHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "pm (relatedness).",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 23
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fac6b58_edc4a3f5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/IndexUpdateHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "monitor",
+      "range": {
+        "startLine": 100,
+        "startChar": 24,
+        "endLine": 100,
+        "endChar": 39
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea392b34_14641a03",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/fs/FilesystemRenameHandler.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "pm",
+      "range": {
+        "startLine": 54,
+        "startChar": 17,
+        "endLine": 54,
+        "endChar": 32
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70d7ec70_b7a409ed",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "changes, the rename",
+      "range": {
+        "startLine": 25,
+        "startChar": 44,
+        "endLine": 25,
+        "endChar": 58
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3a91eb2_6c69d689",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "can degrade",
+      "range": {
+        "startLine": 26,
+        "startChar": 21,
+        "endLine": 26,
+        "endChar": 40
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1eeaaf7d_d149057c",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-05T16:11:56Z",
+      "side": 1,
+      "message": "May augment with the proposed 204 response in the cancellation case.",
+      "range": {
+        "startLine": 40,
+        "startChar": 9,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
