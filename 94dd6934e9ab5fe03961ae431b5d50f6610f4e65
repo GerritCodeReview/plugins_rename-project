@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acdc94e7_c1c766db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-06T17:45:58Z",
+      "side": 1,
+      "message": "Is this change now clearing our whole DoD, including passing plugin tests in both modes?",
+      "revId": "94dd6934e9ab5fe03961ae431b5d50f6610f4e65",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
