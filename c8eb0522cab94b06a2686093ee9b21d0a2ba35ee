@@ -90,6 +90,30 @@
     },
     {
       "key": {
+        "uuid": "c6eade7e_1e2c13a0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-06T17:35:24Z",
+      "side": 1,
+      "message": "Restored.\nI though it was redundant: \"rename was cancelled due to user\u0027s will\". But adding that part in will make the message more clear.",
+      "parentUuid": "c75ff36e_f1995c20",
+      "range": {
+        "startLine": 86,
+        "startChar": 7,
+        "endLine": 86,
+        "endChar": 111
+      },
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91fcbce6_404adf2a",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 23
