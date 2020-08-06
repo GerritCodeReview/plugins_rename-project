@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "c75ff36e_f1995c20",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-06T16:15:33Z",
+      "side": 1,
+      "message": "My comment was not proposing to drop the \"to not continue\" suffix, but up to you to remove it still or restore it.",
+      "parentUuid": "c126d772_9d42501f",
+      "range": {
+        "startLine": 86,
+        "startChar": 7,
+        "endLine": 86,
+        "endChar": 111
+      },
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91fcbce6_404adf2a",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 23

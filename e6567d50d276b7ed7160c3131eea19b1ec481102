@@ -1052,6 +1052,30 @@
       "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "668d69a8_911b24e9",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-08-06T16:15:33Z",
+      "side": 1,
+      "message": "(Done already?)",
+      "parentUuid": "338c9f2e_33c5396f",
+      "range": {
+        "startLine": 40,
+        "startChar": 9,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
