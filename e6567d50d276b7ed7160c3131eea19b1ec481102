@@ -1076,6 +1076,30 @@
       "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "103f66d0_35342fee",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-06T17:35:24Z",
+      "side": 1,
+      "message": "Done in the latest patch set. I meant 200 change to 200 OK, and 204 to 204 No content.",
+      "parentUuid": "668d69a8_911b24e9",
+      "range": {
+        "startLine": 40,
+        "startChar": 9,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "e6567d50d276b7ed7160c3131eea19b1ec481102",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
