@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "c126d772_9d42501f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 23
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-06T14:30:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c6a7056_ee1c9eb9",
+      "range": {
+        "startLine": 86,
+        "startChar": 7,
+        "endLine": 86,
+        "endChar": 111
+      },
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91fcbce6_404adf2a",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 23
@@ -62,6 +86,30 @@
       "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cefb26c1_d6c03366",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 23
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-06T14:30:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91fcbce6_404adf2a",
+      "range": {
+        "startLine": 39,
+        "startChar": 10,
+        "endLine": 39,
+        "endChar": 32
+      },
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
@@ -131,6 +179,78 @@
       "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31546fa4_896ab3fe",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 23
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-06T14:30:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "099215b7_7aa5ae05",
+      "range": {
+        "startLine": 45,
+        "startChar": 65,
+        "endLine": 45,
+        "endChar": 90
+      },
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7c3e5ec_9a50bd7f",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 23
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-06T14:30:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b34f5079_18b91a60",
+      "range": {
+        "startLine": 45,
+        "startChar": 14,
+        "endLine": 45,
+        "endChar": 23
+      },
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6793b595_7b975a70",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 23
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-06T14:30:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4dfe4f9_c1c08d02",
+      "range": {
+        "startLine": 45,
+        "startChar": 38,
+        "endLine": 45,
+        "endChar": 51
+      },
+      "revId": "c8eb0522cab94b06a2686093ee9b21d0a2ba35ee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
