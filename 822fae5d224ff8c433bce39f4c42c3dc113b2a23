@@ -16,6 +16,24 @@
       "revId": "822fae5d224ff8c433bce39f4c42c3dc113b2a23",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c82c09b_accbc6bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-07T16:24:22Z",
+      "side": 1,
+      "message": "Manually it works. With this change, if the user were to provide non-existing project he will receive fatal: project not found instead of internal server error. The behavior will be the same as HTTP request introduced in a parent change.",
+      "parentUuid": "9556e52c_6b739704",
+      "revId": "822fae5d224ff8c433bce39f4c42c3dc113b2a23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
