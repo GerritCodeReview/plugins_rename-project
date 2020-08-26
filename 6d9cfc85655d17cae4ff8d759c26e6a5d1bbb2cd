@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8423173_be215a62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-26T18:12:36Z",
+      "side": 1,
+      "message": "Can we clean that project away? Will we be able to rerun the test if the project still exists? Do we check if new name that we picked exists?",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "6d9cfc85655d17cae4ff8d759c26e6a5d1bbb2cd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b73d4de8_43bbd8ee",
+        "filename": "src/test/scala/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProject.scala",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-08-26T18:12:36Z",
+      "side": 1,
+      "message": "How making this as a constant?",
+      "range": {
+        "startLine": 47,
+        "startChar": 17,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "6d9cfc85655d17cae4ff8d759c26e6a5d1bbb2cd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
