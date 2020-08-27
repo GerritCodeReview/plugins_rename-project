@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "75cd91eb_62330182",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1094140
+      },
+      "writtenOn": "2020-08-27T20:36:21Z",
+      "side": 1,
+      "message": "I added some code that allows for unique project names, that will most likely not conflict with other project creation and deletion, that will allow for the test to be atomic in nature where they are not affected by other tests. The project gets cleaned when it\u0027s deleted after the test. If the rename part of test fails, the project will not get deleted and will require manual deletion.",
+      "parentUuid": "c8423173_be215a62",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "6d9cfc85655d17cae4ff8d759c26e6a5d1bbb2cd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b73d4de8_43bbd8ee",
         "filename": "src/test/scala/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProject.scala",
         "patchSetId": 2
