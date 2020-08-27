@@ -45,6 +45,30 @@
       "revId": "6d9cfc85655d17cae4ff8d759c26e6a5d1bbb2cd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd98febd_868c5bbf",
+        "filename": "src/test/scala/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProject.scala",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1094140
+      },
+      "writtenOn": "2020-08-27T13:43:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b73d4de8_43bbd8ee",
+      "range": {
+        "startLine": 47,
+        "startChar": 17,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "6d9cfc85655d17cae4ff8d759c26e6a5d1bbb2cd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
