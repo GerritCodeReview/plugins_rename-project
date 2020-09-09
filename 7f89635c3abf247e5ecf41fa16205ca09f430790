@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "zuul-check:plugins_rename-project": {
+      "state": "SCHEDULED",
+      "message": "Change has been enqueued in check",
+      "started": "2020-09-09T12:59:22Z",
+      "created": "2020-09-09T12:59:22Z",
+      "updated": "2020-09-09T12:59:22Z"
+    }
+  }
+}
