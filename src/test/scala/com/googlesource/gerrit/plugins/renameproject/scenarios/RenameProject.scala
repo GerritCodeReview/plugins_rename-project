@@ -23,15 +23,15 @@ import scala.concurrent.duration._
 
 class RenameProject extends GerritSimulation {
   private val data: FeederBuilder = jsonFile(resource).convert(keys).queue
-  private val default = className
+  private val projectName = className
   private val renamedTo = uniqueName
 
   override def replaceOverride(in: String): String = {
-    val next = replaceKeyWith("_project", default, in)
+    val next = replaceKeyWith("_project", projectName, in)
     replaceKeyWith("_renamed", renamedTo, next)
   }
 
-  private val createProject = new CreateProject(default)
+  private val createProject = new CreateProject(projectName)
   private val deleteProject = new DeleteProject(renamedTo)
 
   private val test: ScenarioBuilder = scenario(uniqueName)
