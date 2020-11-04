@@ -31,6 +31,7 @@ import com.google.gerrit.server.project.ProjectState;
 import com.google.gerrit.server.restapi.project.ListChildProjects;
 import com.google.gerrit.server.submit.MergeOpRepoManager;
 import com.google.gerrit.server.submit.SubmoduleOp;
+import com.google.gerrit.server.submit.SubscriptionGraph;
 import com.google.inject.Provider;
 import com.googlesource.gerrit.plugins.renameproject.CannotRenameProjectException;
 import java.util.ArrayList;
@@ -48,7 +49,6 @@ public class RenamePreconditionsTest {
 
   @Mock private Provider<ListChildProjects> listChildProjectsProvider;
   @Mock private GitRepositoryManager repoManager;
-  @Mock private SubmoduleOp.Factory subOpFactory;
   @Mock private Provider<MergeOpRepoManager> ormProvider;
   @Mock private RenamePreconditions preconditions;
   @Mock private ObjectDatabase objDb;
@@ -56,6 +56,7 @@ public class RenamePreconditionsTest {
   @Mock private CurrentUser user;
   @Mock private Repository repo;
   @Mock private ListChildProjects listChildProjects;
+  @Mock private SubscriptionGraph.Factory subscriptionGraphFactory;
 
   private AllProjectsName allProjects;
   private AllUsersName allUsersName;
@@ -76,7 +77,7 @@ public class RenamePreconditionsTest {
             allUsersName,
             listChildProjectsProvider,
             repoManager,
-            subOpFactory,
+            subscriptionGraphFactory,
             ormProvider);
   }
 

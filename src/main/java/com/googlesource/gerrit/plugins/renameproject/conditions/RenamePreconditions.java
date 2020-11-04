@@ -14,6 +14,9 @@
 
 package com.googlesource.gerrit.plugins.renameproject.conditions;
 
+import static com.google.gerrit.entities.RefNames.REFS_HEADS;
+import static java.util.stream.Collectors.toSet;
+
 import com.google.gerrit.entities.BranchNameKey;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.entities.RefNames;
@@ -27,6 +30,7 @@ import com.google.gerrit.server.restapi.project.ListChildProjects;
 import com.google.gerrit.server.submit.MergeOpRepoManager;
 import com.google.gerrit.server.submit.SubmoduleConflictException;
 import com.google.gerrit.server.submit.SubmoduleOp;
+import com.google.gerrit.server.submit.SubscriptionGraph;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
@@ -34,11 +38,13 @@ import com.googlesource.gerrit.plugins.renameproject.CannotRenameProjectExceptio
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.transport.ReceiveCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,7 +58,7 @@ public class RenamePreconditions {
   public final AllUsersName allUsersName;
   private final Provider<ListChildProjects> listChildProjectsProvider;
   private final GitRepositoryManager repoManager;
-  private final SubmoduleOp.Factory subOpFactory;
+  private final SubscriptionGraph.Factory subscriptionGraphFactory;
   private final Provider<MergeOpRepoManager> ormProvider;
 
   @Inject
@@ -61,13 +67,13 @@ public class RenamePreconditions {
       AllUsersName allUsersName,
       Provider<ListChildProjects> listChildProjectsProvider,
       GitRepositoryManager repoManager,
-      SubmoduleOp.Factory subOpFactory,
+      SubscriptionGraph.Factory subscriptionGraphFactory,
       Provider<MergeOpRepoManager> ormProvider) {
     this.allProjectsName = allProjectsName;
     this.allUsersName = allUsersName;
     this.listChildProjectsProvider = listChildProjectsProvider;
     this.repoManager = repoManager;
-    this.subOpFactory = subOpFactory;
+    this.subscriptionGraphFactory = subscriptionGraphFactory;
     this.ormProvider = ormProvider;
   }
 
@@ -109,13 +115,13 @@ public class RenamePreconditions {
   private void assertIsNotSubscribed(Project.NameKey key) throws CannotRenameProjectException {
     try (Repository repo = repoManager.openRepository(key);
         MergeOpRepoManager orm = ormProvider.get()) {
-      Set<BranchNameKey> branches = new HashSet<>();
-      for (Ref ref : repo.getRefDatabase().getRefsByPrefix(RefNames.REFS_HEADS)) {
-        branches.add(BranchNameKey.create(key, ref.getName()));
-      }
-      SubmoduleOp sub = subOpFactory.create(branches, orm);
+      Set<BranchNameKey> branches =
+          repo.getRefDatabase().getRefsByPrefix(REFS_HEADS).stream()
+              .map(ref -> BranchNameKey.create(key, ref.getName()))
+              .collect(toSet());
+      SubscriptionGraph graph = subscriptionGraphFactory.compute(branches, orm);
       for (BranchNameKey b : branches) {
-        if (sub.hasSuperproject(b)) {
+        if (graph.hasSuperproject(b)) {
           String message = "Cannot rename a project subscribed to by the other projects";
           log.error(message);
           throw new CannotRenameProjectException(message);
