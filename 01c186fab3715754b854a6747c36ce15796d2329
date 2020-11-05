@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ede5a15e_324a4309",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-11-05T16:27:59Z",
+      "side": 1,
+      "message": "A nit; thanks.",
+      "revId": "01c186fab3715754b854a6747c36ce15796d2329",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1822c6fd_ffbdef9a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/conditions/RenamePreconditions.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-11-05T16:27:59Z",
+      "side": 1,
+      "message": "sub, to stick with the previous code.",
+      "range": {
+        "startLine": 116,
+        "startChar": 24,
+        "endLine": 116,
+        "endChar": 29
+      },
+      "revId": "01c186fab3715754b854a6747c36ce15796d2329",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
