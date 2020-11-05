@@ -39,6 +39,30 @@
       },
       "revId": "01c186fab3715754b854a6747c36ce15796d2329",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e1a2f91_df6ed2df",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/conditions/RenamePreconditions.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-11-05T19:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1822c6fd_ffbdef9a",
+      "range": {
+        "startLine": 116,
+        "startChar": 24,
+        "endLine": 116,
+        "endChar": 29
+      },
+      "revId": "01c186fab3715754b854a6747c36ce15796d2329",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
