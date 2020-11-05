@@ -52,6 +52,24 @@
       "parentUuid": "8ad8bb67_c2a706b4",
       "revId": "85ec06e7c24e5263ae95931f4f66cb55a661fcee",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3857ed34_bcff0a57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-11-05T17:31:16Z",
+      "side": 1,
+      "message": "Thanks. I have a comment in that base change, minor.",
+      "parentUuid": "a7022aab_db199934",
+      "revId": "85ec06e7c24e5263ae95931f4f66cb55a661fcee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
