@@ -34,6 +34,24 @@
       "parentUuid": "8545be02_7a6016ff",
       "revId": "85ec06e7c24e5263ae95931f4f66cb55a661fcee",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7022aab_db199934",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2020-11-05T14:50:20Z",
+      "side": 1,
+      "message": "Done. You can take a look at the parent to merge this one",
+      "parentUuid": "8ad8bb67_c2a706b4",
+      "revId": "85ec06e7c24e5263ae95931f4f66cb55a661fcee",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
