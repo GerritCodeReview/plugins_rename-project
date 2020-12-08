@@ -3,7 +3,7 @@ workspace(name = "rename_project")
 load("//:bazlets.bzl", "load_bazlets")
 
 load_bazlets(
-    commit = "cf0bbc90e09a8a1d7c042d79f1555e3fa40984e1",
+    commit = "a511f3c90129d7de7ae67c0637001162980c08d5",
     #local_path = "/home/<user>/projects/bazlets",
 )
 
@@ -12,7 +12,7 @@ load(
     "gerrit_api",
 )
 
-gerrit_api(version = "3.3.0-SNAPSHOT")
+gerrit_api(version = "3.3.0")
 
 load("//:external_plugin_deps.bzl", "external_plugin_deps")
 
