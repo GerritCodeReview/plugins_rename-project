@@ -32,17 +32,11 @@ There are a few caveats:
      Because of all the above caveats, it is not recommended to allow any non-admin
      user to perform any project rename.
 
-Replication of project renaming
+Propagation of project renaming
 -------------------------------
-
-This plugin does not replicate any project renamings itself, but it triggers
-an event when a project is renamed. The [replication plugin]
-(https://gerrit-review.googlesource.com/#/admin/projects/plugins/replication)
-is configured to listen to the event of type `PluginEvent`, which provides
-replication plugin with the required information in order to replicate the
-project rename functionality. `Rename-project` does not provide any custom
-event. Instead, it uses the existing `PluginEvent` which allows communication
-between two plugins directly.
+This plugin replicates project renaming when a project is successfully renamed through
+the use of REST API. So, this plugin requires its installation on both sending and 
+receiving side.
 
 Access
 ------

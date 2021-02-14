@@ -34,6 +34,16 @@ POST /projects/project-1/@PLUGIN@~rename HTTP/1.1
   }
 ```
 
+To perform only file system rename the following request is needed:
+```
+POST /projects/project-1/@PLUGIN@~rename HTTP/1.1
+  {
+    "name" : "project-2",
+    "onlyFSRename" : "true"
+  }
+```
+
+
 RESPONSE
 --------
 If rename succeeded:
