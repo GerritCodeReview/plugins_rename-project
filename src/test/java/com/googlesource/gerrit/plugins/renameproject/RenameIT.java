@@ -15,8 +15,16 @@
 package com.googlesource.gerrit.plugins.renameproject;
 
 import static com.google.common.truth.Truth.assertThat;
+import static com.googlesource.gerrit.plugins.renameproject.RenameProject.PROJECTS_ENDPOINT;
+import static com.googlesource.gerrit.plugins.renameproject.RenameProject.RENAME_ACTION;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
+import com.google.common.base.Joiner;
 import com.google.common.cache.Cache;
+import com.google.gerrit.acceptance.GlobalPluginConfig;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.PushOneCommit.Result;
 import com.google.gerrit.acceptance.RestResponse;
@@ -30,10 +38,13 @@ import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.project.ProjectState;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.renameproject.RenameProject.Input;
+import com.googlesource.gerrit.plugins.renameproject.rest.HttpResponseHandler.HttpResult;
+import com.googlesource.gerrit.plugins.renameproject.rest.HttpSession;
 import java.util.List;
 import javax.inject.Named;
 import org.eclipse.jgit.junit.TestRepository;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 @TestPlugin(
     name = "rename-project",
@@ -46,6 +57,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
   private static final String NEW_PROJECT_NAME = "newProject";
   private static final String NON_EXISTING_NAME = "nonExistingProject";
   private static final String CACHE_NAME = "changeid_project";
+  private static final String URL = "http://localhost:19888";
 
   @Inject
   @Named(CACHE_NAME)
@@ -163,7 +175,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
   @UseLocalDisk
   public void testRenameViaHttpSuccessful() throws Exception {
     createChange();
-    RestResponse r = renameProjectTo(NEW_PROJECT_NAME);
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME, false);
     r.assertOK();
 
     ProjectState projectState = projectCache.get(new Project.NameKey(NEW_PROJECT_NAME));
@@ -177,20 +189,64 @@ public class RenameIT extends LightweightPluginDaemonTest {
   public void testRenameViaHttpWithEmptyNewName() throws Exception {
     createChange();
     String newProjectName = "";
-    RestResponse r = renameProjectTo(newProjectName);
+    RestResponse r = renameProjectTo(newProjectName, false);
     r.assertBadRequest();
 
     ProjectState projectState = projectCache.get(new Project.NameKey(newProjectName));
     assertThat(projectState).isNull();
   }
 
-  private RestResponse renameProjectTo(String newName) throws Exception {
+  @Test
+  @UseLocalDisk
+  @GlobalPluginConfig(pluginName = PLUGIN_NAME, name = "replicaInfo.url", value = URL)
+  public void testRenameReplication() throws Exception {
+
+    RenameProject renameProject = plugin.getSysInjector().getInstance(RenameProject.class);
+    HttpSession session = mock(HttpSession.class);
+    HttpResult result = mock(HttpResult.class);
+
+    Input input = createInput(NEW_PROJECT_NAME, false);
+
+    String request =
+        Joiner.on("/")
+            .join(URL, "a", PROJECTS_ENDPOINT, project.get(), PLUGIN_NAME + "~" + RENAME_ACTION);
+
+    Mockito.when(session.post(request, input)).thenReturn(result);
+    Mockito.when(result.isSuccessful()).thenReturn(true);
+
+    renameProject.replicateRename(session, input, project);
+
+    verify(session, atLeastOnce()).post(eq(request), eq(input));
+    assertThat(input.replication).isTrue();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameViaHttpWithReplication() throws Exception {
+    createChange();
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME, true);
+    r.assertOK();
+
+    ProjectState projectState = projectCache.get(new Project.NameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNotNull();
+  }
+
+  private RestResponse renameProjectTo(String newName, boolean withReplicationFalse)
+      throws Exception {
     setApiUser(user);
     sender.clear();
-    String endPoint = "/projects/" + project.get() + "/" + PLUGIN_NAME + "~rename";
+    String endPoint =
+        "/" + PROJECTS_ENDPOINT + "/" + project.get() + "/" + PLUGIN_NAME + "~" + RENAME_ACTION;
+    return adminRestSession.post(endPoint, createInput(newName, withReplicationFalse));
+  }
+
+  private Input createInput(String newName, boolean withReplication) {
     Input i = new Input();
     i.name = newName;
     i.continueWithRename = true;
-    return adminRestSession.post(endPoint, i);
+    if (withReplication) {
+      i.replication = true;
+    }
+    return i;
   }
 }
