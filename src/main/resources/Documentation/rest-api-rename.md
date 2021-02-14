@@ -34,6 +34,18 @@ POST /projects/project-1/@PLUGIN@~rename HTTP/1.1
   }
 ```
 
+To perform only file system rename the following request is needed:
+```
+POST /projects/project-1/@PLUGIN@~rename HTTP/1.1
+  {
+    "name" : "project-2",
+    "replication" : "true"
+  }
+```
+By default, the value of `replication` is false. This http request is used for replication of
+rename operation to other replica instances. This command should not be used on non-replica
+instances.
+
 RESPONSE
 --------
 If rename succeeded:

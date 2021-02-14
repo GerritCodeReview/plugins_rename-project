@@ -18,6 +18,7 @@ import static com.googlesource.gerrit.plugins.renameproject.RenameOwnProjectCapa
 import static com.googlesource.gerrit.plugins.renameproject.RenameProjectCapability.RENAME_PROJECT;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
 import com.google.common.cache.Cache;
 import com.google.gerrit.extensions.annotations.PluginName;
@@ -30,6 +31,7 @@ import com.google.gerrit.extensions.restapi.RestModifyView;
 import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.Change.Id;
 import com.google.gerrit.reviewdb.client.Project;
+import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.extensions.events.PluginEvent;
@@ -50,6 +52,8 @@ import com.googlesource.gerrit.plugins.renameproject.database.DatabaseRenameHand
 import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler;
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
+import com.googlesource.gerrit.plugins.renameproject.rest.HttpResponseHandler;
+import com.googlesource.gerrit.plugins.renameproject.rest.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +72,9 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     assertCanRename(resource, input, Optional.empty());
     List<Id> changeIds = getChanges(resource, Optional.empty());
 
-    if (changeIds == null || changeIds.size() <= WARNING_LIMIT || input.continueWithRename) {
+    if (input.replication) {
+      fsHandler.rename(resource.getNameKey(), new NameKey(input.name), Optional.empty());
+    } else if (changeIds == null || changeIds.size() <= WARNING_LIMIT || input.continueWithRename) {
       doRename(changeIds, resource, input, Optional.empty());
     } else {
       log.debug(CANCELLATION_MSG);
@@ -81,14 +87,17 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
 
     String name;
     boolean continueWithRename;
+    boolean replication = false;
   }
 
+  public static final String RENAME_ACTION = "rename";
+  public static final String PROJECTS_ENDPOINT = "projects";
   static final int WARNING_LIMIT = 5000;
   static final String CANCELLATION_MSG =
       "Rename cancelled due to number of changes exceeding warning limit and user's will to not continue";
-
   private static final Logger log = LoggerFactory.getLogger(RenameProject.class);
   private static final String CACHE_NAME = "changeid_project";
+  private static final String WITH_AUTHENTICATION = "a";
 
   private final DatabaseRenameHandler dbHandler;
   private final FilesystemRenameHandler fsHandler;
@@ -103,6 +112,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
   private final PermissionBackend permissionBackend;
   private final Cache<Change.Id, String> changeIdProjectCache;
   private final RevertRenameProject revertRenameProject;
+  private final HttpSession httpSession;
+  private final Configuration cfg;
 
   private List<Step> stepsPerformed;
 
@@ -120,7 +131,9 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       RenameLog renameLog,
       PermissionBackend permissionBackend,
       @Named(CACHE_NAME) Cache<Change.Id, String> changeIdProjectCache,
-      RevertRenameProject revertRenameProject) {
+      RevertRenameProject revertRenameProject,
+      HttpSession httpSession,
+      Configuration cfg) {
     this.dbHandler = dbHandler;
     this.fsHandler = fsHandler;
     this.cacheHandler = cacheHandler;
@@ -134,6 +147,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     this.permissionBackend = permissionBackend;
     this.changeIdProjectCache = changeIdProjectCache;
     this.revertRenameProject = revertRenameProject;
+    this.httpSession = httpSession;
+    this.cfg = cfg;
     this.stepsPerformed = new ArrayList<>();
   }
 
@@ -212,6 +227,9 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       changeIdProjectCache.invalidateAll(changeIds);
 
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
+
+      // replicate rename-project operation to other replica instances
+      replicateRename(httpSession, input, oldProjectKey);
     } catch (Exception e) {
       if (stepsPerformed.isEmpty()) {
         log.error("Renaming procedure failed. Exception caught: {}", e.toString());
@@ -309,5 +327,29 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     opm.ifPresent(pm -> pm.beginTask("Retrieving the list of changes from DB"));
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     return dbHandler.getChangeIds(oldProjectKey);
+  }
+  
+  void replicateRename(HttpSession httpSession, Input input, Project.NameKey oldProjectKey) {
+    for (String destination : cfg.httpClient().urls()) {
+      String request =
+          Joiner.on("/")
+              .join(
+                  destination,
+                  WITH_AUTHENTICATION,
+                  PROJECTS_ENDPOINT,
+                  oldProjectKey.get(),
+                  pluginName + "~" + RENAME_ACTION);
+      input.replication = true;
+      try {
+        HttpResponseHandler.HttpResult result = httpSession.post(request, input);
+        if (!result.isSuccessful()) {
+          log.error(
+              String.format(
+                  "Unable to replicate rename to %s : %s", destination, result.getMessage()));
+        }
+      } catch (IOException e) {
+        log.error("Failed to replicate rename to " + destination, e);
+      }
+    }
   }
 }
