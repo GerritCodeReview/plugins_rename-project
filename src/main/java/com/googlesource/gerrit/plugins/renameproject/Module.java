@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.renameproject;
 
 import static com.google.gerrit.server.project.ProjectResource.PROJECT_KIND;
 import static com.googlesource.gerrit.plugins.renameproject.RenameOwnProjectCapability.RENAME_OWN_PROJECT;
+import static com.googlesource.gerrit.plugins.renameproject.RenameProject.RENAME_ENDPOINT;
 import static com.googlesource.gerrit.plugins.renameproject.RenameProjectCapability.RENAME_PROJECT;
 
 import com.google.gerrit.extensions.annotations.Exports;
@@ -29,6 +30,7 @@ import com.googlesource.gerrit.plugins.renameproject.conditions.RenamePreconditi
 import com.googlesource.gerrit.plugins.renameproject.database.DatabaseRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler;
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
+import com.googlesource.gerrit.plugins.renameproject.rest.RestRenameModule;
 
 public class Module extends AbstractModule {
 
@@ -48,11 +50,12 @@ public class Module extends AbstractModule {
     bind(IndexUpdateHandler.class);
     bind(RevertRenameProject.class);
 
+    install(new RestRenameModule());
     install(
         new RestApiModule() {
           @Override
           protected void configure() {
-            post(PROJECT_KIND, "rename").to(RenameProject.class);
+            post(PROJECT_KIND, RENAME_ENDPOINT).to(RenameProject.class);
           }
         });
   }
