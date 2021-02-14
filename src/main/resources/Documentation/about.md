@@ -35,14 +35,11 @@ There are a few caveats:
 Replication of project renaming
 -------------------------------
 
-This plugin does not replicate any project renamings itself, but it triggers
-an event when a project is renamed. The [replication plugin]
-(https://gerrit-review.googlesource.com/#/admin/projects/plugins/replication)
-is configured to listen to the event of type `PluginEvent`, which provides
-replication plugin with the required information in order to replicate the
-project rename functionality. `Rename-project` does not provide any custom
-event. Instead, it uses the existing `PluginEvent` which allows communication
-between two plugins directly.
+This plugin can replicate project renaming by itself if configuration file `@PLUGIN@.config` has
+`replicaInfo.url` entry and if master and all other replicas has this plugin installed. 
+Once configured, replication of rename will start on every successful renaming of a local project.
+When the plugin completes renaming operation on the master instance successfully, the plugin sends
+a http request to replicas' rename-project endpoints provided in the configuration file.
 
 Access
 ------
