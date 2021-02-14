@@ -15,8 +15,15 @@
 package com.googlesource.gerrit.plugins.renameproject;
 
 import static com.google.common.truth.Truth.assertThat;
+import static com.googlesource.gerrit.plugins.renameproject.RenameProject.PROJECTS_API;
+import static com.googlesource.gerrit.plugins.renameproject.RenameProject.RENAME_ENDPOINT;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
+import com.google.common.base.Joiner;
 import com.google.common.cache.Cache;
+import com.google.gerrit.acceptance.GlobalPluginConfig;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.PushOneCommit.Result;
 import com.google.gerrit.acceptance.RestResponse;
@@ -30,10 +37,13 @@ import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.project.ProjectState;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.renameproject.RenameProject.Input;
+import com.googlesource.gerrit.plugins.renameproject.rest.HttpResponseHandler.HttpResult;
+import com.googlesource.gerrit.plugins.renameproject.rest.HttpSession;
 import java.util.List;
 import javax.inject.Named;
 import org.eclipse.jgit.junit.TestRepository;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 @TestPlugin(
     name = "rename-project",
@@ -42,9 +52,11 @@ import org.junit.Test;
 @UseSsh
 public class RenameIT extends LightweightPluginDaemonTest {
 
+  private static final int PORT = 19888;
   private static final String PLUGIN_NAME = "rename-project";
   private static final String NEW_PROJECT_NAME = "newProject";
   private static final String CACHE_NAME = "changeid_project";
+  private static final String URL = "http://localhost:" + PORT;
 
   @Inject
   @Named(CACHE_NAME)
@@ -171,6 +183,32 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
     ProjectState projectState = projectCache.get(new Project.NameKey(newProjectName));
     assertThat(projectState).isNull();
+  }
+
+  @Test
+  @UseLocalDisk
+  @GlobalPluginConfig(pluginName = PLUGIN_NAME, name = "replicaInfo.url", value = URL)
+  public void testRenameViaHttpWithPropagation() throws Exception {
+
+    RenameProject renameProject = plugin.getSysInjector().getInstance(RenameProject.class);
+    HttpSession session = mock(HttpSession.class);
+    HttpResult result = mock(HttpResult.class);
+
+    Input i = new Input();
+    i.onlyFSRename = true;
+    i.name = NEW_PROJECT_NAME;
+    i.continueWithRename = true;
+
+    String request =
+        Joiner.on("/")
+            .join(URL, "a", PROJECTS_API, project.get(), PLUGIN_NAME + "~" + RENAME_ENDPOINT);
+
+    Mockito.when(session.post(request, i)).thenReturn(result);
+    Mockito.when(result.isSuccessful()).thenReturn(true);
+
+    renameProject.propagateRename(session, i, project);
+
+    verify(session, atLeastOnce()).post(request, i);
   }
 
   private RestResponse renameProjectTo(String newName) throws Exception {
