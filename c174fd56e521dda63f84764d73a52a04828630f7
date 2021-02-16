@@ -16,6 +16,69 @@
       "message": "The CI failure looked unrelated, or only environmental. So I just re-ran it, from under the Checks tab above.",
       "revId": "c174fd56e521dda63f84764d73a52a04828630f7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fcd98c1_8b3c5872",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-16T21:07:46Z",
+      "side": 1,
+      "message": "Minor proposals, if applicable.",
+      "revId": "c174fd56e521dda63f84764d73a52a04828630f7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19af20ff_364dbb21",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/conditions/RenamePreconditions.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-16T21:07:46Z",
+      "side": 1,
+      "message": "Can this be null, in turn? Would briefly comment this in the commit message, unless trivial.",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "c174fd56e521dda63f84764d73a52a04828630f7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e27f3a1_281e1a5b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/conditions/RenamePreconditions.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-16T21:07:46Z",
+      "side": 1,
+      "message": "Is it possible to extract the provided name as part of this string, similar to line 90 or so? -Maybe not, but just in case we could enrich the trace, that way.",
+      "range": {
+        "startLine": 79,
+        "startChar": 46,
+        "endLine": 79,
+        "endChar": 53
+      },
+      "revId": "c174fd56e521dda63f84764d73a52a04828630f7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
