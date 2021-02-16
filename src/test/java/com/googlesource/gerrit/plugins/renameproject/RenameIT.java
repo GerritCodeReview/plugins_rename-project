@@ -42,6 +42,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
   private static final String PLUGIN_NAME = "rename-project";
   private static final String NEW_PROJECT_NAME = "newProject";
+  private static final String NON_EXISTING_NAME = "nonExistingProject";
   private static final String CACHE_NAME = "changeid_project";
 
   @Inject
@@ -89,6 +90,16 @@ public class RenameIT extends LightweightPluginDaemonTest {
   public void testRenameExistingProjectFail() throws Exception {
     createChange();
     adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + project.get());
+    adminSshSession.assertFailure();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameNonExistingProjectFail() throws Exception {
+    createChange();
+    adminSshSession.exec(PLUGIN_NAME + " " + NON_EXISTING_NAME + " " + project.get());
+
+    assertThat(adminSshSession.getError()).contains("Project does not exist");
     adminSshSession.assertFailure();
   }
 
