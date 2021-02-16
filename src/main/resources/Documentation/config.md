@@ -1,8 +1,7 @@
 Configuration
 =============
 
-The configuration of the @PLUGIN@ plugin is done in the `gerrit.config`
-file and rename propagation is configured in `$site_path/etc/@PLUGIN@.config`
+The configuration of the @PLUGIN@ plugin is done in the `$site_path/etc/@PLUGIN@.config`
 
 Expected Configuration
 ----------------------
@@ -10,12 +9,13 @@ Provides an option to configure the number of threads used for indexing
 the changes. The default value used for this option is 4.
 
 ```
-  [plugin "@PLUGIN@"]
+  [index]
     indexThreads = 4
 ```
 
 Rename project propagation is enabled by adding `replicaInfo` section with appropriate `url`'s.
 For example:
+
 ```
 [replicaInfo]
     url = http://mirror1.us.some.org:8080
