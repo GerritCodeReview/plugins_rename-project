@@ -41,10 +41,10 @@ public class Configuration {
 
   @Inject
   public Configuration(PluginConfigFactory pluginConfigFactory, @PluginName String pluginName) {
-    PluginConfig cfg = pluginConfigFactory.getFromGerritConfig(pluginName);
-    Config globalPluginConfig = pluginConfigFactory.getGlobalPluginConfig(pluginName);
-    indexThreads = cfg.getInt("indexThreads", 4);
-    http = new Http(globalPluginConfig);
+//    PluginConfig cfg = pluginConfigFactory.getFromGerritConfig(pluginName);
+    Config cfg = pluginConfigFactory.getGlobalPluginConfig(pluginName);
+    indexThreads = cfg.getInt("index", "indexThreads", 4);
+    http = new Http(cfg);
   }
 
   private static int getInt(Config cfg, String section, String name, int defaultValue) {
