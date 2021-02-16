@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ee797da_4b66270c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-16T21:01:06Z",
+      "side": 1,
+      "message": "The CI failure looked unrelated, or only environmental. So I just re-ran it, from under the Checks tab above.",
+      "revId": "c174fd56e521dda63f84764d73a52a04828630f7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
