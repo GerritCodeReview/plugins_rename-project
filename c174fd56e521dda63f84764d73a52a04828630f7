@@ -82,6 +82,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a71df5e_c6043d09",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/conditions/RenamePreconditions.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-17T21:35:42Z",
+      "side": 1,
+      "message": "-Ack.",
+      "parentUuid": "e49cfa2d_e776a0d8",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "c174fd56e521dda63f84764d73a52a04828630f7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e27f3a1_281e1a5b",
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "Unfortunately, since project state is null we cant retrieve the name that was used to pass in. In order to get the nameKey it does return projectState.NameKey, and that is the cause of NullPointerException",
       "parentUuid": "4e27f3a1_281e1a5b",
+      "range": {
+        "startLine": 79,
+        "startChar": 46,
+        "endLine": 79,
+        "endChar": 53
+      },
+      "revId": "c174fd56e521dda63f84764d73a52a04828630f7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08ce83f2_ca9a0060",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/conditions/RenamePreconditions.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-17T21:35:42Z",
+      "side": 1,
+      "message": "And re-ack; thanks for having checked these.",
+      "parentUuid": "3cb36e6a_7a8ce8e1",
       "range": {
         "startLine": 79,
         "startChar": 46,
