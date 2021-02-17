@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "88dae393_249fd318",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-17T12:35:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89beef42_00bba6c9",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 66
+      },
+      "revId": "eca3cfa7d4c4eee6f17a46f2222e4d2d2eb6451c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0055f72d_b59f4923",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -37,6 +61,24 @@
       "writtenOn": "2021-02-16T21:14:53Z",
       "side": 1,
       "message": "Assuming this is a trivial, non-amended cherry-pick(?)",
+      "revId": "eca3cfa7d4c4eee6f17a46f2222e4d2d2eb6451c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2519877_ed96f29d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-17T12:35:03Z",
+      "side": 1,
+      "message": "Only once file DatabaseRenameHandler was amended due to versions 3.0+ have no support for reviewDB, and that created conflict during cherry-pick.",
+      "parentUuid": "0055f72d_b59f4923",
       "revId": "eca3cfa7d4c4eee6f17a46f2222e4d2d2eb6451c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
