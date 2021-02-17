@@ -58,6 +58,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e49cfa2d_e776a0d8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/conditions/RenamePreconditions.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-17T13:01:38Z",
+      "side": 1,
+      "message": "At the RenameProject step the plugin creates the project resource, so it cant be null:\n`new ProjectResource(projectCacheProvider.get().get(new Project.NameKey(projectControl)), self.get());`\n\nnull comes from ProjectCache.get(Non-exsiting-Namekey) which returns the cached data or null if no such project exists,",
+      "parentUuid": "19af20ff_364dbb21",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "c174fd56e521dda63f84764d73a52a04828630f7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e27f3a1_281e1a5b",
@@ -71,6 +95,30 @@
       "writtenOn": "2021-02-16T21:07:46Z",
       "side": 1,
       "message": "Is it possible to extract the provided name as part of this string, similar to line 90 or so? -Maybe not, but just in case we could enrich the trace, that way.",
+      "range": {
+        "startLine": 79,
+        "startChar": 46,
+        "endLine": 79,
+        "endChar": 53
+      },
+      "revId": "c174fd56e521dda63f84764d73a52a04828630f7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cb36e6a_7a8ce8e1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/conditions/RenamePreconditions.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-17T13:01:38Z",
+      "side": 1,
+      "message": "Unfortunately, since project state is null we cant retrieve the name that was used to pass in. In order to get the nameKey it does return projectState.NameKey, and that is the cause of NullPointerException",
+      "parentUuid": "4e27f3a1_281e1a5b",
       "range": {
         "startLine": 79,
         "startChar": 46,
