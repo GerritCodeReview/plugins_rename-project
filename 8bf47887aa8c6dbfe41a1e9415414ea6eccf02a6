@@ -22,6 +22,30 @@
       },
       "revId": "8bf47887aa8c6dbfe41a1e9415414ea6eccf02a6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72db2364_878e7df3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-18T16:11:12Z",
+      "side": 1,
+      "message": "(+1 to this comment; good catch.)",
+      "parentUuid": "71c0a768_e1ebe009",
+      "range": {
+        "startLine": 20,
+        "startChar": 17,
+        "endLine": 20,
+        "endChar": 27
+      },
+      "revId": "8bf47887aa8c6dbfe41a1e9415414ea6eccf02a6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
