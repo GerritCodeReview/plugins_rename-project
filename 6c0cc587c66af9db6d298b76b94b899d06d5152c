@@ -47,6 +47,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fea9f1f8_ce8f3844",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-18T18:49:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9ebf265_d3454e09",
+      "range": {
+        "startLine": 17,
+        "startChar": 22,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "6c0cc587c66af9db6d298b76b94b899d06d5152c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d1380c2_e62cc3ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-18T18:49:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "895cf189_33246580",
+      "range": {
+        "startLine": 17,
+        "startChar": 71,
+        "endLine": 17,
+        "endChar": 73
+      },
+      "revId": "6c0cc587c66af9db6d298b76b94b899d06d5152c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fcb1cd2_eb3b4085",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-02-18T16:08:55Z",
       "side": 1,
       "message": "Would then add another short sentence about how/if this is being resolved herein. Otherwise one may think that this is still an issue somehow...",
+      "range": {
+        "startLine": 18,
+        "startChar": 9,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "6c0cc587c66af9db6d298b76b94b899d06d5152c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1967315_b93cb9ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-18T18:49:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fcb1cd2_eb3b4085",
       "range": {
         "startLine": 18,
         "startChar": 9,
