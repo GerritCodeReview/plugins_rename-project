@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97796e22_a23ebc94",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-02-22T14:44:57Z",
+      "side": 1,
+      "message": "I am not sure that this method should change location. It is herded to check what was changed.",
+      "revId": "3d00811f5db678705aa20cbb856308fc09aa2a95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90c151b7_cc4fe1be",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-02-22T14:44:57Z",
+      "side": 1,
+      "message": "Why this change location?",
+      "range": {
+        "startLine": 341,
+        "startChar": 2,
+        "endLine": 353,
+        "endChar": 3
+      },
+      "revId": "3d00811f5db678705aa20cbb856308fc09aa2a95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47fa8bd4_3dea62a8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/rest/HttpClientProvider.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-02-22T14:44:57Z",
+      "side": 1,
+      "message": "You can consider passing username and password and change to static. But its up to You",
+      "range": {
+        "startLine": 110,
+        "startChar": 3,
+        "endLine": 110,
+        "endChar": 55
+      },
+      "revId": "3d00811f5db678705aa20cbb856308fc09aa2a95",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
