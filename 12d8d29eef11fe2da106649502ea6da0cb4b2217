@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "365519a8_1ededef2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-22T19:51:32Z",
+      "side": 0,
+      "message": "Unrelated blank line removal?",
+      "revId": "12d8d29eef11fe2da106649502ea6da0cb4b2217",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43719264_52a823cc",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-22T19:51:32Z",
+      "side": 0,
+      "message": "Blank line removed?",
+      "revId": "12d8d29eef11fe2da106649502ea6da0cb4b2217",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c999f3b_67819a05",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-22T19:51:32Z",
+      "side": 0,
+      "message": "This previous text above sounded like knowing some more about replicated renames. What happened since the writing of it, to make it so wrong or inadequate today?\n\n-Maybe refine this amend, and/or add an explanation to the commit message.",
+      "revId": "12d8d29eef11fe2da106649502ea6da0cb4b2217",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
