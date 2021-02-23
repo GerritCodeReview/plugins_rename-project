@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5d28f30_2cca5018",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 19
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b82048c_d1608ca9",
+      "range": {
+        "startLine": 10,
+        "startChar": 3,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c65bf28_5718eea5",
@@ -47,6 +71,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57eea4dd_a503b6b9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c65bf28_5718eea5",
+      "range": {
+        "startLine": 38,
+        "startChar": 21,
+        "endLine": 38,
+        "endChar": 25
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e367a7e_dd47c65c",
@@ -60,6 +108,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "This is only used here and set at line 43 above. Why not introducing these two new lines as consecutive ones, as they closely relate?",
+      "range": {
+        "startLine": 45,
+        "startChar": 20,
+        "endLine": 45,
+        "endChar": 38
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eec2055b_4df76942",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e367a7e_dd47c65c",
       "range": {
         "startLine": 45,
         "startChar": 20,
@@ -116,6 +188,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff50139_a75e0eff",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75e7559f_63acb542",
+      "range": {
+        "startLine": 48,
+        "startChar": 73,
+        "endLine": 48,
+        "endChar": 85
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11516433_5098e8f0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b4a99c5_3e3e2254",
+      "range": {
+        "startLine": 48,
+        "startChar": 47,
+        "endLine": 48,
+        "endChar": 54
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d5b5bda_02933bed",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "Could we join these two traces into just one?",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 53,
+        "endChar": 14
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7698ef33_b96597bb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d5b5bda_02933bed",
       "range": {
         "startLine": 52,
         "startChar": 6,
@@ -162,6 +306,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c03bcfa_47b4e9f3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87f390be_5950e9cf",
+      "range": {
+        "startLine": 66,
+        "startChar": 22,
+        "endLine": 66,
+        "endChar": 26
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed4440e7_f8235305",
@@ -175,6 +343,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "These are the only getInt calls, but the latter method is outside of this class. Move it in this Http class?",
+      "range": {
+        "startLine": 87,
+        "startChar": 26,
+        "endLine": 88,
+        "endChar": 28
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4128ea1d_f88666c4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed4440e7_f8235305",
       "range": {
         "startLine": 87,
         "startChar": 26,
@@ -208,6 +400,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4387b851_f2c40e3c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f19e8e2_b770d477",
+      "range": {
+        "startLine": 96,
+        "startChar": 10,
+        "endLine": 96,
+        "endChar": 14
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18ae581c_03fad967",
@@ -221,6 +437,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "ENDPOINT?",
+      "range": {
+        "startLine": 94,
+        "startChar": 38,
+        "endLine": 94,
+        "endChar": 41
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f827c9ae_a329aa02",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18ae581c_03fad967",
       "range": {
         "startLine": 94,
         "startChar": 38,
@@ -248,6 +488,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70bd2a3c_8f218406",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a54b8832_bba32922",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e33f236_2aff0ceb",
@@ -265,6 +523,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d35bbd9_08f2dd5f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e33f236_2aff0ceb",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43b36901_e75952d7",
@@ -278,6 +554,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "Should we use the more precise term \u0027replicate\u0027, instead of \u0027propagate\u0027? If so, then maybe \u0027other instances\u0027 should become \u0027replica\u0027 or so.\n\nAlso, this comment could be removed if renaming this method slightly more explicitly.",
+      "range": {
+        "startLine": 229,
+        "startChar": 9,
+        "endLine": 230,
+        "endChar": 15
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb4562e2_001445ab",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43b36901_e75952d7",
       "range": {
         "startLine": 229,
         "startChar": 9,
@@ -311,6 +611,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ad2eeb4_e858f240",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "removed public",
+      "parentUuid": "00f4d1ba_6fd33115",
+      "range": {
+        "startLine": 330,
+        "startChar": 2,
+        "endLine": 330,
+        "endChar": 20
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95fb600b_8284d5d9",
@@ -324,6 +648,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "Maybe rename to \u0027replication\u0027, in line with related comments about terminology and this feature specific domain langage.",
+      "range": {
+        "startLine": 341,
+        "startChar": 12,
+        "endLine": 341,
+        "endChar": 24
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dd2c7c8_7b74af8a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95fb600b_8284d5d9",
       "range": {
         "startLine": 341,
         "startChar": 12,
@@ -359,6 +707,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb99c70c_e47f94d5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "I don\u0027t want to throw exception, since that will trigger revert. Which is not desirable. I think for now we can just log it.",
+      "parentUuid": "2385f963_4fcb5b41",
+      "range": {
+        "startLine": 345,
+        "startChar": 20,
+        "endLine": 345,
+        "endChar": 31
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3aa59450_7b05a699",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 19
@@ -370,6 +742,24 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "Would also replace the term \u0027propagate\u0027 above, accordingly or if applying the comment.",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a18decc2_f8f56aa9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aa59450_7b05a699",
       "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -387,6 +777,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "This implementation looks like having been borrowed from somewhere else. Elaborate on this in the commit message?\n\nI would also specify why duplicating it, and/or if this class adapted anything in particular compared to its origin.",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 24
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddc2b7dd_9a6ffd23",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/rest/HttpClientProvider.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b357b885_d40a843c",
       "range": {
         "startLine": 44,
         "startChar": 6,
@@ -420,6 +834,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abef10c1_adda824a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/rest/HttpResponseHandler.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d0a990_85264ec2",
+      "range": {
+        "startLine": 27,
+        "startChar": 13,
+        "endLine": 27,
+        "endChar": 32
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6dd3117e_015602b0",
@@ -433,6 +871,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "(Same.)",
+      "range": {
+        "startLine": 31,
+        "startChar": 13,
+        "endLine": 31,
+        "endChar": 24
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9d0025e_0cb42af3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/rest/HttpSession.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6dd3117e_015602b0",
       "range": {
         "startLine": 31,
         "startChar": 13,
@@ -466,6 +928,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd7997e4_bea15eb7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/rest/RestRenameModule.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83d23951_d3b13f95",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "058bf71b_50a41eaf",
@@ -479,6 +965,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "I would have kept the original title, so only amending its paragraph below.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 11
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1367590b_1fee2511",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "058bf71b_50a41eaf",
       "range": {
         "startLine": 35,
         "startChar": 0,
@@ -512,6 +1022,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce781510_c0747702",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7d82fef_0d371787",
+      "range": {
+        "startLine": 37,
+        "startChar": 71,
+        "endLine": 37,
+        "endChar": 78
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc4081ef_07e21986",
@@ -525,6 +1059,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "Missing some word(s) in between; odd read otherwise I think.",
+      "range": {
+        "startLine": 38,
+        "startChar": 8,
+        "endLine": 38,
+        "endChar": 15
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ec620af_eefcc696",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc4081ef_07e21986",
       "range": {
         "startLine": 38,
         "startChar": 8,
@@ -558,6 +1116,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4209b2e8_b34b05d3",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "rename-project plugin could not do it before. So this should not be a breaking change.\n\nI will include more details in here.",
+      "parentUuid": "1e770b20_97d1ad67",
+      "range": {
+        "startLine": 38,
+        "startChar": 66,
+        "endLine": 39,
+        "endChar": 14
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ed5b99a_91b6bbcc",
@@ -571,6 +1153,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "replication(?)",
+      "range": {
+        "startLine": 5,
+        "startChar": 16,
+        "endLine": 5,
+        "endChar": 27
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "351590c1_bb6c8d7c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ed5b99a_91b6bbcc",
       "range": {
         "startLine": 5,
         "startChar": 16,
@@ -627,6 +1233,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d60ab74b_711de155",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42fb9ff8_7c7e45e8",
+      "range": {
+        "startLine": 17,
+        "startChar": 41,
+        "endLine": 17,
+        "endChar": 61
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5060632b_0070d70e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eab498ff_d7eb0156",
+      "range": {
+        "startLine": 17,
+        "startChar": 15,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f42dbabe_c4a4e6c7",
@@ -644,6 +1298,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9654c11_60a8408c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f42dbabe_c4a4e6c7",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a2545b4_8ceb58cc",
@@ -657,6 +1329,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "to replicate the(?)",
+      "range": {
+        "startLine": 26,
+        "startChar": 36,
+        "endLine": 26,
+        "endChar": 54
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2978afe3_ebf29989",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a2545b4_8ceb58cc",
       "range": {
         "startLine": 26,
         "startChar": 36,
@@ -690,6 +1386,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "547ccf93_f6870ad6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a73d059b_59dc73d3",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ecf4f4a_c4fc591b",
@@ -703,6 +1423,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "-Same here.",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "decd2bd6_b5662506",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ecf4f4a_c4fc591b",
       "range": {
         "startLine": 37,
         "startChar": 9,
@@ -730,6 +1474,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0922631c_5135ef3e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92e7f9e2_820bc8db",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9ba7b9a_f0001d63",
@@ -743,6 +1505,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "What is the default if not specified? Would document this nearby.",
+      "range": {
+        "startLine": 42,
+        "startChar": 5,
+        "endLine": 42,
+        "endChar": 17
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "497b9914_ef19bd54",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9ba7b9a_f0001d63",
       "range": {
         "startLine": 42,
         "startChar": 5,
@@ -770,6 +1556,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6f5d674_2b00d7dd",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b86edf5_20df12fb",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66aca51b_22a28777",
@@ -787,6 +1591,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "636f2857_3123d1a9",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66aca51b_22a28777",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01c35fab_34a89da4",
@@ -800,6 +1622,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "Would inline this value here and remove line 56; not used elsewhere. Meaning, to put that value straight in the preceding String.",
+      "range": {
+        "startLine": 61,
+        "startChar": 58,
+        "endLine": 61,
+        "endChar": 62
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20594690_3ef0b94b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01c35fab_34a89da4",
       "range": {
         "startLine": 61,
         "startChar": 58,
@@ -833,6 +1679,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78f353cb_f22f986c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc93f91b_f12140bb",
+      "range": {
+        "startLine": 203,
+        "startChar": 24,
+        "endLine": 203,
+        "endChar": 35
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f2afb54_5cb0626d",
@@ -846,6 +1716,30 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 1,
       "message": "Always false.",
+      "range": {
+        "startLine": 232,
+        "startChar": 36,
+        "endLine": 232,
+        "endChar": 42
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11868148_d0310eb8",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f2afb54_5cb0626d",
       "range": {
         "startLine": 232,
         "startChar": 36,

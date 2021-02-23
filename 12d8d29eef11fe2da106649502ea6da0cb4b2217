@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96157e96_ac2c1ca8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "365519a8_1ededef2",
+      "revId": "12d8d29eef11fe2da106649502ea6da0cb4b2217",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43719264_52a823cc",
@@ -35,6 +53,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae528112_5e57870d",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "43719264_52a823cc",
+      "revId": "12d8d29eef11fe2da106649502ea6da0cb4b2217",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c999f3b_67819a05",
@@ -48,6 +84,24 @@
       "writtenOn": "2021-02-22T19:51:32Z",
       "side": 0,
       "message": "This previous text above sounded like knowing some more about replicated renames. What happened since the writing of it, to make it so wrong or inadequate today?\n\n-Maybe refine this amend, and/or add an explanation to the commit message.",
+      "revId": "12d8d29eef11fe2da106649502ea6da0cb4b2217",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73b4acbb_6ec2fed6",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-23T16:21:54Z",
+      "side": 0,
+      "message": "I think this part is not supposed to be here. replication plugin doesn\u0027t support rename out of the box.",
+      "parentUuid": "4c999f3b_67819a05",
       "revId": "12d8d29eef11fe2da106649502ea6da0cb4b2217",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
