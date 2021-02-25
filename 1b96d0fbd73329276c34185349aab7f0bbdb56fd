@@ -508,6 +508,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "398cdc9e_f47302fc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-25T21:31:46Z",
+      "side": 1,
+      "message": "I at least don\u0027t see it.",
+      "parentUuid": "70bd2a3c_8f218406",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7e33f236_2aff0ceb",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 19
@@ -537,6 +555,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "7e33f236_2aff0ceb",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6a14ffa_424ccf20",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-25T21:31:46Z",
+      "side": 1,
+      "message": "(Pushed?)",
+      "parentUuid": "8d35bbd9_08f2dd5f",
       "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -637,6 +673,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "06ef4558_fc4e7e1c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-25T21:31:46Z",
+      "side": 1,
+      "message": "I was also thinking that this annotation is not necessary, because the test can still reach this method without it (package shared).",
+      "parentUuid": "1ad2eeb4_e858f240",
+      "range": {
+        "startLine": 330,
+        "startChar": 2,
+        "endLine": 330,
+        "endChar": 20
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95fb600b_8284d5d9",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
         "patchSetId": 19
@@ -719,6 +779,30 @@
       "side": 1,
       "message": "I don\u0027t want to throw exception, since that will trigger revert. Which is not desirable. I think for now we can just log it.",
       "parentUuid": "2385f963_4fcb5b41",
+      "range": {
+        "startLine": 345,
+        "startChar": 20,
+        "endLine": 345,
+        "endChar": 31
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2fbf7c5_bb87c621",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-25T21:31:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eb99c70c_e47f94d5",
       "range": {
         "startLine": 345,
         "startChar": 20,
@@ -954,6 +1038,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f747906_3f257e0a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/rest/RestRenameModule.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-25T21:31:46Z",
+      "side": 1,
+      "message": "Pushed?",
+      "parentUuid": "bd7997e4_bea15eb7",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "058bf71b_50a41eaf",
         "filename": "src/main/resources/Documentation/about.md",
         "patchSetId": 19
@@ -1177,6 +1285,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "9ed5b99a_91b6bbcc",
+      "range": {
+        "startLine": 5,
+        "startChar": 16,
+        "endLine": 5,
+        "endChar": 27
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbe95e40_51bfc335",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-25T21:31:46Z",
+      "side": 1,
+      "message": "-Not yet it seems.",
+      "parentUuid": "351590c1_bb6c8d7c",
       "range": {
         "startLine": 5,
         "startChar": 16,
@@ -1494,6 +1626,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f71e4469_9367e79f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-25T21:31:46Z",
+      "side": 1,
+      "message": "I think the back-ticks part of the proposal was missed -maybe. Also, is this the way to properly do bullets in other similar doc? -I\u0027d confirm so by looking at the resulting rendering, too; thanks for letting us know.",
+      "parentUuid": "0922631c_5135ef3e",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9ba7b9a_f0001d63",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 19
@@ -1605,6 +1755,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "66aca51b_22a28777",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff75a1b4_7a00f161",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-25T21:31:46Z",
+      "side": 1,
+      "message": "Well, now that you are adding a new paragraph, this blank line may be needed.",
+      "parentUuid": "636f2857_3123d1a9",
       "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
