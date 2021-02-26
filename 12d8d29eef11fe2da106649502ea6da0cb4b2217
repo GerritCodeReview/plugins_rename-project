@@ -104,6 +104,24 @@
       "parentUuid": "4c999f3b_67819a05",
       "revId": "12d8d29eef11fe2da106649502ea6da0cb4b2217",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9bc83f7_3db0e7e4",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-26T19:42:41Z",
+      "side": 0,
+      "message": "resolved",
+      "parentUuid": "73b4acbb_6ec2fed6",
+      "revId": "12d8d29eef11fe2da106649502ea6da0cb4b2217",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

@@ -524,6 +524,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76ae82a0_0a2047ca",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-26T19:42:41Z",
+      "side": 1,
+      "message": "Sorry, I ran code reformat without checking. It was not applying GJF. Done now",
+      "parentUuid": "398cdc9e_f47302fc",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e33f236_2aff0ceb",
@@ -573,6 +591,24 @@
       "side": 1,
       "message": "(Pushed?)",
       "parentUuid": "8d35bbd9_08f2dd5f",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81c0ecd2_e56b55a0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-26T19:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6a14ffa_424ccf20",
       "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -685,6 +721,30 @@
       "side": 1,
       "message": "I was also thinking that this annotation is not necessary, because the test can still reach this method without it (package shared).",
       "parentUuid": "1ad2eeb4_e858f240",
+      "range": {
+        "startLine": 330,
+        "startChar": 2,
+        "endLine": 330,
+        "endChar": 20
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cbcf14c_d8405828",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-26T19:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06ef4558_fc4e7e1c",
       "range": {
         "startLine": 330,
         "startChar": 2,
@@ -1060,6 +1120,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e6df5ca_07a19875",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/rest/RestRenameModule.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-26T19:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f747906_3f257e0a",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11009f4b_27c795ef",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/rest/RestRenameModule.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-26T19:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f747906_3f257e0a",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "058bf71b_50a41eaf",
@@ -1309,6 +1417,30 @@
       "side": 1,
       "message": "-Not yet it seems.",
       "parentUuid": "351590c1_bb6c8d7c",
+      "range": {
+        "startLine": 5,
+        "startChar": 16,
+        "endLine": 5,
+        "endChar": 27
+      },
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5cd9223_0b152acd",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-26T19:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbe95e40_51bfc335",
       "range": {
         "startLine": 5,
         "startChar": 16,
@@ -1642,6 +1774,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ebf8281_b95f7d8e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-26T19:42:41Z",
+      "side": 1,
+      "message": "to render bullets back-ticks are not needed. I compared with replication plugin documentation, and there \"*\" was used.",
+      "parentUuid": "f71e4469_9367e79f",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9ba7b9a_f0001d63",
@@ -1773,6 +1923,24 @@
       "side": 1,
       "message": "Well, now that you are adding a new paragraph, this blank line may be needed.",
       "parentUuid": "636f2857_3123d1a9",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca11fbbc_4ee62604",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-26T19:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff75a1b4_7a00f161",
       "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
