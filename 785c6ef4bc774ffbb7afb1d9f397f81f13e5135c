@@ -142,6 +142,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c6aea43_87ad44eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 22
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-27T15:57:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3aa06018_5c1e60f7",
+      "range": {
+        "startLine": 12,
+        "startChar": 60,
+        "endLine": 12,
+        "endChar": 67
+      },
+      "revId": "785c6ef4bc774ffbb7afb1d9f397f81f13e5135c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3feadd52_8a67925c",
@@ -347,6 +371,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87200126_84aec20a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-27T15:57:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0e57136e_d83b9ae4",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 8
+      },
+      "revId": "785c6ef4bc774ffbb7afb1d9f397f81f13e5135c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5358839_87feaf0d",
@@ -384,6 +432,30 @@
       "side": 1,
       "message": "Done, if not specified it defaults to false. I can make some test cases to cover that.",
       "parentUuid": "b5358839_87feaf0d",
+      "range": {
+        "startLine": 90,
+        "startChar": 12,
+        "endLine": 90,
+        "endChar": 23
+      },
+      "revId": "785c6ef4bc774ffbb7afb1d9f397f81f13e5135c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dabac6d1_f5854948",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-27T15:57:45Z",
+      "side": 1,
+      "message": "Maybe in a follow-up, while also covering a default also for continueWithRename (and name, maybe).",
+      "parentUuid": "cd65fc0e_a8e64856",
       "range": {
         "startLine": 90,
         "startChar": 12,

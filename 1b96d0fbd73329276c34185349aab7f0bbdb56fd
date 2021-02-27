@@ -1794,6 +1794,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6106a15c_3bcc08be",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-27T15:57:45Z",
+      "side": 1,
+      "message": "My comment had two parts: 1. bullets, and 2. back-ticks. The latter is not for the former, but rather to render keywords as code, as done elsewhere in this file.",
+      "parentUuid": "4ebf8281_b95f7d8e",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9ba7b9a_f0001d63",
         "filename": "src/main/resources/Documentation/rest-api-rename.md",
         "patchSetId": 19
@@ -1941,6 +1959,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "ff75a1b4_7a00f161",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef45eb36_537110f9",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-27T15:57:45Z",
+      "side": 1,
+      "message": "We are still missing the blank line (between lines 44 and 45).",
+      "parentUuid": "ca11fbbc_4ee62604",
       "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
