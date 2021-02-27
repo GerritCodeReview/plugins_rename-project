@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ac6dc9a_24eceb6b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-27T15:57:45Z",
+      "side": 1,
+      "message": "Either both singular or plural.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 15
+      },
+      "revId": "1b28f84b0ec6605fa3322c139d5045958a8c2a01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2b8fba4_9e1cf8b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-27T15:57:45Z",
+      "side": 1,
+      "message": "Typo.",
+      "range": {
+        "startLine": 18,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 66
+      },
+      "revId": "1b28f84b0ec6605fa3322c139d5045958a8c2a01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6381d2a5_5cebec04",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/rest/HttpClientProvider.java",
+        "patchSetId": 24
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-27T15:57:45Z",
+      "side": 1,
+      "message": "Might be worth it to extract as a local variable to reuse across this line.",
+      "range": {
+        "startLine": 114,
+        "startChar": 65,
+        "endLine": 114,
+        "endChar": 81
+      },
+      "revId": "1b28f84b0ec6605fa3322c139d5045958a8c2a01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3f4a933_8468322d",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 24
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-27T15:57:45Z",
+      "side": 1,
+      "message": "Some unwanted trailing character.",
+      "range": {
+        "startLine": 39,
+        "startChar": 88,
+        "endLine": 39,
+        "endChar": 89
+      },
+      "revId": "1b28f84b0ec6605fa3322c139d5045958a8c2a01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d1e5acb_2ecb1d37",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 24
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-27T15:57:45Z",
+      "side": 1,
+      "message": "`.",
+      "range": {
+        "startLine": 5,
+        "startChar": 76,
+        "endLine": 5,
+        "endChar": 77
+      },
+      "revId": "1b28f84b0ec6605fa3322c139d5045958a8c2a01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bc70ad8_4d2145e7",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 24
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-27T15:57:45Z",
+      "side": 1,
+      "message": "A boolean about a specific boolean value; refactor?",
+      "range": {
+        "startLine": 236,
+        "startChar": 55,
+        "endLine": 236,
+        "endChar": 83
+      },
+      "revId": "1b28f84b0ec6605fa3322c139d5045958a8c2a01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d63d2fd4_2f33e8c7",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 24
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-02-27T15:57:45Z",
+      "side": 1,
+      "message": "Already the default now, right? Seems like we\u0027d need to instead set it to true whenever that default (false) doesn\u0027t fit.",
+      "range": {
+        "startLine": 249,
+        "startChar": 8,
+        "endLine": 250,
+        "endChar": 27
+      },
+      "revId": "1b28f84b0ec6605fa3322c139d5045958a8c2a01",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
