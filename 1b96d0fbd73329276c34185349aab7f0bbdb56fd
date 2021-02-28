@@ -1810,6 +1810,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54232cb7_967a8468",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-28T21:46:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6106a15c_3bcc08be",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9ba7b9a_f0001d63",
@@ -1977,6 +1995,24 @@
       "side": 1,
       "message": "We are still missing the blank line (between lines 44 and 45).",
       "parentUuid": "ca11fbbc_4ee62604",
+      "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c627670_fac7f452",
+        "filename": "src/main/resources/Documentation/rest-api-rename.md",
+        "patchSetId": 19
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-28T21:46:46Z",
+      "side": 1,
+      "message": "Sorry, I misunderstood as to insert space at line 48.\n\nDone.",
+      "parentUuid": "ef45eb36_537110f9",
       "revId": "1b96d0fbd73329276c34185349aab7f0bbdb56fd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },

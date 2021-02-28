@@ -466,6 +466,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "030454b4_d22b3b48",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-02-28T21:46:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dabac6d1_f5854948",
+      "range": {
+        "startLine": 90,
+        "startChar": 12,
+        "endLine": 90,
+        "endChar": 23
+      },
+      "revId": "785c6ef4bc774ffbb7afb1d9f397f81f13e5135c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8e7f71b_c6d912b0",
