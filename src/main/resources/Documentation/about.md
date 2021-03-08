@@ -35,14 +35,18 @@ There are a few caveats:
 Replication of project renaming
 -------------------------------
 
-This plugin does not replicate any project renamings itself, but it triggers
-an event when a project is renamed. The [replication plugin]
-(https://gerrit-review.googlesource.com/#/admin/projects/plugins/replication)
-is configured to listen to the event of type `PluginEvent`, which provides
-replication plugin with the required information in order to replicate the
-project rename functionality. `Rename-project` does not provide any custom
-event. Instead, it uses the existing `PluginEvent` which allows communication
-between two plugins directly.
+This plugin can replicate project renaming by itself, if `gerrit.config` has a `url` entry at the
+plugin configuration section and if master and all other replicas have this plugin installed. Once
+configured, replication of rename will start on every successful renaming of a local project. When
+the plugin completes the renaming operation on the master instance successfully, it sends an ssh
+command to replicas' rename-project plugin using the hostname provided in the configuration file.
+Replicas then perform their own local file system rename.
+
+The caveat is if ssh rename replication fails, the plugin doesn't retry the rename replication
+operation. This results in primary and replica instances being out of sync. The admin then will have
+to do following steps:
+ 1. Delete the original (not renamed) project on the replica side 
+ 2. Trigger full replication on the renamed project from the primary side.
 
 Access
 ------
@@ -54,3 +58,6 @@ allowed to rename their own projects if they are members of a group that
 is granted the 'Rename Own Project' capability (provided by this
 plugin). However, because of all the caveats of this plugin, it is not
 recommended to delegate the 'Rename Project' capability to any non-admin user.
+
+As previously described, this plugin is capable of performing only file system rename, if a user is
+an admin user and if the `--replication` option is used.
