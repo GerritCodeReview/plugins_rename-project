@@ -26,6 +26,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.Comparator;
+import java.util.Optional;
 import java.util.stream.Stream;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
 import org.eclipse.jgit.lib.Repository;
@@ -45,12 +46,12 @@ public class FilesystemRenameHandler {
   }
 
   public void rename(
-      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, ProgressMonitor pm)
+      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, Optional<ProgressMonitor> opm)
       throws IOException, RepositoryNotFoundException {
     Repository repository = repoManager.openRepository(oldProjectKey);
     File repoFile = repository.getDirectory();
     RepositoryCache.close(repository);
-    pm.beginTask("Renaming git repository");
+    opm.ifPresent(pm -> pm.beginTask("Renaming git repository"));
     renameGitRepository(repoFile, newProjectKey, oldProjectKey);
   }
 
