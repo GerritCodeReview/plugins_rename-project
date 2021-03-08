@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.renameproject;
 
 import static com.googlesource.gerrit.plugins.renameproject.RenameProject.WARNING_LIMIT;
 
+import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.reviewdb.client.Change;
 import com.google.gerrit.reviewdb.client.Project;
@@ -33,7 +34,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Optional;
 import org.kohsuke.args4j.Argument;
+import org.kohsuke.args4j.Option;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,6 +47,9 @@ public final class RenameCommand extends SshCommand {
 
   @Argument(index = 1, required = true, metaVar = "NEWNAME", usage = "new name for the project")
   private String newProjectName;
+
+  @Option(name = "--replication", usage = "perform only file system rename")
+  private boolean replication;
 
   private static final Logger log = LoggerFactory.getLogger(RenameCommand.class);
   private final RenameProject renameProject;
@@ -68,16 +74,26 @@ public final class RenameCommand extends SshCommand {
       ProjectResource rsrc =
           new ProjectResource(
               projectCacheProvider.get().get(new Project.NameKey(projectControl)), self.get());
-      try (CommandProgressMonitor monitor = new CommandProgressMonitor(stdout)) {
-        renameProject.assertCanRename(rsrc, input, monitor);
-        List<Change.Id> changeIds = renameProject.getChanges(rsrc, monitor);
-        if (continueRename(changeIds, monitor)) {
-          renameProject.doRename(changeIds, rsrc, input, monitor);
+
+      if (replication) {
+        if (renameProject.isAdmin()) {
+          renameProject.fsRenameStep(
+              rsrc.getNameKey(), new Project.NameKey(newProjectName), Optional.empty());
         } else {
-          String cancellationMsg = "Rename operation was cancelled by user.";
-          log.debug(cancellationMsg);
-          stdout.println(cancellationMsg);
-          stdout.flush();
+          throw new AuthException("Not allowed to replicate rename");
+        }
+      } else {
+        try (CommandProgressMonitor monitor = new CommandProgressMonitor(stdout)) {
+          renameProject.assertCanRename(rsrc, input, monitor);
+          List<Change.Id> changeIds = renameProject.getChanges(rsrc, monitor);
+          if (continueRename(changeIds, monitor)) {
+            renameProject.doRename(changeIds, rsrc, input, monitor);
+          } else {
+            String cancellationMsg = "Rename operation was cancelled by user.";
+            log.debug(cancellationMsg);
+            stdout.println(cancellationMsg);
+            stdout.flush();
+          }
         }
       }
     } catch (RestApiException | OrmException | IOException e) {
