@@ -30,6 +30,7 @@ import com.google.gerrit.server.project.ProjectState;
 import com.googlesource.gerrit.plugins.renameproject.RenameProject.Step;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.util.List;
+import java.util.Optional;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -68,7 +69,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     Result result = createChange();
     List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
-    renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
+    renameProject.fsRenameStep(oldProjectKey, newProjectKey, Optional.of(pm));
     assertRenamed(result);
 
     revertRenameProject.performRevert(
@@ -82,7 +83,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     Result result = createChange();
     List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
-    renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
+    renameProject.fsRenameStep(oldProjectKey, newProjectKey, Optional.of(pm));
     renameProject.cacheRenameStep(oldProjectKey, newProjectKey);
     assertRenamed(result);
 
@@ -97,7 +98,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     Result result = createChange();
     List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
-    renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
+    renameProject.fsRenameStep(oldProjectKey, newProjectKey, Optional.of(pm));
     renameProject.cacheRenameStep(oldProjectKey, newProjectKey);
     renameProject.dbRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
     assertRenamed(result);
@@ -113,7 +114,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     Result result = createChange();
     List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
-    renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
+    renameProject.fsRenameStep(oldProjectKey, newProjectKey, Optional.of(pm));
     renameProject.cacheRenameStep(oldProjectKey, newProjectKey);
     renameProject.dbRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
     renameProject.indexRenameStep(changeIds, oldProjectKey, newProjectKey, pm);

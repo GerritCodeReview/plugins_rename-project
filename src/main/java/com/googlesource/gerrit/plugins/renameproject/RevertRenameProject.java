@@ -28,6 +28,7 @@ import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,7 +63,7 @@ public class RevertRenameProject {
     List<Change.Id> updatedChangeIds = Collections.emptyList();
     if (stepsPerformed.contains(Step.FILESYSTEM)) {
       try {
-        fsHandler.rename(newProjectKey, oldProjectKey, pm);
+        fsHandler.rename(newProjectKey, oldProjectKey, Optional.of(pm));
         log.debug("Reverted the git repo name to {} successfully.", oldProjectKey.get());
       } catch (IOException e) {
         log.error(
