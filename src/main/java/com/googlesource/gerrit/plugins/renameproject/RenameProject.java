@@ -49,6 +49,7 @@ import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -123,12 +124,20 @@ public class RenameProject {
     }
   }
 
+  PermissionBackend.WithUser getUserPermissions() {
+    return permissionBackend.user(userProvider.get());
+  }
+
   protected boolean canRename(ProjectResource rsrc) {
-    PermissionBackend.WithUser userPermission = permissionBackend.user(userProvider.get());
-    return userPermission.testOrFalse(GlobalPermission.ADMINISTRATE_SERVER)
+    PermissionBackend.WithUser userPermission = getUserPermissions();
+    return isAdmin()
         || userPermission.testOrFalse(new PluginPermission(pluginName, RENAME_PROJECT))
         || (userPermission.testOrFalse(new PluginPermission(pluginName, RENAME_OWN_PROJECT))
             && isOwner(rsrc));
+  }
+
+  boolean isAdmin() {
+    return getUserPermissions().testOrFalse(GlobalPermission.ADMINISTRATE_SERVER);
   }
 
   private boolean isOwner(ProjectResource project) {
@@ -167,7 +176,7 @@ public class RenameProject {
     Exception ex = null;
     stepsPerformed.clear();
     try {
-      fsRenameStep(oldProjectKey, newProjectKey, pm);
+      fsRenameStep(oldProjectKey, newProjectKey, Optional.of(pm));
 
       cacheRenameStep(rsrc.getNameKey(), newProjectKey);
 
@@ -212,9 +221,9 @@ public class RenameProject {
   }
 
   void fsRenameStep(
-      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, ProgressMonitor pm)
+      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, Optional<ProgressMonitor> opm)
       throws IOException {
-    fsHandler.rename(oldProjectKey, newProjectKey, pm);
+    fsHandler.rename(oldProjectKey, newProjectKey, opm);
     logPerformedStep(Step.FILESYSTEM, newProjectKey, oldProjectKey);
   }
 

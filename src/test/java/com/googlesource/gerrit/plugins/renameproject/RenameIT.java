@@ -23,12 +23,14 @@ import com.google.gerrit.acceptance.TestPlugin;
 import com.google.gerrit.acceptance.UseLocalDisk;
 import com.google.gerrit.acceptance.UseSsh;
 import com.google.gerrit.extensions.client.ProjectWatchInfo;
+import com.google.gerrit.reviewdb.client.AccountGroup;
 import com.google.gerrit.reviewdb.client.Change.Id;
 import com.google.gerrit.reviewdb.client.Project;
 import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.project.ProjectState;
 import com.google.inject.Inject;
 import java.util.List;
+import java.util.Set;
 import javax.inject.Named;
 import org.eclipse.jgit.junit.TestRepository;
 import org.junit.Test;
@@ -43,6 +45,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
   private static final String PLUGIN_NAME = "rename-project";
   private static final String NEW_PROJECT_NAME = "newProject";
   private static final String CACHE_NAME = "changeid_project";
+  private static final String REPLICATION_OPTION = "--replication";
 
   @Inject
   @Named(CACHE_NAME)
@@ -59,6 +62,32 @@ public class RenameIT extends LightweightPluginDaemonTest {
     assertThat(projectState).isNotNull();
     assertThat(queryProvider.get().byProject(project)).isEmpty();
     assertThat(queryProvider.get().byProject(new Project.NameKey(NEW_PROJECT_NAME))).isNotEmpty();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameReplicationViaSshNotAdminUser() throws Exception {
+    ProjectState projectStates = projectCache.get(project);
+    Set<AccountGroup.UUID> accountInfoSet = projectStates.getOwners();
+
+    createChange();
+    userSshSession.exec(
+        PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME + " " + REPLICATION_OPTION);
+
+    userSshSession.assertFailure();
+    assertThat(userSshSession.getError()).contains("Not allowed to replicate rename");
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameReplication() throws Exception {
+    createChange();
+    adminSshSession.exec(
+        PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME + " " + REPLICATION_OPTION);
+
+    adminSshSession.assertSuccess();
+    ProjectState projectState = projectCache.get(new Project.NameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNotNull();
   }
 
   @Test
