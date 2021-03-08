@@ -13,3 +13,33 @@ the changes. The default value used for this option is 4.
   [plugin "@PLUGIN@"]
     indexThreads = 4
 ```
+
+Rename project replication is enabled by adding appropriate `url`'s.
+For example:
+
+```
+  [plugin "@PLUGIN@"]
+    url = ssh://admin@mirror1.us.some.org
+    url = ssh://mirror2.us.some.org:29418
+    url = mirror3.us.some.org:
+```
+
+To specify port number, it is required to put `ssh://` prefix followed by hostname and then port
+number after `:`, for instance: `ssh://mirror2.us.some.org:29418`. It is also possible to specify
+the ssh user by passing `USERNAME@` as a prefix for hostname.
+
+Rename replication is done over SSH, so ensure the host key of the remote system(s) is already in
+the Gerrit user's `~/.ssh/known_hosts` file.  The easiest way to add the host key is to connect once
+by hand with the command line:
+
+```
+  sudo su -c 'ssh mirror1.us.some.org echo' gerrit2
+```
+
+@PLUGIN@ plugin uses ssh command with `--replication` option to replicate the rename operation. It
+is possible to customize the parameters of the underlying ssh client doing these calls by specifying
+the following fields:
+* `sshCommandTimeout` : Timeout for SSH command execution. If 0, there is no timeout, and
+the client waits indefinitely. By default, 0.
+* `sshConnectionTimeout` : Timeout for SSH connections. If 0, there is no timeout and the
+client waits indefinitely. By default, 2 minutes.

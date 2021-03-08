@@ -35,14 +35,12 @@ There are a few caveats:
 Replication of project renaming
 -------------------------------
 
-This plugin does not replicate any project renamings itself, but it triggers
-an event when a project is renamed. The [replication plugin]
-(https://gerrit-review.googlesource.com/#/admin/projects/plugins/replication)
-is configured to listen to the event of type `PluginEvent`, which provides
-replication plugin with the required information in order to replicate the
-project rename functionality. `Rename-project` does not provide any custom
-event. Instead, it uses the existing `PluginEvent` which allows communication
-between two plugins directly.
+This plugin can replicate project renaming by itself, if `gerrit.config` has a `url` entry at the
+plugin conifg section and if master and all other replicas have this plugin installed. Once
+configured, replication of rename will start on every successful renaming of a local project. When
+the plugin completes the renaming operation on the master instance successfully, it sends an ssh
+command to replicas' rename-project plugin using the hostname provided in the configuration file.
+Replicas then perform their own local file system rename.
 
 Access
 ------
@@ -54,3 +52,5 @@ allowed to rename their own projects if they are members of a group that
 is granted the 'Rename Own Project' capability (provided by this
 plugin). However, because of all the caveats of this plugin, it is not
 recommended to delegate the 'Rename Project' capability to any non-admin user.
+
+To perform only file system rename, a user must be an admin user.
