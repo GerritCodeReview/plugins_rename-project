@@ -22,16 +22,30 @@ import com.google.inject.Singleton;
 
 @Singleton
 public class Configuration {
+  private static final int DEFAULT_SSH_CONNECTION_TIMEOUT_MS = 2 * 60 * 1000; // 2 minutes
 
   private final int indexThreads;
+  private final int sshCommandTimeOut;
+  private final int sshConnectionTimeout;
 
   @Inject
   public Configuration(PluginConfigFactory pluginConfigFactory, @PluginName String pluginName) {
     PluginConfig cfg = pluginConfigFactory.getFromGerritConfig(pluginName);
     indexThreads = cfg.getInt("indexThreads", 4);
+    sshCommandTimeOut = cfg.getInt("sshCommandTimeOut", 0);
+    sshConnectionTimeout = cfg.getInt("sshConnectionTimeout", DEFAULT_SSH_CONNECTION_TIMEOUT_MS);
+
   }
 
   public int getIndexThreads() {
     return indexThreads;
+  }
+
+  public int getSshCommandTimeOut() {
+    return sshCommandTimeOut;
+  }
+
+  public int getSshConnectionTimeout() {
+    return sshConnectionTimeout;
   }
 }
