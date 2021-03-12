@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49d2a25e_3f210502",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 31
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98331de2_3ccda0dc",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 11,
+        "endChar": 4
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43e47a6e_90dc7cea",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-11T20:58:50Z",
       "side": 1,
       "message": "sshCommandTimeout",
+      "range": {
+        "startLine": 34,
+        "startChar": 20,
+        "endLine": 34,
+        "endChar": 37
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f186a587_0622b07d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43e47a6e_90dc7cea",
       "range": {
         "startLine": 34,
         "startChar": 20,
@@ -70,6 +118,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4c57222_8a1c55c3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bd45a79_57ae9fb6",
+      "range": {
+        "startLine": 43,
+        "startChar": 36,
+        "endLine": 43,
+        "endChar": 53
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee80703e_892fa296",
@@ -83,6 +155,30 @@
       "writtenOn": "2021-03-11T20:58:50Z",
       "side": 1,
       "message": "getSshCommandTimeout",
+      "range": {
+        "startLine": 62,
+        "startChar": 13,
+        "endLine": 62,
+        "endChar": 33
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3c6226b_3b6a36cd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee80703e_892fa296",
       "range": {
         "startLine": 62,
         "startChar": 13,
@@ -116,6 +212,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6caeea03_d44c6988",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b18061e_31846142",
+      "range": {
+        "startLine": 137,
+        "startChar": 29,
+        "endLine": 137,
+        "endChar": 47
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3edbf69e_9453f11e",
@@ -129,6 +249,30 @@
       "writtenOn": "2021-03-11T20:58:50Z",
       "side": 1,
       "message": "Duplication after line 316; refactor?",
+      "range": {
+        "startLine": 317,
+        "startChar": 53,
+        "endLine": 317,
+        "endChar": 73
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa47dd14_9bf7811a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3edbf69e_9453f11e",
       "range": {
         "startLine": 317,
         "startChar": 53,
@@ -162,6 +306,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb83e072_b1f8d449",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63ebc7b3_9d7a073e",
+      "range": {
+        "startLine": 320,
+        "startChar": 8,
+        "endLine": 320,
+        "endChar": 28
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "836dfa4f_37907103",
@@ -175,6 +343,30 @@
       "writtenOn": "2021-03-11T20:58:50Z",
       "side": 1,
       "message": "Typo.",
+      "range": {
+        "startLine": 39,
+        "startChar": 7,
+        "endLine": 39,
+        "endChar": 13
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "128405a4_1c40e8c9",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "836dfa4f_37907103",
       "range": {
         "startLine": 39,
         "startChar": 7,
@@ -202,6 +394,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a77bacb_9e785b44",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fe481ba_efe731e7",
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b21be063_ea04c0b8",
@@ -215,6 +425,30 @@
       "writtenOn": "2021-03-11T20:58:50Z",
       "side": 1,
       "message": "Using...?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 34
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c9f71fd_9f46b203",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Just to mention that the plugin is capable of performing only file system rename",
+      "parentUuid": "b21be063_ea04c0b8",
       "range": {
         "startLine": 56,
         "startChar": 0,
@@ -248,6 +482,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ae9a2f2_adc37271",
+        "filename": "src/main/resources/Documentation/cmd-rename.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "096225ee_081d52b1",
+      "range": {
+        "startLine": 37,
+        "startChar": 73,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2997df25_ea6bca9a",
@@ -261,6 +519,24 @@
       "writtenOn": "2021-03-11T20:58:50Z",
       "side": 1,
       "message": "Not sure I understand why one could consider using either one of the above 3 possible url schemas. Should we document only one (or maybe 2) that are proven to work?",
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b013b3c2_5790df90",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2997df25_ea6bca9a",
       "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -311,6 +587,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdde2376_dc6d805e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49c40601_cb6b2683",
+      "range": {
+        "startLine": 27,
+        "startChar": 42,
+        "endLine": 27,
+        "endChar": 45
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b322488_13962c05",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d9f37cf_c1c8b729",
+      "range": {
+        "startLine": 27,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 15
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77cbfcb6_136a89ba",
@@ -324,6 +648,30 @@
       "writtenOn": "2021-03-11T20:58:50Z",
       "side": 1,
       "message": "Already provided above by line 23.",
+      "range": {
+        "startLine": 28,
+        "startChar": 16,
+        "endLine": 28,
+        "endChar": 65
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9c4f58c_cb6899c4",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77cbfcb6_136a89ba",
       "range": {
         "startLine": 28,
         "startChar": 16,
@@ -357,6 +705,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a79e0189_e86c9397",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60ca2498_b4b899d8",
+      "range": {
+        "startLine": 32,
+        "startChar": 43,
+        "endLine": 32,
+        "endChar": 49
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8033938_42b3eeec",
@@ -380,6 +752,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c834f33_14b8b75e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8033938_42b3eeec",
+      "range": {
+        "startLine": 39,
+        "startChar": 16,
+        "endLine": 39,
+        "endChar": 32
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c9da138_6e1f7257",
@@ -393,6 +789,24 @@
       "writtenOn": "2021-03-11T20:58:50Z",
       "side": 1,
       "message": "Should a blank line be inserted above?",
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff2f24c_2821ab95",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c9da138_6e1f7257",
       "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -443,6 +857,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a03a33b_5a835e08",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a19bfbc_0a52fb79",
+      "range": {
+        "startLine": 44,
+        "startChar": 43,
+        "endLine": 44,
+        "endChar": 54
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d8d1555_31bb58e1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 31
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05bc880d_d8843d21",
+      "range": {
+        "startLine": 44,
+        "startChar": 74,
+        "endLine": 44,
+        "endChar": 85
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a94a16b_26cb2728",
@@ -456,6 +918,30 @@
       "writtenOn": "2021-03-11T20:58:50Z",
       "side": 1,
       "message": "Origin of this port value?",
+      "range": {
+        "startLine": 57,
+        "startChar": 53,
+        "endLine": 57,
+        "endChar": 58
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa96dfd2_77025946",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "was a random number. Maybe I will set default port number",
+      "parentUuid": "9a94a16b_26cb2728",
       "range": {
         "startLine": 57,
         "startChar": 53,
@@ -489,6 +975,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4252e7b1_ed02d7f2",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ee9ff77_0100a478",
+      "range": {
+        "startLine": 89,
+        "startChar": 14,
+        "endLine": 89,
+        "endChar": 39
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23433737_9dbdd0b1",
@@ -502,6 +1012,30 @@
       "writtenOn": "2021-03-11T20:58:50Z",
       "side": 1,
       "message": "Rename? Not sure I understand the scope of this test method compared to its sibling new ones. I think this should be named testReplicateRename, given line 210 below.",
+      "range": {
+        "startLine": 197,
+        "startChar": 14,
+        "endLine": 197,
+        "endChar": 35
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e419eed3_312d33d0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T19:21:04Z",
+      "side": 1,
+      "message": "Done. This test just to test of correctness of ssh command",
+      "parentUuid": "23433737_9dbdd0b1",
       "range": {
         "startLine": 197,
         "startChar": 14,
