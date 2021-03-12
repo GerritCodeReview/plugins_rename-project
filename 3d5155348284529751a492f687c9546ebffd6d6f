@@ -16,6 +16,29 @@
       "message": "Same here I think. Maybe set this change and its base to WIP, for now at least? -Up to you; thanks.",
       "revId": "3d5155348284529751a492f687c9546ebffd6d6f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61b975c6_f7fd8cba",
+        "filename": "src/test/resources/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProject.json",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-12T15:17:12Z",
+      "side": 1,
+      "message": "_PROJECT?",
+      "range": {
+        "startLine": 4,
+        "startChar": 16,
+        "endLine": 4,
+        "endChar": 24
+      },
+      "revId": "3d5155348284529751a492f687c9546ebffd6d6f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
