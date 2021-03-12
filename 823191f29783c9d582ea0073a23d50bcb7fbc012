@@ -48,6 +48,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40f1c86a_4b536873",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 31
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "My original comment also proposed \u0027an\u0027, but ok enough I guess.",
+      "parentUuid": "49d2a25e_3f210502",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 11,
+        "endChar": 4
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43e47a6e_90dc7cea",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "4bd45a79_57ae9fb6",
+      "range": {
+        "startLine": 43,
+        "startChar": 36,
+        "endLine": 43,
+        "endChar": 53
+      },
+      "revId": "823191f29783c9d582ea0073a23d50bcb7fbc012",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b7e653b_0a0c832e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 31
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "Pushed?",
+      "parentUuid": "c4c57222_8a1c55c3",
       "range": {
         "startLine": 43,
         "startChar": 36,

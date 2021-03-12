@@ -1,0 +1,291 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "168fd808_47f09f83",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "Was gjf executed in this repo with the latest change?",
+      "range": {
+        "startLine": 317,
+        "startChar": 46,
+        "endLine": 317,
+        "endChar": 47
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1bc960a_f606037b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "Is this clean enough to get the actual (packaged) exception\u0027s message?",
+      "range": {
+        "startLine": 320,
+        "startChar": 82,
+        "endLine": 320,
+        "endChar": 93
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4efee1ce_8c5da136",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "New paragraph?",
+      "range": {
+        "startLine": 43,
+        "startChar": 57,
+        "endLine": 43,
+        "endChar": 58
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75a13f28_ae24fea4",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "Tense mismatch.",
+      "range": {
+        "startLine": 43,
+        "startChar": 62,
+        "endLine": 43,
+        "endChar": 72
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "796a6946_43a05528",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "Harder to read; rephrase?",
+      "range": {
+        "startLine": 44,
+        "startChar": 63,
+        "endLine": 44,
+        "endChar": 90
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb8212e1_f0712b83",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 44,
+        "startChar": 32,
+        "endLine": 44,
+        "endChar": 33
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc9a6855_ed253e9b",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "What should the admin do then?",
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f73b9780_ded3c402",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "This reads as if we didn\u0027t introduce the feature yet in this file, which is not the case; done further above. Rephrase a bit?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 65
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a194b13_13b25874",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "used the",
+      "range": {
+        "startLine": 59,
+        "startChar": 3,
+        "endLine": 59,
+        "endChar": 7
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f50879_69a1a407",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "Should replace with a gender agnostic or female term.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 2
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7370afea_78025910",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "If willing to start a new paragraph, a blank line would be needed; otherwise lines to join.",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 28,
+        "endChar": 2
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36cd698e_f7b2eebb",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "uses the ssh",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 24
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e747e780_5a39cc43",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-12T21:58:25Z",
+      "side": 1,
+      "message": "I think this line has a wrap issue; gjf missing here too? Maybe run it on the whole change, at root of repo.",
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
