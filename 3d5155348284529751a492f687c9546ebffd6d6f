@@ -63,6 +63,30 @@
       },
       "revId": "3d5155348284529751a492f687c9546ebffd6d6f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cae55ce9_0e3f91ee",
+        "filename": "src/test/resources/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProject.json",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-12T18:07:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5e4396fe_6e17a422",
+      "range": {
+        "startLine": 4,
+        "startChar": 16,
+        "endLine": 4,
+        "endChar": 24
+      },
+      "revId": "3d5155348284529751a492f687c9546ebffd6d6f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
