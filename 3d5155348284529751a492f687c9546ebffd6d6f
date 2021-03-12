@@ -39,6 +39,30 @@
       },
       "revId": "3d5155348284529751a492f687c9546ebffd6d6f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e4396fe_6e17a422",
+        "filename": "src/test/resources/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProject.json",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-12T18:06:01Z",
+      "side": 1,
+      "message": "renamed since in scala file you have:\n\n`replaceKeyWith(\"_renamed\", renamedTo, next)`\n\nwhich refers to renamed",
+      "parentUuid": "61b975c6_f7fd8cba",
+      "range": {
+        "startLine": 4,
+        "startChar": 16,
+        "endLine": 4,
+        "endChar": 24
+      },
+      "revId": "3d5155348284529751a492f687c9546ebffd6d6f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
