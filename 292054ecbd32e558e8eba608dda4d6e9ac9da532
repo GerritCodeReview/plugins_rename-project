@@ -145,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dbeb3039_7ed52fee",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-15T20:53:12Z",
+      "side": 1,
+      "message": "\u003e I also agree that getMessage is more standard but within this class we also use e.toString() line 210 and 215. I thought to keep things the same here as well.\n\n-While line 177 uses .getMessage onto a CRPE object. We could fix this for this new code right above, and consider a follow-up to fix the other occurrences (in this file and elsewhere in the plugin). But please see my related feedback below first.\n\n\u003e toString() will also contain the output of getMessage() as well as error type. Having error type in the log would help to find the actual cause. RenameReplicationexception means error on a replica side. Anything else is error on the primary.\n\nAre you sure that a .getMessage equipped log trace doesn\u0027t mention the type at all? I find that surprising, but I\u0027m not sure as we need to look at an actual full trace line(s) to confirm. We could check why that is so, and maybe amend the custom getMessage method(s), but only if that is standard enough.",
+      "parentUuid": "4c01cdbe_244eabbd",
+      "range": {
+        "startLine": 320,
+        "startChar": 82,
+        "endLine": 320,
+        "endChar": 93
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4efee1ce_8c5da136",
         "filename": "src/main/resources/Documentation/about.md",
         "patchSetId": 32
