@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ca4ee81_bdbefbdb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "168fd808_47f09f83",
+      "range": {
+        "startLine": 317,
+        "startChar": 46,
+        "endLine": 317,
+        "endChar": 47
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1bc960a_f606037b",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-12T21:58:25Z",
       "side": 1,
       "message": "Is this clean enough to get the actual (packaged) exception\u0027s message?",
+      "range": {
+        "startLine": 320,
+        "startChar": 82,
+        "endLine": 320,
+        "endChar": 93
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c17df57b_bf045340",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "It will print exception name and description of an exception. It will not have the whole stacktrace.",
+      "parentUuid": "c1bc960a_f606037b",
       "range": {
         "startLine": 320,
         "startChar": 82,
@@ -93,6 +141,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf71370c_29b2236c",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4efee1ce_8c5da136",
+      "range": {
+        "startLine": 43,
+        "startChar": 57,
+        "endLine": 43,
+        "endChar": 58
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd07ecb6_b65dfac0",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75a13f28_ae24fea4",
+      "range": {
+        "startLine": 43,
+        "startChar": 62,
+        "endLine": 43,
+        "endChar": 72
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "796a6946_43a05528",
@@ -139,6 +235,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbb45f0b_f3b61ab5",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb8212e1_f0712b83",
+      "range": {
+        "startLine": 44,
+        "startChar": 32,
+        "endLine": 44,
+        "endChar": 33
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74f074b3_9a282c44",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "796a6946_43a05528",
+      "range": {
+        "startLine": 44,
+        "startChar": 63,
+        "endLine": 44,
+        "endChar": 90
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc9a6855_ed253e9b",
@@ -156,6 +300,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72456e25_433abea0",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc9a6855_ed253e9b",
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f73b9780_ded3c402",
@@ -169,6 +331,30 @@
       "writtenOn": "2021-03-12T21:58:25Z",
       "side": 1,
       "message": "This reads as if we didn\u0027t introduce the feature yet in this file, which is not the case; done further above. Rephrase a bit?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 65
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4b530b7_215d6a80",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f73b9780_ded3c402",
       "range": {
         "startLine": 58,
         "startChar": 0,
@@ -225,6 +411,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d369b62_29d961ed",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85f50879_69a1a407",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 2
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4146b906_fbd55fdc",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a194b13_13b25874",
+      "range": {
+        "startLine": 59,
+        "startChar": 3,
+        "endLine": 59,
+        "endChar": 7
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7370afea_78025910",
@@ -238,6 +472,30 @@
       "writtenOn": "2021-03-12T21:58:25Z",
       "side": 1,
       "message": "If willing to start a new paragraph, a blank line would be needed; otherwise lines to join.",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 28,
+        "endChar": 2
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb35c57a_b415941c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7370afea_78025910",
       "range": {
         "startLine": 27,
         "startChar": 21,
@@ -271,6 +529,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b85ec470_6d910d74",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36cd698e_f7b2eebb",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 24
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e747e780_5a39cc43",
@@ -284,6 +566,24 @@
       "writtenOn": "2021-03-12T21:58:25Z",
       "side": 1,
       "message": "I think this line has a wrap issue; gjf missing here too? Maybe run it on the whole change, at root of repo.",
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b55dbef_92142690",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T10:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e747e780_5a39cc43",
       "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
