@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c01cdbe_244eabbd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T19:18:35Z",
+      "side": 1,
+      "message": "I also agree that getMessage is more standard but within this class we also use e.toString() line 210 and 215. I thought to keep things the same here as well.\n\ntoString() will also contain the output of getMessage() as well as error type. Having error type in the log would help to find the actual cause. RenameReplicationexception means error on a replica side. Anything else is error on the primary.",
+      "parentUuid": "3ffb3ed0_99229b3e",
+      "range": {
+        "startLine": 320,
+        "startChar": 82,
+        "endLine": 320,
+        "endChar": 93
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4efee1ce_8c5da136",
         "filename": "src/main/resources/Documentation/about.md",
         "patchSetId": 32
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "You forgot the separating blank line.",
       "parentUuid": "cf71370c_29b2236c",
+      "range": {
+        "startLine": 43,
+        "startChar": 57,
+        "endLine": 43,
+        "endChar": 58
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de017a96_7d89a67c",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T19:18:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb7ea984_8db607e0",
       "range": {
         "startLine": 43,
         "startChar": 57,
@@ -427,6 +475,30 @@
       "side": 1,
       "message": "To address this fully, you could start this sentence with \"As previously described\" or similar; up to you. My original comment wanted to highlight the fact that the feature is already introduced further above.",
       "parentUuid": "d4b530b7_215d6a80",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 65
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af8db56f_48447ee0",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-15T19:18:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "505a9e9b_184e544b",
       "range": {
         "startLine": 58,
         "startChar": 0,
