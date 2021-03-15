@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9d65dad_77da1015",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-15T20:53:12Z",
+      "side": 1,
+      "message": "Keeping -1 until we progress on the left comment threads.",
+      "revId": "7b590b48582d21e15c023f05a81cb8e87d3b19e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25d12329_d8302b35",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 34
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-15T20:53:12Z",
+      "side": 1,
+      "message": "Long sentence now, which I\u0027d split into a few, or a bullet list maybe.",
+      "range": {
+        "startLine": 47,
+        "startChar": 3,
+        "endLine": 49,
+        "endChar": 13
+      },
+      "revId": "7b590b48582d21e15c023f05a81cb8e87d3b19e6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
