@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3ffb3ed0_99229b3e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-15T18:22:55Z",
+      "side": 1,
+      "message": "Why not using .getMessage() which I think is more standard?",
+      "parentUuid": "c17df57b_bf045340",
+      "range": {
+        "startLine": 320,
+        "startChar": 82,
+        "endLine": 320,
+        "endChar": 93
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4efee1ce_8c5da136",
         "filename": "src/main/resources/Documentation/about.md",
         "patchSetId": 32
@@ -184,6 +208,30 @@
         "startChar": 62,
         "endLine": 43,
         "endChar": 72
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb7ea984_8db607e0",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-15T18:22:55Z",
+      "side": 1,
+      "message": "You forgot the separating blank line.",
+      "parentUuid": "cf71370c_29b2236c",
+      "range": {
+        "startLine": 43,
+        "startChar": 57,
+        "endLine": 43,
+        "endChar": 58
       },
       "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
@@ -355,6 +403,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f73b9780_ded3c402",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 65
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "505a9e9b_184e544b",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 32
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-15T18:22:55Z",
+      "side": 1,
+      "message": "To address this fully, you could start this sentence with \"As previously described\" or similar; up to you. My original comment wanted to highlight the fact that the feature is already introduced further above.",
+      "parentUuid": "d4b530b7_215d6a80",
       "range": {
         "startLine": 58,
         "startChar": 0,

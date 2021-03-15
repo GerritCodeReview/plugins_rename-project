@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e55fa46f_4aaf1b44",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-15T18:22:55Z",
+      "side": 1,
+      "message": "This results",
+      "range": {
+        "startLine": 45,
+        "startChar": 11,
+        "endLine": 45,
+        "endChar": 20
+      },
+      "revId": "47bea2335c1a1a3b61d26c1a2030988220e3f4a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "757dec12_ef0b1ead",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-15T18:22:55Z",
+      "side": 1,
+      "message": "Not sure which project we\u0027re talking about here. Same applies to \"new project\" below. I\u0027d clarify this important directive, so that no admin accidents happen.\n\nSince an alternative is provided, here, I think we should recommend which one is best. Or maybe better, only mention the best one.",
+      "range": {
+        "startLine": 46,
+        "startChar": 65,
+        "endLine": 46,
+        "endChar": 80
+      },
+      "revId": "47bea2335c1a1a3b61d26c1a2030988220e3f4a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51e6dc15_bf30fb68",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-15T18:22:55Z",
+      "side": 1,
+      "message": "rename, if",
+      "range": {
+        "startLine": 60,
+        "startChar": 54,
+        "endLine": 60,
+        "endChar": 63
+      },
+      "revId": "47bea2335c1a1a3b61d26c1a2030988220e3f4a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
