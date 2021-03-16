@@ -191,6 +191,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f89d18b_1014e55e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-16T16:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6e81522_73dbb480",
+      "range": {
+        "startLine": 320,
+        "startChar": 82,
+        "endLine": 320,
+        "endChar": 93
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4efee1ce_8c5da136",
