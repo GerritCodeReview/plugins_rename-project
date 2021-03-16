@@ -119,6 +119,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cd9e8ed_124f4441",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 33
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-16T13:00:33Z",
+      "side": 1,
+      "message": "It mostly depends on the Admin. I misunderstood the alternatives for new and old project terminology.\n\nBest solution would still be sync with replication plugin.",
+      "parentUuid": "b7d0c1f9_e035a66a",
+      "range": {
+        "startLine": 46,
+        "startChar": 65,
+        "endLine": 46,
+        "endChar": 80
+      },
+      "revId": "47bea2335c1a1a3b61d26c1a2030988220e3f4a0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51e6dc15_bf30fb68",
