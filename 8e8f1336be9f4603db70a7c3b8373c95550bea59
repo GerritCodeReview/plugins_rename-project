@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aabbf033_9a14c210",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 36
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-16T21:18:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74d31e85_2b61a03b",
+      "range": {
+        "startLine": 47,
+        "startChar": 3,
+        "endLine": 47,
+        "endChar": 15
+      },
+      "revId": "8e8f1336be9f4603db70a7c3b8373c95550bea59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa1212e3_6d4549a2",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-03-16T16:27:58Z",
       "side": 1,
       "message": "Should the order of these steps be reversed? I mean, admin to first confirm full replic a success before deleting the obsolete replica project(?) -Just in case the admin would need to refer to the latter for some troubleshooting purposes.\n\nAs I assume the full replic will bring a brand new project repo, alongside the former one to delete once happy. This would mean 3 steps then, adding one about confirming the full replic result (before deleting).\n\nSpeaking of full replication, I think a reference to how to do that should be added, too. Note that a full replic could severely impact a production system\u0027s performance if interpreted as --all; make these more of project-specific replication instructions?",
+      "revId": "8e8f1336be9f4603db70a7c3b8373c95550bea59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb5a02e3_466ec7b5",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 36
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-16T21:18:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa1212e3_6d4549a2",
       "revId": "8e8f1336be9f4603db70a7c3b8373c95550bea59",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
