@@ -169,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6e81522_73dbb480",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 32
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-16T13:00:33Z",
+      "side": 1,
+      "message": "I\u0027ve just tested, the type is not included in the getMessage(). \nWith toString() I get: `com.googlesource.....RenameReplicationException: fatal: internal server error`\n\nwhile with getMessage(): `fatal: internal server error`\n\nI can ammend the error message coming from the replica side to something like: \"Exception during rename replication: {}\". That can help with the debugging.",
+      "parentUuid": "dbeb3039_7ed52fee",
+      "range": {
+        "startLine": 320,
+        "startChar": 82,
+        "endLine": 320,
+        "endChar": 93
+      },
+      "revId": "292054ecbd32e558e8eba608dda4d6e9ac9da532",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4efee1ce_8c5da136",
         "filename": "src/main/resources/Documentation/about.md",
         "patchSetId": 32
