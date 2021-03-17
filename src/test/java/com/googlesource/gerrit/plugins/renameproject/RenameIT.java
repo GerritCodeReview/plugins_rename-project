@@ -129,6 +129,17 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
   @Test
   @UseLocalDisk
+  public void testRenameReplicationViaSshOnNonExisting() throws Exception {
+    createChange();
+    adminSshSession.exec(
+        PLUGIN_NAME + " " + NON_EXISTING_NAME + " " + project.get() + " " + REPLICATION_OPTION);
+
+    assertThat(adminSshSession.getError()).contains("Project does not exist");
+    adminSshSession.assertFailure();
+  }
+
+  @Test
+  @UseLocalDisk
   public void testRenameNonExistingProjectFail() throws Exception {
     createChange();
     adminSshSession.exec(PLUGIN_NAME + " " + NON_EXISTING_NAME + " " + project.get());

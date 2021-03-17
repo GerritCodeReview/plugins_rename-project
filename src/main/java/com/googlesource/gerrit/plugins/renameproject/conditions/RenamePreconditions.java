@@ -75,9 +75,6 @@ public class RenamePreconditions {
 
   public void assertCanRename(ProjectResource oldProjectRsrc, Project.NameKey newProjectKey)
       throws CannotRenameProjectException {
-    if (oldProjectRsrc.getProjectState() == null) {
-      throw new CannotRenameProjectException("Project does not exist");
-    }
     Project.NameKey oldProjectKey = oldProjectRsrc.getNameKey();
     assertNewRepoNotExists(newProjectKey);
     assertIsNotDefaultProject(oldProjectKey);
