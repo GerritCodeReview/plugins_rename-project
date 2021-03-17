@@ -75,6 +75,10 @@ public final class RenameCommand extends SshCommand {
           new ProjectResource(
               projectCacheProvider.get().get(new Project.NameKey(projectControl)), self.get());
 
+      if (rsrc.getProjectState() == null) {
+        throw new CannotRenameProjectException("Project does not exist");
+      }
+
       if (replication) {
         if (renameProject.isAdmin()) {
           renameProject.fsRenameStep(
@@ -96,7 +100,7 @@ public final class RenameCommand extends SshCommand {
           }
         }
       }
-    } catch (RestApiException | OrmException | IOException e) {
+    } catch (RestApiException | OrmException | IOException | CannotRenameProjectException e) {
       throw die(e);
     }
   }
