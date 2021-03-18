@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f50afb3_0e9e5907",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 38
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-18T21:01:05Z",
+      "side": 1,
+      "message": "Rephrase? Odd read.",
+      "range": {
+        "startLine": 48,
+        "startChar": 77,
+        "endLine": 48,
+        "endChar": 97
+      },
+      "revId": "31a73144e0c4e83d46869a35ecba42da47451c4c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15fcc5e1_5ec5b970",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 38
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-18T21:01:05Z",
+      "side": 1,
+      "message": "Do these bullets render correctly as numbered? Not sure about the heading space character (kind of indent) before each.",
+      "revId": "31a73144e0c4e83d46869a35ecba42da47451c4c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3728c1d9_91071e3a",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 38
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-18T21:01:05Z",
+      "side": 1,
+      "message": "You may then delete\n\n(As I think this remains an optional step.)",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 10
+      },
+      "revId": "31a73144e0c4e83d46869a35ecba42da47451c4c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc72ea5a_9ace5d5a",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 38
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-18T21:01:05Z",
+      "side": 1,
+      "message": "project repository directory contents",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 45
+      },
+      "revId": "31a73144e0c4e83d46869a35ecba42da47451c4c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
