@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6fcfb74_917abd55",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-18T12:04:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbb3c236_e918f768",
+      "range": {
+        "startLine": 9,
+        "startChar": 40,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "1c52eebcc92d164116608f06fe1584bce3bdf7cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d376c02a_8a18dcc0",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-03-17T20:32:50Z",
       "side": 1,
       "message": "I think this part can be another sentence, I find it hard to follow if not.",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "1c52eebcc92d164116608f06fe1584bce3bdf7cf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1d7be59_726b91d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-18T12:04:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d376c02a_8a18dcc0",
       "range": {
         "startLine": 11,
         "startChar": 20,
