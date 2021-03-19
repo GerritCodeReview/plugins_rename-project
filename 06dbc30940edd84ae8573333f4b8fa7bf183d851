@@ -16,6 +16,24 @@
       "message": "Adding new unit tests can be useful. ",
       "revId": "06dbc30940edd84ae8573333f4b8fa7bf183d851",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34376403_6a93b124",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-19T20:34:50Z",
+      "side": 1,
+      "message": "It is covered. I just moved the check out, so it covers both flow. Or do you propose to make the same test that test the command on both using and not using the option? I am open to your suggestions.",
+      "parentUuid": "c59212d1_13427ad8",
+      "revId": "06dbc30940edd84ae8573333f4b8fa7bf183d851",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
