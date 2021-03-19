@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcc0fd7d_056b7aa6",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 41
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-19T20:54:35Z",
+      "side": 1,
+      "message": "see the",
+      "range": {
+        "startLine": 49,
+        "startChar": 89,
+        "endLine": 49,
+        "endChar": 92
+      },
+      "revId": "d4a3473c0e6480c1b4097f9aecd899c08cd502de",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6c07b0e_63843b76",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 41
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-19T20:54:35Z",
+      "side": 1,
+      "message": ").",
+      "range": {
+        "startLine": 50,
+        "startChar": 72,
+        "endLine": 50,
+        "endChar": 73
+      },
+      "revId": "d4a3473c0e6480c1b4097f9aecd899c08cd502de",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2351a14a_0ec2692e",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 41
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-19T20:54:35Z",
+      "side": 1,
+      "message": "the renamed project was",
+      "range": {
+        "startLine": 52,
+        "startChar": 16,
+        "endLine": 52,
+        "endChar": 34
+      },
+      "revId": "d4a3473c0e6480c1b4097f9aecd899c08cd502de",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efcadd2e_1999e14c",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 41
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-19T20:54:35Z",
+      "side": 1,
+      "message": "side; this",
+      "range": {
+        "startLine": 54,
+        "startChar": 90,
+        "endLine": 54,
+        "endChar": 100
+      },
+      "revId": "d4a3473c0e6480c1b4097f9aecd899c08cd502de",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
