@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d88b9d51_25afc5d7",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 38
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-19T15:39:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f50afb3_0e9e5907",
+      "range": {
+        "startLine": 48,
+        "startChar": 77,
+        "endLine": 48,
+        "endChar": 97
+      },
+      "revId": "31a73144e0c4e83d46869a35ecba42da47451c4c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15fcc5e1_5ec5b970",
@@ -83,6 +107,72 @@
         "endLine": 51,
         "endChar": 45
       },
+      "revId": "31a73144e0c4e83d46869a35ecba42da47451c4c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "360ccd95_2486fbdd",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 38
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-19T15:39:26Z",
+      "side": 1,
+      "message": "I think this part should not mention pronounce. I just mentioned that this step is optional. Do you agree with this proposal?",
+      "parentUuid": "3728c1d9_91071e3a",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 10
+      },
+      "revId": "31a73144e0c4e83d46869a35ecba42da47451c4c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d1e4c83_c4f7ecdb",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 38
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-19T15:39:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc72ea5a_9ace5d5a",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 45
+      },
+      "revId": "31a73144e0c4e83d46869a35ecba42da47451c4c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad2e0be2_75f8482f",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 38
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-19T15:39:26Z",
+      "side": 1,
+      "message": "They do, but I had to add space in between.",
+      "parentUuid": "15fcc5e1_5ec5b970",
       "revId": "31a73144e0c4e83d46869a35ecba42da47451c4c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
