@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3366c89d_9ea1cc56",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 42
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-22T15:44:42Z",
+      "side": 1,
+      "message": "Existing, to be consistent with this term used elsewhere in this file.",
+      "range": {
+        "startLine": 132,
+        "startChar": 46,
+        "endLine": 132,
+        "endChar": 54
+      },
+      "revId": "c6619fff9b0484f9c59c0925d36b1a98b2806cc7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd8ec7c2_0d9d85a0",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 42
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-03-22T15:44:42Z",
+      "side": 1,
+      "message": "Identical to testRenameNonExistingProjectFail below.",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 139,
+        "endChar": 0
+      },
+      "revId": "c6619fff9b0484f9c59c0925d36b1a98b2806cc7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
