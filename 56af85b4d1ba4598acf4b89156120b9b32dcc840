@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fd742e0_6e7165d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-26T17:58:54Z",
+      "side": 1,
+      "message": ". This makes",
+      "range": {
+        "startLine": 14,
+        "startChar": 50,
+        "endLine": 14,
+        "endChar": 58
+      },
+      "revId": "56af85b4d1ba4598acf4b89156120b9b32dcc840",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a24900f_052a1cac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-26T17:58:54Z",
+      "side": 1,
+      "message": "I think this detail should be mentioned in the merge-up as it concerns stable-3.0 and up.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "56af85b4d1ba4598acf4b89156120b9b32dcc840",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35cea8ad_a9f311e1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-26T17:58:54Z",
+      "side": 1,
+      "message": "opm?",
+      "range": {
+        "startLine": 207,
+        "startChar": 93,
+        "endLine": 207,
+        "endChar": 96
+      },
+      "revId": "56af85b4d1ba4598acf4b89156120b9b32dcc840",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b0064df_771d60b4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-26T17:58:54Z",
+      "side": 1,
+      "message": "opm?",
+      "range": {
+        "startLine": 290,
+        "startChar": 31,
+        "endLine": 290,
+        "endChar": 34
+      },
+      "revId": "56af85b4d1ba4598acf4b89156120b9b32dcc840",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edbcd0e2_05a59733",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RevertRenameProjectTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-26T17:58:54Z",
+      "side": 1,
+      "message": "opm?",
+      "range": {
+        "startLine": 60,
+        "startChar": 3,
+        "endLine": 60,
+        "endChar": 6
+      },
+      "revId": "56af85b4d1ba4598acf4b89156120b9b32dcc840",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
