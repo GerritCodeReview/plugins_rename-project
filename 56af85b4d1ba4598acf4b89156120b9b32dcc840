@@ -48,6 +48,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa0b7ebd_22b1c213",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-26T20:02:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1c748ea6_a3bacd26",
+      "range": {
+        "startLine": 14,
+        "startChar": 50,
+        "endLine": 14,
+        "endChar": 58
+      },
+      "revId": "56af85b4d1ba4598acf4b89156120b9b32dcc840",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a24900f_052a1cac",
@@ -95,6 +119,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53633e39_a04efe90",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-26T20:02:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eab5562b_d9441067",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "56af85b4d1ba4598acf4b89156120b9b32dcc840",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35cea8ad_a9f311e1",
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "This is a cherry-pick",
       "parentUuid": "35cea8ad_a9f311e1",
+      "range": {
+        "startLine": 207,
+        "startChar": 93,
+        "endLine": 207,
+        "endChar": 96
+      },
+      "revId": "56af85b4d1ba4598acf4b89156120b9b32dcc840",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f759b159_9e39d186",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-26T20:02:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bb82a09a_148c1c8f",
       "range": {
         "startLine": 207,
         "startChar": 93,
@@ -212,6 +284,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f2db998_67bafae8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-26T20:02:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0f30e09c_e00cf9b0",
+      "range": {
+        "startLine": 290,
+        "startChar": 31,
+        "endLine": 290,
+        "endChar": 34
+      },
+      "revId": "56af85b4d1ba4598acf4b89156120b9b32dcc840",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edbcd0e2_05a59733",
@@ -249,6 +345,30 @@
       "side": 1,
       "message": "This is a cherry-pick",
       "parentUuid": "edbcd0e2_05a59733",
+      "range": {
+        "startLine": 60,
+        "startChar": 3,
+        "endLine": 60,
+        "endChar": 6
+      },
+      "revId": "56af85b4d1ba4598acf4b89156120b9b32dcc840",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00dd6f18_e80ac50f",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RevertRenameProjectTest.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-03-26T20:02:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1fe82e35_68a05ec8",
       "range": {
         "startLine": 60,
         "startChar": 3,
