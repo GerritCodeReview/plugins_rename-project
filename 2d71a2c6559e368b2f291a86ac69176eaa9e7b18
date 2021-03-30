@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2813032_50efe368",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-30T19:52:47Z",
+      "side": 1,
+      "message": "its a clean cherry-pick. I cherry-picked from a wrong branch by mistake",
+      "parentUuid": "a8d20355_82976c85",
+      "revId": "2d71a2c6559e368b2f291a86ac69176eaa9e7b18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17424ef6_b0e1dd14",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-03-29T21:22:50Z",
       "side": 1,
       "message": "Should these indents be changed?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 4
+      },
+      "revId": "2d71a2c6559e368b2f291a86ac69176eaa9e7b18",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9140a9ff_d7d6492f",
+        "filename": "src/test/scala/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProject.scala",
+        "patchSetId": 16
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-03-30T19:52:47Z",
+      "side": 1,
+      "message": "It was done with the scala plugin. I can left it as it is.",
+      "parentUuid": "17424ef6_b0e1dd14",
       "range": {
         "startLine": 38,
         "startChar": 0,
