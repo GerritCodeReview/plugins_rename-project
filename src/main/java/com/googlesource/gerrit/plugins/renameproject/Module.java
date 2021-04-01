@@ -29,6 +29,7 @@ import com.googlesource.gerrit.plugins.renameproject.conditions.RenamePreconditi
 import com.googlesource.gerrit.plugins.renameproject.database.DatabaseRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler;
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
+import org.eclipse.jgit.transport.SshSessionFactory;
 
 public class Module extends AbstractModule {
 
@@ -47,6 +48,7 @@ public class Module extends AbstractModule {
     bind(RenamePreconditions.class);
     bind(IndexUpdateHandler.class);
     bind(RevertRenameProject.class);
+    bind(SshSessionFactory.class).toProvider(RenameReplicationSshSessionFactoryProvider.class);
 
     install(
         new RestApiModule() {
