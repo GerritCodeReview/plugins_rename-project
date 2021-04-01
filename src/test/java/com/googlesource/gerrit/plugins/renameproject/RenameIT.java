@@ -15,8 +15,14 @@
 package com.googlesource.gerrit.plugins.renameproject;
 
 import static com.google.common.truth.Truth.assertThat;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import com.google.common.cache.Cache;
+import com.google.gerrit.acceptance.GerritConfig;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.PushOneCommit.Result;
 import com.google.gerrit.acceptance.RestResponse;
@@ -31,9 +37,11 @@ import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.project.ProjectState;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.renameproject.RenameProject.Input;
+import java.io.OutputStream;
 import java.util.List;
 import javax.inject.Named;
 import org.eclipse.jgit.junit.TestRepository;
+import org.eclipse.jgit.transport.URIish;
 import org.junit.Test;
 
 @TestPlugin(
@@ -45,7 +53,10 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
   private static final String PLUGIN_NAME = "rename-project";
   private static final String NEW_PROJECT_NAME = "newProject";
+  private static final String NON_EXISTING_NAME = "nonExistingProject";
   private static final String CACHE_NAME = "changeid_project";
+  private static final String REPLICATION_OPTION = "--replication";
+  private static final String URL = "ssh://localhost:29418";
 
   @Inject private RequestScopeOperations requestScopeOperations;
 
@@ -64,6 +75,29 @@ public class RenameIT extends LightweightPluginDaemonTest {
     assertThat(projectState).isNotNull();
     assertThat(queryProvider.get().byProject(project)).isEmpty();
     assertThat(queryProvider.get().byProject(new Project.NameKey(NEW_PROJECT_NAME))).isNotEmpty();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameReplicationViaSshNotAdminUser() throws Exception {
+    createChange();
+    userSshSession.exec(
+        PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME + " " + REPLICATION_OPTION);
+
+    userSshSession.assertFailure();
+    assertThat(userSshSession.getError()).contains("Not allowed to replicate rename");
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameReplicationViaSshAdminUser() throws Exception {
+    createChange();
+    adminSshSession.exec(
+        PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME + " " + REPLICATION_OPTION);
+
+    adminSshSession.assertSuccess();
+    ProjectState projectState = projectCache.get(new Project.NameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNotNull();
   }
 
   @Test
@@ -94,6 +128,27 @@ public class RenameIT extends LightweightPluginDaemonTest {
   public void testRenameExistingProjectFail() throws Exception {
     createChange();
     adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + project.get());
+    adminSshSession.assertFailure();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameReplicationViaSshOnNonExisting() throws Exception {
+    createChange();
+    adminSshSession.exec(
+        PLUGIN_NAME + " " + NON_EXISTING_NAME + " " + project.get() + " " + REPLICATION_OPTION);
+
+    assertThat(adminSshSession.getError()).contains("project " + NON_EXISTING_NAME+ " not found");
+    adminSshSession.assertFailure();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testRenameNonExistingProjectFail() throws Exception {
+    createChange();
+    adminSshSession.exec(PLUGIN_NAME + " " + NON_EXISTING_NAME + " " + project.get());
+
+    assertThat(adminSshSession.getError()).contains("project " + NON_EXISTING_NAME+ " not found");
     adminSshSession.assertFailure();
   }
 
@@ -150,6 +205,27 @@ public class RenameIT extends LightweightPluginDaemonTest {
     adminSshSession.assertSuccess();
 
     assertThat(changeIdProjectCache.getIfPresent(changeID)).isNull();
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.url", value = URL)
+  public void testReplicateRename() throws Exception {
+    RenameProject renameProject = plugin.getSysInjector().getInstance(RenameProject.class);
+    SshHelper sshHelper = mock(SshHelper.class);
+    OutputStream errStream = mock(OutputStream.class);
+
+    Input input = new Input();
+    input.name = NEW_PROJECT_NAME;
+    String expectedCommand =
+        PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME + " " + REPLICATION_OPTION;
+
+    when(sshHelper.newErrorBufferStream()).thenReturn(errStream);
+    when(errStream.toString()).thenReturn("");
+
+    renameProject.replicateRename(sshHelper, input, project);
+    verify(sshHelper, atLeastOnce())
+        .executeRemoteSsh(eq(new URIish(URL)), eq(expectedCommand), eq(errStream));
   }
 
   @Test

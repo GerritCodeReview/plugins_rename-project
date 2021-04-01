@@ -50,10 +50,13 @@ import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.transport.URIish;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -77,6 +80,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
   }
 
   static class Input {
+
     String name;
     boolean continueWithRename;
   }
@@ -101,6 +105,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
   private final PermissionBackend permissionBackend;
   private final Cache<Change.Id, String> changeIdProjectCache;
   private final RevertRenameProject revertRenameProject;
+  private final SshHelper sshHelper;
+  private final Configuration cfg;
 
   private List<Step> stepsPerformed;
 
@@ -118,7 +124,9 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       RenameLog renameLog,
       PermissionBackend permissionBackend,
       @Named(CACHE_NAME) Cache<Change.Id, String> changeIdProjectCache,
-      RevertRenameProject revertRenameProject) {
+      RevertRenameProject revertRenameProject,
+      SshHelper sshHelper,
+      Configuration cfg) {
     this.dbHandler = dbHandler;
     this.fsHandler = fsHandler;
     this.cacheHandler = cacheHandler;
@@ -132,6 +140,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     this.permissionBackend = permissionBackend;
     this.changeIdProjectCache = changeIdProjectCache;
     this.revertRenameProject = revertRenameProject;
+    this.sshHelper = sshHelper;
+    this.cfg = cfg;
     this.stepsPerformed = new ArrayList<>();
   }
 
@@ -147,12 +157,20 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     }
   }
 
+  private PermissionBackend.WithUser getUserPermissions() {
+    return permissionBackend.user(userProvider.get());
+  }
+
   protected boolean canRename(ProjectResource rsrc) {
-    PermissionBackend.WithUser userPermission = permissionBackend.user(userProvider.get());
-    return userPermission.testOrFalse(GlobalPermission.ADMINISTRATE_SERVER)
+    PermissionBackend.WithUser userPermission = getUserPermissions();
+    return isAdmin()
         || userPermission.testOrFalse(new PluginPermission(pluginName, RENAME_PROJECT))
         || (userPermission.testOrFalse(new PluginPermission(pluginName, RENAME_OWN_PROJECT))
             && isOwner(rsrc));
+  }
+
+  boolean isAdmin() {
+    return getUserPermissions().testOrFalse(GlobalPermission.ADMINISTRATE_SERVER);
   }
 
   private boolean isOwner(ProjectResource project) {
@@ -210,6 +228,9 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       changeIdProjectCache.invalidateAll(changeIds);
 
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
+
+      // replicate rename-project operation to other replica instances
+      replicateRename(sshHelper, input, oldProjectKey);
     } catch (Exception e) {
       if (stepsPerformed.isEmpty()) {
         log.error("Renaming procedure failed. Exception caught: {}", e.toString());
@@ -306,5 +327,23 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     opm.ifPresent(pm -> pm.beginTask("Retrieving the list of changes from DB"));
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     return dbHandler.getChangeIds(oldProjectKey);
+  }
+
+  void replicateRename(SshHelper sshHelper, Input input, Project.NameKey oldProjectKey) {
+    for (String url : cfg.getUrls()) {
+      try {
+        OutputStream errStream = sshHelper.newErrorBufferStream();
+        sshHelper.executeRemoteSsh(
+            new URIish(url),
+            pluginName + " " + oldProjectKey.get() + " " + input.name + " --replication",
+            errStream);
+        String errorMessage = errStream.toString();
+        if (!errorMessage.isEmpty()) {
+          throw new RenameReplicationException(errorMessage);
+        }
+      } catch (IOException | URISyntaxException | RenameReplicationException e) {
+        log.error("Failed to replicate rename to {}: {}", url, e.getMessage());
+      }
+    }
   }
 }
