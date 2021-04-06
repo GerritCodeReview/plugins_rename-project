@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "725987cc_c86ae5b8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameCommand.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-06T20:07:12Z",
+      "side": 0,
+      "message": "Not sure I understand this conflict resolution. Explain it a bit in the commit message?",
+      "revId": "de0905c02ad2c8fc5d0b774ad25ee7465d62390b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c973f354_af0ac1e6",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-06T20:07:12Z",
+      "side": 0,
+      "message": "Summarize why these are not kept through this merge, in the commit message?",
+      "revId": "de0905c02ad2c8fc5d0b774ad25ee7465d62390b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
