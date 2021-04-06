@@ -16,6 +16,24 @@
       "message": "This list above is not up-to-date compared to the merge list.",
       "revId": "f43167c400bf9c3685af35d5307538d9de5251ce",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc3b3d7e_a1a94d7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-04-06T17:36:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e08fc6e_2a9ddb77",
+      "revId": "f43167c400bf9c3685af35d5307538d9de5251ce",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
