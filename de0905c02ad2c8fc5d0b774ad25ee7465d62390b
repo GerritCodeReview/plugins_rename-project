@@ -36,6 +36,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3aebd434_a7b1530e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameCommand.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-07T12:44:11Z",
+      "side": 0,
+      "message": "Not necessarily ;) -but thanks for the updated message.",
+      "parentUuid": "13d093c1_7287313a",
+      "revId": "de0905c02ad2c8fc5d0b774ad25ee7465d62390b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c973f354_af0ac1e6",
