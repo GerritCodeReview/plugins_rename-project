@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e58fec_b2777609",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-08T15:26:45Z",
+      "side": 1,
+      "message": "classes?",
+      "range": {
+        "startLine": 21,
+        "startChar": 23,
+        "endLine": 21,
+        "endChar": 28
+      },
+      "revId": "9db9b004ddd6ab0a9d0480af84b0ee85177643a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f1b5ae9_7283ead7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-08T15:26:45Z",
+      "side": 1,
+      "message": "In stable-3.1, they are",
+      "range": {
+        "startLine": 21,
+        "startChar": 30,
+        "endLine": 21,
+        "endChar": 50
+      },
+      "revId": "9db9b004ddd6ab0a9d0480af84b0ee85177643a5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
