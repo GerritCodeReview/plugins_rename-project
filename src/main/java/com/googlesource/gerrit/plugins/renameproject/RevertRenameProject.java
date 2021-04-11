@@ -71,10 +71,10 @@ public class RevertRenameProject {
         throw e;
       }
     }
-    if (stepsPerformed.contains(Step.CACHE)) {
-      cacheHandler.update(newProjectKey, oldProjectKey);
-      log.debug("Successfully removed project {} from project cache.", newProjectKey.get());
-    }
+
+    cacheHandler.update(newProjectKey, oldProjectKey);
+    log.debug("Successfully removed project {} from project cache.", newProjectKey.get());
+
     if (stepsPerformed.contains(Step.DATABASE)) {
       try {
         updatedChangeIds = dbHandler.rename(changeIds, newProjectKey, opm);

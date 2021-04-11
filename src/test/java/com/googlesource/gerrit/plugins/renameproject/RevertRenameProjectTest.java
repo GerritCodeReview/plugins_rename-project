@@ -137,11 +137,13 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   }
 
   private void assertRenamed(Result result) throws Exception {
-    Optional<ProjectState> oldProjectState = projectCache.get(oldProjectKey);
-    assertThat(oldProjectState.isPresent()).isFalse();
-
     Optional<ProjectState> newProjectState = projectCache.get(newProjectKey);
     assertThat(newProjectState.isPresent()).isTrue();
+
+    if (renameProject.getStepsPerformed().contains(Step.CACHE)) {
+      Optional<ProjectState> oldProjectState = projectCache.get(oldProjectKey);
+      assertThat(oldProjectState.isPresent()).isFalse();
+    }
 
     if (renameProject.getStepsPerformed().contains(Step.DATABASE)) {
       ChangeApi changeApi = gApi.changes().id(NEW_PROJECT_NAME, result.getChange().getId().get());

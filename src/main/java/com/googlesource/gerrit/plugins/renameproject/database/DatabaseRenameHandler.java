@@ -18,11 +18,11 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.entities.Account;
 import com.google.gerrit.entities.Change;
+import com.google.gerrit.entities.NotifyConfig;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.ServerInitiated;
 import com.google.gerrit.server.account.AccountState;
 import com.google.gerrit.server.account.AccountsUpdate;
-import com.google.gerrit.server.account.ProjectWatches.NotifyType;
 import com.google.gerrit.server.account.ProjectWatches.ProjectWatchKey;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.notedb.ChangeNotes;
@@ -123,8 +123,8 @@ public class DatabaseRenameHandler {
       throws IOException, ConfigInvalidException {
     for (AccountState a : accountQueryProvider.get().byWatchedProject(oldProjectKey)) {
       Account.Id accountId = a.account().id();
-      ImmutableMap<ProjectWatchKey, ImmutableSet<NotifyType>> projectWatches = a.projectWatches();
-      Map<ProjectWatchKey, Set<NotifyType>> newProjectWatches = new HashMap<>();
+      ImmutableMap<ProjectWatchKey, ImmutableSet<NotifyConfig.NotifyType>> projectWatches = a.projectWatches();
+      Map<ProjectWatchKey, Set<NotifyConfig.NotifyType>> newProjectWatches = new HashMap<>();
       List<ProjectWatchKey> oldProjectWatches = new ArrayList<>();
       for (ProjectWatchKey watchKey : a.projectWatches().keySet()) {
         if (oldProjectKey.equals(watchKey.project())) {
