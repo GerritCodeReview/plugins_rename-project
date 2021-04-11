@@ -31,6 +31,7 @@ import com.google.gerrit.server.project.ProjectState;
 import com.google.gerrit.server.restapi.project.ListChildProjects;
 import com.google.gerrit.server.submit.MergeOpRepoManager;
 import com.google.gerrit.server.submit.SubmoduleOp;
+import com.google.gerrit.server.submit.SubscriptionGraph;
 import com.google.inject.Provider;
 import com.googlesource.gerrit.plugins.renameproject.CannotRenameProjectException;
 import java.util.ArrayList;
@@ -56,6 +57,7 @@ public class RenamePreconditionsTest {
   @Mock private CurrentUser user;
   @Mock private Repository repo;
   @Mock private ListChildProjects listChildProjects;
+  @Mock private SubscriptionGraph.Factory subscriptionGraphFactory;
 
   private AllProjectsName allProjects;
   private AllUsersName allUsersName;
@@ -77,6 +79,7 @@ public class RenamePreconditionsTest {
             listChildProjectsProvider,
             repoManager,
             subOpFactory,
+            subscriptionGraphFactory,
             ormProvider);
   }
 
@@ -89,7 +92,7 @@ public class RenamePreconditionsTest {
 
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameAllProjects() throws Exception {
-    Project oldProject = new Project(allProjects);
+    Project oldProject = Project.builder(allProjects).build();
     when(oldRsrc.getNameKey()).thenReturn(oldProject.getNameKey());
     when(objDb.exists()).thenReturn(false);
 
@@ -98,7 +101,7 @@ public class RenamePreconditionsTest {
 
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameAllUsers() throws Exception {
-    Project oldProject = new Project(allUsersName);
+    Project oldProject = Project.builder(allUsersName).build();
     when(oldRsrc.getNameKey()).thenReturn(oldProject.getNameKey());
     when(objDb.exists()).thenReturn(false);
 
@@ -107,7 +110,7 @@ public class RenamePreconditionsTest {
 
   @Test(expected = CannotRenameProjectException.class)
   public void testAssertCannotRenameHasChildren() throws Exception {
-    Project oldProject = new Project(Project.nameKey("oldProject"));
+    Project oldProject = Project.builder((Project.nameKey("oldProject"))).build();
     when(oldRsrc.getNameKey()).thenReturn(oldProject.getNameKey());
     when(objDb.exists()).thenReturn(false);
 

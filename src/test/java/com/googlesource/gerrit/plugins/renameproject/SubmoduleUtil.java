@@ -16,8 +16,8 @@ package com.googlesource.gerrit.plugins.renameproject;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import com.google.gerrit.common.data.SubscribeSection;
 import com.google.gerrit.entities.Project.NameKey;
+import com.google.gerrit.entities.SubscribeSection;
 import com.google.gerrit.server.git.meta.MetaDataUpdate;
 import com.google.gerrit.server.git.meta.MetaDataUpdate.Server;
 import com.google.gerrit.server.project.ProjectCache;
@@ -59,7 +59,7 @@ public class SubmoduleUtil {
       if (pc.getSubscribeSections().containsKey(superName)) {
         s = pc.getSubscribeSections().get(superName);
       } else {
-        s = new SubscribeSection(superName);
+        s = SubscribeSection.builder(superName).build();
       }
       String refspec;
       if (superBranch == null) {
@@ -68,9 +68,9 @@ public class SubmoduleUtil {
         refspec = subBranch + ":" + superBranch;
       }
       if (match) {
-        s.addMatchingRefSpec(refspec);
+        s = s.toBuilder().addMatchingRefSpec(refspec).build();
       } else {
-        s.addMultiMatchRefSpec(refspec);
+        s = s.toBuilder().addMultiMatchRefSpec(refspec).build();
       }
       pc.addSubscribeSection(s);
       ObjectId oldId = pc.getRevision();
