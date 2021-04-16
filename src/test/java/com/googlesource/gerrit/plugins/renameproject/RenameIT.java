@@ -22,13 +22,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.google.common.cache.Cache;
-import com.google.gerrit.acceptance.GerritConfig;
-import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
+import com.google.gerrit.acceptance.*;
 import com.google.gerrit.acceptance.PushOneCommit.Result;
-import com.google.gerrit.acceptance.RestResponse;
-import com.google.gerrit.acceptance.TestPlugin;
-import com.google.gerrit.acceptance.UseLocalDisk;
-import com.google.gerrit.acceptance.UseSsh;
 import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
 import com.google.gerrit.entities.Change.Id;
 import com.google.gerrit.entities.Project;
@@ -129,6 +124,24 @@ public class RenameIT extends LightweightPluginDaemonTest {
     createChange();
     adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + project.get());
     adminSshSession.assertFailure();
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.regex", value = "[A-Z]*")
+  public void testRenameNotRespectRegexProjectFail() throws Exception {
+    createChange();
+    adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME);
+    adminSshSession.assertFailure();
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.regex", value = "[a-zA-Z]*")
+  public void testRenameRespectRegexProjectSuccess() throws Exception {
+    createChange();
+    adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME);
+    adminSshSession.assertSuccess();
   }
 
   @Test
