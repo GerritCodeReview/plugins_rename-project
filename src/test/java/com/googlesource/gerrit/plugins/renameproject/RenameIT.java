@@ -57,6 +57,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
   private static final String CACHE_NAME = "changeid_project";
   private static final String REPLICATION_OPTION = "--replication";
   private static final String URL = "ssh://localhost:29418";
+  private static final String RENAME_REGEX = "[a-zA-Z]+";
 
   @Inject private RequestScopeOperations requestScopeOperations;
 
@@ -251,6 +252,32 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
     ProjectState projectState = projectCache.get(Project.nameKey(newProjectName));
     assertThat(projectState).isNull();
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.renameRegex", value = RENAME_REGEX)
+  public void testRenameViaHttpWithNonMatchingNameFail() throws Exception {
+    createChange();
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME + "1");
+    r.assertBadRequest();
+
+    ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNull();
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.renameRegex", value = RENAME_REGEX)
+  public void testRenameViaHttpWithMatchingNameSuccess() throws Exception {
+    createChange();
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME);
+    r.assertOK();
+
+    ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNotNull();
+    assertThat(queryProvider.get().byProject(project)).isEmpty();
+    assertThat(queryProvider.get().byProject(Project.nameKey(NEW_PROJECT_NAME))).isNotEmpty();
   }
 
   private RestResponse renameProjectTo(String newName) throws Exception {
