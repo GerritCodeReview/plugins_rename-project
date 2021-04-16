@@ -151,6 +151,13 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     }
   }
 
+  private void assertNewNameRespectsRegex(Input input) throws BadRequestException {
+    if (!cfg.getRegex().isEmpty() && !input.name.matches(cfg.getRegex())) {
+      throw new BadRequestException(
+          String.format("Name of the repo should follow the following regex: %s", cfg.getRegex()));
+    }
+  }
+
   private void assertRenamePermission(ProjectResource rsrc) throws AuthException {
     if (!canRename(rsrc)) {
       throw new AuthException("Not allowed to rename project");
@@ -195,6 +202,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       pm.ifPresent(progressMonitor -> progressMonitor.beginTask("Checking preconditions"));
 
       assertNewNameNotNull(input);
+      assertNewNameRespectsRegex(input);
       assertRenamePermission(rsrc);
       renamePreconditions.assertCanRename(rsrc, Project.nameKey(input.name));
       log.debug("Rename preconditions check successful.");
