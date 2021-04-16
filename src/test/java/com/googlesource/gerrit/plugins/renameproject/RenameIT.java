@@ -253,6 +253,32 @@ public class RenameIT extends LightweightPluginDaemonTest {
     assertThat(projectState).isNull();
   }
 
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.renameRegex", value = "[a-zA-Z]+")
+  public void testRenameViaHttpWithNonMatchingNameFail() throws Exception {
+    createChange();
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME + "1");
+    r.assertBadRequest();
+
+    ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNull();
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.renameRegex", value = "[a-zA-Z]+")
+  public void testRenameViaHttpWithMatchingNameSuccess() throws Exception {
+    createChange();
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME);
+    r.assertOK();
+
+    ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNotNull();
+    assertThat(queryProvider.get().byProject(project)).isEmpty();
+    assertThat(queryProvider.get().byProject(Project.nameKey(NEW_PROJECT_NAME))).isNotEmpty();
+  }
+
   private RestResponse renameProjectTo(String newName) throws Exception {
     requestScopeOperations.setApiUser(user.id());
     sender.clear();
