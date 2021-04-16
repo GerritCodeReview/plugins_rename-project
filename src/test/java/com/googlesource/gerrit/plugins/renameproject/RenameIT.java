@@ -22,13 +22,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.google.common.cache.Cache;
-import com.google.gerrit.acceptance.GerritConfig;
-import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
+import com.google.gerrit.acceptance.*;
 import com.google.gerrit.acceptance.PushOneCommit.Result;
-import com.google.gerrit.acceptance.RestResponse;
-import com.google.gerrit.acceptance.TestPlugin;
-import com.google.gerrit.acceptance.UseLocalDisk;
-import com.google.gerrit.acceptance.UseSsh;
 import com.google.gerrit.acceptance.testsuite.request.RequestScopeOperations;
 import com.google.gerrit.entities.Change.Id;
 import com.google.gerrit.entities.Project;
@@ -129,6 +124,26 @@ public class RenameIT extends LightweightPluginDaemonTest {
     createChange();
     adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + project.get());
     adminSshSession.assertFailure();
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.regex", value = "[A-Z]*")
+  public void testRenameViaSshNotRespectRegexProjectFail() throws Exception {
+    createChange();
+    adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME);
+    adminSshSession.assertFailure();
+    assertThat(adminSshSession.getError())
+        .contains("Name of the repo should follow the following regex");
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.regex", value = "[a-zA-Z]*")
+  public void testRenameViaSshRespectRegexProjectSuccess() throws Exception {
+    createChange();
+    adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME);
+    adminSshSession.assertSuccess();
   }
 
   @Test
@@ -251,6 +266,32 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
     ProjectState projectState = projectCache.get(Project.nameKey(newProjectName));
     assertThat(projectState).isNull();
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.regex", value = "[A-Z]*")
+  public void testRenameViaHttpNotRespectRegexProjectFail() throws Exception {
+    createChange();
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME);
+    r.assertBadRequest();
+
+    ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNull();
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.regex", value = "[a-zA-Z]*")
+  public void testRenameViaHttpRespectRegexProjectSuccess() throws Exception {
+    createChange();
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME);
+    r.assertOK();
+
+    ProjectState projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState).isNotNull();
+    assertThat(queryProvider.get().byProject(project)).isEmpty();
+    assertThat(queryProvider.get().byProject(Project.nameKey(NEW_PROJECT_NAME))).isNotEmpty();
   }
 
   private RestResponse renameProjectTo(String newName) throws Exception {
