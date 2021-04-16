@@ -33,6 +33,7 @@ public class Configuration {
   private final int indexThreads;
   private final int sshCommandTimeout;
   private final int sshConnectionTimeout;
+  private final String renameRegex;
 
   private final Set<String> urls;
 
@@ -42,6 +43,7 @@ public class Configuration {
     indexThreads = cfg.getInt("indexThreads", 4);
     sshCommandTimeout = cfg.getInt("sshCommandTimeout", 0);
     sshConnectionTimeout = cfg.getInt("sshConnectionTimeout", DEFAULT_SSH_CONNECTION_TIMEOUT_MS);
+    renameRegex = cfg.getString("renameRegex", ".+");
 
     urls =
         Arrays.stream(cfg.getStringList(URL_KEY))
@@ -65,5 +67,9 @@ public class Configuration {
 
   public int getSshConnectionTimeout() {
     return sshConnectionTimeout;
+  }
+
+  public String getRenameRegex() {
+    return renameRegex;
   }
 }
