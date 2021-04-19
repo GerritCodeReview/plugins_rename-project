@@ -22,6 +22,30 @@
       },
       "revId": "1250afc61b9787146e642d922d7a06ab37288ab6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75f8dc26_09ec3001",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-04-19T12:48:12Z",
+      "side": 1,
+      "message": "Like verify if renaming into that name is possible? I don\u0027t think we need it. It will just fail the renaming procedure with an error. This error message should be enough to understand the reason for failure.",
+      "parentUuid": "d99221dc_9029f99b",
+      "range": {
+        "startLine": 158,
+        "startChar": 12,
+        "endLine": 159,
+        "endChar": 91
+      },
+      "revId": "1250afc61b9787146e642d922d7a06ab37288ab6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
