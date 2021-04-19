@@ -111,6 +111,24 @@
       "message": "Then I think this is missing positive case",
       "revId": "1250afc61b9787146e642d922d7a06ab37288ab6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcd2a159_0648fd94",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-19T20:00:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35b0b48f_d938b19e",
+      "revId": "1250afc61b9787146e642d922d7a06ab37288ab6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
