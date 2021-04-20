@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f38f9828_0eaad759",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-04-20T15:16:22Z",
+      "side": 1,
+      "message": "safer to use default as \"\".\nand then using regex.isEmpty()",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 41
+      },
+      "revId": "fd8c5028c8c364f5a529b4084d35aea4a97a0dde",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8f8c324_4a01dd63",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1127770
+      },
+      "writtenOn": "2021-04-20T15:16:22Z",
+      "side": 1,
+      "message": "can be combine in 1 \nif(cfg.getRegex() !\u003d null \u0026\u0026 !input.name.matches(cfg.getRegex()))",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 48
+      },
+      "revId": "fd8c5028c8c364f5a529b4084d35aea4a97a0dde",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
