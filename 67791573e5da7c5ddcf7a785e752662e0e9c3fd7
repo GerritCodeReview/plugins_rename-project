@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c868048_6fd5146d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-04-21T17:55:17Z",
+      "side": 1,
+      "message": "testRenameViaSshNotRespectRegexProjectFail",
+      "range": {
+        "startLine": 132,
+        "startChar": 14,
+        "endLine": 132,
+        "endChar": 50
+      },
+      "revId": "67791573e5da7c5ddcf7a785e752662e0e9c3fd7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33c5b427_05f507b7",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-04-21T17:55:17Z",
+      "side": 1,
+      "message": "You can also compare error message like how it was done in line 83.",
+      "revId": "67791573e5da7c5ddcf7a785e752662e0e9c3fd7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59e40100_7c9b2dc9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-04-21T17:55:17Z",
+      "side": 1,
+      "message": "if you decide to make http version then rename to testRenameViaSshRespectRegexProjectSuccess",
+      "range": {
+        "startLine": 141,
+        "startChar": 14,
+        "endLine": 141,
+        "endChar": 50
+      },
+      "revId": "67791573e5da7c5ddcf7a785e752662e0e9c3fd7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d321cd7_5f16290d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-04-21T17:55:17Z",
+      "side": 1,
+      "message": "I would add http version of this tests",
+      "revId": "67791573e5da7c5ddcf7a785e752662e0e9c3fd7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
