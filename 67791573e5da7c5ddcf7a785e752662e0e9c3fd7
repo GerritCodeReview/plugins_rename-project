@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09bf76d1_f144d16b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-21T18:27:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c868048_6fd5146d",
+      "range": {
+        "startLine": 132,
+        "startChar": 14,
+        "endLine": 132,
+        "endChar": 50
+      },
+      "revId": "67791573e5da7c5ddcf7a785e752662e0e9c3fd7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33c5b427_05f507b7",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-04-21T17:55:17Z",
       "side": 1,
       "message": "You can also compare error message like how it was done in line 83.",
+      "revId": "67791573e5da7c5ddcf7a785e752662e0e9c3fd7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daf548e3_7d1fd42a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-21T18:27:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33c5b427_05f507b7",
       "revId": "67791573e5da7c5ddcf7a785e752662e0e9c3fd7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -64,6 +106,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20a6b09a_35194100",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-21T18:27:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59e40100_7c9b2dc9",
+      "range": {
+        "startLine": 141,
+        "startChar": 14,
+        "endLine": 141,
+        "endChar": 50
+      },
+      "revId": "67791573e5da7c5ddcf7a785e752662e0e9c3fd7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d321cd7_5f16290d",
@@ -77,6 +143,24 @@
       "writtenOn": "2021-04-21T17:55:17Z",
       "side": 1,
       "message": "I would add http version of this tests",
+      "revId": "67791573e5da7c5ddcf7a785e752662e0e9c3fd7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e80750bf_a423b17c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-21T18:27:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d321cd7_5f16290d",
       "revId": "67791573e5da7c5ddcf7a785e752662e0e9c3fd7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
