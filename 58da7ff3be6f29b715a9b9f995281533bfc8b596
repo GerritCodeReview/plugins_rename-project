@@ -1,0 +1,475 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78298a65_506beaba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "change",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8001b213_a5c592b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "Bug: Issue 14297",
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9440702b_ad930714",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "Would rename more explicitly.",
+      "range": {
+        "startLine": 36,
+        "startChar": 23,
+        "endLine": 36,
+        "endChar": 28
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aadd20f_b9e25224",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 46,
+        "startChar": 27,
+        "endLine": 46,
+        "endChar": 32
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10ca4a21_6648cd42",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "Is this a proper default value? There should be a way to use an equivalent regex that matches any name as before by default. Hence replacing empty string handling with such a wildcard regex match. Would also make this default a reusable constant like the others.",
+      "range": {
+        "startLine": 46,
+        "startChar": 35,
+        "endLine": 46,
+        "endChar": 37
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c96a8ec_bdf7b485",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "To rename, accordingly.",
+      "range": {
+        "startLine": 72,
+        "startChar": 19,
+        "endLine": 72,
+        "endChar": 24
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80513636_205f39bb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "Matches",
+      "range": {
+        "startLine": 154,
+        "startChar": 28,
+        "endLine": 154,
+        "endChar": 36
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07b6ba97_c3cece36",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "This may go if applying the related comment.",
+      "range": {
+        "startLine": 155,
+        "startChar": 8,
+        "endLine": 155,
+        "endChar": 37
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70645351_bc786d25",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "match the expected",
+      "range": {
+        "startLine": 157,
+        "startChar": 49,
+        "endLine": 157,
+        "endChar": 69
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea847c7_a0b1e76c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "match an optionally configured regex",
+      "range": {
+        "startLine": 47,
+        "startChar": 76,
+        "endLine": 48,
+        "endChar": 66
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17f26879_00df9e34",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "To rename, accordingly (see earlier related comment).",
+      "range": {
+        "startLine": 52,
+        "startChar": 5,
+        "endLine": 52,
+        "endChar": 10
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df162004_9209bd48",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "Can this wildcard allow for empty name strings? (Zero or more occurrences of..?)",
+      "range": {
+        "startLine": 52,
+        "startChar": 18,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "903e8b45_25681a82",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "Extra indent space.",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 5
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88e7ff14_5d0d5fa3",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "Extra blank line.",
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6408fa4c_81d1ea2c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "only capital",
+      "range": {
+        "startLine": 56,
+        "startChar": 65,
+        "endLine": 56,
+        "endChar": 79
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e241feb_0d695cb4",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "Goes against our style rules.",
+      "range": {
+        "startLine": 25,
+        "startChar": 36,
+        "endLine": 25,
+        "endChar": 37
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38140fbd_b95aef16",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "I don\u0027t think there is value in adding ssh-case tests for this feature.",
+      "range": {
+        "startLine": 132,
+        "startChar": 24,
+        "endLine": 143,
+        "endChar": 30
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a1c5f2f_254fbe96",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "+ should be a more exact expectation here too I think (earlier related comment). But then, what is the minimum new-project-name length allowed in core? Could be greater than just one character but I\u0027m not sure; you may check.",
+      "range": {
+        "startLine": 273,
+        "startChar": 68,
+        "endLine": 273,
+        "endChar": 69
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bb18cf6_8f832ffb",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "WithNonMatchingName",
+      "range": {
+        "startLine": 274,
+        "startChar": 31,
+        "endLine": 274,
+        "endChar": 53
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cd9a8b1_994168ef",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "This test could reuse the same regex as its new sibling, to not perceive this variation as another test scope. Or, both tests should use the same regex, no matter its chosen value (so to speak).",
+      "range": {
+        "startLine": 285,
+        "startChar": 63,
+        "endLine": 285,
+        "endChar": 72
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "207a13db_8a30bc2c",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-26T19:38:25Z",
+      "side": 1,
+      "message": "WithMatchingName",
+      "range": {
+        "startLine": 286,
+        "startChar": 31,
+        "endLine": 286,
+        "endChar": 50
+      },
+      "revId": "58da7ff3be6f29b715a9b9f995281533bfc8b596",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
