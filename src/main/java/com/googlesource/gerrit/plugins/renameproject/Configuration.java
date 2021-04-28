@@ -35,6 +35,7 @@ public class Configuration {
   private final int sshConnectionTimeout;
 
   private final Set<String> urls;
+  private final String pluginName;
 
   @Inject
   public Configuration(PluginConfigFactory pluginConfigFactory, @PluginName String pluginName) {
@@ -49,6 +50,7 @@ public class Configuration {
             .filter(s -> !s.isEmpty())
             .map(s -> CharMatcher.is('/').trimTrailingFrom(s))
             .collect(Collectors.toSet());
+    this.pluginName = pluginName;
   }
 
   public int getIndexThreads() {
@@ -65,5 +67,9 @@ public class Configuration {
 
   public int getSshConnectionTimeout() {
     return sshConnectionTimeout;
+  }
+
+  public String getPluginName() {
+    return pluginName;
   }
 }

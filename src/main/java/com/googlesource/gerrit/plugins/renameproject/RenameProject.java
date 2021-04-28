@@ -23,7 +23,6 @@ import com.google.common.cache.Cache;
 import com.google.gerrit.entities.Change;
 import com.google.gerrit.entities.Change.Id;
 import com.google.gerrit.entities.Project;
-import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.api.access.PluginPermission;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
@@ -120,7 +119,6 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       Provider<CurrentUser> userProvider,
       LockUnlockProject lockUnlockProject,
       PluginEvent pluginEvent,
-      @PluginName String pluginName,
       RenameLog renameLog,
       PermissionBackend permissionBackend,
       @Named(CACHE_NAME) Cache<Change.Id, String> changeIdProjectCache,
@@ -135,7 +133,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     this.userProvider = userProvider;
     this.lockUnlockProject = lockUnlockProject;
     this.pluginEvent = pluginEvent;
-    this.pluginName = pluginName;
+    this.pluginName = cfg.getPluginName();
     this.renameLog = renameLog;
     this.permissionBackend = permissionBackend;
     this.changeIdProjectCache = changeIdProjectCache;
