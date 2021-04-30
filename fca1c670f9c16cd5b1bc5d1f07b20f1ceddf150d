@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1f63d2f4_cec295be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-30T19:24:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c26e86d_0f9b13ee",
+      "range": {
+        "startLine": 11,
+        "startChar": 30,
+        "endLine": 11,
+        "endChar": 35
+      },
+      "revId": "fca1c670f9c16cd5b1bc5d1f07b20f1ceddf150d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "396a21bb_2c8e5663",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 9
@@ -64,6 +88,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cce554bc_da2c9760",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-30T19:24:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcbac84f_be727b4f",
+      "range": {
+        "startLine": 47,
+        "startChar": 64,
+        "endLine": 47,
+        "endChar": 78
+      },
+      "revId": "fca1c670f9c16cd5b1bc5d1f07b20f1ceddf150d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7907f177_e93c9194",
@@ -81,6 +129,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20f05833_38e71c69",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-30T19:24:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7907f177_e93c9194",
+      "revId": "fca1c670f9c16cd5b1bc5d1f07b20f1ceddf150d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "502c48ec_5f609fcf",
@@ -94,6 +160,30 @@
       "writtenOn": "2021-04-30T15:48:42Z",
       "side": 1,
       "message": "Related comment.",
+      "range": {
+        "startLine": 60,
+        "startChar": 50,
+        "endLine": 60,
+        "endChar": 53
+      },
+      "revId": "fca1c670f9c16cd5b1bc5d1f07b20f1ceddf150d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "214ae259_c7596b0a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-04-30T19:24:09Z",
+      "side": 1,
+      "message": "The new name chosen in the test set is in line 55 NEW_PROJECT_NAME, it uses a capital letter so removing capital letter from the regex will make the test fail. The variable is used across all the tests.",
+      "parentUuid": "502c48ec_5f609fcf",
       "range": {
         "startLine": 60,
         "startChar": 50,
