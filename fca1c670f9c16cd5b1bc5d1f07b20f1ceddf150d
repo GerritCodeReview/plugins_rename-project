@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c26e86d_0f9b13ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-30T15:48:42Z",
+      "side": 1,
+      "message": "Fails spell-check.",
+      "range": {
+        "startLine": 11,
+        "startChar": 30,
+        "endLine": 11,
+        "endChar": 35
+      },
+      "revId": "fca1c670f9c16cd5b1bc5d1f07b20f1ceddf150d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "396a21bb_2c8e5663",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-30T15:48:42Z",
+      "side": 1,
+      "message": "Almost there I think.",
+      "revId": "fca1c670f9c16cd5b1bc5d1f07b20f1ceddf150d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcbac84f_be727b4f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-30T15:48:42Z",
+      "side": 1,
+      "message": "See my original comment scope; \u0027to\u0027 should stay.",
+      "range": {
+        "startLine": 47,
+        "startChar": 64,
+        "endLine": 47,
+        "endChar": 78
+      },
+      "revId": "fca1c670f9c16cd5b1bc5d1f07b20f1ceddf150d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7907f177_e93c9194",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-30T15:48:42Z",
+      "side": 1,
+      "message": "Not sure if this example is nice enough though, knowing that using all-caps render project names strangely, in Gerrit and git. The final example could at least partly match the one chosen for project-group-structure, as well.",
+      "revId": "fca1c670f9c16cd5b1bc5d1f07b20f1ceddf150d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "502c48ec_5f609fcf",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2021-04-30T15:48:42Z",
+      "side": 1,
+      "message": "Related comment.",
+      "range": {
+        "startLine": 60,
+        "startChar": 50,
+        "endLine": 60,
+        "endChar": 53
+      },
+      "revId": "fca1c670f9c16cd5b1bc5d1f07b20f1ceddf150d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
