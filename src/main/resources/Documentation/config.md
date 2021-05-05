@@ -43,3 +43,14 @@ client doing these calls by specifying the following fields:
 the client waits indefinitely. By default, 0.
 * `sshConnectionTimeout` : Timeout for SSH connections in minutes. If 0, there is no timeout, and
 the client waits indefinitely. By default, 2 minutes.
+
+Also, this plugin offers a way to restrict the new names of the projects to match an optionally
+configured regex. For example:
+
+```
+  [plugin "@PLUGIN@"]
+    renameRegex = [a-z0-9]+
+```
+
+In this example the new names for projects will be restricted to only non-capital letters and
+numbers.
