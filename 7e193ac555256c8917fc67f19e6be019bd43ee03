@@ -16,6 +16,24 @@
       "message": "Were you planning to merge further up to master, @Mark?",
       "revId": "7e193ac555256c8917fc67f19e6be019bd43ee03",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15896556_a46b118e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2021-05-11T14:27:17Z",
+      "side": 1,
+      "message": "Yes, I will merge it up to master. I was waiting for its sibling change to be submitted.",
+      "parentUuid": "4d1e4fd2_3a79ec95",
+      "revId": "7e193ac555256c8917fc67f19e6be019bd43ee03",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
