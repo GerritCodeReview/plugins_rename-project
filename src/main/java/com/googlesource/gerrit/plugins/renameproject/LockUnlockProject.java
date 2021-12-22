@@ -49,7 +49,7 @@ public class LockUnlockProject {
     md.setMessage(String.format("Lock project while renaming the project %s\n", key.get()));
     projectConfig.commit(md);
     Project p = projectConfig.getProject();
-    projectCache.evict(p);
+    projectCache.evict(p.getNameKey());
   }
 
   public void unlock(Project.NameKey key) throws IOException, ConfigInvalidException {
@@ -61,6 +61,6 @@ public class LockUnlockProject {
     md.setMessage(String.format("Unlock project after renaming the project to %s\n", key.get()));
     projectConfig.commit(md);
     Project p = projectConfig.getProject();
-    projectCache.evict(p);
+    projectCache.evict(p.getNameKey());
   }
 }
