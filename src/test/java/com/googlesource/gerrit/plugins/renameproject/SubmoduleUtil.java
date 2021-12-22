@@ -76,7 +76,7 @@ public class SubmoduleUtil {
       ObjectId oldId = pc.getRevision();
       ObjectId newId = pc.commit(md);
       assertThat(newId).isNotEqualTo(oldId);
-      projectCache.evict(pc.getProject());
+      projectCache.evict(pc.getName());
     }
   }
 
