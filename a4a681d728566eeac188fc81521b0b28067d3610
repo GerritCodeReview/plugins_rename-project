@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a09844c2_f4456d87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1105741
+      },
+      "writtenOn": "2021-12-23T15:08:22Z",
+      "side": 1,
+      "message": "You might need to call ProjectCache#evictAndReindex(Project) to preserve the same functionality of what was happening before.\n\nProjectCache#evict(Project) is not removed but renamed to ProjectCache#evictAndReindex(Project). see [1].\n\n[1] https://gerrit-review.googlesource.com/c/gerrit/+/323855/5/java/com/google/gerrit/server/project/ProjectCache.java",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 49
+      },
+      "revId": "a4a681d728566eeac188fc81521b0b28067d3610",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
