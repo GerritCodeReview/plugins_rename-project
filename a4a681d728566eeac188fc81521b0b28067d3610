@@ -46,6 +46,30 @@
       },
       "revId": "a4a681d728566eeac188fc81521b0b28067d3610",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d38402d_8b98c57e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2021-12-27T16:30:20Z",
+      "side": 1,
+      "message": "indexing old and new project is already one of the steps. What we want on this step is to just evict caches of old project",
+      "parentUuid": "ba5b65e8_eaf5dc79",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 49
+      },
+      "revId": "a4a681d728566eeac188fc81521b0b28067d3610",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
