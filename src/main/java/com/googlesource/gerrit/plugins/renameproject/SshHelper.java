@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.renameproject;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import java.io.IOException;
@@ -87,7 +88,8 @@ public class SshHelper {
     };
   }
 
-  protected RemoteSession connect(URIish uri) throws TransportException {
+  @VisibleForTesting
+  public RemoteSession connect(URIish uri) throws TransportException {
     return sshSessionFactoryProvider.get().getSession(uri, null, FS.DETECTED, connectionTimeout);
   }
 }

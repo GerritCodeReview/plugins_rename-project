@@ -44,6 +44,12 @@ the client waits indefinitely. By default, 0.
 * `sshConnectionTimeout` : Timeout for SSH connections in minutes. If 0, there is no timeout, and
 the client waits indefinitely. By default, 2 minutes.
 
+Provides a configuration to customize the number of rename replication retries. By default, 3.
+
+```
+  renameReplicationRetries = 6
+```
+
 Also, this plugin offers a way to restrict the new names of the projects to match an optionally
 configured regex. For example:
 
