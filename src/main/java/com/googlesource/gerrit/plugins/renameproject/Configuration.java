@@ -34,6 +34,7 @@ public class Configuration {
   private final int sshCommandTimeout;
   private final int sshConnectionTimeout;
   private final String renameRegex;
+  private final int renameReplicationRetries;
 
   private final Set<String> urls;
 
@@ -44,6 +45,7 @@ public class Configuration {
     sshCommandTimeout = cfg.getInt("sshCommandTimeout", 0);
     sshConnectionTimeout = cfg.getInt("sshConnectionTimeout", DEFAULT_SSH_CONNECTION_TIMEOUT_MS);
     renameRegex = cfg.getString("renameRegex", ".+");
+    renameReplicationRetries = cfg.getInt("renameReplicationRetries", 3);
 
     urls =
         Arrays.stream(cfg.getStringList(URL_KEY))
@@ -71,5 +73,9 @@ public class Configuration {
 
   public String getRenameRegex() {
     return renameRegex;
+  }
+
+  public int getRenameReplicationRetries() {
+    return renameReplicationRetries;
   }
 }

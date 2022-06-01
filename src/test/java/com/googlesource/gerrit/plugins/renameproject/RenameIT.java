@@ -16,10 +16,7 @@ package com.googlesource.gerrit.plugins.renameproject;
 
 import static com.google.common.truth.Truth.assertThat;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 import com.google.common.cache.Cache;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
@@ -42,6 +39,7 @@ import java.util.List;
 import java.util.Optional;
 import javax.inject.Named;
 import org.eclipse.jgit.junit.TestRepository;
+import org.eclipse.jgit.transport.RemoteSession;
 import org.eclipse.jgit.transport.URIish;
 import org.junit.Test;
 
@@ -212,7 +210,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
   @Test
   @UseLocalDisk
   @GerritConfig(name = "plugin.rename-project.url", value = URL)
-  public void testReplicateRename() throws Exception {
+  public void testReplicateRenameSucceedsThenEnds() throws Exception {
     RenameProject renameProject = plugin.getSysInjector().getInstance(RenameProject.class);
     SshHelper sshHelper = mock(SshHelper.class);
     OutputStream errStream = mock(OutputStream.class);
@@ -226,8 +224,27 @@ public class RenameIT extends LightweightPluginDaemonTest {
     when(errStream.toString()).thenReturn("");
 
     renameProject.replicateRename(sshHelper, input, project);
-    verify(sshHelper, atLeastOnce())
+    verify(sshHelper, atMostOnce())
         .executeRemoteSsh(eq(new URIish(URL)), eq(expectedCommand), eq(errStream));
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.url", value = URL)
+  public void testReplicateRenameFailsOnReplicaThenRetries() throws Exception {
+    RenameProject renameProject = plugin.getSysInjector().getInstance(RenameProject.class);
+    RemoteSession session = mock(RemoteSession.class);
+    SshHelper sshHelper = mock(SshHelper.class);
+    OutputStream errStream = mock(OutputStream.class);
+    when(sshHelper.newErrorBufferStream()).thenReturn(errStream);
+    URIish urish = new URIish(URL);
+    Input input = new Input();
+    input.name = NEW_PROJECT_NAME;
+    when(sshHelper.connect(eq(urish))).thenReturn(session);
+    renameProject.replicateRename(sshHelper, input, project);
+    String expectedCommand =
+        PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME + " " + REPLICATION_OPTION;
+    verify(sshHelper, times(3)).executeRemoteSsh(eq(urish), eq(expectedCommand), eq(errStream));
   }
 
   @Test
