@@ -53,8 +53,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.transport.URIish;
 import org.slf4j.Logger;
@@ -339,7 +341,26 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
   }
 
   void replicateRename(SshHelper sshHelper, Input input, Project.NameKey oldProjectKey) {
-    for (String url : cfg.getUrls()) {
+    Set<String> urls = cfg.getUrls();
+    int nbRetries = cfg.getRenameReplicationRetries();
+
+    for (int i = 0; i < nbRetries; ++i) {
+      urls = tryRenameReplication(urls, sshHelper, input, oldProjectKey);
+    }
+    for (String url : urls) {
+      log.error(
+          "Failed to replicate the renaming of {} to {} on {} during {} attempts",
+          oldProjectKey.get(),
+          input.name,
+          url,
+          cfg.getUrls());
+    }
+  }
+
+  Set<String> tryRenameReplication(
+      Set<String> replicas, SshHelper sshHelper, Input input, Project.NameKey oldProjectKey) {
+    Set<String> failedReplicas = new HashSet<>();
+    for (String url : replicas) {
       try {
         OutputStream errStream = sshHelper.newErrorBufferStream();
         sshHelper.executeRemoteSsh(
@@ -351,8 +372,11 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
           throw new RenameReplicationException(errorMessage);
         }
       } catch (IOException | URISyntaxException | RenameReplicationException e) {
-        log.error("Failed to replicate rename to {}: {}", url, e.getMessage());
+        log.info(
+            "Scheduling a rename replication retry for {} on project {}", url, oldProjectKey.get());
+        failedReplicas.add(url);
       }
     }
+    return failedReplicas;
   }
 }

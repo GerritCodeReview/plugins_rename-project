@@ -87,7 +87,7 @@ public class SshHelper {
     };
   }
 
-  protected RemoteSession connect(URIish uri) throws TransportException {
+  public RemoteSession connect(URIish uri) throws TransportException {
     return sshSessionFactoryProvider.get().getSession(uri, null, FS.DETECTED, connectionTimeout);
   }
 }
