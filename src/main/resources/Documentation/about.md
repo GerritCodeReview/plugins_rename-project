@@ -42,9 +42,12 @@ the plugin completes the renaming operation on the master instance successfully,
 command to replicas' rename-project plugin using the hostname provided in the configuration file.
 Replicas then perform their own local file system rename.
 
-The caveat is if ssh rename replication fails, the plugin doesn't retry the rename replication
-operation. This results in primary and replica instances being out of sync. The admin then will have
-to consider the following steps:
+The ssh rename replication will retry as many times as the configuration `renameReplicationRetries`
+which can be configured in `gerrit.config` file as long as there are no replicas failing the
+renaming. This configuration defaults at 3. If ssh rename replication fails after the mentioned
+number of retries, the plugin doesn't retry the rename replication operation. This results in
+primary and replica instances being out of sync. The admin then will have to consider the following
+steps:
 
 1. Start replication on the renamed project from the primary side. For more information, see the
 [replication start command](../../replication/Documentation/cmd-start.md).
