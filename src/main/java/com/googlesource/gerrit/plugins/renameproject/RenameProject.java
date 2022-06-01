@@ -53,8 +53,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.transport.URIish;
 import org.slf4j.Logger;
@@ -239,7 +241,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
 
       // replicate rename-project operation to other replica instances
-      replicateRename(sshHelper, input, oldProjectKey);
+      replicateRename(sshHelper, input, oldProjectKey, pm);
     } catch (Exception e) {
       if (stepsPerformed.isEmpty()) {
         log.error("Renaming procedure failed. Exception caught: {}", e.toString());
@@ -338,8 +340,37 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     return dbHandler.getChangeIds(oldProjectKey);
   }
 
-  void replicateRename(SshHelper sshHelper, Input input, Project.NameKey oldProjectKey) {
-    for (String url : cfg.getUrls()) {
+  void replicateRename(
+      SshHelper sshHelper,
+      Input input,
+      Project.NameKey oldProjectKey,
+      Optional<ProgressMonitor> opm) {
+    opm.ifPresent(
+        pm ->
+            pm.beginTask(
+                String.format(
+                    "Replicating the rename of %s to %s", oldProjectKey.get(), input.name)));
+
+    Set<String> urls = cfg.getUrls();
+    int nbRetries = cfg.getRenameReplicationRetries();
+
+    for (int i = 0; i < nbRetries && urls.size() > 0; ++i) {
+      urls = tryRenameReplication(urls, sshHelper, input, oldProjectKey);
+    }
+    for (String url : urls) {
+      log.error(
+          "Failed to replicate the renaming of {} to {} on {} during {} attempts",
+          oldProjectKey.get(),
+          input.name,
+          url,
+          cfg.getUrls());
+    }
+  }
+
+  private Set<String> tryRenameReplication(
+      Set<String> replicas, SshHelper sshHelper, Input input, Project.NameKey oldProjectKey) {
+    Set<String> failedReplicas = new HashSet<>();
+    for (String url : replicas) {
       try {
         OutputStream errStream = sshHelper.newErrorBufferStream();
         sshHelper.executeRemoteSsh(
@@ -351,8 +382,13 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
           throw new RenameReplicationException(errorMessage);
         }
       } catch (IOException | URISyntaxException | RenameReplicationException e) {
-        log.error("Failed to replicate rename to {}: {}", url, e.getMessage());
+        log.info(
+            "Rescheduling a rename replication for retry for {} on project {}",
+            url,
+            oldProjectKey.get());
+        failedReplicas.add(url);
       }
     }
+    return failedReplicas;
   }
 }
