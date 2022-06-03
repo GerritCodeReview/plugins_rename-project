@@ -148,6 +148,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e6a6242_53844c48",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-03T19:40:09Z",
+      "side": 1,
+      "message": "Do you mean to remove the retry?",
+      "parentUuid": "ef3ee57b_2885677c",
+      "range": {
+        "startLine": 376,
+        "startChar": 44,
+        "endLine": 376,
+        "endChar": 45
+      },
+      "revId": "6ae1e1f685ee139bc2bd40d5ea79b6b166864f56",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "887b6ec3_686d07f8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-03T19:40:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7edc89c8_1df2e4dc",
+      "range": {
+        "startLine": 376,
+        "startChar": 13,
+        "endLine": 376,
+        "endChar": 24
+      },
+      "revId": "6ae1e1f685ee139bc2bd40d5ea79b6b166864f56",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ea06346_b547bef8",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/SshHelper.java",
         "patchSetId": 1
