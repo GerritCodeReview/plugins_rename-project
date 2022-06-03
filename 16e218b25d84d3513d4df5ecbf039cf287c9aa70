@@ -39,6 +39,24 @@
       "message": "I removed the ticket to not keep it exposed",
       "revId": "16e218b25d84d3513d4df5ecbf039cf287c9aa70",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30d42bde_8aa6d03d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-03T19:28:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c8597b0d_6af3726b",
+      "revId": "16e218b25d84d3513d4df5ecbf039cf287c9aa70",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
