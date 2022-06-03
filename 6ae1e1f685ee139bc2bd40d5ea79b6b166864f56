@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "712328e9_b6c52c0e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-03T17:45:10Z",
+      "side": 1,
+      "message": "Just a suggestion, maybe in the follow up we can add progressMonitor?",
+      "revId": "6ae1e1f685ee139bc2bd40d5ea79b6b166864f56",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2a2c86a_4173e7e0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-03T17:45:10Z",
+      "side": 1,
+      "message": "after",
+      "range": {
+        "startLine": 352,
+        "startChar": 62,
+        "endLine": 352,
+        "endChar": 69
+      },
+      "revId": "6ae1e1f685ee139bc2bd40d5ea79b6b166864f56",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7edc89c8_1df2e4dc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-03T17:45:10Z",
+      "side": 1,
+      "message": "Rescheduling?",
+      "range": {
+        "startLine": 376,
+        "startChar": 13,
+        "endLine": 376,
+        "endChar": 24
+      },
+      "revId": "6ae1e1f685ee139bc2bd40d5ea79b6b166864f56",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef3ee57b_2885677c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-03T17:45:10Z",
+      "side": 1,
+      "message": "for",
+      "range": {
+        "startLine": 376,
+        "startChar": 44,
+        "endLine": 376,
+        "endChar": 45
+      },
+      "revId": "6ae1e1f685ee139bc2bd40d5ea79b6b166864f56",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ea06346_b547bef8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/SshHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-03T17:45:10Z",
+      "side": 1,
+      "message": "If for test add @VisibleForTesting ?",
+      "revId": "6ae1e1f685ee139bc2bd40d5ea79b6b166864f56",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ff9358d_d727bd20",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/SshHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-03T17:45:10Z",
+      "side": 1,
+      "message": "This was changed for test?",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 90,
+        "endChar": 9
+      },
+      "revId": "6ae1e1f685ee139bc2bd40d5ea79b6b166864f56",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b2afae6_872ddd55",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-03T17:45:10Z",
+      "side": 1,
+      "message": "Will we have a test where it fails once then it doesnt?",
+      "revId": "6ae1e1f685ee139bc2bd40d5ea79b6b166864f56",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
