@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b241491e_1b24e138",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-09T18:38:07Z",
+      "side": 1,
+      "message": "I think remove. Sounds weird if you read it",
+      "range": {
+        "startLine": 46,
+        "startChar": 28,
+        "endLine": 46,
+        "endChar": 32
+      },
+      "revId": "a9281903c344586bcdba68a5ade4b0f32808641b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa29fe2c_3e20da0f",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-09T18:38:07Z",
+      "side": 1,
+      "message": "2 spaces?",
+      "range": {
+        "startLine": 46,
+        "startChar": 26,
+        "endLine": 46,
+        "endChar": 28
+      },
+      "revId": "a9281903c344586bcdba68a5ade4b0f32808641b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}

@@ -189,6 +189,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "360f8213_36a4560e",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-09T18:38:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "95d77c66_10ecce45",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7af24feb_8dbfdd90",
