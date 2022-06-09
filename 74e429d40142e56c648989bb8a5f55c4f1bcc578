@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a59e5bb3_3c192920",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-09T15:31:30Z",
+      "side": 1,
+      "message": "as provided by",
+      "range": {
+        "startLine": 45,
+        "startChar": 58,
+        "endLine": 45,
+        "endChar": 59
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "259ea89e_c6b13d3c",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-09T15:31:30Z",
+      "side": 1,
+      "message": "parameter?",
+      "range": {
+        "startLine": 45,
+        "startChar": 98,
+        "endLine": 45,
+        "endChar": 99
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7e9eef1_7ffe0f4e",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-09T15:31:30Z",
+      "side": 1,
+      "message": ".",
+      "range": {
+        "startLine": 46,
+        "startChar": 47,
+        "endLine": 46,
+        "endChar": 48
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "168cde0e_e9ccc170",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-09T15:31:30Z",
+      "side": 1,
+      "message": ".It",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7af24feb_8dbfdd90",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-09T15:31:30Z",
+      "side": 1,
+      "message": "The default value is",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 40
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19b89593_01584f1e",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-09T15:31:30Z",
+      "side": 1,
+      "message": "not needed",
+      "range": {
+        "startLine": 46,
+        "startChar": 48,
+        "endLine": 47,
+        "endChar": 8
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1f7ae5d_49c9892f",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2022-06-09T15:31:30Z",
+      "side": 1,
+      "message": "stops retrying ... and logs the error?",
+      "range": {
+        "startLine": 48,
+        "startChar": 30,
+        "endLine": 48,
+        "endChar": 43
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
