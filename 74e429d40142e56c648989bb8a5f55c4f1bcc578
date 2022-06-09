@@ -47,6 +47,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6d8bbef_59ccf649",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-09T17:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "259ea89e_c6b13d3c",
+      "range": {
+        "startLine": 45,
+        "startChar": 98,
+        "endLine": 45,
+        "endChar": 99
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f81087f0_5ecde82e",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-09T17:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a59e5bb3_3c192920",
+      "range": {
+        "startLine": 45,
+        "startChar": 58,
+        "endLine": 45,
+        "endChar": 59
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7e9eef1_7ffe0f4e",
@@ -83,6 +131,54 @@
       "writtenOn": "2022-06-09T15:31:30Z",
       "side": 1,
       "message": ".It",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "447ac81d_2123d1a7",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-09T17:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7e9eef1_7ffe0f4e",
+      "range": {
+        "startLine": 46,
+        "startChar": 47,
+        "endLine": 46,
+        "endChar": 48
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95d77c66_10ecce45",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-09T17:58:11Z",
+      "side": 1,
+      "message": "I rephrased the sentence.",
+      "parentUuid": "168cde0e_e9ccc170",
       "range": {
         "startLine": 46,
         "startChar": 0,
@@ -139,6 +235,54 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6caebb5c_84c52a2a",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-09T17:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19b89593_01584f1e",
+      "range": {
+        "startLine": 46,
+        "startChar": 48,
+        "endLine": 47,
+        "endChar": 8
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03d53011_bd40db79",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-09T17:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7af24feb_8dbfdd90",
+      "range": {
+        "startLine": 47,
+        "startChar": 10,
+        "endLine": 47,
+        "endChar": 40
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1f7ae5d_49c9892f",
@@ -152,6 +296,30 @@
       "writtenOn": "2022-06-09T15:31:30Z",
       "side": 1,
       "message": "stops retrying ... and logs the error?",
+      "range": {
+        "startLine": 48,
+        "startChar": 30,
+        "endLine": 48,
+        "endChar": 43
+      },
+      "revId": "74e429d40142e56c648989bb8a5f55c4f1bcc578",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62ff77e1_b4d5dd4e",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1122032
+      },
+      "writtenOn": "2022-06-09T17:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1f7ae5d_49c9892f",
       "range": {
         "startLine": 48,
         "startChar": 30,
