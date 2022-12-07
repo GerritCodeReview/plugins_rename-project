@@ -94,10 +94,10 @@ public class DatabaseRenameHandler {
   private List<Change.Id> getChangeIdsFromReviewDb(Project.NameKey oldProjectKey, ReviewDb db)
       throws OrmException {
     List<Change.Id> changeIds = new ArrayList<>();
-    Connection conn = ((JdbcSchema) db).getConnection();
     String query =
         "select change_id from changes where dest_project_name ='" + oldProjectKey.get() + "';";
-    try (Statement stmt = conn.createStatement();
+    try (Connection conn = ((JdbcSchema) db).getConnection();
+        Statement stmt = conn.createStatement();
         ResultSet changes = stmt.executeQuery(query)) {
       while (changes != null && changes.next()) {
         Change.Id changeId = new Change.Id(changes.getInt(1));
@@ -153,8 +153,8 @@ public class DatabaseRenameHandler {
       Project.NameKey newProjectKey,
       ReviewDb db)
       throws OrmException {
-    Connection conn = ((JdbcSchema) db).getConnection();
-    try (Statement stmt = conn.createStatement()) {
+    try (Connection conn = ((JdbcSchema) db).getConnection();
+        Statement stmt = conn.createStatement()) {
       conn.setAutoCommit(false);
       try {
         try {
