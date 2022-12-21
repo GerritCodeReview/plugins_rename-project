@@ -93,6 +93,7 @@ public class DatabaseRenameHandler {
       List<Change.Id> changes, Project.NameKey newProjectKey, Optional<ProgressMonitor> opm)
       throws RenameRevertException, IOException, ConfigInvalidException {
     opm.ifPresent(pm -> pm.beginTask("Updating changes in the database"));
+
     log.debug("Updating the changes in noteDb related to project {}", oldProjectKey.get());
     try {
       updateWatchEntries(newProjectKey);
