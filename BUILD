@@ -14,6 +14,7 @@ gerrit_plugin(
         "Gerrit-PluginName: rename-project",
         "Gerrit-Module: com.googlesource.gerrit.plugins.renameproject.Module",
         "Gerrit-SshModule: com.googlesource.gerrit.plugins.renameproject.SshModule",
+        "Gerrit-HttpModule: com.googlesource.gerrit.plugins.renameproject.HttpModule",
     ],
     resources = glob(["src/main/resources/**/*"]),
 )
