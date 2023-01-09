@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.renameproject;
 
 import com.google.common.base.CharMatcher;
+import com.google.common.base.Strings;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
@@ -24,17 +25,31 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Singleton
 public class Configuration {
+  private static final Logger log = LoggerFactory.getLogger(Configuration.class);
   private static final int DEFAULT_SSH_CONNECTION_TIMEOUT_MS = 2 * 60 * 1000; // 2 minutes
+  private static final int DEFAULT_TIMEOUT_MS = 5000;
   private static final String URL_KEY = "url";
+  private static final String USER_KEY = "user";
+  private static final String PASSWORD_KEY = "password";
+  private static final String CONNECTION_TIMEOUT_KEY = "connectionTimeout";
+  private static final String SOCKET_TIMEOUT_KEY = "socketTimeout";
+  private static final String HTTP_SECTION = "http";
+  private static final String REPLICA_SECTION = "replicaInfo";
 
   private final int indexThreads;
   private final int sshCommandTimeout;
   private final int sshConnectionTimeout;
-  private final String renameRegex;
   private final int renameReplicationRetries;
+  private final int connectionTimeout;
+  private final int socketTimeout;
+  private final String renameRegex;
+  private final String user;
+  private final String password;
 
   private final Set<String> urls;
 
@@ -46,7 +61,10 @@ public class Configuration {
     sshConnectionTimeout = cfg.getInt("sshConnectionTimeout", DEFAULT_SSH_CONNECTION_TIMEOUT_MS);
     renameRegex = cfg.getString("renameRegex", ".+");
     renameReplicationRetries = cfg.getInt("renameReplicationRetries", 3);
-
+    user = Strings.nullToEmpty(cfg.getString(USER_KEY, null));
+    password = Strings.nullToEmpty(cfg.getString(PASSWORD_KEY, null));
+    connectionTimeout = cfg.getInt(CONNECTION_TIMEOUT_KEY, DEFAULT_TIMEOUT_MS);
+    socketTimeout = cfg.getInt(SOCKET_TIMEOUT_KEY, DEFAULT_TIMEOUT_MS);
     urls =
         Arrays.stream(cfg.getStringList(URL_KEY))
             .filter(Objects::nonNull)
@@ -77,5 +95,21 @@ public class Configuration {
 
   public int getRenameReplicationRetries() {
     return renameReplicationRetries;
+  }
+
+  public String user() {
+    return user;
+  }
+
+  public String password() {
+    return password;
+  }
+
+  public int connectionTimeout() {
+    return connectionTimeout;
+  }
+
+  public int socketTimeout() {
+    return socketTimeout;
   }
 }

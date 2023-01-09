@@ -22,6 +22,8 @@ POST /projects/project-1/@PLUGIN@~rename HTTP/1.1
 ```
 to rename project-1 to project-2.
 
+The same request is used in replica mode.
+
 By default, if project-1 has more than 5000 changes, the rename procedure will be cancelled as it
 can take longer time and can degrade in performance in that time frame.
 
