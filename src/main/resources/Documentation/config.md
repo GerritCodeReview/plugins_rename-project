@@ -21,9 +21,11 @@ For example:
   [plugin "@PLUGIN@"]
     url = ssh://admin@mirror1.us.some.org
     url = ssh://mirror2.us.some.org:29418
+    url = http://localhost:8080
 ```
+The plugin supports both http and ssh replication.
 
-To specify the port number, it is required to put the `ssh://` prefix followed by hostname and then
+To configure ssh replication specify the port number, and it is required to put the `ssh://` prefix followed by hostname and then
 port number after `:`. It is also possible to specify the ssh user by passing `USERNAME@` as a
 prefix for hostname.
 
@@ -34,15 +36,22 @@ by hand with the command line:
 ```
   sudo su -c 'ssh mirror1.us.some.org echo' gerrit2
 ```
-
 @PLUGIN@ plugin uses the ssh rename command towards the replica(s) with `--replication` option to
 replicate the rename operation. It is possible to customize the parameters of the underlying ssh
 client doing these calls by specifying the following fields:
-
 * `sshCommandTimeout` : Timeout for SSH command execution. If 0, there is no timeout, and
-the client waits indefinitely. By default, 0.
+  the client waits indefinitely. By default, 0.
 * `sshConnectionTimeout` : Timeout for SSH connections in minutes. If 0, there is no timeout, and
-the client waits indefinitely. By default, 2 minutes.
+  the client waits indefinitely. By default, 2 minutes.
+
+To configure http replication, provide the correct url. To cpecify username and password for replication for rename, add
+password and username in gerrit.config or secure.config.
+for example:
+```
+  [plugin "@PLUGIN@"]
+    user = username
+    password = userpassword
+```
 
 Provides a configuration to customize the number of rename replication retries. By default, 3.
 
