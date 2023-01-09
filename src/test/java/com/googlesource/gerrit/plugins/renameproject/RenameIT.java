@@ -15,6 +15,8 @@
 package com.googlesource.gerrit.plugins.renameproject;
 
 import static com.google.common.truth.Truth.assertThat;
+import static com.googlesource.gerrit.plugins.renameproject.RenameProject.RENAME_ACTION;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.atMostOnce;
 import static org.mockito.Mockito.mock;
@@ -23,7 +25,9 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.google.common.base.Joiner;
 import com.google.common.cache.Cache;
+import com.google.common.net.MediaType;
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.PushOneCommit.Result;
 import com.google.gerrit.acceptance.RestResponse;
@@ -36,13 +40,27 @@ import com.google.gerrit.entities.Change.Id;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.entities.Project.NameKey;
 import com.google.gerrit.extensions.client.ProjectWatchInfo;
+import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.server.project.ProjectState;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.renameproject.RenameProject.Input;
+import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Optional;
 import javax.inject.Named;
+import org.apache.http.HttpStatus;
+import org.apache.http.auth.AuthenticationException;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.auth.BasicScheme;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.transport.RemoteSession;
 import org.eclipse.jgit.transport.URIish;
@@ -51,7 +69,8 @@ import org.junit.Test;
 @TestPlugin(
     name = "rename-project",
     sysModule = "com.googlesource.gerrit.plugins.renameproject.Module",
-    sshModule = "com.googlesource.gerrit.plugins.renameproject.SshModule")
+    sshModule = "com.googlesource.gerrit.plugins.renameproject.SshModule",
+    httpModule = "com.googlesource.gerrit.plugins.renameproject.HttpModule")
 @UseSsh
 public class RenameIT extends LightweightPluginDaemonTest {
 
@@ -74,7 +93,6 @@ public class RenameIT extends LightweightPluginDaemonTest {
   public void testRenameViaSshSuccessful() throws Exception {
     createChange();
     adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME);
-
     adminSshSession.assertSuccess();
     Optional<ProjectState> projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
     assertThat(projectState.isPresent()).isTrue();
@@ -218,6 +236,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
   public void testReplicateRenameSucceedsThenEnds() throws Exception {
     RenameProject renameProject = plugin.getSysInjector().getInstance(RenameProject.class);
     SshHelper sshHelper = mock(SshHelper.class);
+    HttpSession httpSession = mock(HttpSession.class);
     OutputStream errStream = mock(OutputStream.class);
     Input input = new Input();
     input.name = NEW_PROJECT_NAME;
@@ -227,7 +246,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
     when(sshHelper.newErrorBufferStream()).thenReturn(errStream);
     when(errStream.toString()).thenReturn("");
 
-    renameProject.replicateRename(sshHelper, input, project, Optional.empty());
+    renameProject.replicateRename(sshHelper, httpSession, input, project, Optional.empty());
     verify(sshHelper, atMostOnce())
         .executeRemoteSsh(eq(new URIish(URL)), eq(expectedCommand), eq(errStream));
   }
@@ -239,13 +258,14 @@ public class RenameIT extends LightweightPluginDaemonTest {
     RenameProject renameProject = plugin.getSysInjector().getInstance(RenameProject.class);
     RemoteSession session = mock(RemoteSession.class);
     SshHelper sshHelper = mock(SshHelper.class);
+    HttpSession httpSession = mock(HttpSession.class);
     OutputStream errStream = mock(OutputStream.class);
     when(sshHelper.newErrorBufferStream()).thenReturn(errStream);
     URIish urish = new URIish(URL);
     Input input = new Input();
     input.name = NEW_PROJECT_NAME;
     when(sshHelper.connect(eq(urish))).thenReturn(session);
-    renameProject.replicateRename(sshHelper, input, project, Optional.empty());
+    renameProject.replicateRename(sshHelper, httpSession, input, project, Optional.empty());
     String expectedCommand =
         PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME + " " + REPLICATION_OPTION;
     verify(sshHelper, times(3)).executeRemoteSsh(eq(urish), eq(expectedCommand), eq(errStream));
@@ -256,6 +276,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
   public void testReplicateRenameNeverCalled() throws Exception {
     RenameProject renameProject = plugin.getSysInjector().getInstance(RenameProject.class);
     SshHelper sshHelper = mock(SshHelper.class);
+    HttpSession httpSession = mock(HttpSession.class);
     OutputStream errStream = mock(OutputStream.class);
 
     Input input = new Input();
@@ -266,7 +287,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
     when(sshHelper.newErrorBufferStream()).thenReturn(errStream);
     when(errStream.toString()).thenReturn("");
 
-    renameProject.replicateRename(sshHelper, input, project, Optional.empty());
+    renameProject.replicateRename(sshHelper, httpSession, input, project, Optional.empty());
     verify(sshHelper, never())
         .executeRemoteSsh(eq(new URIish(URL)), eq(expectedCommand), eq(errStream));
   }
@@ -320,6 +341,80 @@ public class RenameIT extends LightweightPluginDaemonTest {
     assertThat(projectState.isPresent()).isTrue();
     assertThat(queryProvider.get().byProject(project)).isEmpty();
     assertThat(queryProvider.get().byProject(Project.nameKey(NEW_PROJECT_NAME))).isNotEmpty();
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "container.replica", value = "true")
+  public void testRenameViaHttpInReplica() {
+    try {
+      assertThat(renameTest()).isTrue();
+    } catch (UnsupportedEncodingException e) {
+      throw new RuntimeException(e);
+    } catch (AuthenticationException e) {
+      System.out.println("auth");
+    }
+  }
+
+  @Test
+  @UseLocalDisk
+  //  @GerritConfig(name = "container.replica", value = "false")
+  @GerritConfig(name = "plugin.rename-project.url", value = "http://localhost:39959/")
+  public void replicateRenameViaHttp()
+      throws AuthenticationException, IOException, RenameReplicationException {
+    RenameProject renameProject = plugin.getSysInjector().getInstance(RenameProject.class);
+    String request =
+        Joiner.on("/")
+            .join(
+                "http://localhost:39959",
+                "a",
+                "projects",
+                project.get(),
+                PLUGIN_NAME + "~" + RENAME_ACTION);
+    HttpSession httpSession = mock(HttpSession.class);
+    HttpResponseHandler.HttpResult dummyResult = mock(HttpResponseHandler.HttpResult.class);
+    Input input = new Input();
+    input.name = NEW_PROJECT_NAME;
+    when(httpSession.post(any(), any())).thenReturn(dummyResult);
+    when(dummyResult.isSuccessful()).thenReturn(true);
+    renameProject.httpReplicateRename(httpSession, input, project, "http://localhost:39959");
+    verify(httpSession, times(1)).post(eq(request), eq(input));
+  }
+
+  private boolean renameTest() throws UnsupportedEncodingException, AuthenticationException {
+    String body = "{\"name\"=\"" + NEW_PROJECT_NAME + "\"}";
+    String endPoint = "a/projects/" + project.get() + "/" + PLUGIN_NAME + "~rename";
+    HttpPost putRequest = new HttpPost(canonicalWebUrl.get() + endPoint);
+
+    UsernamePasswordCredentials creds =
+        new UsernamePasswordCredentials(admin.username(), admin.httpPassword());
+    putRequest.addHeader(new BasicScheme().authenticate(creds, putRequest, null));
+    putRequest.setHeader("Accept", MediaType.ANY_TEXT_TYPE.toString());
+    putRequest.setHeader("Content-type", "application/json");
+    putRequest.setEntity(new StringEntity(body));
+    try {
+      executeRequest(putRequest);
+    } catch (RestApiException restApiException) {
+      return false;
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return true;
+  }
+
+  private void executeRequest(HttpRequestBase request) throws IOException, RestApiException {
+    try (CloseableHttpClient client =
+        HttpClientBuilder.create().build()) {
+
+      CloseableHttpResponse response = client.execute(request);
+      int code = response.getStatusLine().getStatusCode();
+      if (code != HttpStatus.SC_OK && code != HttpStatus.SC_CREATED) {
+        return code;
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+      throw e;
+    }
   }
 
   private RestResponse renameProjectTo(String newName) throws Exception {
