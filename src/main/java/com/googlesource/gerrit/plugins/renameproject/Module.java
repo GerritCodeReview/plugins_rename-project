@@ -49,7 +49,7 @@ public class Module extends AbstractModule {
     bind(IndexUpdateHandler.class);
     bind(RevertRenameProject.class);
     bind(SshSessionFactory.class).toProvider(RenameReplicationSshSessionFactoryProvider.class);
-
+    install(new RestRenameReplicationModule());
     install(
         new RestApiModule() {
           @Override
