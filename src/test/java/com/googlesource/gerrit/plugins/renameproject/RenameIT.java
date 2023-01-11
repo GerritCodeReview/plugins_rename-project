@@ -50,6 +50,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Optional;
 import javax.inject.Named;
+
+import org.apache.http.HttpStatus;
 import org.apache.http.auth.AuthenticationException;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -76,7 +78,6 @@ public class RenameIT extends LightweightPluginDaemonTest {
   private static final String NEW_PROJECT_NAME = "newProject";
   private static final String NON_EXISTING_NAME = "nonExistingProject";
   private static final String CACHE_NAME = "changeid_project";
-  private static final String REPLICATION_OPTION = "--replication";
   private static final String URL = "ssh://localhost:29418";
   private static final String RENAME_REGEX = "[a-zA-Z]+";
 
@@ -103,19 +104,17 @@ public class RenameIT extends LightweightPluginDaemonTest {
   @UseLocalDisk
   public void testRenameReplicationViaSshNotAdminUser() throws Exception {
     createChange();
-    userSshSession.exec(
-        PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME + " " + REPLICATION_OPTION);
+    userSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME);
 
     userSshSession.assertFailure();
-    assertThat(userSshSession.getError()).contains("Not allowed to replicate rename");
+    assertThat(userSshSession.getError()).contains("Not allowed to rename project");
   }
 
   @Test
   @UseLocalDisk
   public void testRenameReplicationViaSshAdminUser() throws Exception {
     createChange();
-    adminSshSession.exec(
-        PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME + " " + REPLICATION_OPTION);
+    adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME);
 
     adminSshSession.assertSuccess();
     Optional<ProjectState> projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
@@ -157,8 +156,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
   @UseLocalDisk
   public void testRenameReplicationViaSshOnNonExisting() throws Exception {
     createChange();
-    adminSshSession.exec(
-        PLUGIN_NAME + " " + NON_EXISTING_NAME + " " + project.get() + " " + REPLICATION_OPTION);
+    adminSshSession.exec(PLUGIN_NAME + " " + NON_EXISTING_NAME + " " + project.get());
 
     assertThat(adminSshSession.getError()).contains("project " + NON_EXISTING_NAME + " not found");
     adminSshSession.assertFailure();
@@ -239,8 +237,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
     OutputStream errStream = mock(OutputStream.class);
     Input input = new Input();
     input.name = NEW_PROJECT_NAME;
-    String expectedCommand =
-        PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME + " " + REPLICATION_OPTION;
+    String expectedCommand = PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME;
 
     when(sshHelper.newErrorBufferStream()).thenReturn(errStream);
     when(errStream.toString()).thenReturn("");
@@ -265,8 +262,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
     input.name = NEW_PROJECT_NAME;
     when(sshHelper.connect(eq(urish))).thenReturn(session);
     renameProject.replicateRename(sshHelper, httpSession, input, project, Optional.empty());
-    String expectedCommand =
-        PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME + " " + REPLICATION_OPTION;
+    String expectedCommand = PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME;
     verify(sshHelper, times(3)).executeRemoteSsh(eq(urish), eq(expectedCommand), eq(errStream));
   }
 
@@ -280,8 +276,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
     Input input = new Input();
     input.name = NEW_PROJECT_NAME;
-    String expectedCommand =
-        PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME + " " + REPLICATION_OPTION;
+    String expectedCommand = PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME;
 
     when(sshHelper.newErrorBufferStream()).thenReturn(errStream);
     when(errStream.toString()).thenReturn("");
@@ -392,18 +387,24 @@ public class RenameIT extends LightweightPluginDaemonTest {
     putRequest.setHeader("Content-type", "application/json");
     putRequest.setEntity(new StringEntity(body));
     try {
-      executeRequest(putRequest);
-    } catch (RestApiException restApiException) {
-      return false;
-    } catch (IOException e) {
+      int code = executeRequest(putRequest);
+      if (code != HttpStatus.SC_OK && code != HttpStatus.SC_CREATED) {
+        return false;
+      } else {
+        return true;
+      }
+    } catch (RestApiException | IOException e) {
       e.printStackTrace();
     }
-    return true;
+    return false;
   }
 
-  private void executeRequest(HttpRequestBase request) throws IOException, RestApiException {
-    try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
-      client.execute(request);
+  private int executeRequest(HttpRequestBase request) throws IOException, RestApiException {
+    try (CloseableHttpClient client =
+        HttpClientBuilder.create().build()) {
+      CloseableHttpResponse response = client.execute(request);
+      int code = response.getStatusLine().getStatusCode();
+      return code;
     } catch (IOException e) {
       e.printStackTrace();
       throw e;
