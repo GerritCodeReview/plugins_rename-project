@@ -97,19 +97,19 @@ public class Configuration {
     return renameReplicationRetries;
   }
 
-  public String user() {
+  public String getUser() {
     return user;
   }
 
-  public String password() {
+  public String getPassword() {
     return password;
   }
 
-  public int connectionTimeout() {
+  public int getConnectionTimeout() {
     return connectionTimeout;
   }
 
-  public int socketTimeout() {
+  public int getSocketTimeout() {
     return socketTimeout;
   }
 }
