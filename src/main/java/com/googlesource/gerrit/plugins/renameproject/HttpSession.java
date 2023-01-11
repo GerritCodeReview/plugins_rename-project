@@ -45,7 +45,8 @@ public class HttpSession {
 
   public HttpResult post(String uri, Object content) throws IOException, AuthenticationException {
     HttpPost post = new HttpPost(uri);
-    UsernamePasswordCredentials creds = new UsernamePasswordCredentials(cfg.user(), cfg.password());
+    UsernamePasswordCredentials creds =
+        new UsernamePasswordCredentials(cfg.getUser(), cfg.getPassword());
     post.addHeader(new BasicScheme().authenticate(creds, post, null));
     setContent(post, content);
 

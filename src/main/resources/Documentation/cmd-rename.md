@@ -11,7 +11,6 @@ SYNOPSIS
 ssh -p @SSH_PORT@ @SSH_HOST@ @PLUGIN@
   <PROJECT>
   <NEWNAME>
-  [--replication]
 ```
 
 DESCRIPTION
@@ -28,15 +27,6 @@ capability.
 SCRIPTING
 ---------
 This command is intended to be used in scripts.
-
-
-OPTIONS
--------
-`--replication`
-:   To perform only file system rename. This option is used for replication of
-    rename operation to other replica instances. This command should not be used
-    towards non-replica instances. This option requires the user to have admin
-    permissions.
 
 EXAMPLES
 --------
