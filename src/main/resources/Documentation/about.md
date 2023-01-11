@@ -66,6 +66,3 @@ allowed to rename their own projects if they are members of a group that
 is granted the 'Rename Own Project' capability (provided by this
 plugin). However, because of all the caveats of this plugin, it is not
 recommended to delegate the 'Rename Project' capability to any non-admin user.
-
-As previously described, this plugin is capable of performing only file system rename, if a user is
-an admin user and if the `--replication` option is used.
