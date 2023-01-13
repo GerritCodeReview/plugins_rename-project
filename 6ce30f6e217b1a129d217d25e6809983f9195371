@@ -16,6 +16,23 @@
       "message": "Noop change",
       "revId": "6ce30f6e217b1a129d217d25e6809983f9195371",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "611b2a21_64fdd994",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-01-13T10:10:17Z",
+      "side": 1,
+      "message": "Apologize, I can\u0027t provide +2.\nBut I checked the change brought plugin to what is in master. So I can provide +2.",
+      "revId": "6ce30f6e217b1a129d217d25e6809983f9195371",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
