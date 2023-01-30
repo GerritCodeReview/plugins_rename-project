@@ -1,4 +1,4 @@
-// Copyright (C) 2020 The Android Open Source Project
+// Copyright (C) 2023 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,41 +14,50 @@
 
 package com.googlesource.gerrit.plugins.renameproject.scenarios
 
-import com.google.gerrit.scenarios.{CreateProject, DeleteProject, GerritSimulation}
-import io.gatling.core.Predef._
+import com.google.gerrit.scenarios.{CreateProject, DeleteProject, GitSimulation}
+import io.gatling.core.Predef.{atOnceUsers, _}
 import io.gatling.core.feeder.FeederBuilder
 import io.gatling.core.structure.ScenarioBuilder
 
 import scala.concurrent.duration._
 
-class RenameProject extends GerritSimulation {
+class CheckRenameProjectHttp extends GitSimulation {
   private val data: FeederBuilder = jsonFile(resource).convert(keys).queue
-  private val renamedTo = uniqueName
+  private val projectRenamed = projectName + "-renamed"
+
+  private lazy val replicationDuration = replicationDelay + SecondsPerWeightUnit
+
+  override def relativeRuntimeWeight: Int = replicationDuration / SecondsPerWeightUnit + 2
 
   override def replaceOverride(in: String): String = {
-    val next = replaceKeyWith("_project", projectName, in)
-    replaceKeyWith("_renamed", renamedTo, next)
+    var next = replaceProperty("http_port1", 8081, in)
+    next = replaceKeyWith("renamed_project", projectRenamed, next)
+    super.replaceOverride(next)
   }
 
-  private val createProject = new CreateProject(projectName)
-  private val deleteProject = new DeleteProject(renamedTo)
-
   private val test: ScenarioBuilder = scenario(uniqueName)
-    .feed(data)
-    .exec(httpRequest.body(ElFileBody(body)).asJson)
+      .feed(data)
+      .exec(gitRequest)
+
+  private val createProject = new CreateProject(projectName)
+  private val renameProjectHttp = new RenameProjectHttp(projectName)
+  private val deleteProject = new DeleteProject(projectRenamed)
 
   setUp(
     createProject.test.inject(
       nothingFor(stepWaitTime(createProject) seconds),
-      atOnceUsers(1)
+      atOnceUsers(single)
     ),
+    renameProjectHttp.test.inject(
+      nothingFor(stepWaitTime(renameProjectHttp) + replicationDuration seconds),
+      atOnceUsers(single)),
     test.inject(
-      nothingFor(stepWaitTime(this) seconds),
-      atOnceUsers(1)
-    ),
+      nothingFor(stepWaitTime(this) + replicationDuration seconds),
+      atOnceUsers(single)
+    ).protocols(gitProtocol),
     deleteProject.test.inject(
       nothingFor(stepWaitTime(deleteProject) seconds),
-      atOnceUsers(1)
+      atOnceUsers(single)
     ),
   ).protocols(httpProtocol)
 }
