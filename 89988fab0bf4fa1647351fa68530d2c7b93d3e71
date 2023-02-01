@@ -16,6 +16,24 @@
       "message": "Just to confirm - the merge list contains details about 2.16 branch merge. Is it a compatible with 3.3 change?",
       "revId": "89988fab0bf4fa1647351fa68530d2c7b93d3e71",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6c4ebed_09be11cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-01T21:13:59Z",
+      "side": 1,
+      "message": "Its NoOp merge",
+      "parentUuid": "bcf40959_b662238f",
+      "revId": "89988fab0bf4fa1647351fa68530d2c7b93d3e71",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ],
   "submitRequirementResults": [
