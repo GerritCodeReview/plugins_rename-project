@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69766376_f0bbcf31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-08T14:20:48Z",
+      "side": 1,
+      "message": "I put -1 due to formatting in md files (I didn\u0027t know before).\nPlease could you take a look?\nOther than that looks good to me.",
+      "revId": "1ce0ad6d1534aa73b26eb42fd4fef4e0d16b7e1e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c098c31_019b4af3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-08T14:20:48Z",
+      "side": 1,
+      "message": "\u003cOptional\u003e\nI\u0027d change the name to mode self explained. I agree it might be a bit long, but it will be understandable during debugging for example.",
+      "range": {
+        "startLine": 90,
+        "startChar": 32,
+        "endLine": 90,
+        "endChar": 35
+      },
+      "revId": "1ce0ad6d1534aa73b26eb42fd4fef4e0d16b7e1e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f6debbd_4faaad31",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-08T14:20:48Z",
+      "side": 1,
+      "message": "suggestion from Khang (I probably agree with it):\nplease format text so the line is not wrapped to next line in gerrit review. Here the line 28 should end with `ssh://` and then move to next line.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "1ce0ad6d1534aa73b26eb42fd4fef4e0d16b7e1e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
