@@ -16,6 +16,115 @@
       "message": "need clarification regarding class inheritance",
       "revId": "9fbc6f3243337927011a916ce181c6f309dd780c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9706856_fa78d359",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-10T15:27:12Z",
+      "side": 1,
+      "message": "Looks good, just need to verify few comments",
+      "revId": "9fbc6f3243337927011a916ce181c6f309dd780c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc10c704_7ac5afcf",
+        "filename": "src/test/scala/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProjectHttp.scala",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-10T15:27:12Z",
+      "side": 1,
+      "message": "I think we need additional import:\n\nimport com.google.gerrit.scenarios.GitSimulation",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "9fbc6f3243337927011a916ce181c6f309dd780c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "086cbac8_5a937836",
+        "filename": "src/test/scala/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProjectHttp.scala",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-10T15:27:12Z",
+      "side": 1,
+      "message": "I think this import is not required. Please could you double check?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 34
+      },
+      "revId": "9fbc6f3243337927011a916ce181c6f309dd780c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c8ea241_7c8bcb46",
+        "filename": "src/test/scala/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProjectHttp.scala",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-10T15:27:12Z",
+      "side": 1,
+      "message": "could you please check if we need this line in a test?",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 67
+      },
+      "revId": "9fbc6f3243337927011a916ce181c6f309dd780c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e559450b_a67e4492",
+        "filename": "src/test/scala/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProjectHttp.scala",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-10T15:27:12Z",
+      "side": 1,
+      "message": "Not sure the import of class to itself is required.\nHow does it help?",
+      "range": {
+        "startLine": 33,
+        "startChar": 52,
+        "endLine": 83,
+        "endChar": 5
+      },
+      "revId": "9fbc6f3243337927011a916ce181c6f309dd780c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
