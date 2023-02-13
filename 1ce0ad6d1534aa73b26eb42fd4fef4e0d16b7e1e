@@ -41,6 +41,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cb0d095_8a6593af",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-13T21:55:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c098c31_019b4af3",
+      "range": {
+        "startLine": 90,
+        "startChar": 32,
+        "endLine": 90,
+        "endChar": 35
+      },
+      "revId": "1ce0ad6d1534aa73b26eb42fd4fef4e0d16b7e1e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f6debbd_4faaad31",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-08T14:20:48Z",
       "side": 1,
       "message": "suggestion from Khang (I probably agree with it):\nplease format text so the line is not wrapped to next line in gerrit review. Here the line 28 should end with `ssh://` and then move to next line.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "1ce0ad6d1534aa73b26eb42fd4fef4e0d16b7e1e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb8ddd54_b45e6e1e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-13T21:55:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f6debbd_4faaad31",
       "range": {
         "startLine": 28,
         "startChar": 0,
