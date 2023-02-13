@@ -63,6 +63,30 @@
       },
       "revId": "a267826d1d645c6a5197b962b5cda0c51f88ef17",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce79615a_117b3c06",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-02-13T12:58:02Z",
+      "side": 1,
+      "message": "It looks weird: if these methods are a part of current change, then their names do not follow getter convention. What is the purpose of adding them with name like this here, and fix their names as part of another change?\n\nIt is ok for me, but from what I know the method should be added with name, that follows naming convention.",
+      "parentUuid": "07222572_6829d23f",
+      "range": {
+        "startLine": 100,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 3
+      },
+      "revId": "a267826d1d645c6a5197b962b5cda0c51f88ef17",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
