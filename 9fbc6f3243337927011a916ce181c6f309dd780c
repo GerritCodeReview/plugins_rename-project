@@ -58,6 +58,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a8e8c5f_0a8a0aed",
+        "filename": "src/test/scala/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProjectHttp.scala",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-13T21:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc10c704_7ac5afcf",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "9fbc6f3243337927011a916ce181c6f309dd780c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "086cbac8_5a937836",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-02-10T15:27:12Z",
       "side": 1,
       "message": "I think this import is not required. Please could you double check?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 34
+      },
+      "revId": "9fbc6f3243337927011a916ce181c6f309dd780c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebf480b0_5d7bd251",
+        "filename": "src/test/scala/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProjectHttp.scala",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-13T21:03:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "086cbac8_5a937836",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -104,6 +152,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "197ec022_c11ff56b",
+        "filename": "src/test/scala/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProjectHttp.scala",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-13T21:03:50Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "8c8ea241_7c8bcb46",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 67
+      },
+      "revId": "9fbc6f3243337927011a916ce181c6f309dd780c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e559450b_a67e4492",
@@ -117,6 +189,30 @@
       "writtenOn": "2023-02-10T15:27:12Z",
       "side": 1,
       "message": "Not sure the import of class to itself is required.\nHow does it help?",
+      "range": {
+        "startLine": 33,
+        "startChar": 52,
+        "endLine": 83,
+        "endChar": 5
+      },
+      "revId": "9fbc6f3243337927011a916ce181c6f309dd780c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84a43c05_c5f9dcd8",
+        "filename": "src/test/scala/com/googlesource/gerrit/plugins/renameproject/scenarios/RenameProjectHttp.scala",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-13T21:03:50Z",
+      "side": 1,
+      "message": "For method this?",
+      "parentUuid": "e559450b_a67e4492",
       "range": {
         "startLine": 33,
         "startChar": 52,
