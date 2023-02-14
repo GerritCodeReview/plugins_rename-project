@@ -87,6 +87,30 @@
       },
       "revId": "a267826d1d645c6a5197b962b5cda0c51f88ef17",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d44e738e_a3f7077f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-14T21:24:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce79615a_117b3c06",
+      "range": {
+        "startLine": 100,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 3
+      },
+      "revId": "a267826d1d645c6a5197b962b5cda0c51f88ef17",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
