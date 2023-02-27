@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "883d4af3_2181647d",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-27T20:49:55Z",
+      "side": 1,
+      "message": "use httpsession class introduced, or remove magical numbers",
+      "range": {
+        "startLine": 406,
+        "startChar": 1,
+        "endLine": 415,
+        "endChar": 0
+      },
+      "revId": "e86becb1eccc8cb94b59ac425b305ac92d114c1b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3bf1957d_6146749d",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
         "patchSetId": 5
