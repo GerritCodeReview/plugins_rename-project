@@ -16,6 +16,24 @@
       "message": "removed?",
       "revId": "49c1e7186ccfbddcd4c17bc07831ea96076726c6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c34d6b3_8328b70f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-27T21:09:12Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "731dffa1_85db839d",
+      "revId": "49c1e7186ccfbddcd4c17bc07831ea96076726c6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
