@@ -51,6 +51,24 @@
       "parentUuid": "4220592b_3388128d",
       "revId": "5f459c417c7cc7eed053d3feb1c2e79257356e59",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4203057e_2f9a6174",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameCommand.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-27T20:38:38Z",
+      "side": 1,
+      "message": "My bad I see the logic now.",
+      "parentUuid": "65938013_8b42a2a2",
+      "revId": "5f459c417c7cc7eed053d3feb1c2e79257356e59",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
