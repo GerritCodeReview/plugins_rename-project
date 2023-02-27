@@ -41,6 +41,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3b9884b_b1d39807",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/HttpModule.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-27T23:48:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ec11c84_50d38247",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "2fb9f50931a3e36202ad3002d1b9abcf7693c12e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "074ef9ab_a88f9b86",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-27T23:36:24Z",
       "side": 1,
       "message": "\"Not have enough privileges for this operation\"\n\nno need to tell that the instance is replica",
+      "range": {
+        "startLine": 82,
+        "startChar": 29,
+        "endLine": 82,
+        "endChar": 49
+      },
+      "revId": "2fb9f50931a3e36202ad3002d1b9abcf7693c12e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15de2feb_6082072f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-27T23:48:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "074ef9ab_a88f9b86",
       "range": {
         "startLine": 82,
         "startChar": 29,
@@ -81,6 +129,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a25f5d2_145f6161",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-27T23:48:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2930efa_8a08e755",
+      "revId": "2fb9f50931a3e36202ad3002d1b9abcf7693c12e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b84d74d8_98349c10",
@@ -94,6 +160,30 @@
       "writtenOn": "2023-02-27T23:36:24Z",
       "side": 1,
       "message": "move up since they are static",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 98
+      },
+      "revId": "2fb9f50931a3e36202ad3002d1b9abcf7693c12e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b858f36_aa696a6d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProjectFilter.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1152600
+      },
+      "writtenOn": "2023-02-27T23:48:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b84d74d8_98349c10",
       "range": {
         "startLine": 52,
         "startChar": 0,
