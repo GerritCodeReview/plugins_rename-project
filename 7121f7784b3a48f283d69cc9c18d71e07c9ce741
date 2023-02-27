@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d181556_90027ae6",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-27T21:24:21Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "7121f7784b3a48f283d69cc9c18d71e07c9ce741",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a5fd97b_350e221a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-27T21:24:21Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "7121f7784b3a48f283d69cc9c18d71e07c9ce741",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca0dbc02_e7c5c68e",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-27T21:24:21Z",
+      "side": 1,
+      "message": "one line:\n\ntry (CloseableHttpClient client \u003d HttpClientBuilder.create().build()) {",
+      "range": {
+        "startLine": 406,
+        "startChar": 3,
+        "endLine": 407,
+        "endChar": 45
+      },
+      "revId": "7121f7784b3a48f283d69cc9c18d71e07c9ce741",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
