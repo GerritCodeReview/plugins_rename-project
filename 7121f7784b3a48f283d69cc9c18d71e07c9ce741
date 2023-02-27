@@ -56,6 +56,40 @@
       },
       "revId": "7121f7784b3a48f283d69cc9c18d71e07c9ce741",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "675500d3_67e8e5b4",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-27T21:35:10Z",
+      "side": 1,
+      "message": "remove empty line",
+      "revId": "7121f7784b3a48f283d69cc9c18d71e07c9ce741",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d194bd32_acfde637",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-27T21:35:10Z",
+      "side": 1,
+      "message": "just client.execute(request);",
+      "revId": "7121f7784b3a48f283d69cc9c18d71e07c9ce741",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

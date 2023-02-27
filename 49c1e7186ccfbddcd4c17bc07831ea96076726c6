@@ -34,6 +34,23 @@
       "parentUuid": "731dffa1_85db839d",
       "revId": "49c1e7186ccfbddcd4c17bc07831ea96076726c6",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "368e8a65_55af5e15",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-27T21:35:10Z",
+      "side": 0,
+      "message": "removed for no reason",
+      "revId": "49c1e7186ccfbddcd4c17bc07831ea96076726c6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
