@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be9bff47_94d02cbb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-28T22:04:49Z",
+      "side": 1,
+      "message": "potential degradation scenario.\n\nA user who doesn\u0027t have any permission can trigger getChanges and load the system.",
+      "revId": "5783cbe8ef446d4ca15e95c42380a75d019d3d57",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
