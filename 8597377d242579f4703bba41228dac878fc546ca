@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "254f49cc_6a8d5c54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-28T22:34:59Z",
+      "side": 1,
+      "message": "remove from where?\n\nRemove replication option from the ssh command",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "8597377d242579f4703bba41228dac878fc546ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53a1769b_db1558df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-28T22:34:59Z",
+      "side": 1,
+      "message": "add more information what was done and the goal of this change (i.e. the parent change introduced isReplica which made the replication option obsolete)",
+      "revId": "8597377d242579f4703bba41228dac878fc546ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aa9ab77_f84ac700",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-02-28T22:34:59Z",
+      "side": 1,
+      "message": "Almost done",
+      "revId": "8597377d242579f4703bba41228dac878fc546ca",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
