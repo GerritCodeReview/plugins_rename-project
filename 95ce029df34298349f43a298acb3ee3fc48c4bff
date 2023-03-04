@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "105f0ca0_579ba41a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-03-04T16:52:08Z",
+      "side": 1,
+      "message": "Just a small minor fix is required",
+      "revId": "95ce029df34298349f43a298acb3ee3fc48c4bff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b72cf7a_1342d668",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1147792
+      },
+      "writtenOn": "2023-03-04T16:52:08Z",
+      "side": 1,
+      "message": "should be removed",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 9
+      },
+      "revId": "95ce029df34298349f43a298acb3ee3fc48c4bff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
