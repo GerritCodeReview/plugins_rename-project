@@ -16,7 +16,9 @@ gerrit_plugin(
         "Gerrit-SshModule: com.googlesource.gerrit.plugins.renameproject.SshModule",
         "Gerrit-HttpModule: com.googlesource.gerrit.plugins.renameproject.HttpModule",
     ],
+    resource_jars = ["//plugins/rename-project/web:gr-rename-repo"],
     resources = glob(["src/main/resources/**/*"]),
+    deps = ["@commons-io//jar"],
 )
 
 junit_tests(
@@ -32,6 +34,7 @@ java_library(
     visibility = ["//visibility:public"],
     exports = PLUGIN_DEPS + PLUGIN_TEST_DEPS + [
         ":rename-project__plugin",
+        "@commons-io//jar",
         "@mockito//jar",
     ],
 )

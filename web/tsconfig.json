@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig-plugins-base.json",
+  "compilerOptions": {
+    "outDir": "../../../.ts-out/plugins/rename-project", /* overridden by bazel */
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}
