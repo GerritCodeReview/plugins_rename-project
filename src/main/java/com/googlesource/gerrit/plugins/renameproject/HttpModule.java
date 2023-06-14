@@ -15,6 +15,8 @@
 package com.googlesource.gerrit.plugins.renameproject;
 
 import com.google.gerrit.extensions.registration.DynamicSet;
+import com.google.gerrit.extensions.webui.JavaScriptPlugin;
+import com.google.gerrit.extensions.webui.WebUiPlugin;
 import com.google.gerrit.httpd.AllRequestFilter;
 import com.google.gerrit.server.config.GerritIsReplica;
 import com.google.inject.Inject;
@@ -31,6 +33,8 @@ public class HttpModule extends ServletModule {
 
   @Override
   protected void configureServlets() {
+    DynamicSet.bind(binder(), WebUiPlugin.class)
+        .toInstance(new JavaScriptPlugin("gr-rename-repo.js"));
     if (isReplica) {
       DynamicSet.bind(binder(), AllRequestFilter.class)
           .to(RenameProjectFilter.class)

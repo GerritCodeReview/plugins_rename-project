@@ -54,7 +54,7 @@ public class Module extends AbstractModule {
         new RestApiModule() {
           @Override
           protected void configure() {
-            post(PROJECT_KIND, "rename").to(RenameProject.class);
+            post(PROJECT_KIND, "rename").to(RenameAction.class);
           }
         });
   }
