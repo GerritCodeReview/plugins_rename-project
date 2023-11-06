@@ -16,6 +16,24 @@
       "message": "does deps.bzl now need to track deps version of gerrit for in tree build?",
       "revId": "0d0a356efea57a6a4a21735e50ad40b5f1409ab2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c6376a1_11bbd95a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2023-11-06T19:22:06Z",
+      "side": 1,
+      "message": "- I think only if there are breaking changes in these libraries between the version used in gerrit core and this plugin\n- many plugins only provide an in-tree build\n- I renamed the bzl file to make clear to those who build the plugin in-tree that they don\u0027t need to call this bzl file from Gerrit core\u0027s external_plugin_deps.bzl, the same could be achieved by documenting this without renaming the file",
+      "parentUuid": "64e23201_93e47e60",
+      "revId": "0d0a356efea57a6a4a21735e50ad40b5f1409ab2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
