@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73280cdb_e0c6fb50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2023-11-06T14:01:50Z",
+      "side": 1,
+      "message": "The test failure is caused by I3724dfead29b5df1e9100a12d40fc7a1ffb59450.\nThomas has a fix he will upload soon.",
+      "revId": "b74df32282db49c78e273e0d534788d14d21ff88",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
