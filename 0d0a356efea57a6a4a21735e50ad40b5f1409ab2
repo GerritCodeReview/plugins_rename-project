@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64e23201_93e47e60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1083195
+      },
+      "writtenOn": "2023-11-06T18:27:15Z",
+      "side": 1,
+      "message": "does deps.bzl now need to track deps version of gerrit for in tree build?",
+      "revId": "0d0a356efea57a6a4a21735e50ad40b5f1409ab2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
