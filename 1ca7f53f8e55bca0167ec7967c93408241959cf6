@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d11025d2_0b6bdecb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010788
+      },
+      "writtenOn": "2024-02-01T13:50:44Z",
+      "side": 1,
+      "message": "This breaks the build with Gerrit `stable-3.7`:\n```\nplugins/rename-project/src/main/java/com/googlesource/gerrit/plugins/renameproject/SshModule.java:26: error: constructor SingleCommandPluginModule in class SingleCommandPluginModule cannot be applied to given types;\n    super(pluginName);\n    ^\n  required: no arguments\n  found: String\n  reason: actual and formal argument lists differ in length\nTarget //plugins/rename-project:rename-project failed to build\n```\n\nThe repository last branch is `stable-3.6` so I guess a `stable-3.7` one needs to be created?",
+      "revId": "1ca7f53f8e55bca0167ec7967c93408241959cf6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
