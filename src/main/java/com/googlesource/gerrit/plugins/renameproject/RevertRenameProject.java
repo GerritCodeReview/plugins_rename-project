@@ -84,7 +84,8 @@ public class RevertRenameProject {
             oldProjectKey.get());
       } catch (RenameRevertException | ConfigInvalidException e) {
         log.error(
-            "Failed to revert changes in DB for project {}. Secondary indexes not reverted. Exception caught: {}",
+            "Failed to revert changes in DB for project {}. Secondary indexes not reverted."
+                + " Exception caught: {}",
             oldProjectKey.get(),
             e.toString());
         throw e;

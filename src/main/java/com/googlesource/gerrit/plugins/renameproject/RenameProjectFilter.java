@@ -111,8 +111,12 @@ public class RenameProjectFilter extends AllRequestFilter {
   }
 
   private Response<String> renameProject(HttpServletRequest httpRequest)
-      throws RestApiException, IOException, PermissionBackendException, ConfigInvalidException,
-          RenameRevertException, InterruptedException {
+      throws RestApiException,
+          IOException,
+          PermissionBackendException,
+          ConfigInvalidException,
+          RenameRevertException,
+          InterruptedException {
     RenameProject.Input input = readJson(httpRequest, TypeLiteral.get(RenameProject.Input.class));
     IdString id = getProjectName(httpRequest).get();
 
