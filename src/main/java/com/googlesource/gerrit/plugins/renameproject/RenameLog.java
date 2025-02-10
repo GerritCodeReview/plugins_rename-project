@@ -22,6 +22,7 @@ import com.google.gerrit.json.OutputFormat;
 import com.google.gerrit.server.AuditEvent;
 import com.google.gerrit.server.IdentifiedUser;
 import com.google.gerrit.server.audit.AuditService;
+import com.google.gerrit.server.config.LogConfig;
 import com.google.gerrit.server.util.PluginLogFile;
 import com.google.gerrit.server.util.SystemLog;
 import com.google.gerrit.server.util.time.TimeUtil;
@@ -46,8 +47,18 @@ class RenameLog extends PluginLogFile {
   private final AuditService auditService;
 
   @Inject
-  public RenameLog(SystemLog systemLog, ServerInformation serverInfo, AuditService auditService) {
-    super(systemLog, serverInfo, RENAME_LOG_NAME, new RenameLogLayout());
+  public RenameLog(
+      SystemLog systemLog,
+      ServerInformation serverInfo,
+      AuditService auditService,
+      LogConfig config) {
+    super(
+        systemLog,
+        serverInfo,
+        RENAME_LOG_NAME,
+        new RenameLogLayout(),
+        new RenameJsonLogLayout(),
+        config);
     this.auditService = auditService;
   }
 
