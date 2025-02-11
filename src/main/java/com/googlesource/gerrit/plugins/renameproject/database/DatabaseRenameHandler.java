@@ -98,14 +98,16 @@ public class DatabaseRenameHandler {
       updateWatchEntries(newProjectKey);
     } catch (Exception e) {
       log.error(
-          "Failed to update changes in noteDb for project {}, exception caught: {}. Rolling back the operation.",
+          "Failed to update changes in noteDb for project {}, exception caught: {}. Rolling back"
+              + " the operation.",
           oldProjectKey.get(),
           e.toString());
       try {
         updateWatchEntries(newProjectKey);
       } catch (Exception revertEx) {
         log.error(
-            "Failed to rollback changes in noteDb from project {} to project {}, exception caught: {}",
+            "Failed to rollback changes in noteDb from project {} to project {}, exception caught:"
+                + " {}",
             newProjectKey.get(),
             oldProjectKey.get(),
             revertEx.toString());
@@ -149,7 +151,8 @@ public class DatabaseRenameHandler {
                         update.deleteProjectWatches(oldProjectWatches).build());
           } catch (ConfigInvalidException e) {
             log.error(
-                "Updating watch entry for user {} in project {} failed. Watch config found invalid.",
+                "Updating watch entry for user {} in project {} failed. Watch config found"
+                    + " invalid.",
                 a.userName(),
                 newProjectKey.get(),
                 e);

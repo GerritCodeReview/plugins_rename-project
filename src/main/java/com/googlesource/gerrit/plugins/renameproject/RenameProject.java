@@ -70,8 +70,13 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
 
   @Override
   public Response<?> apply(ProjectResource resource, Input input)
-      throws IOException, AuthException, BadRequestException, ResourceConflictException,
-          InterruptedException, ConfigInvalidException, RenameRevertException {
+      throws IOException,
+          AuthException,
+          BadRequestException,
+          ResourceConflictException,
+          InterruptedException,
+          ConfigInvalidException,
+          RenameRevertException {
     Optional<ProgressMonitor> optionalProgressMonitor = Optional.empty();
     assertCanRename(resource, input, optionalProgressMonitor);
     List<Id> changeIds = getChanges(resource, optionalProgressMonitor);
@@ -92,8 +97,13 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       Optional<ProgressMonitor> optionalProgressMonitor,
       boolean continueRename,
       List<Change.Id> changeIds)
-      throws ResourceConflictException, BadRequestException, AuthException, IOException,
-          ConfigInvalidException, RenameRevertException, InterruptedException {
+      throws ResourceConflictException,
+          BadRequestException,
+          AuthException,
+          IOException,
+          ConfigInvalidException,
+          RenameRevertException,
+          InterruptedException {
     if (!isReplica) {
       if (continueRename) {
         doRename(Optional.ofNullable(changeIds), resource, input, optionalProgressMonitor);
@@ -115,7 +125,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
 
   static final int WARNING_LIMIT = 5000;
   static final String CANCELLATION_MSG =
-      "Rename cancelled due to number of changes exceeding warning limit and user's will to not continue";
+      "Rename cancelled due to number of changes exceeding warning limit and user's will to not"
+          + " continue";
 
   private static final Logger log = LoggerFactory.getLogger(RenameProject.class);
   private static final String CACHE_NAME = "changeid_project";
