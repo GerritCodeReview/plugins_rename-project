@@ -48,11 +48,12 @@ public class FilesystemRenameHandler {
   public void rename(
       Project.NameKey oldProjectKey, Project.NameKey newProjectKey, Optional<ProgressMonitor> opm)
       throws IOException, RepositoryNotFoundException {
-    Repository repository = repoManager.openRepository(oldProjectKey);
-    File repoFile = repository.getDirectory();
-    RepositoryCache.close(repository);
-    opm.ifPresent(pm -> pm.beginTask("Renaming git repository"));
-    renameGitRepository(repoFile, newProjectKey, oldProjectKey);
+    try (Repository repository = repoManager.openRepository(oldProjectKey)) {
+      File repoFile = repository.getDirectory();
+      RepositoryCache.close(repository);
+      opm.ifPresent(pm -> pm.beginTask("Renaming git repository"));
+      renameGitRepository(repoFile, newProjectKey, oldProjectKey);
+    }
   }
 
   private void renameGitRepository(

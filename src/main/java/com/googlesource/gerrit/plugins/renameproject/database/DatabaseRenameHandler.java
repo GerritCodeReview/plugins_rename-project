@@ -43,6 +43,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.lib.Repository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -74,13 +75,14 @@ public class DatabaseRenameHandler {
     this.oldProjectKey = oldProjectKey;
 
     List<Change.Id> changeIds = new ArrayList<>();
-    Stream<ChangeNotesResult> changes =
-        schemaFactory.scan(repoManager.openRepository(oldProjectKey), oldProjectKey);
-    Iterator<ChangeNotesResult> iterator = changes.iterator();
-    while (iterator.hasNext()) {
-      ChangeNotesResult change = iterator.next();
-      Change.Id changeId = change.id();
-      changeIds.add(changeId);
+    try (Repository repo = repoManager.openRepository(oldProjectKey)) {
+      Stream<ChangeNotesResult> changes = schemaFactory.scan(repo, oldProjectKey);
+      Iterator<ChangeNotesResult> iterator = changes.iterator();
+      while (iterator.hasNext()) {
+        ChangeNotesResult change = iterator.next();
+        Change.Id changeId = change.id();
+        changeIds.add(changeId);
+      }
     }
     log.debug(
         "Number of changes in noteDb related to project {} are {}",
