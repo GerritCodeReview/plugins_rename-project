@@ -3,11 +3,11 @@
     "zuul-check:plugins_rename-project": {
       "state": "FAILED",
       "message": "Change failed",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/6a56b035713549a99c225740b520e840",
-      "started": "2025-02-25T18:00:51Z",
-      "finished": "2025-02-25T18:00:51Z",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/877c651e569b4d62966ac48a829846a5",
+      "started": "2025-02-25T18:01:19Z",
+      "finished": "2025-02-25T18:01:19Z",
       "created": "2025-02-10T10:09:33Z",
-      "updated": "2025-02-25T18:00:51Z"
+      "updated": "2025-02-25T18:01:19Z"
     }
   }
 }
