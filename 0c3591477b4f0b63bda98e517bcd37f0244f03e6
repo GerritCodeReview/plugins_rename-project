@@ -1,12 +1,12 @@
 {
   "checks": {
     "zuul-check:plugins_rename-project": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
+      "state": "RUNNING",
+      "message": "Jobs have started running",
       "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/481465,2",
       "started": "2025-06-05T08:42:06Z",
       "created": "2025-06-05T08:42:07Z",
-      "updated": "2025-06-05T08:42:07Z"
+      "updated": "2025-06-05T08:42:10Z"
     }
   }
 }
