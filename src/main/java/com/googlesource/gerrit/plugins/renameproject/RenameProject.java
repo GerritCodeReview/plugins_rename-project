@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.renameproject;
 
+import static com.googlesource.gerrit.plugins.renameproject.Configuration.NO_CHANGE_LIMIT;
 import static com.googlesource.gerrit.plugins.renameproject.RenameOwnProjectCapability.RENAME_OWN_PROJECT;
 import static com.googlesource.gerrit.plugins.renameproject.RenameProjectCapability.RENAME_PROJECT;
 
@@ -106,6 +107,13 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
           RenameRevertException,
           InterruptedException {
     if (!isReplica) {
+      if (cfg.getChangeLimit() != NO_CHANGE_LIMIT && changeIds.size() > cfg.getChangeLimit()) {
+        String errorMsg =
+            String.format(
+                "Project %s has %d change(s), which exceeds the allowed limit of %d",
+                resource.getName(), changeIds.size(), cfg.getChangeLimit());
+        throw new ResourceConflictException(errorMsg);
+      }
       if (continueRename) {
         doRename(changeIds, resource, input, progressMonitor);
       } else {

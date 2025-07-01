@@ -69,3 +69,12 @@ match an optionally configured regex. For example:
 
 In this example the new names for projects will be restricted to only
 non-capital letters and numbers.
+
+Enables administrators to restrict the renaming of projects that have more than
+the configured number of changes.
+
+```
+  [plugin "@PLUGIN@"]
+    changeLimit = 0
+```
+The above example config restricts renaming projects with more than zero changes.
