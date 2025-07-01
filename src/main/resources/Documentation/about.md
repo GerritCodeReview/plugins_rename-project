@@ -20,6 +20,23 @@ There are a few caveats:
 
 * You cannot rename the "All-Users" project
 
+#### Risks associated with renaming a project with changes
+
+Renaming a project that already contains changes introduces additional
+complexities that are not yet well-handled.
+
+- Currently, caches such as `changeid_project` and `changes_by_project` are not
+  correctly invalidated by the plugin during project renames.
+
+- Renaming a project with changes is slower, increasing the likelihood of
+  failure due to collisions with operations like Git GC, which could leave the
+  repository in a bad state.
+
+For these reasons, it is strongly recommended to only rename projects with zero
+changes. Administrators can enable this restriction by setting the
+`allowProjectsWithChanges` configuration key to `false`.
+See [Configuration](config.md) for details.
+
 Replication of project renaming
 -------------------------------
 

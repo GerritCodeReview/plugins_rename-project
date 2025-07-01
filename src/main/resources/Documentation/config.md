@@ -69,3 +69,13 @@ match an optionally configured regex. For example:
 
 In this example the new names for projects will be restricted to only
 non-capital letters and numbers.
+
+This plugin allows administrators to restrict renaming to projects with zero
+changes using the `allowProjectsWithChanges` configuration. By default, this
+option is set to `true`.
+
+```
+  [plugin "@PLUGIN@"]
+    allowProjectsWithChanges = false
+```
+The above example config blocks renaming of projects with non-zero changes.
