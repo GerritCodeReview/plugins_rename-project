@@ -69,3 +69,12 @@ match an optionally configured regex. For example:
 
 In this example the new names for projects will be restricted to only
 non-capital letters and numbers.
+
+Enables administrators to allow renaming only empty projects that have zero
+changes.
+
+```
+  [plugin "@PLUGIN@"]
+    emptyOnly = true
+```
+The above example config restricts renaming projects with non-zero changes.

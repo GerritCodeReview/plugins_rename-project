@@ -20,6 +20,15 @@ There are a few caveats:
 
 * You cannot rename the "All-Users" project
 
+* Renaming a project that already contains changes (a non-empty repository)
+introduces additional complexities that are not yet well-handled. This includes
+cache eviction on replicas post rename operation and possible collisions with
+concurrent Git repack operations that could leave the repository in a bad
+state. For these reasons, it is strongly recommended to only rename
+empty projects that have zero changes. Admins can enable this restriction
+using the `emptyOnly` configuration key, see [Configuration](config.md) for
+details.
+
 Replication of project renaming
 -------------------------------
 

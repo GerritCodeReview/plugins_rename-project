@@ -40,6 +40,7 @@ public class Configuration {
   private static final String SOCKET_TIMEOUT_KEY = "socketTimeout";
   private static final String HTTP_SECTION = "http";
   private static final String REPLICA_SECTION = "replicaInfo";
+  private static final String EMPTY_ONLY = "emptyOnly";
 
   private final int indexThreads;
   private final int sshCommandTimeout;
@@ -50,7 +51,7 @@ public class Configuration {
   private final String renameRegex;
   private final String user;
   private final String password;
-
+  private final boolean emptyOnly;
   private final Set<String> urls;
 
   @Inject
@@ -65,6 +66,7 @@ public class Configuration {
     password = Strings.nullToEmpty(cfg.getString(PASSWORD_KEY, null));
     connectionTimeout = cfg.getInt(CONNECTION_TIMEOUT_KEY, DEFAULT_TIMEOUT_MS);
     socketTimeout = cfg.getInt(SOCKET_TIMEOUT_KEY, DEFAULT_TIMEOUT_MS);
+    emptyOnly = cfg.getBoolean(EMPTY_ONLY, false);
     urls =
         Arrays.stream(cfg.getStringList(URL_KEY))
             .filter(Objects::nonNull)
@@ -111,5 +113,9 @@ public class Configuration {
 
   public int getSocketTimeout() {
     return socketTimeout;
+  }
+
+  public boolean getEmptyOnly() {
+    return emptyOnly;
   }
 }
