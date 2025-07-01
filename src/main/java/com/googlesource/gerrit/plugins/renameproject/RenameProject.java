@@ -50,14 +50,15 @@ import com.googlesource.gerrit.plugins.renameproject.conditions.RenamePreconditi
 import com.googlesource.gerrit.plugins.renameproject.database.DatabaseRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler;
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
+import com.googlesource.gerrit.plugins.renameproject.monitor.NoopMonitor;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import org.apache.http.auth.AuthenticationException;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -70,15 +71,20 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
 
   @Override
   public Response<?> apply(ProjectResource resource, Input input)
-      throws IOException, AuthException, BadRequestException, ResourceConflictException,
-          InterruptedException, ConfigInvalidException, RenameRevertException {
-    Optional<ProgressMonitor> optionalProgressMonitor = Optional.empty();
-    assertCanRename(resource, input, optionalProgressMonitor);
-    List<Id> changeIds = getChanges(resource, optionalProgressMonitor);
+      throws IOException,
+          AuthException,
+          BadRequestException,
+          ResourceConflictException,
+          InterruptedException,
+          ConfigInvalidException,
+          RenameRevertException {
+    ProgressMonitor progressMonitor = NoopMonitor.INSTANCE;
+    assertCanRename(resource, input, progressMonitor);
+    List<Id> changeIds = getChanges(resource, progressMonitor);
     if (startRename(
         resource,
         input,
-        Optional.empty(),
+        progressMonitor,
         (changeIds == null || changeIds.size() <= WARNING_LIMIT || input.continueWithRename),
         changeIds)) {
       return Response.ok("");
@@ -89,20 +95,25 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
   public boolean startRename(
       ProjectResource resource,
       Input input,
-      Optional<ProgressMonitor> optionalProgressMonitor,
+      ProgressMonitor progressMonitor,
       boolean continueRename,
       List<Change.Id> changeIds)
-      throws ResourceConflictException, BadRequestException, AuthException, IOException,
-          ConfigInvalidException, RenameRevertException, InterruptedException {
+      throws ResourceConflictException,
+          BadRequestException,
+          AuthException,
+          IOException,
+          ConfigInvalidException,
+          RenameRevertException,
+          InterruptedException {
     if (!isReplica) {
       if (continueRename) {
-        doRename(Optional.ofNullable(changeIds), resource, input, optionalProgressMonitor);
+        doRename(changeIds, resource, input, progressMonitor);
       } else {
         log.debug(CANCELLATION_MSG);
         return false;
       }
     } else {
-      doRename(Optional.empty(), resource, input, Optional.empty());
+      doRename(Collections.emptyList(), resource, input, NoopMonitor.INSTANCE);
     }
     return true;
   }
@@ -115,7 +126,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
 
   static final int WARNING_LIMIT = 5000;
   static final String CANCELLATION_MSG =
-      "Rename cancelled due to number of changes exceeding warning limit and user's will to not continue";
+      "Rename cancelled due to number of changes exceeding warning limit and user's will to not"
+          + " continue";
 
   private static final Logger log = LoggerFactory.getLogger(RenameProject.class);
   private static final String CACHE_NAME = "changeid_project";
@@ -234,10 +246,10 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     return true;
   }
 
-  void assertCanRename(ProjectResource rsrc, Input input, Optional<ProgressMonitor> opm)
+  void assertCanRename(ProjectResource rsrc, Input input, ProgressMonitor pm)
       throws ResourceConflictException, BadRequestException, AuthException {
     try {
-      opm.ifPresent(progressMonitor -> progressMonitor.beginTask("Checking preconditions"));
+      pm.beginTask("Checking preconditions");
       assertNewNameNotNull(input);
       assertNewNameMatchesRegex(input);
       assertRenamePermission(rsrc);
@@ -250,40 +262,36 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     }
   }
 
-  void doRename(
-      Optional<List<Change.Id>> opChangeIds,
-      ProjectResource rsrc,
-      Input input,
-      Optional<ProgressMonitor> opm)
+  void doRename(List<Change.Id> changeIds, ProjectResource rsrc, Input input, ProgressMonitor pm)
       throws InterruptedException, ConfigInvalidException, IOException, RenameRevertException {
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     Project.NameKey newProjectKey = Project.nameKey(input.name);
     Exception ex = null;
     stepsPerformed.clear();
     try {
-      fsRenameStep(oldProjectKey, newProjectKey, opm);
+      fsRenameStep(oldProjectKey, newProjectKey, pm);
 
       if (!isReplica) {
 
         cacheRenameStep(rsrc.getNameKey(), newProjectKey);
 
         List<Change.Id> updatedChangeIds =
-            dbRenameStep(opChangeIds.get(), oldProjectKey, newProjectKey, opm);
+            dbRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
 
         // if the DB update is successful, update the secondary index
-        indexRenameStep(updatedChangeIds, oldProjectKey, newProjectKey, opm);
+        indexRenameStep(updatedChangeIds, oldProjectKey, newProjectKey, pm);
 
         // no need to revert this since newProjectKey will be removed from project cache before
         lockUnlockProject.unlock(newProjectKey);
         log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
 
         // flush old changeId -> Project cache for given changeIds
-        changeIdProjectCache.invalidateAll(opChangeIds.get());
+        changeIdProjectCache.invalidateAll(changeIds);
 
         pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
 
         // replicate rename-project operation to other replica instances
-        replicateRename(sshHelper, httpSession, input, oldProjectKey, opm);
+        replicateRename(sshHelper, httpSession, input, oldProjectKey, pm);
       }
     } catch (Exception e) {
       if (stepsPerformed.isEmpty()) {
@@ -296,7 +304,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       }
       try {
         revertRenameProject.performRevert(
-            stepsPerformed, opChangeIds.get(), oldProjectKey, newProjectKey, opm);
+            stepsPerformed, changeIds, oldProjectKey, newProjectKey, pm);
       } catch (Exception revertEx) {
         log.error(
             "Failed to revert renaming procedure for {}. Exception caught: {}",
@@ -313,9 +321,9 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
   }
 
   void fsRenameStep(
-      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, Optional<ProgressMonitor> opm)
+      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, ProgressMonitor pm)
       throws IOException {
-    fsHandler.rename(oldProjectKey, newProjectKey, opm);
+    fsHandler.rename(oldProjectKey, newProjectKey, pm);
     logPerformedStep(Step.FILESYSTEM, newProjectKey, oldProjectKey);
   }
 
@@ -329,9 +337,9 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       List<Change.Id> changeIds,
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
-      Optional<ProgressMonitor> opm)
+      ProgressMonitor pm)
       throws IOException, ConfigInvalidException, RenameRevertException {
-    List<Change.Id> updatedChangeIds = dbHandler.rename(changeIds, newProjectKey, opm);
+    List<Change.Id> updatedChangeIds = dbHandler.rename(changeIds, newProjectKey, pm);
     logPerformedStep(Step.DATABASE, newProjectKey, oldProjectKey);
     return updatedChangeIds;
   }
@@ -340,9 +348,9 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       List<Change.Id> updatedChangeIds,
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
-      Optional<ProgressMonitor> opm)
+      ProgressMonitor pm)
       throws InterruptedException {
-    indexHandler.updateIndex(updatedChangeIds, newProjectKey, opm);
+    indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
     logPerformedStep(Step.INDEX, newProjectKey, oldProjectKey);
   }
 
@@ -376,9 +384,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     return stepsPerformed;
   }
 
-  List<Change.Id> getChanges(ProjectResource rsrc, Optional<ProgressMonitor> opm)
-      throws IOException {
-    opm.ifPresent(pm -> pm.beginTask("Retrieving the list of changes from DB"));
+  List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm) throws IOException {
+    pm.beginTask("Retrieving the list of changes from DB");
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     return dbHandler.getChangeIds(oldProjectKey);
   }
@@ -388,12 +395,9 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       HttpSession httpSession,
       Input input,
       Project.NameKey oldProjectKey,
-      Optional<ProgressMonitor> opm) {
-    opm.ifPresent(
-        pm ->
-            pm.beginTask(
-                String.format(
-                    "Replicating the rename of %s to %s", oldProjectKey.get(), input.name)));
+      ProgressMonitor pm) {
+    pm.beginTask(
+        String.format("Replicating the rename of %s to %s", oldProjectKey.get(), input.name));
 
     Set<String> urls = cfg.getUrls();
     int nbRetries = cfg.getRenameReplicationRetries();
