@@ -80,6 +80,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
   private static final String CACHE_NAME = "changeid_project";
   private static final String URL = "ssh://localhost:29418";
   private static final String RENAME_REGEX = "[a-zA-Z]+";
+  private static final String CHANGE_LIMIT = "0";
 
   @Inject private RequestScopeOperations requestScopeOperations;
 
@@ -378,6 +379,29 @@ public class RenameIT extends LightweightPluginDaemonTest {
     renameProject.setHttpSession(httpSession);
     renameProject.httpReplicateRename(input, project, "http://localhost:39959");
     verify(httpSession, times(1)).post(eq(request), eq(input));
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.changeLimit", value = CHANGE_LIMIT)
+  public void testRenameSuccessfulWhenChangeLimitNotExceeded() throws Exception {
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME);
+    r.assertOK();
+
+    Optional<ProjectState> projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState.isPresent()).isTrue();
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.changeLimit", value = CHANGE_LIMIT)
+  public void testRenameFailsWhenChangeLimitExceeded() throws Exception {
+    createChange();
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME);
+    r.assertConflict();
+
+    Optional<ProjectState> projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState.isPresent()).isFalse();
   }
 
   private boolean renameTest() throws UnsupportedEncodingException, AuthenticationException {
