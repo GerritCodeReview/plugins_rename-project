@@ -32,7 +32,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 import org.kohsuke.args4j.Argument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,11 +61,10 @@ public final class RenameCommand extends SshCommand {
       input.name = newProjectName;
       ProjectResource rsrc = new ProjectResource(projectState, self.get());
       try (CommandProgressMonitor monitor = new CommandProgressMonitor(stdout)) {
-        Optional<ProgressMonitor> optionalProgressMonitor = Optional.of(monitor);
-        renameProject.assertCanRename(rsrc, input, optionalProgressMonitor);
-        List<Change.Id> changeIds = renameProject.getChanges(rsrc, optionalProgressMonitor);
+        renameProject.assertCanRename(rsrc, input, monitor);
+        List<Change.Id> changeIds = renameProject.getChanges(rsrc, monitor);
         if (!renameProject.startRename(
-            rsrc, input, Optional.of(monitor), continueRename(changeIds, monitor), changeIds)) {
+            rsrc, input, monitor, continueRename(changeIds, monitor), changeIds)) {
           stdout.flush();
         }
       }

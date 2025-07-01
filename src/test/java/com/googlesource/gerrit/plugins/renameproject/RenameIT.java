@@ -43,6 +43,7 @@ import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.server.project.ProjectState;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.renameproject.RenameProject.Input;
+import com.googlesource.gerrit.plugins.renameproject.monitor.NoopMonitor;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
@@ -239,8 +240,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
     when(sshHelper.newErrorBufferStream()).thenReturn(errStream);
     when(errStream.toString()).thenReturn("");
-
-    renameProject.replicateRename(sshHelper, httpSession, input, project, Optional.empty());
+    renameProject.replicateRename(sshHelper, httpSession, input, project, NoopMonitor.INSTANCE);
     verify(sshHelper, atMostOnce())
         .executeRemoteSsh(eq(new URIish(URL)), eq(expectedCommand), eq(errStream));
   }
@@ -259,7 +259,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
     Input input = new Input();
     input.name = NEW_PROJECT_NAME;
     when(sshHelper.connect(eq(urish))).thenReturn(session);
-    renameProject.replicateRename(sshHelper, httpSession, input, project, Optional.empty());
+    renameProject.replicateRename(sshHelper, httpSession, input, project, NoopMonitor.INSTANCE);
     String expectedCommand = PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME;
     verify(sshHelper, times(3)).executeRemoteSsh(eq(urish), eq(expectedCommand), eq(errStream));
   }
@@ -279,7 +279,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
     when(sshHelper.newErrorBufferStream()).thenReturn(errStream);
     when(errStream.toString()).thenReturn("");
 
-    renameProject.replicateRename(sshHelper, httpSession, input, project, Optional.empty());
+    renameProject.replicateRename(sshHelper, httpSession, input, project, NoopMonitor.INSTANCE);
     verify(sshHelper, never())
         .executeRemoteSsh(eq(new URIish(URL)), eq(expectedCommand), eq(errStream));
   }
