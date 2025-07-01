@@ -106,6 +106,13 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
           RenameRevertException,
           InterruptedException {
     if (!isReplica) {
+      if (changeIds.size() > cfg.getChangeLimit()) {
+        String errorMsg =
+            String.format(
+                "Project %s has %d changes, which exceeds the allowed limit of %d.",
+                resource.getName(), changeIds.size(), cfg.getChangeLimit());
+        throw new ResourceConflictException(errorMsg);
+      }
       if (continueRename) {
         doRename(changeIds, resource, input, progressMonitor);
       } else {
