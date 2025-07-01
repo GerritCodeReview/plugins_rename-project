@@ -106,6 +106,9 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
           RenameRevertException,
           InterruptedException {
     if (!isReplica) {
+      if (!cfg.isAllowProjectsWithChanges() && !changeIds.isEmpty()) {
+        throw new ResourceConflictException("Cannot rename project with changes");
+      }
       if (continueRename) {
         doRename(changeIds, resource, input, progressMonitor);
       } else {

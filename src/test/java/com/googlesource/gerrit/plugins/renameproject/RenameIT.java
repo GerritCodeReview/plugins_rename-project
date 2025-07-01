@@ -24,6 +24,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
 import com.google.common.base.Joiner;
 import com.google.common.cache.Cache;
 import com.google.common.net.MediaType;
@@ -377,6 +378,21 @@ public class RenameIT extends LightweightPluginDaemonTest {
     renameProject.setHttpSession(httpSession);
     renameProject.httpReplicateRename(input, project, "http://localhost:39959");
     verify(httpSession, times(1)).post(eq(request), eq(input));
+  }
+
+  @Test
+  @UseLocalDisk
+  @GerritConfig(name = "plugin.rename-project.allowProjectsWithChanges", value = "false")
+  public void testRenameFailsWithAllowProjectsWithChangesConfigFalse() throws Exception {
+    createChange();
+    RestResponse r = renameProjectTo(NEW_PROJECT_NAME);
+    r.assertConflict();
+
+    Optional<ProjectState> projectState = projectCache.get(Project.nameKey(NEW_PROJECT_NAME));
+    assertThat(projectState.isPresent()).isFalse();
+
+    Optional<ProjectState> oldProjectState = projectCache.get(project);
+    assertThat(oldProjectState.isPresent()).isTrue();
   }
 
   private boolean renameTest() throws UnsupportedEncodingException, AuthenticationException {
