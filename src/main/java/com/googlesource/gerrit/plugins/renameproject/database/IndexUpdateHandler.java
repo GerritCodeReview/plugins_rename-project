@@ -24,7 +24,6 @@ import com.googlesource.gerrit.plugins.renameproject.Configuration;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -47,17 +46,17 @@ public class IndexUpdateHandler {
   }
 
   public void updateIndex(
-      List<Change.Id> changeIds, Project.NameKey newProjectKey, Optional<ProgressMonitor> opm)
+      List<Change.Id> changeIds, Project.NameKey newProjectKey, ProgressMonitor pm)
       throws InterruptedException {
     log.debug("Starting to index {} change(s).", changeIds.size());
     ExecutorService executor =
         Executors.newFixedThreadPool(
             config.getIndexThreads(),
             new ThreadFactoryBuilder().setNameFormat("Rename-Index-%d").build());
-    opm.ifPresent(pm -> pm.beginTask("Indexing changes", changeIds.size()));
+    pm.beginTask("Indexing changes", changeIds.size());
     List<Callable<Boolean>> callableTasks = new ArrayList<>(changeIds.size());
     for (Change.Id id : changeIds) {
-      callableTasks.add(new IndexTask(id, newProjectKey, opm));
+      callableTasks.add(new IndexTask(id, newProjectKey, pm));
     }
     List<Future<Boolean>> tasksCompleted = executor.invokeAll(callableTasks);
     executor.shutdown();
@@ -84,10 +83,9 @@ public class IndexUpdateHandler {
 
     private Change.Id changeId;
     private Project.NameKey newProjectKey;
-    private Optional<ProgressMonitor> monitor;
+    private ProgressMonitor monitor;
 
-    IndexTask(
-        Change.Id changeId, Project.NameKey newProjectKey, Optional<ProgressMonitor> monitor) {
+    IndexTask(Change.Id changeId, Project.NameKey newProjectKey, ProgressMonitor monitor) {
       this.changeId = changeId;
       this.newProjectKey = newProjectKey;
       this.monitor = monitor;
@@ -96,7 +94,7 @@ public class IndexUpdateHandler {
     @Override
     public Boolean call() throws Exception {
       indexer.index(newProjectKey, changeId);
-      monitor.ifPresent(monitor -> monitor.update(1));
+      monitor.update(1);
       return Boolean.TRUE;
     }
   }

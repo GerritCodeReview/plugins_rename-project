@@ -46,7 +46,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   private RevertRenameProject revertRenameProject;
   private Project.NameKey oldProjectKey;
   private Project.NameKey newProjectKey;
-  private Optional<ProgressMonitor> pm;
+  private ProgressMonitor pm;
   private ProjectResource oldRsrc;
 
   @Before
@@ -57,7 +57,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     oldProjectKey = project;
     newProjectKey = Project.nameKey(NEW_PROJECT_NAME);
 
-    pm = Optional.of(Mockito.mock(ProgressMonitor.class));
+    pm = Mockito.mock(ProgressMonitor.class);
 
     oldRsrc = Mockito.mock(ProjectResource.class);
     when(oldRsrc.getNameKey()).thenReturn(oldProjectKey);
