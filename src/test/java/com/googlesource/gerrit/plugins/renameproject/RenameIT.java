@@ -240,7 +240,9 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
     when(sshHelper.newErrorBufferStream()).thenReturn(errStream);
     when(errStream.toString()).thenReturn("");
-    renameProject.replicateRename(sshHelper, httpSession, input, project, NoopMonitor.INSTANCE);
+    renameProject.setSshHelper(sshHelper);
+    renameProject.setHttpSession(httpSession);
+    renameProject.replicateRename(input, project, NoopMonitor.INSTANCE);
     verify(sshHelper, atMostOnce())
         .executeRemoteSsh(eq(new URIish(URL)), eq(expectedCommand), eq(errStream));
   }
@@ -259,7 +261,9 @@ public class RenameIT extends LightweightPluginDaemonTest {
     Input input = new Input();
     input.name = NEW_PROJECT_NAME;
     when(sshHelper.connect(eq(urish))).thenReturn(session);
-    renameProject.replicateRename(sshHelper, httpSession, input, project, NoopMonitor.INSTANCE);
+    renameProject.setSshHelper(sshHelper);
+    renameProject.setHttpSession(httpSession);
+    renameProject.replicateRename(input, project, NoopMonitor.INSTANCE);
     String expectedCommand = PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME;
     verify(sshHelper, times(3)).executeRemoteSsh(eq(urish), eq(expectedCommand), eq(errStream));
   }
@@ -278,8 +282,9 @@ public class RenameIT extends LightweightPluginDaemonTest {
 
     when(sshHelper.newErrorBufferStream()).thenReturn(errStream);
     when(errStream.toString()).thenReturn("");
-
-    renameProject.replicateRename(sshHelper, httpSession, input, project, NoopMonitor.INSTANCE);
+    renameProject.setSshHelper(sshHelper);
+    renameProject.setHttpSession(httpSession);
+    renameProject.replicateRename(input, project, NoopMonitor.INSTANCE);
     verify(sshHelper, never())
         .executeRemoteSsh(eq(new URIish(URL)), eq(expectedCommand), eq(errStream));
   }
@@ -369,7 +374,8 @@ public class RenameIT extends LightweightPluginDaemonTest {
     input.name = NEW_PROJECT_NAME;
     when(httpSession.post(any(), any())).thenReturn(dummyResult);
     when(dummyResult.isSuccessful()).thenReturn(true);
-    renameProject.httpReplicateRename(httpSession, input, project, "http://localhost:39959");
+    renameProject.setHttpSession(httpSession);
+    renameProject.httpReplicateRename(input, project, "http://localhost:39959");
     verify(httpSession, times(1)).post(eq(request), eq(input));
   }
 
