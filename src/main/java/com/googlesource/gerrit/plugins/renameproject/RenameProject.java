@@ -156,7 +156,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
   private final PermissionBackend permissionBackend;
   private final Cache<Change.Id, String> changeIdProjectCache;
   private final RevertRenameProject revertRenameProject;
-  private final SshHelper sshHelper;
+  private SshHelper sshHelper;
   private HttpSession httpSession;
   private final Configuration cfg;
 
@@ -233,6 +233,14 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
             && isOwner(rsrc));
   }
 
+  protected void setHttpSession(HttpSession httpSession) {
+    this.httpSession = httpSession;
+  }
+
+  protected void setSshHelper(SshHelper sshHelper) {
+    this.sshHelper = sshHelper;
+  }
+
   boolean isAdmin() {
     return getUserPermissions().testOrFalse(GlobalPermission.ADMINISTRATE_SERVER);
   }
@@ -298,7 +306,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
         pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
 
         // replicate rename-project operation to other replica instances
-        replicateRename(sshHelper, httpSession, input, oldProjectKey, pm);
+        replicateRename(input, oldProjectKey, pm);
       }
     } catch (Exception e) {
       if (stepsPerformed.isEmpty()) {
@@ -397,12 +405,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     return dbHandler.getChangeIds(oldProjectKey);
   }
 
-  void replicateRename(
-      SshHelper sshHelper,
-      HttpSession httpSession,
-      Input input,
-      Project.NameKey oldProjectKey,
-      ProgressMonitor pm) {
+  void replicateRename(Input input, Project.NameKey oldProjectKey, ProgressMonitor pm) {
     pm.beginTask(
         String.format("Replicating the rename of %s to %s", oldProjectKey.get(), input.name));
 
@@ -410,7 +413,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     int nbRetries = cfg.getRenameReplicationRetries();
 
     for (int i = 0; i < nbRetries && urls.size() > 0; ++i) {
-      urls = tryRenameReplication(urls, sshHelper, httpSession, input, oldProjectKey);
+      urls = tryRenameReplication(urls, input, oldProjectKey);
     }
     for (String url : urls) {
       log.error(
@@ -422,8 +425,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     }
   }
 
-  void sshReplicateRename(
-      SshHelper sshHelper, Input input, Project.NameKey oldProjectKey, String url)
+  void sshReplicateRename(Input input, Project.NameKey oldProjectKey, String url)
       throws RenameReplicationException, URISyntaxException, IOException {
     OutputStream errStream = sshHelper.newErrorBufferStream();
     sshHelper.executeRemoteSsh(
@@ -434,8 +436,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     }
   }
 
-  void httpReplicateRename(
-      HttpSession httpSession, Input input, Project.NameKey oldProjectKey, String url)
+  void httpReplicateRename(Input input, Project.NameKey oldProjectKey, String url)
       throws AuthenticationException, IOException, RenameReplicationException {
     String request =
         Joiner.on("/")
@@ -453,19 +454,15 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
   }
 
   private Set<String> tryRenameReplication(
-      Set<String> replicas,
-      SshHelper sshHelper,
-      HttpSession httpSession,
-      Input input,
-      Project.NameKey oldProjectKey) {
+      Set<String> replicas, Input input, Project.NameKey oldProjectKey) {
     Set<String> failedReplicas = new HashSet<>();
     for (String url : replicas) {
       try {
         if (url.matches("http(.*)")) {
-          httpReplicateRename(httpSession, input, oldProjectKey, url);
+          httpReplicateRename(input, oldProjectKey, url);
         }
         if (url.matches("ssh(.*)")) {
-          sshReplicateRename(sshHelper, input, oldProjectKey, url);
+          sshReplicateRename(input, oldProjectKey, url);
         }
       } catch (AuthenticationException
           | IOException
