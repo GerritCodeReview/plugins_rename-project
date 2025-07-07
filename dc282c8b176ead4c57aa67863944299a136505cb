@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "466898f5_2f21b97e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-07T22:22:53Z",
+      "side": 1,
+      "message": "Can you add the `@VisibleForTesting` annotation?\n```suggestion\n  @VisibleForTesting\n  protected void setHttpSession(HttpSession httpSession) {\n```",
+      "revId": "dc282c8b176ead4c57aa67863944299a136505cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a68a4ac_7876af05",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-07T22:22:53Z",
+      "side": 1,
+      "message": "```suggestion\n  @VisibleForTesting\n  protected void setSshHelper(SshHelper sshHelper) {\n```",
+      "revId": "dc282c8b176ead4c57aa67863944299a136505cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
