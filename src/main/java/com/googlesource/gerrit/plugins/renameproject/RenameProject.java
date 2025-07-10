@@ -292,12 +292,10 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       if (!isReplica) {
 
         cacheRenameStep(rsrc.getNameKey(), newProjectKey);
-
-        List<Change.Id> updatedChangeIds =
-            dbRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
+        dbRenameStep(oldProjectKey, newProjectKey, pm);
 
         // if the DB update is successful, update the secondary index
-        indexRenameStep(updatedChangeIds, oldProjectKey, newProjectKey, pm);
+        indexRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
 
         // no need to revert this since newProjectKey will be removed from project cache before
         lockUnlockProject.unlock(newProjectKey);
@@ -351,24 +349,20 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     logPerformedStep(Step.CACHE, newProjectKey, oldProjectKey);
   }
 
-  List<Change.Id> dbRenameStep(
+  void dbRenameStep(
+      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, ProgressMonitor pm)
+      throws IOException, ConfigInvalidException, RenameRevertException {
+    dbHandler.updateWatchEntriesWithRollback(oldProjectKey, newProjectKey, pm);
+    logPerformedStep(Step.DATABASE, newProjectKey, oldProjectKey);
+  }
+
+  void indexRenameStep(
       List<Change.Id> changeIds,
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
       ProgressMonitor pm)
-      throws IOException, ConfigInvalidException, RenameRevertException {
-    List<Change.Id> updatedChangeIds = dbHandler.rename(changeIds, newProjectKey, pm);
-    logPerformedStep(Step.DATABASE, newProjectKey, oldProjectKey);
-    return updatedChangeIds;
-  }
-
-  void indexRenameStep(
-      List<Change.Id> updatedChangeIds,
-      Project.NameKey oldProjectKey,
-      Project.NameKey newProjectKey,
-      ProgressMonitor pm)
       throws InterruptedException {
-    indexHandler.updateIndex(updatedChangeIds, newProjectKey, pm);
+    indexHandler.updateIndex(changeIds, newProjectKey, pm);
     logPerformedStep(Step.INDEX, newProjectKey, oldProjectKey);
   }
 
