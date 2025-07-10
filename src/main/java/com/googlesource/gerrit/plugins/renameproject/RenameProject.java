@@ -287,8 +287,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     Exception ex = null;
     stepsPerformed.clear();
     try {
+      lockUnlockProject.lock(oldProjectKey);
       fsRenameStep(oldProjectKey, newProjectKey, pm);
-
       if (!isReplica) {
 
         cacheRenameStep(rsrc.getNameKey(), newProjectKey);
