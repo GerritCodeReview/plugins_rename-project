@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bbbea95_741cdebf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-07-10T05:40:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c795e38_a27684c5",
+      "revId": "3d04bd4985f8fa903aeec28197715e293ffd5a68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "380f0767_d49e57d0",
@@ -35,6 +53,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd2819dd_592be6d9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-07-10T05:40:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "380f0767_d49e57d0",
+      "revId": "3d04bd4985f8fa903aeec28197715e293ffd5a68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b650b84f_a4573d94",
@@ -48,6 +84,24 @@
       "writtenOn": "2025-07-07T21:19:09Z",
       "side": 1,
       "message": "Can you test this in `src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java`?",
+      "revId": "3d04bd4985f8fa903aeec28197715e293ffd5a68",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "652e97aa_bba9f81a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-07-10T05:40:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b650b84f_a4573d94",
       "revId": "3d04bd4985f8fa903aeec28197715e293ffd5a68",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
