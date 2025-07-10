@@ -50,32 +50,28 @@ import org.slf4j.LoggerFactory;
 public class DatabaseRenameHandler {
   private static final Logger log = LoggerFactory.getLogger(DatabaseRenameHandler.class);
 
-  private final ChangeNotes.Factory schemaFactory;
+  private final ChangeNotes.Factory notesFactory;
   private final GitRepositoryManager repoManager;
   private final Provider<InternalAccountQuery> accountQueryProvider;
   private final Provider<AccountsUpdate> accountsUpdateProvider;
 
-  private Project.NameKey oldProjectKey;
-
   @Inject
   public DatabaseRenameHandler(
-      ChangeNotes.Factory schemaFactory,
+      ChangeNotes.Factory notesFactory,
       GitRepositoryManager repoManager,
       Provider<InternalAccountQuery> accountQueryProvider,
       @ServerInitiated Provider<AccountsUpdate> accountsUpdateProvider) {
     this.accountQueryProvider = accountQueryProvider;
-    this.schemaFactory = schemaFactory;
+    this.notesFactory = notesFactory;
     this.repoManager = repoManager;
     this.accountsUpdateProvider = accountsUpdateProvider;
   }
 
   public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws IOException {
     log.debug("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
-    this.oldProjectKey = oldProjectKey;
-
     List<Change.Id> changeIds = new ArrayList<>();
     try (Repository repo = repoManager.openRepository(oldProjectKey)) {
-      Stream<ChangeNotesResult> changes = schemaFactory.scan(repo, oldProjectKey);
+      Stream<ChangeNotesResult> changes = notesFactory.scan(repo, oldProjectKey);
       Iterator<ChangeNotesResult> iterator = changes.iterator();
       while (iterator.hasNext()) {
         ChangeNotesResult change = iterator.next();
@@ -90,21 +86,24 @@ public class DatabaseRenameHandler {
     return changeIds;
   }
 
-  public List<Change.Id> rename(
-      List<Change.Id> changes, Project.NameKey newProjectKey, ProgressMonitor pm)
+  public void updateWatchEntriesWithRollback(
+      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, ProgressMonitor pm)
       throws RenameRevertException, IOException, ConfigInvalidException {
-    pm.beginTask("Updating changes in the database");
-    log.debug("Updating the changes in noteDb related to project {}", oldProjectKey.get());
+    pm.beginTask("Updating project watch entries");
+    log.debug(
+        "Updating watch entries from project {} to project {}",
+        oldProjectKey.get(),
+        newProjectKey.get());
     try {
-      updateWatchEntries(newProjectKey);
+      updateWatchEntries(oldProjectKey, newProjectKey);
     } catch (Exception e) {
       log.error(
-          "Failed to update changes in noteDb for project {}, exception caught: {}. Rolling back"
-              + " the operation.",
+          "Failed to update watch entries for project {}, exception caught: {}. Rolling back the"
+              + " operation.",
           oldProjectKey.get(),
           e.toString());
       try {
-        updateWatchEntries(newProjectKey);
+        updateWatchEntries(newProjectKey, oldProjectKey);
       } catch (Exception revertEx) {
         log.error(
             "Failed to rollback changes in noteDb from project {} to project {}, exception caught:"
@@ -116,13 +115,13 @@ public class DatabaseRenameHandler {
       }
       throw e;
     }
-
     log.debug(
-        "Successfully updated the changes in noteDb related to project {}", oldProjectKey.get());
-    return changes;
+        "Successfully updated watch entries from project {} to project {}",
+        oldProjectKey.get(),
+        newProjectKey.get());
   }
 
-  private void updateWatchEntries(Project.NameKey newProjectKey)
+  public void updateWatchEntries(Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
       throws IOException, ConfigInvalidException {
     for (AccountState a : accountQueryProvider.get().byWatchedProject(oldProjectKey)) {
       Account.Id accountId = a.account().id();
