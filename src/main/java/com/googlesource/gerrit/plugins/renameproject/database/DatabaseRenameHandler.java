@@ -49,30 +49,27 @@ import org.slf4j.LoggerFactory;
 public class DatabaseRenameHandler {
   private static final Logger log = LoggerFactory.getLogger(DatabaseRenameHandler.class);
 
-  private final ChangeNotes.Factory schemaFactory;
+  private final ChangeNotes.Factory notesFactory;
   private final GitRepositoryManager repoManager;
   private final Provider<InternalAccountQuery> accountQueryProvider;
   private final Provider<AccountsUpdate> accountsUpdateProvider;
 
-  private Project.NameKey oldProjectKey;
-
   @Inject
   public DatabaseRenameHandler(
-      ChangeNotes.Factory schemaFactory,
+      ChangeNotes.Factory notesFactory,
       GitRepositoryManager repoManager,
       Provider<InternalAccountQuery> accountQueryProvider,
       @ServerInitiated Provider<AccountsUpdate> accountsUpdateProvider) {
     this.accountQueryProvider = accountQueryProvider;
-    this.schemaFactory = schemaFactory;
+    this.notesFactory = notesFactory;
     this.repoManager = repoManager;
     this.accountsUpdateProvider = accountsUpdateProvider;
   }
 
   public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws IOException {
     log.debug("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
-    this.oldProjectKey = oldProjectKey;
-
     List<Change.Id> changeIds = new ArrayList<>();
+<<<<<<< HEAD   (98d37b818662e608012784696c038e8ee7ecab47 Add support to block project renames exceeding configured ch)
     Stream<ChangeNotesResult> changes =
         schemaFactory.scan(repoManager.openRepository(oldProjectKey), oldProjectKey);
     Iterator<ChangeNotesResult> iterator = changes.iterator();
@@ -80,6 +77,25 @@ public class DatabaseRenameHandler {
       ChangeNotesResult change = iterator.next();
       Change.Id changeId = change.id();
       changeIds.add(changeId);
+||||||| BASE
+    try (Repository repo = repoManager.openRepository(oldProjectKey)) {
+      Stream<ChangeNotesResult> changes = schemaFactory.scan(repo, oldProjectKey);
+      Iterator<ChangeNotesResult> iterator = changes.iterator();
+      while (iterator.hasNext()) {
+        ChangeNotesResult change = iterator.next();
+        Change.Id changeId = change.id();
+        changeIds.add(changeId);
+      }
+=======
+    try (Repository repo = repoManager.openRepository(oldProjectKey)) {
+      Stream<ChangeNotesResult> changes = notesFactory.scan(repo, oldProjectKey);
+      Iterator<ChangeNotesResult> iterator = changes.iterator();
+      while (iterator.hasNext()) {
+        ChangeNotesResult change = iterator.next();
+        Change.Id changeId = change.id();
+        changeIds.add(changeId);
+      }
+>>>>>>> CHANGE (b518cf326e357df28492ec49ddf5d7c727535066 Clean up DatabaseRenameHandler)
     }
     log.debug(
         "Number of changes in noteDb related to project {} are {}",
@@ -88,20 +104,31 @@ public class DatabaseRenameHandler {
     return changeIds;
   }
 
-  public List<Change.Id> rename(
-      List<Change.Id> changes, Project.NameKey newProjectKey, ProgressMonitor pm)
+  public void updateWatchEntriesWithRollback(
+      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, ProgressMonitor pm)
       throws RenameRevertException, IOException, ConfigInvalidException {
-    pm.beginTask("Updating changes in the database");
-    log.debug("Updating the changes in noteDb related to project {}", oldProjectKey.get());
+    pm.beginTask("Updating project watch entries");
+    log.debug(
+        "Updating watch entries from project {} to project {}",
+        oldProjectKey.get(),
+        newProjectKey.get());
     try {
-      updateWatchEntries(newProjectKey);
+      updateWatchEntries(oldProjectKey, newProjectKey);
     } catch (Exception e) {
       log.error(
+<<<<<<< HEAD   (98d37b818662e608012784696c038e8ee7ecab47 Add support to block project renames exceeding configured ch)
           "Failed to update changes in noteDb for project {}, exception caught: {}. Rolling back the operation.",
+||||||| BASE
+          "Failed to update changes in noteDb for project {}, exception caught: {}. Rolling back"
+              + " the operation.",
+=======
+          "Failed to update watch entries for project {}, exception caught: {}. Rolling back the"
+              + " operation.",
+>>>>>>> CHANGE (b518cf326e357df28492ec49ddf5d7c727535066 Clean up DatabaseRenameHandler)
           oldProjectKey.get(),
           e.toString());
       try {
-        updateWatchEntries(newProjectKey);
+        updateWatchEntries(newProjectKey, oldProjectKey);
       } catch (Exception revertEx) {
         log.error(
             "Failed to rollback changes in noteDb from project {} to project {}, exception caught: {}",
@@ -112,13 +139,13 @@ public class DatabaseRenameHandler {
       }
       throw e;
     }
-
     log.debug(
-        "Successfully updated the changes in noteDb related to project {}", oldProjectKey.get());
-    return changes;
+        "Successfully updated watch entries from project {} to project {}",
+        oldProjectKey.get(),
+        newProjectKey.get());
   }
 
-  private void updateWatchEntries(Project.NameKey newProjectKey)
+  public void updateWatchEntries(Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
       throws IOException, ConfigInvalidException {
     for (AccountState a : accountQueryProvider.get().byWatchedProject(oldProjectKey)) {
       Account.Id accountId = a.account().id();
