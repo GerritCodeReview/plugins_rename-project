@@ -29,7 +29,6 @@ import com.google.gerrit.server.project.ProjectResource;
 import com.google.gerrit.server.project.ProjectState;
 import com.googlesource.gerrit.plugins.renameproject.RenameProject.Step;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
-import java.util.Optional;
 import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
@@ -128,11 +127,13 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   private void assertReverted() throws Exception {
     evictCaches();
 
-    Optional<ProjectState> oldProjectState = projectCache.get(oldProjectKey);
-    assertThat(oldProjectState.isPresent()).isTrue();
+    ProjectState oldProjectState = projectCache.get(oldProjectKey).orElse(null);
+    assertThat(oldProjectState).isNotNull();
+    assertThat(oldProjectState.getProject().getState())
+        .isEqualTo(com.google.gerrit.extensions.client.ProjectState.ACTIVE);
 
-    Optional<ProjectState> newProjectState = projectCache.get(newProjectKey);
-    assertThat(newProjectState.isPresent()).isFalse();
+    ProjectState newProjectState = projectCache.get(newProjectKey).orElse(null);
+    assertThat(newProjectState).isNull();
 
     assertThat(queryProvider.get().byProject(oldProjectKey)).isNotEmpty();
     assertThat(queryProvider.get().byProject(newProjectKey)).isEmpty();
@@ -141,11 +142,13 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   private void assertRenamed(Result result) throws Exception {
     evictCaches();
 
-    Optional<ProjectState> oldProjectState = projectCache.get(oldProjectKey);
-    assertThat(oldProjectState.isPresent()).isFalse();
+    ProjectState oldProjectState = projectCache.get(oldProjectKey).orElse(null);
+    assertThat(oldProjectState).isNull();
 
-    Optional<ProjectState> newProjectState = projectCache.get(newProjectKey);
-    assertThat(newProjectState.isPresent()).isTrue();
+    ProjectState newProjectState = projectCache.get(newProjectKey).orElse(null);
+    assertThat(newProjectState).isNotNull();
+    assertThat(newProjectState.getProject().getState())
+        .isEqualTo(com.google.gerrit.extensions.client.ProjectState.ACTIVE);
 
     if (renameProject.getStepsPerformed().contains(Step.DATABASE)) {
       ChangeApi changeApi = gApi.changes().id(NEW_PROJECT_NAME, result.getChange().getId().get());
