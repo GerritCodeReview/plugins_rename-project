@@ -36,17 +36,20 @@ public class RevertRenameProject {
   private final FilesystemRenameHandler fsHandler;
   private final CacheRenameHandler cacheHandler;
   private final IndexUpdateHandler indexHandler;
+  private final LockUnlockProject lockUnlockProject;
 
   @Inject
   RevertRenameProject(
       DatabaseRenameHandler dbHandler,
       FilesystemRenameHandler fsHandler,
       CacheRenameHandler cacheHandler,
-      IndexUpdateHandler indexHandler) {
+      IndexUpdateHandler indexHandler,
+      LockUnlockProject lockUnlockProject) {
     this.dbHandler = dbHandler;
     this.fsHandler = fsHandler;
     this.cacheHandler = cacheHandler;
     this.indexHandler = indexHandler;
+    this.lockUnlockProject = lockUnlockProject;
   }
 
   void performRevert(
@@ -101,5 +104,6 @@ public class RevertRenameProject {
             e.toString());
       }
     }
+    lockUnlockProject.unlock(oldProjectKey);
   }
 }
