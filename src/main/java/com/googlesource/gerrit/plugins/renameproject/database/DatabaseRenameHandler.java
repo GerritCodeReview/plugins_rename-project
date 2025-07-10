@@ -55,8 +55,6 @@ public class DatabaseRenameHandler {
   private final Provider<InternalAccountQuery> accountQueryProvider;
   private final Provider<AccountsUpdate> accountsUpdateProvider;
 
-  private Project.NameKey oldProjectKey;
-
   @Inject
   public DatabaseRenameHandler(
       ChangeNotes.Factory schemaFactory,
@@ -71,8 +69,6 @@ public class DatabaseRenameHandler {
 
   public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws IOException {
     log.debug("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
-    this.oldProjectKey = oldProjectKey;
-
     List<Change.Id> changeIds = new ArrayList<>();
     try (Repository repo = repoManager.openRepository(oldProjectKey)) {
       Stream<ChangeNotesResult> changes = schemaFactory.scan(repo, oldProjectKey);
@@ -90,21 +86,21 @@ public class DatabaseRenameHandler {
     return changeIds;
   }
 
-  public List<Change.Id> rename(
-      List<Change.Id> changes, Project.NameKey newProjectKey, ProgressMonitor pm)
+  public void updateWatchEntriesWithRollback(
+      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, ProgressMonitor pm)
       throws RenameRevertException, IOException, ConfigInvalidException {
-    pm.beginTask("Updating changes in the database");
-    log.debug("Updating the changes in noteDb related to project {}", oldProjectKey.get());
+    pm.beginTask("Updating project watch entries");
+    log.debug("Updating watch entries for project {}", oldProjectKey.get());
     try {
-      updateWatchEntries(newProjectKey);
+      updateWatchEntries(oldProjectKey, newProjectKey);
     } catch (Exception e) {
       log.error(
-          "Failed to update changes in noteDb for project {}, exception caught: {}. Rolling back"
-              + " the operation.",
+          "Failed to update watch entries for project {}, exception caught: {}. Rolling back the"
+              + " operation.",
           oldProjectKey.get(),
           e.toString());
       try {
-        updateWatchEntries(newProjectKey);
+        updateWatchEntries(newProjectKey, oldProjectKey);
       } catch (Exception revertEx) {
         log.error(
             "Failed to rollback changes in noteDb from project {} to project {}, exception caught:"
@@ -117,12 +113,10 @@ public class DatabaseRenameHandler {
       throw e;
     }
 
-    log.debug(
-        "Successfully updated the changes in noteDb related to project {}", oldProjectKey.get());
-    return changes;
+    log.debug("Successfully updated watch entries for project {}", oldProjectKey.get());
   }
 
-  private void updateWatchEntries(Project.NameKey newProjectKey)
+  public void updateWatchEntries(Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
       throws IOException, ConfigInvalidException {
     for (AccountState a : accountQueryProvider.get().byWatchedProject(oldProjectKey)) {
       Account.Id accountId = a.account().id();
