@@ -1,5 +1,8 @@
 Provides the ability to rename a project.
 
+Note: The project state is set to READ_ONLY at the start of the rename operation.
+If the rename operation fails, the project state is reverted back to ACTIVE.
+
 Limitations
 -----------
 
