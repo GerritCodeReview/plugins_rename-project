@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "824fc672_cd0bda5c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-11T22:31:36Z",
+      "side": 1,
+      "message": "This needs to be updated in the docs and tests too",
+      "revId": "33b9456281e29eb1801978b6193e8d3dd9e46b67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b38d45b_2c35fafa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-11T22:31:36Z",
+      "side": 1,
+      "message": "Split this into its own change please",
+      "revId": "33b9456281e29eb1801978b6193e8d3dd9e46b67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2625bf33_03cb017c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RevertRenameProject.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-11T22:31:36Z",
+      "side": 1,
+      "message": "Should this be in a finally? Or do you want the exceptions to leave it in READ_ONLY?",
+      "revId": "33b9456281e29eb1801978b6193e8d3dd9e46b67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
