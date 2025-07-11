@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a9de4bc_cb7dd9d6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RevertRenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-11T22:29:48Z",
+      "side": 1,
+      "message": "```suggestion\n            \"Reverted project watches successfully from project {} to project {}.\",\n```",
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20ee6aca_d131ed33",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RevertRenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-11T22:29:48Z",
+      "side": 1,
+      "message": "```suggestion\n            \"Failed to revert project watches for project {}. Secondary indexes not reverted.\"\n```",
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9b9c03b_538d8e4f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-11T22:29:48Z",
+      "side": 1,
+      "message": "rename this too?\n```suggestion\n  private final ChangeNotes.Factory notesFactory;\n```",
+      "range": {
+        "startLine": 53,
+        "startChar": 36,
+        "endLine": 53,
+        "endChar": 49
+      },
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "161b8bc6_087649cb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-11T22:29:48Z",
+      "side": 1,
+      "message": "Can you create a follow up change that switches this to use `scanChangeIds()`? You\u0027ll probably update the method to return a `Set\u003cChange.Id\u003e` then too.",
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00d768cd_75b1761c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-11T22:29:48Z",
+      "side": 1,
+      "message": "Mention the new project name too?\n\n```suggestion\n    log.debug(\"Updating watch entries from project {} to project {}\", oldProjectKey.get(), newProjectKey.get());\n```",
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bfaa4d5_d053a4dd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-11T22:29:48Z",
+      "side": 1,
+      "message": "Mention the new project name too?\n```suggestion\n    log.debug(\"Successfully updated watch entries from project {} to project {}\", oldProjectKey.get(), newProjectKey.get());\n```",
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7598c61_a6e8d66f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-11T22:29:48Z",
+      "side": 1,
+      "message": "For follow up, I think these can be combined?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 80
+      },
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
