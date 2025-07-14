@@ -135,6 +135,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32b35b51_4e15687e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-07-14T09:47:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "161b8bc6_087649cb",
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00d768cd_75b1761c",
@@ -218,6 +236,30 @@
       "writtenOn": "2025-07-11T22:29:48Z",
       "side": 1,
       "message": "For follow up, I think these can be combined?",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 80
+      },
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ce91ee6_b67f41c4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-07-14T09:47:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7598c61_a6e8d66f",
       "range": {
         "startLine": 133,
         "startChar": 0,
