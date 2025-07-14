@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62867233_55a5b941",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RevertRenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-07-14T08:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a9de4bc_cb7dd9d6",
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20ee6aca_d131ed33",
@@ -35,6 +53,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dced1833_d9a87bdd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RevertRenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-07-14T08:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20ee6aca_d131ed33",
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9b9c03b_538d8e4f",
@@ -48,6 +84,30 @@
       "writtenOn": "2025-07-11T22:29:48Z",
       "side": 1,
       "message": "rename this too?\n```suggestion\n  private final ChangeNotes.Factory notesFactory;\n```",
+      "range": {
+        "startLine": 53,
+        "startChar": 36,
+        "endLine": 53,
+        "endChar": 49
+      },
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "000798a1_97805968",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-07-14T08:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9b9c03b_538d8e4f",
       "range": {
         "startLine": 53,
         "startChar": 36,
@@ -92,6 +152,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5ac5b95_5a96afae",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-07-14T08:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00d768cd_75b1761c",
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bfaa4d5_d053a4dd",
@@ -105,6 +183,24 @@
       "writtenOn": "2025-07-11T22:29:48Z",
       "side": 1,
       "message": "Mention the new project name too?\n```suggestion\n    log.debug(\"Successfully updated watch entries from project {} to project {}\", oldProjectKey.get(), newProjectKey.get());\n```",
+      "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdee6efd_5121dc2e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/database/DatabaseRenameHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-07-14T08:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bfaa4d5_d053a4dd",
       "revId": "aa93099dbc0bcb5da64abc50afa80a730086d8e7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
