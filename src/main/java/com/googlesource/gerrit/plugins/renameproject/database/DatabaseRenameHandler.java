@@ -123,20 +123,18 @@ public class DatabaseRenameHandler {
               projectWatches.get(watchKey));
           oldProjectWatches.add(watchKey);
           try {
+            String updateMessage =
+                String.format(
+                    "Remove watch entries for %s and Add watch entries for %s",
+                    oldProjectKey.get(), newProjectKey.get());
             accountsUpdateProvider
                 .get()
                 .update(
-                    "Add watch entry",
+                    updateMessage,
                     accountId,
-                    (accountState, update) ->
-                        update.updateProjectWatches(newProjectWatches).build());
-            accountsUpdateProvider
-                .get()
-                .update(
-                    "Remove watch entry",
-                    accountId,
-                    (accountState, update) ->
-                        update.deleteProjectWatches(oldProjectWatches).build());
+                    u ->
+                        u.deleteProjectWatches(oldProjectWatches)
+                            .updateProjectWatches(newProjectWatches));
           } catch (ConfigInvalidException e) {
             log.error(
                 "Updating watch entry for user {} in project {} failed. Watch config found"
