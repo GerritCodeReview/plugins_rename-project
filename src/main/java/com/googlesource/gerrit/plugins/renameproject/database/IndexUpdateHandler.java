@@ -24,6 +24,7 @@ import com.googlesource.gerrit.plugins.renameproject.Configuration;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -46,7 +47,7 @@ public class IndexUpdateHandler {
   }
 
   public void updateIndex(
-      List<Change.Id> changeIds, Project.NameKey newProjectKey, ProgressMonitor pm)
+      Set<Change.Id> changeIds, Project.NameKey newProjectKey, ProgressMonitor pm)
       throws InterruptedException {
     log.debug("Starting to index {} change(s).", changeIds.size());
     ExecutorService executor =
