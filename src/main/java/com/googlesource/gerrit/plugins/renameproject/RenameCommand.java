@@ -30,8 +30,8 @@ import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 import org.kohsuke.args4j.Argument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,7 +62,7 @@ public final class RenameCommand extends SshCommand {
       ProjectResource rsrc = new ProjectResource(projectState, self.get());
       try (CommandProgressMonitor monitor = new CommandProgressMonitor(stdout)) {
         renameProject.assertCanRename(rsrc, input, monitor);
-        List<Change.Id> changeIds = renameProject.getChanges(rsrc, monitor);
+        Set<Change.Id> changeIds = renameProject.getChanges(rsrc, monitor);
         if (!renameProject.startRename(
             rsrc, input, monitor, continueRename(changeIds, monitor), changeIds)) {
           stdout.flush();
@@ -73,7 +73,7 @@ public final class RenameCommand extends SshCommand {
     }
   }
 
-  private boolean continueRename(List<Change.Id> changes, ProgressMonitor pm) throws IOException {
+  private boolean continueRename(Set<Change.Id> changes, ProgressMonitor pm) throws IOException {
     if (changes != null && changes.size() > WARNING_LIMIT) {
       // close the progress task explicitly this time to get user input
       pm.close();
