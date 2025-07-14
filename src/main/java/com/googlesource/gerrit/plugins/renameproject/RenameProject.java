@@ -80,7 +80,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
           RenameRevertException {
     ProgressMonitor progressMonitor = NoopMonitor.INSTANCE;
     assertCanRename(resource, input, progressMonitor);
-    List<Id> changeIds = getChanges(resource, progressMonitor);
+    Set<Id> changeIds = getChanges(resource, progressMonitor);
     if (startRename(
         resource,
         input,
@@ -97,7 +97,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       Input input,
       ProgressMonitor progressMonitor,
       boolean continueRename,
-      List<Change.Id> changeIds)
+      Set<Change.Id> changeIds)
       throws ResourceConflictException,
           BadRequestException,
           AuthException,
@@ -113,7 +113,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
         return false;
       }
     } else {
-      doRename(Collections.emptyList(), resource, input, NoopMonitor.INSTANCE);
+      doRename(Collections.emptySet(), resource, input, NoopMonitor.INSTANCE);
     }
     return true;
   }
@@ -272,7 +272,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     }
   }
 
-  void doRename(List<Change.Id> changeIds, ProjectResource rsrc, Input input, ProgressMonitor pm)
+  void doRename(Set<Change.Id> changeIds, ProjectResource rsrc, Input input, ProgressMonitor pm)
       throws InterruptedException, ConfigInvalidException, IOException, RenameRevertException {
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     Project.NameKey newProjectKey = Project.nameKey(input.name);
@@ -349,7 +349,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
   }
 
   void indexRenameStep(
-      List<Change.Id> changeIds,
+      Set<Change.Id> changeIds,
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
       ProgressMonitor pm)
@@ -388,8 +388,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     return stepsPerformed;
   }
 
-  List<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm) throws IOException {
-    pm.beginTask("Retrieving the list of changes from DB");
+  Set<Change.Id> getChanges(ProjectResource rsrc, ProgressMonitor pm) throws IOException {
+    pm.beginTask("Retrieving changes from DB");
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     return dbHandler.getChangeIds(oldProjectKey);
   }

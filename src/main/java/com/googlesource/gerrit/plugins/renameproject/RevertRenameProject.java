@@ -25,6 +25,7 @@ import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,7 +52,7 @@ public class RevertRenameProject {
 
   void performRevert(
       List<Step> stepsPerformed,
-      List<Id> changeIds,
+      Set<Id> changeIds,
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
       ProgressMonitor pm)
