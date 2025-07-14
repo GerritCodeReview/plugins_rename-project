@@ -26,7 +26,6 @@ import com.google.gerrit.server.account.AccountsUpdate;
 import com.google.gerrit.server.account.ProjectWatches.ProjectWatchKey;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.notedb.ChangeNotes;
-import com.google.gerrit.server.notedb.ChangeNotes.Factory.ChangeNotesResult;
 import com.google.gerrit.server.query.account.InternalAccountQuery;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -36,11 +35,9 @@ import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Stream;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Repository;
 import org.slf4j.Logger;
@@ -50,34 +47,25 @@ import org.slf4j.LoggerFactory;
 public class DatabaseRenameHandler {
   private static final Logger log = LoggerFactory.getLogger(DatabaseRenameHandler.class);
 
-  private final ChangeNotes.Factory notesFactory;
   private final GitRepositoryManager repoManager;
   private final Provider<InternalAccountQuery> accountQueryProvider;
   private final Provider<AccountsUpdate> accountsUpdateProvider;
 
   @Inject
   public DatabaseRenameHandler(
-      ChangeNotes.Factory notesFactory,
       GitRepositoryManager repoManager,
       Provider<InternalAccountQuery> accountQueryProvider,
       @ServerInitiated Provider<AccountsUpdate> accountsUpdateProvider) {
     this.accountQueryProvider = accountQueryProvider;
-    this.notesFactory = notesFactory;
     this.repoManager = repoManager;
     this.accountsUpdateProvider = accountsUpdateProvider;
   }
 
-  public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws IOException {
+  public Set<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws IOException {
     log.debug("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
-    List<Change.Id> changeIds = new ArrayList<>();
+    Set<Change.Id> changeIds;
     try (Repository repo = repoManager.openRepository(oldProjectKey)) {
-      Stream<ChangeNotesResult> changes = notesFactory.scan(repo, oldProjectKey);
-      Iterator<ChangeNotesResult> iterator = changes.iterator();
-      while (iterator.hasNext()) {
-        ChangeNotesResult change = iterator.next();
-        Change.Id changeId = change.id();
-        changeIds.add(changeId);
-      }
+      changeIds = ChangeNotes.Factory.scanChangeIds(repo).keySet();
     }
     log.debug(
         "Number of changes in noteDb related to project {} are {}",

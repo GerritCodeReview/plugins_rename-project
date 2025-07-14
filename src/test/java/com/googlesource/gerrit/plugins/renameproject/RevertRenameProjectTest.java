@@ -29,8 +29,8 @@ import com.google.gerrit.server.project.ProjectResource;
 import com.google.gerrit.server.project.ProjectState;
 import com.googlesource.gerrit.plugins.renameproject.RenameProject.Step;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -67,7 +67,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   @UseLocalDisk
   public void testRevertFromFsHandler() throws Exception {
     Result result = createChange();
-    List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
+    Set<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
     renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
     assertRenamed(result);
@@ -81,7 +81,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   @UseLocalDisk
   public void testRevertFromCacheHandler() throws Exception {
     Result result = createChange();
-    List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
+    Set<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
     renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
     renameProject.cacheRenameStep(oldProjectKey, newProjectKey);
@@ -96,7 +96,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   @UseLocalDisk
   public void testRevertFromDbHandler() throws Exception {
     Result result = createChange();
-    List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
+    Set<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
     renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
     renameProject.cacheRenameStep(oldProjectKey, newProjectKey);
@@ -112,7 +112,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   @UseLocalDisk
   public void testRevertFromIndexHandler() throws Exception {
     Result result = createChange();
-    List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
+    Set<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
     renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
     renameProject.cacheRenameStep(oldProjectKey, newProjectKey);
