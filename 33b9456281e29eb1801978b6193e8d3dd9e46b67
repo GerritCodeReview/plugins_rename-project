@@ -86,6 +86,24 @@
       "parentUuid": "2625bf33_03cb017c",
       "revId": "33b9456281e29eb1801978b6193e8d3dd9e46b67",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91c8a857_e534a891",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RevertRenameProject.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-14T23:57:00Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "9a8a987f_d05df3aa",
+      "revId": "33b9456281e29eb1801978b6193e8d3dd9e46b67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
