@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a14ea8aa_dbb2f2a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-07-15T08:54:26Z",
+      "side": 1,
+      "message": "I\u0027ve added a note in about.md regarding the project state. I\u0027m not entirely sure how to add a meaningful test for this, but I\u0027ve included a couple of assertions for ProjectState nonetheless.",
+      "parentUuid": "824fc672_cd0bda5c",
+      "revId": "33b9456281e29eb1801978b6193e8d3dd9e46b67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b38d45b_2c35fafa",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
