@@ -1,12 +1,13 @@
 {
   "checks": {
     "zuul-check:plugins_rename-project": {
-      "state": "SCHEDULED",
-      "message": "Change has been enqueued in check",
-      "url": "https://ci.gerritcodereview.com/t/gerrit/status/change/491101,1",
+      "state": "FAILED",
+      "message": "Change failed",
+      "url": "https://ci.gerritcodereview.com/t/gerrit/buildset/979c39bb4b624548833623cd048d508b",
       "started": "2025-07-16T10:48:44Z",
+      "finished": "2025-07-16T10:48:46Z",
       "created": "2025-07-16T10:48:45Z",
-      "updated": "2025-07-16T10:48:45Z"
+      "updated": "2025-07-16T10:48:46Z"
     }
   }
 }
