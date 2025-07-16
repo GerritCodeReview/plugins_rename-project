@@ -22,6 +22,30 @@
       },
       "revId": "7d39766b513ed42bb8572397e68ba5b56026bdc9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecc54092_ccc60083",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-16T16:41:11Z",
+      "side": 1,
+      "message": "Actually, you can mention that this seemed to be the original intent, but was never implemented.\n```suggestion\nUpdate project state to READ_ONLY before starting the rename operation\n\nThis appears to have been the original intent [1], but the `.lock()`\nmethod was never called during rename.\n\n[1] https://gerrit.googlesource.com/plugins/rename-project/+/7220f19c288e4c329f010bbc12bad76187f604cd/src/main/java/com/googlesource/gerrit/plugins/renameproject/LockUnlockProject.java#45\n```",
+      "parentUuid": "63ff89db_cf1917f1",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 69
+      },
+      "revId": "7d39766b513ed42bb8572397e68ba5b56026bdc9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
