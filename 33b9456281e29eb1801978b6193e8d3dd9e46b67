@@ -36,6 +36,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8530b95_9be77201",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-07-16T16:38:05Z",
+      "side": 1,
+      "message": "I think that\u0027s good enough. Thanks.",
+      "parentUuid": "a14ea8aa_dbb2f2a7",
+      "revId": "33b9456281e29eb1801978b6193e8d3dd9e46b67",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b38d45b_2c35fafa",
