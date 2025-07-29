@@ -297,10 +297,6 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
         // if the DB update is successful, update the secondary index
         indexRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
 
-        // no need to revert this since newProjectKey will be removed from project cache before
-        lockUnlockProject.unlock(newProjectKey);
-        log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
-
         // flush old changeId -> Project cache for given changeIds
         changeIdProjectCache.invalidateAll(changeIds);
 
@@ -309,6 +305,9 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
         // replicate rename-project operation to other replica instances
         replicateRename(input, oldProjectKey, pm);
       }
+      // no need to revert this since newProjectKey will be removed from project cache before
+      lockUnlockProject.unlock(newProjectKey);
+      log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
     } catch (Exception e) {
       if (stepsPerformed.isEmpty()) {
         log.error("Renaming procedure failed. Exception caught: {}", e.toString());
