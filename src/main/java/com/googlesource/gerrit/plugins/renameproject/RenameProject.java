@@ -57,7 +57,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -121,7 +120,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
         return false;
       }
     } else {
-      doRename(Collections.emptySet(), resource, input, NoopMonitor.INSTANCE);
+      doRenameReplica(resource, input);
     }
     return true;
   }
@@ -289,26 +288,18 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     try {
       lockUnlockProject.lock(oldProjectKey);
       fsRenameStep(oldProjectKey, newProjectKey, pm);
-      if (!isReplica) {
-
-        cacheRenameStep(rsrc.getNameKey(), newProjectKey);
-        dbRenameStep(oldProjectKey, newProjectKey, pm);
-
-        // if the DB update is successful, update the secondary index
-        indexRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
-
-        // no need to revert this since newProjectKey will be removed from project cache before
-        lockUnlockProject.unlock(newProjectKey);
-        log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
-
-        // flush old changeId -> Project cache for given changeIds
-        changeIdProjectCache.invalidateAll(changeIds);
-
-        pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
-
-        // replicate rename-project operation to other replica instances
-        replicateRename(input, oldProjectKey, pm);
-      }
+      cacheRenameStep(oldProjectKey, newProjectKey);
+      dbRenameStep(oldProjectKey, newProjectKey, pm);
+      // if the DB update is successful, update the secondary index
+      indexRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
+      // flush old changeId -> Project cache for given changeIds
+      changeIdProjectCache.invalidateAll(changeIds);
+      pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
+      // replicate rename-project operation to other replica instances
+      replicateRename(input, oldProjectKey, pm);
+      // no need to revert this since newProjectKey will be removed from project cache before
+      lockUnlockProject.unlock(newProjectKey);
+      log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
     } catch (Exception e) {
       if (stepsPerformed.isEmpty()) {
         log.error("Renaming procedure failed. Exception caught: {}", e.toString());
@@ -329,6 +320,21 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
         ex = revertEx;
         throw new RenameRevertException(revertEx, e);
       }
+      ex = e;
+      throw e;
+    } finally {
+      renameLog.onRename((IdentifiedUser) userProvider.get(), oldProjectKey, input, ex);
+    }
+  }
+
+  void doRenameReplica(ProjectResource rsrc, Input input) throws IOException {
+    Project.NameKey oldProjectKey = rsrc.getNameKey();
+    Project.NameKey newProjectKey = Project.nameKey(input.name);
+    Exception ex = null;
+    try {
+      fsRenameStep(oldProjectKey, newProjectKey, NoopMonitor.INSTANCE);
+    } catch (Exception e) {
+      log.error("Renaming procedure failed on replica", e);
       ex = e;
       throw e;
     } finally {
