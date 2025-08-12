@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecdc16db_19fac58f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-08-12T20:56:20Z",
+      "side": 1,
+      "message": "Uh, so while this is buggy behavior, I don\u0027t think it\u0027s the right fix. We probably messed up when we added the lock and should have excluded replicas from any of the lock/unlock logic. Changing the project state data on replicas wouldn\u0027t keep them in sync with the primaries, which is bad.",
+      "range": {
+        "startLine": 11,
+        "startChar": 66,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "cfb618c64b20720d3453c829994c3196ef40d09f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38f90aff_badf0c04",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-08-12T20:56:20Z",
+      "side": 1,
+      "message": "Maybe create `doRenamePrimary()` and `doRenameReplica()` helper methods? All we want on replicas is `fsRenameStep(oldProjectKey, newProjectKey, pm);` and a little bit of exception handling (`stepsPerformed` will always be empty if we catch any exception).",
+      "revId": "cfb618c64b20720d3453c829994c3196ef40d09f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
