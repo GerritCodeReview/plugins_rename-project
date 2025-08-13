@@ -27,6 +27,9 @@ import com.google.gerrit.entities.Change.Id;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.api.access.PluginPermission;
+import com.google.gerrit.extensions.api.changes.NotifyHandling;
+import com.google.gerrit.extensions.events.ProjectDeletedListener;
+import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.ResourceConflictException;
@@ -70,6 +73,8 @@ import org.slf4j.LoggerFactory;
 @Singleton
 public class RenameProject implements RestModifyView<ProjectResource, Input> {
 
+  private final DynamicSet<ProjectDeletedListener> deletedListeners;
+
   @Override
   public Response<?> apply(ProjectResource resource, Input input)
       throws IOException,
@@ -87,18 +92,22 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
         input,
         progressMonitor,
         (changeIds == null || changeIds.size() <= WARNING_LIMIT || input.continueWithRename),
-        changeIds)) {
+        changeIds,
+        deletedListeners
+        )) {
       return Response.ok("");
     }
     return Response.none();
   }
 
+  @Inject
   public boolean startRename(
       ProjectResource resource,
       Input input,
       ProgressMonitor progressMonitor,
       boolean continueRename,
-      Set<Change.Id> changeIds)
+      Set<Change.Id> changeIds,
+      DynamicSet<ProjectDeletedListener> deletedListeners)
       throws ResourceConflictException,
           BadRequestException,
           AuthException,
@@ -115,13 +124,13 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
         throw new ResourceConflictException(errorMsg);
       }
       if (continueRename) {
-        doRename(changeIds, resource, input, progressMonitor);
+        doRename(changeIds, resource, input, progressMonitor, deletedListeners);
       } else {
         log.debug(CANCELLATION_MSG);
         return false;
       }
     } else {
-      doRename(Collections.emptySet(), resource, input, NoopMonitor.INSTANCE);
+      doRename(Collections.emptySet(), resource, input, NoopMonitor.INSTANCE, deletedListeners);
     }
     return true;
   }
@@ -181,7 +190,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       RevertRenameProject revertRenameProject,
       SshHelper sshHelper,
       HttpSession httpSession,
-      Configuration cfg) {
+      Configuration cfg,
+      DynamicSet<ProjectDeletedListener> deletedListeners) {
     this.dbHandler = dbHandler;
     this.fsHandler = fsHandler;
     this.cacheHandler = cacheHandler;
@@ -200,6 +210,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     this.cfg = cfg;
     this.stepsPerformed = new ArrayList<>();
     this.isReplica = isReplica;
+    this.deletedListeners = deletedListeners;
   }
 
   private void assertNewNameNotNull(Input input) throws BadRequestException {
@@ -280,7 +291,12 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     }
   }
 
-  void doRename(Set<Change.Id> changeIds, ProjectResource rsrc, Input input, ProgressMonitor pm)
+  void doRename(
+      Set<Change.Id> changeIds,
+      ProjectResource rsrc,
+      Input input,
+      ProgressMonitor pm,
+      DynamicSet<ProjectDeletedListener> deletedListeners)
       throws InterruptedException, ConfigInvalidException, IOException, RenameRevertException {
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     Project.NameKey newProjectKey = Project.nameKey(input.name);
@@ -303,6 +319,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
 
         // flush old changeId -> Project cache for given changeIds
         changeIdProjectCache.invalidateAll(changeIds);
+
+        sendProjectDeletedEvent(oldProjectKey.get(), deletedListeners);
 
         pluginEvent.fire(pluginName, pluginName, oldProjectKey.get() + ":" + newProjectKey.get());
 
@@ -419,6 +437,32 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
           input.name,
           url,
           cfg.getUrls());
+    }
+  }
+
+  private static void sendProjectDeletedEvent(
+      String projectName, DynamicSet<ProjectDeletedListener> deletedListeners) {
+    if (!deletedListeners.iterator().hasNext()) {
+      return;
+    }
+    ProjectDeletedListener.Event event =
+        new ProjectDeletedListener.Event() {
+          @Override
+          public String getProjectName() {
+            return projectName;
+          }
+
+          @Override
+          public NotifyHandling getNotify() {
+            return NotifyHandling.NONE;
+          }
+        };
+    for (ProjectDeletedListener l : deletedListeners) {
+      try {
+        l.onProjectDeleted(event);
+      } catch (RuntimeException e) {
+        log.warn("Failure in ProjectDeletedListener. Exception caught: {}", e.toString());
+      }
     }
   }
 

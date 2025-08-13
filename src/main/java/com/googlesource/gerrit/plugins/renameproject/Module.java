@@ -21,6 +21,7 @@ import static com.googlesource.gerrit.plugins.renameproject.RenameProjectCapabil
 import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.config.CapabilityDefinition;
 import com.google.gerrit.extensions.events.LifecycleListener;
+import com.google.gerrit.extensions.events.ProjectDeletedListener;
 import com.google.gerrit.extensions.restapi.RestApiModule;
 import com.google.inject.AbstractModule;
 import com.google.inject.internal.UniqueAnnotations;
@@ -48,6 +49,7 @@ public class Module extends AbstractModule {
     bind(RenamePreconditions.class);
     bind(IndexUpdateHandler.class);
     bind(RevertRenameProject.class);
+	bind(ProjectDeletedListener.class);
     bind(SshSessionFactory.class).toProvider(RenameReplicationSshSessionFactoryProvider.class);
     install(new RestRenameReplicationModule());
     install(
