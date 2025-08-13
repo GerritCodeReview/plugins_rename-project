@@ -40,6 +40,8 @@ import com.google.gerrit.entities.Change.Id;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.entities.Project.NameKey;
 import com.google.gerrit.extensions.client.ProjectWatchInfo;
+import com.google.gerrit.extensions.events.ProjectDeletedListener;
+import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.server.project.ProjectState;
 import com.google.inject.Inject;
@@ -65,7 +67,11 @@ import org.eclipse.jgit.junit.TestRepository;
 import org.eclipse.jgit.transport.RemoteSession;
 import org.eclipse.jgit.transport.URIish;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 @TestPlugin(
     name = "rename-project",
     sysModule = "com.googlesource.gerrit.plugins.renameproject.Module",
@@ -81,6 +87,9 @@ public class RenameIT extends LightweightPluginDaemonTest {
   private static final String URL = "ssh://localhost:29418";
   private static final String RENAME_REGEX = "[a-zA-Z]+";
   private static final String CHANGE_LIMIT = "0";
+
+  @Inject DynamicSet<ProjectDeletedListener> deletedListeners;
+  @Mock private ProjectDeletedListener projectDeleteListener;
 
   @Inject private RequestScopeOperations requestScopeOperations;
 
@@ -226,6 +235,17 @@ public class RenameIT extends LightweightPluginDaemonTest {
     adminSshSession.assertSuccess();
 
     assertThat(changeIdProjectCache.getIfPresent(changeID)).isNull();
+  }
+
+  @Test
+  @UseLocalDisk
+  public void testSendEventToProjectDeletedListener() throws Exception {
+    deletedListeners.add("testPlugin", projectDeleteListener );
+    createChange();
+    adminSshSession.exec(PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME);
+    adminSshSession.assertSuccess();
+
+    verify(projectDeleteListener).onProjectDeleted(any());
   }
 
   @Test

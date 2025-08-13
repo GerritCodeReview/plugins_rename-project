@@ -17,6 +17,8 @@ package com.googlesource.gerrit.plugins.renameproject;
 import static com.googlesource.gerrit.plugins.renameproject.RenameProject.WARNING_LIMIT;
 
 import com.google.gerrit.entities.Change;
+import com.google.gerrit.extensions.events.ProjectDeletedListener;
+import com.google.gerrit.extensions.registration.DynamicSet;
 import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.project.ProjectResource;
@@ -47,11 +49,16 @@ public final class RenameCommand extends SshCommand {
   private static final Logger log = LoggerFactory.getLogger(RenameCommand.class);
   private final RenameProject renameProject;
   private final Provider<CurrentUser> self;
+  private final DynamicSet<ProjectDeletedListener> deletedListeners;
 
   @Inject
-  protected RenameCommand(RenameProject renameProject, Provider<CurrentUser> self) {
+  protected RenameCommand(
+      RenameProject renameProject,
+      Provider<CurrentUser> self,
+      DynamicSet<ProjectDeletedListener> deletedListeners) {
     this.renameProject = renameProject;
     this.self = self;
+    this.deletedListeners = deletedListeners;
   }
 
   @Override
@@ -64,7 +71,7 @@ public final class RenameCommand extends SshCommand {
         renameProject.assertCanRename(rsrc, input, monitor);
         Set<Change.Id> changeIds = renameProject.getChanges(rsrc, monitor);
         if (!renameProject.startRename(
-            rsrc, input, monitor, continueRename(changeIds, monitor), changeIds)) {
+            rsrc, input, monitor, continueRename(changeIds, monitor), changeIds, deletedListeners)) {
           stdout.flush();
         }
       }
