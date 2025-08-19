@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a22ed33_d98494e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-08-19T16:03:43Z",
+      "side": 1,
+      "message": "I think it works this way because for any larger repo, it\u0027s going to be a lot more efficient to rename a repo on the remote than it will be to delete and recreate the repo. While it might be simpler to use replication to create/delete (and I agree with a lot of your points below), I\u0027m not sure it\u0027s the correct design.\n\nIf we really want better sharing, I think we\u0027d need to go the route of teaching replication about project renames (either by adding a new event type to core or doing some linking of rename-project and replication-api plugin/module).",
+      "revId": "8294cd9e3d0ddf748696009005ba3bcb05443bd2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
