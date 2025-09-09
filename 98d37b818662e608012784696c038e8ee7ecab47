@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8839e837_0dcd266a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 3604707
+      },
+      "writtenOn": "2025-09-09T22:42:52Z",
+      "side": 1,
+      "message": "renames?",
+      "range": {
+        "startLine": 74,
+        "startChar": 25,
+        "endLine": 74,
+        "endChar": 32
+      },
+      "revId": "98d37b818662e608012784696c038e8ee7ecab47",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "558f8571_4f8ff569",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 3604707
+      },
+      "writtenOn": "2025-09-09T22:42:52Z",
+      "side": 1,
+      "message": "In gerrit, any configs with the term \"change\" in them should probably be related to Gerrit Changes, or it will likely confuse users.",
+      "revId": "98d37b818662e608012784696c038e8ee7ecab47",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
