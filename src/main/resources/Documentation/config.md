@@ -29,7 +29,7 @@ To configure ssh replication, specify the port number and put the `ssh://`
 prefix followed by hostname and then port number after `:`. It is also possible
 to specify the ssh user by passing `USERNAME@` as a prefix for hostname.
 
-Rename replication is done over SSH, so ensure the host key of the remote
+If rename replication is done over SSH, ensure the host key of the remote
 system(s) is already in the Gerrit user's `~/.ssh/known_hosts` file. The easiest
 way to add the host key is to connect once by hand with the command line:
 
@@ -43,8 +43,8 @@ timeout, and the client waits indefinitely. By default, 0.
 * `sshConnectionTimeout` : Timeout for SSH connections in minutes. If 0, there
 is no timeout, and the client waits indefinitely. By default, 2 minutes.
 
-To configure http replication, provide the correct url. To cpecify username and
-password for replication for rename, add password and username in gerrit.config
+To configure http replication, provide the correct url. To specify username and
+password for replication for rename, add `password` and `user` options in gerrit.config
 or secure.config. for example:
 ```
   [plugin "@PLUGIN@"]
