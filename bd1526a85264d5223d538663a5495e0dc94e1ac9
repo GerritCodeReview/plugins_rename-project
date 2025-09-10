@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af60ce4c_d1d0df46",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-09-10T15:21:12Z",
+      "side": 1,
+      "message": "nit: inline this\n```suggestion\nFor more details on how to configure replication, see the [Configuration](config.md) documentation.\n```",
+      "range": {
+        "startLine": 33,
+        "startChar": 58,
+        "endLine": 35,
+        "endChar": 19
+      },
+      "revId": "bd1526a85264d5223d538663a5495e0dc94e1ac9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6689e5c9_e09c084c",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-09-10T15:21:12Z",
+      "side": 1,
+      "message": "nit: s/fire/perform/\n\n```suggestion\nbeing out of sync. The admin then will have to manually perform the rename operation on the replica\n```",
+      "range": {
+        "startLine": 41,
+        "startChar": 56,
+        "endLine": 41,
+        "endChar": 60
+      },
+      "revId": "bd1526a85264d5223d538663a5495e0dc94e1ac9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aaf3120_fa079ac6",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-09-10T15:21:12Z",
+      "side": 1,
+      "message": "link to the section above?\n\n```suggestion\nHowever, because of all the [caveats](#limitations) of this plugin, it is not\n```",
+      "revId": "bd1526a85264d5223d538663a5495e0dc94e1ac9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb497b15_61a0e932",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-09-10T15:21:12Z",
+      "side": 1,
+      "message": "nit: Use the correct key name for the username\n\n```suggestion\npassword for replication for rename, add `password` and `user` options in gerrit.config\n```",
+      "revId": "bd1526a85264d5223d538663a5495e0dc94e1ac9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
