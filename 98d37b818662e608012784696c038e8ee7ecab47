@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea6473c5_f25e6252",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-09-10T15:11:44Z",
+      "side": 1,
+      "message": "No, it\u0027s changes, see below.",
+      "parentUuid": "8839e837_0dcd266a",
+      "range": {
+        "startLine": 74,
+        "startChar": 25,
+        "endLine": 74,
+        "endChar": 32
+      },
+      "revId": "98d37b818662e608012784696c038e8ee7ecab47",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "558f8571_4f8ff569",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
@@ -55,6 +79,24 @@
       "side": 1,
       "message": "Agreed. But this is supposed to be a limit on the number of changes in a project, I don\u0027t have a better alternative.",
       "parentUuid": "558f8571_4f8ff569",
+      "revId": "98d37b818662e608012784696c038e8ee7ecab47",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bb31e72_9a634e33",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-09-10T15:11:44Z",
+      "side": 1,
+      "message": "\u003e In gerrit, any configs with the term \"change\" in them should probably be related to Gerrit Changes, or it will likely confuse users.\n\nThis is Gerrit changes, not \"renames\". i.e. admins can set this value to something like `5` and that would cause the rename-project plugin to disallow renaming any project with more than 5 Gerrit changes.",
+      "parentUuid": "e7e64967_0bdf92b5",
       "revId": "98d37b818662e608012784696c038e8ee7ecab47",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
