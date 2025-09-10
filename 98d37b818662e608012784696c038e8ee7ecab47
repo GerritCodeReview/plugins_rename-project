@@ -39,6 +39,24 @@
       "message": "In gerrit, any configs with the term \"change\" in them should probably be related to Gerrit Changes, or it will likely confuse users.",
       "revId": "98d37b818662e608012784696c038e8ee7ecab47",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7e64967_0bdf92b5",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-09-10T06:30:35Z",
+      "side": 1,
+      "message": "Agreed. But this is supposed to be a limit on the number of changes in a project, I don\u0027t have a better alternative.",
+      "parentUuid": "558f8571_4f8ff569",
+      "revId": "98d37b818662e608012784696c038e8ee7ecab47",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
