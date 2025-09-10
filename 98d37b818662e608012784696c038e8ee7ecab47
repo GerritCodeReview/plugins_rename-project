@@ -99,6 +99,24 @@
       "parentUuid": "e7e64967_0bdf92b5",
       "revId": "98d37b818662e608012784696c038e8ee7ecab47",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ff7d5aa_6d9e8c2f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 3604707
+      },
+      "writtenOn": "2025-09-10T15:16:04Z",
+      "side": 1,
+      "message": "AH, I see. I don\u0027t get that at from the CM, and barely from the docs. I can see how that is the case now when you explain it, but maybe there\u0027s something you can do to improve the wording to make it more obvious, because this seems like a non-obvious thing to want to limit. As a limit, why would I want this?",
+      "parentUuid": "0bb31e72_9a634e33",
+      "revId": "98d37b818662e608012784696c038e8ee7ecab47",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
