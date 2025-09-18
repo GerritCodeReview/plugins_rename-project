@@ -177,6 +177,24 @@
       "parentUuid": "8a9b47bb_866ed4a2",
       "revId": "98d37b818662e608012784696c038e8ee7ecab47",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7d6ea88_ef4c0827",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 3604707
+      },
+      "writtenOn": "2025-09-18T21:23:31Z",
+      "side": 1,
+      "message": "I\u0027ll be honest it feels weird because the issues you mention don\u0027t really seem related to the amount of changes in the project other than in some case \"not being empty\". Would it make more sense to: 1) document issues with renames 2) add an \"empty only\" config option?",
+      "parentUuid": "a2e7401c_bf7be4f6",
+      "revId": "98d37b818662e608012784696c038e8ee7ecab47",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
