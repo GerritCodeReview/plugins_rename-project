@@ -48,6 +48,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69f68b6d_88006223",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-09-18T18:51:23Z",
+      "side": 1,
+      "message": "Marked as resolved.",
+      "parentUuid": "ea6473c5_f25e6252",
+      "range": {
+        "startLine": 74,
+        "startChar": 25,
+        "endLine": 74,
+        "endChar": 32
+      },
+      "revId": "98d37b818662e608012784696c038e8ee7ecab47",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "558f8571_4f8ff569",
@@ -133,6 +157,24 @@
       "side": 1,
       "message": "\u003e As a limit, why would I want this?\n\nRenaming a project with changes introduces complexities (such as different cache evictions on replicas, rename failures due to collisions with repacking leading to the repository entering a bad state) that are not currently well-handled in the code. Introducing a configuration to limit the scope of the rename operation allows the plugin to be released to users earlier, without needing to address these issues immediately.\n\nAlso, our current use case involves renaming empty repositories. Renaming repositories with changes could potentially break external systems that depend on Gerrit data and may not be aware of the rename. Therefore, it would be beneficial to provide administrators with a way to restrict this operation.",
       "parentUuid": "3ff7d5aa_6d9e8c2f",
+      "revId": "98d37b818662e608012784696c038e8ee7ecab47",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2e7401c_bf7be4f6",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-09-18T18:51:23Z",
+      "side": 1,
+      "message": "@mfick@nvidia.com does that make sense to you?\n\n@yash.chaturvedi@oss.qualcomm.com can you add that text to the commit message (tweak as necessary to fit commit message tone/style)?",
+      "parentUuid": "8a9b47bb_866ed4a2",
       "revId": "98d37b818662e608012784696c038e8ee7ecab47",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
