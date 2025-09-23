@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f25eb6_256e4242",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-09-23T00:03:41Z",
+      "side": 1,
+      "message": "@yash.chaturvedi@oss.qualcomm.com I realized there\u0027s an existing bug here in that the `LockUnlockProject` class doesn\u0027t record the current project state before it sets it to READ_ONLY. So if the project is already READ_ONLY, we\u0027ll end up moving it to ACTIVE when we finish the rename 😞",
+      "revId": "4859cdf12692e9e0bafb87bc5b5966c4344e9c3b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
