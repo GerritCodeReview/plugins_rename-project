@@ -195,6 +195,24 @@
       "parentUuid": "a2e7401c_bf7be4f6",
       "revId": "98d37b818662e608012784696c038e8ee7ecab47",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6d15ed2_d7b53bda",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-09-23T00:07:20Z",
+      "side": 1,
+      "message": "Yes and yes. @yash.chaturvedi@oss.qualcomm.com how about we drop this change from the rest of this series and re-apply it on top (still stable-3.10) as the \"empty only\" config Martin suggested? We should update the docs to highlight the potential issues either in that change or a preceding one.",
+      "parentUuid": "e7d6ea88_ef4c0827",
+      "revId": "98d37b818662e608012784696c038e8ee7ecab47",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
