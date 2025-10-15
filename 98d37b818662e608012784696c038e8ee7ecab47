@@ -213,6 +213,24 @@
       "parentUuid": "e7d6ea88_ef4c0827",
       "revId": "98d37b818662e608012784696c038e8ee7ecab47",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f0d16d7_1edbd5d1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-10-15T13:11:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6d15ed2_d7b53bda",
+      "revId": "98d37b818662e608012784696c038e8ee7ecab47",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
