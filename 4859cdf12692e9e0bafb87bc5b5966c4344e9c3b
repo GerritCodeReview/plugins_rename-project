@@ -16,6 +16,24 @@
       "message": "@yash.chaturvedi@oss.qualcomm.com I realized there\u0027s an existing bug here in that the `LockUnlockProject` class doesn\u0027t record the current project state before it sets it to READ_ONLY. So if the project is already READ_ONLY, we\u0027ll end up moving it to ACTIVE when we finish the rename 😞",
       "revId": "4859cdf12692e9e0bafb87bc5b5966c4344e9c3b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e2d5914_ec1ef7c7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/RenameProject.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-10-15T08:31:37Z",
+      "side": 1,
+      "message": "Added fix in successor change \n519121: Ensure project is reverted to its original state after rename | https://gerrit-review.googlesource.com/c/plugins/rename-project/+/519121",
+      "parentUuid": "85f25eb6_256e4242",
+      "revId": "4859cdf12692e9e0bafb87bc5b5966c4344e9c3b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
