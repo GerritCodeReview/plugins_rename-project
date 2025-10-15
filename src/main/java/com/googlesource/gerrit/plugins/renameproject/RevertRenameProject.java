@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.renameproject;
 
 import com.google.gerrit.entities.Change.Id;
 import com.google.gerrit.entities.Project;
+import com.google.gerrit.extensions.client.ProjectState;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.renameproject.RenameProject.Step;
 import com.googlesource.gerrit.plugins.renameproject.cache.CacheRenameHandler;
@@ -58,6 +59,7 @@ public class RevertRenameProject {
       Set<Id> changeIds,
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
+      ProjectState oldProjectState,
       ProgressMonitor pm)
       throws IOException, RenameRevertException, ConfigInvalidException {
     pm.beginTask("Reverting the rename procedure.");
@@ -105,6 +107,6 @@ public class RevertRenameProject {
             e.toString());
       }
     }
-    lockUnlockProject.unlock(oldProjectKey);
+    lockUnlockProject.unlock(oldProjectKey, oldProjectState);
   }
 }

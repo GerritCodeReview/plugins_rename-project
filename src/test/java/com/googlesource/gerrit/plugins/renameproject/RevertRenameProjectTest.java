@@ -47,6 +47,7 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   private Project.NameKey newProjectKey;
   private ProgressMonitor pm;
   private ProjectResource oldRsrc;
+  private com.google.gerrit.extensions.client.ProjectState oldProjectState;
 
   @Before
   public void init() {
@@ -60,6 +61,8 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
 
     oldRsrc = Mockito.mock(ProjectResource.class);
     when(oldRsrc.getNameKey()).thenReturn(oldProjectKey);
+
+    oldProjectState = com.google.gerrit.extensions.client.ProjectState.ACTIVE;
   }
 
   @Test
@@ -72,7 +75,12 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     assertRenamed(result);
 
     revertRenameProject.performRevert(
-        renameProject.getStepsPerformed(), changeIds, oldProjectKey, newProjectKey, pm);
+        renameProject.getStepsPerformed(),
+        changeIds,
+        oldProjectKey,
+        newProjectKey,
+        oldProjectState,
+        pm);
     assertReverted();
   }
 
@@ -87,7 +95,12 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     assertRenamed(result);
 
     revertRenameProject.performRevert(
-        renameProject.getStepsPerformed(), changeIds, oldProjectKey, newProjectKey, pm);
+        renameProject.getStepsPerformed(),
+        changeIds,
+        oldProjectKey,
+        newProjectKey,
+        oldProjectState,
+        pm);
     assertReverted();
   }
 
@@ -103,7 +116,12 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     assertRenamed(result);
 
     revertRenameProject.performRevert(
-        renameProject.getStepsPerformed(), changeIds, oldProjectKey, newProjectKey, pm);
+        renameProject.getStepsPerformed(),
+        changeIds,
+        oldProjectKey,
+        newProjectKey,
+        oldProjectState,
+        pm);
     assertReverted();
   }
 
@@ -120,7 +138,12 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     assertRenamed(result);
 
     revertRenameProject.performRevert(
-        renameProject.getStepsPerformed(), changeIds, oldProjectKey, newProjectKey, pm);
+        renameProject.getStepsPerformed(),
+        changeIds,
+        oldProjectKey,
+        newProjectKey,
+        oldProjectState,
+        pm);
     assertReverted();
   }
 

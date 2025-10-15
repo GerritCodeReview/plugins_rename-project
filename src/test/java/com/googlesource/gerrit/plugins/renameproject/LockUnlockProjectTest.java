@@ -36,10 +36,10 @@ public class LockUnlockProjectTest extends LightweightPluginDaemonTest {
   public void testLockUnlockSucceeds() throws IOException, ConfigInvalidException {
     assertThat(projectCache.get(project).get().getProject().getState())
         .isEqualTo(ProjectState.ACTIVE);
-    lockUnlockInstance.lock(project);
+    ProjectState oldProjectState = lockUnlockInstance.lock(project);
     assertThat(projectCache.get(project).get().getProject().getState())
         .isEqualTo(ProjectState.READ_ONLY);
-    lockUnlockInstance.unlock(project);
+    lockUnlockInstance.unlock(project, oldProjectState);
     assertThat(projectCache.get(project).get().getProject().getState())
         .isEqualTo(ProjectState.ACTIVE);
   }
