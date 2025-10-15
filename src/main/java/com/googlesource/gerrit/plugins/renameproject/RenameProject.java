@@ -26,6 +26,7 @@ import com.google.gerrit.entities.Change.Id;
 import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.api.access.PluginPermission;
+import com.google.gerrit.extensions.client.ProjectState;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.ResourceConflictException;
@@ -276,9 +277,10 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     Project.NameKey oldProjectKey = rsrc.getNameKey();
     Project.NameKey newProjectKey = Project.nameKey(input.name);
     Exception ex = null;
+    ProjectState oldProjectState = ProjectState.ACTIVE;
     stepsPerformed.clear();
     try {
-      lockUnlockProject.lock(oldProjectKey);
+      oldProjectState = lockUnlockProject.lock(oldProjectKey);
       fsRenameStep(oldProjectKey, newProjectKey, pm);
       cacheRenameStep(oldProjectKey, newProjectKey);
       dbRenameStep(oldProjectKey, newProjectKey, pm);
@@ -290,7 +292,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       // replicate rename-project operation to other replica instances
       replicateRename(input, oldProjectKey, pm);
       // no need to revert this since newProjectKey will be removed from project cache before
-      lockUnlockProject.unlock(newProjectKey);
+      lockUnlockProject.unlock(newProjectKey, oldProjectState);
       log.debug("Unlocked the repo {} after rename operation.", newProjectKey.get());
     } catch (Exception e) {
       if (stepsPerformed.isEmpty()) {
@@ -303,7 +305,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
       }
       try {
         revertRenameProject.performRevert(
-            stepsPerformed, changeIds, oldProjectKey, newProjectKey, pm);
+            stepsPerformed, changeIds, oldProjectKey, newProjectKey, oldProjectState, pm);
       } catch (Exception revertEx) {
         log.error(
             "Failed to revert renaming procedure for {}. Exception caught: {}",

@@ -18,7 +18,9 @@ import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gerrit.acceptance.LightweightPluginDaemonTest;
 import com.google.gerrit.acceptance.TestPlugin;
+import com.google.gerrit.extensions.api.projects.ConfigInput;
 import com.google.gerrit.extensions.client.ProjectState;
+import com.google.gerrit.extensions.restapi.RestApiException;
 import com.google.inject.Inject;
 import java.io.IOException;
 import org.eclipse.jgit.errors.ConfigInvalidException;
@@ -36,11 +38,30 @@ public class LockUnlockProjectTest extends LightweightPluginDaemonTest {
   public void testLockUnlockSucceeds() throws IOException, ConfigInvalidException {
     assertThat(projectCache.get(project).get().getProject().getState())
         .isEqualTo(ProjectState.ACTIVE);
-    lockUnlockInstance.lock(project);
+    ProjectState oldProjectState = lockUnlockInstance.lock(project);
     assertThat(projectCache.get(project).get().getProject().getState())
         .isEqualTo(ProjectState.READ_ONLY);
-    lockUnlockInstance.unlock(project);
+    lockUnlockInstance.unlock(project, oldProjectState);
     assertThat(projectCache.get(project).get().getProject().getState())
         .isEqualTo(ProjectState.ACTIVE);
+  }
+
+  @Test
+  public void testUnlockRevertsProjectState()
+      throws IOException, ConfigInvalidException, RestApiException {
+    ConfigInput configInput = new ConfigInput();
+    configInput.state = ProjectState.HIDDEN;
+    gApi.projects().name(project.get()).config(configInput);
+
+    assertThat(projectCache.get(project).orElseThrow().getProject().getState())
+        .isEqualTo(ProjectState.HIDDEN);
+
+    ProjectState oldProjectState = lockUnlockInstance.lock(project);
+    assertThat(projectCache.get(project).orElseThrow().getProject().getState())
+        .isEqualTo(ProjectState.READ_ONLY);
+
+    lockUnlockInstance.unlock(project, oldProjectState);
+    assertThat(projectCache.get(project).orElseThrow().getProject().getState())
+        .isEqualTo(oldProjectState);
   }
 }
