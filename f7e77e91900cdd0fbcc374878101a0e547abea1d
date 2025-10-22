@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccabb8ba_c7cc361a",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/LockUnlockProjectTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-10-22T18:16:06Z",
+      "side": 1,
+      "message": "Can you add a test that covers one of the cases we expected were broken without this change?",
+      "revId": "f7e77e91900cdd0fbcc374878101a0e547abea1d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
