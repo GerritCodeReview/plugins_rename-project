@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5bf4cc48_4965e838",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-10-23T11:26:34Z",
+      "side": 1,
+      "message": "Just a thought, but do you think it would make more sense to restrict branches and tags as well, for the sake of completeness?",
+      "parentUuid": "a11a29b9_5512b8e3",
+      "revId": "33d1c1cfaef5ef8abb027d3b53e26be9c6b7626a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc2ac7b8_8c119d5c",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2025-10-22T18:30:41Z",
       "side": 1,
       "message": "Also assert the old name still exists?",
+      "revId": "33d1c1cfaef5ef8abb027d3b53e26be9c6b7626a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87b4fe6f_e5fef327",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-10-23T11:26:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc2ac7b8_8c119d5c",
       "revId": "33d1c1cfaef5ef8abb027d3b53e26be9c6b7626a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }

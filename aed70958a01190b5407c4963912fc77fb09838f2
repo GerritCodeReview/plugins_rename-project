@@ -16,6 +16,24 @@
       "message": "Can you remove this in a separate change?",
       "revId": "aed70958a01190b5407c4963912fc77fb09838f2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eb606a3_464b93f4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/Configuration.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-10-23T11:26:34Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "907d4a04_98b4d404",
+      "revId": "aed70958a01190b5407c4963912fc77fb09838f2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
