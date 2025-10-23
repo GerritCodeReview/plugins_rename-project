@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88e4cdb3_dbe1593e",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2025-10-23T18:10:44Z",
+      "side": 1,
+      "message": "Agreed. The concern is focused on changes and the complexity they add. Other git data can have some risk with the known issues, but not to the extent of change data.",
+      "parentUuid": "29df694e_43a72123",
+      "revId": "33d1c1cfaef5ef8abb027d3b53e26be9c6b7626a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc2ac7b8_8c119d5c",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/RenameIT.java",
         "patchSetId": 2
