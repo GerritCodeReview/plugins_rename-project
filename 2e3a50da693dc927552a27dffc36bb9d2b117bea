@@ -16,6 +16,24 @@
       "message": "I would use the constant here for clarity and consistency (same as you do in the other test method above).\n```suggestion\n        .isEqualTo(ProjectState.HIDDEN);\n```",
       "revId": "2e3a50da693dc927552a27dffc36bb9d2b117bea",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c31eaaf5_8a81688e",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/renameproject/LockUnlockProjectTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2025-10-24T06:50:13Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "00fa5271_c79d5cb4",
+      "revId": "2e3a50da693dc927552a27dffc36bb9d2b117bea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
