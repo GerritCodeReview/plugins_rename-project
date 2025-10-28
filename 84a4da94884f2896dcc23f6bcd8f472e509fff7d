@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e0d3c6d_c06ea7e7",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 3604707
+      },
+      "writtenOn": "2025-10-28T16:11:24Z",
+      "side": 1,
+      "message": "Should not have a comma here. But also, \"a non-empty repository\" is not the same things as a repo with no changes.",
+      "range": {
+        "startLine": 23,
+        "startChar": 56,
+        "endLine": 23,
+        "endChar": 58
+      },
+      "revId": "84a4da94884f2896dcc23f6bcd8f472e509fff7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e87ab46d_a83fc5d0",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 3604707
+      },
+      "writtenOn": "2025-10-28T16:11:24Z",
+      "side": 1,
+      "message": "evictions",
+      "range": {
+        "startLine": 25,
+        "startChar": 22,
+        "endLine": 25,
+        "endChar": 30
+      },
+      "revId": "84a4da94884f2896dcc23f6bcd8f472e509fff7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1881058e_a9f1bed9",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 3604707
+      },
+      "writtenOn": "2025-10-28T16:11:24Z",
+      "side": 1,
+      "message": "It is not clear how the two things mentioned here are related to having changes in the project?",
+      "range": {
+        "startLine": 26,
+        "startChar": 26,
+        "endLine": 26,
+        "endChar": 59
+      },
+      "revId": "84a4da94884f2896dcc23f6bcd8f472e509fff7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34456e92_9a4209e2",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 3604707
+      },
+      "writtenOn": "2025-10-28T16:11:24Z",
+      "side": 1,
+      "message": "Again, this is not an empty project.",
+      "revId": "84a4da94884f2896dcc23f6bcd8f472e509fff7d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
