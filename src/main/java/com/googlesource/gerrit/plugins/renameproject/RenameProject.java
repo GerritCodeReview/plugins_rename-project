@@ -412,7 +412,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
     Set<String> urls = cfg.getUrls();
     int nbRetries = cfg.getRenameReplicationRetries();
 
-    for (int i = 0; i < nbRetries && urls.size() > 0; ++i) {
+    for (int i = 0; i < nbRetries && !urls.isEmpty(); ++i) {
       urls = tryRenameReplication(urls, input, oldProjectKey);
     }
     for (String url : urls) {
@@ -421,7 +421,7 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
           oldProjectKey.get(),
           input.name,
           url,
-          cfg.getUrls());
+          nbRetries);
     }
   }
 
@@ -471,8 +471,8 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
         log.info(
             "Rescheduling a rename replication for retry for {} on project {}",
             url,
-            oldProjectKey.get());
-        e.printStackTrace();
+            oldProjectKey.get(),
+            e);
         failedReplicas.add(url);
       }
     }
