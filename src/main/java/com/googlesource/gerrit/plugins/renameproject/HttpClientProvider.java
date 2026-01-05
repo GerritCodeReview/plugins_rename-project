@@ -105,7 +105,6 @@ class HttpClientProvider implements Provider<CloseableHttpClient> {
 
   private BasicCredentialsProvider buildCredentials() {
     BasicCredentialsProvider creds = new BasicCredentialsProvider();
-    log.info("Build creds: " + cfg.getUser() + "  " + cfg.getPassword());
     creds.setCredentials(
         AuthScope.ANY, new UsernamePasswordCredentials(cfg.getUser(), cfg.getPassword()));
     return creds;

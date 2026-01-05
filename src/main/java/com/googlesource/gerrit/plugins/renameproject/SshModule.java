@@ -18,6 +18,7 @@ import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.sshd.SingleCommandPluginModule;
 import com.google.inject.Inject;
 import com.google.inject.binder.LinkedBindingBuilder;
+import com.google.inject.Inject;
 import org.apache.sshd.server.command.Command;
 
 public class SshModule extends SingleCommandPluginModule {

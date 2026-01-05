@@ -40,24 +40,26 @@ public class LockUnlockProject {
     this.projectConfigFactory = projectConfigFactory;
   }
 
-  public void lock(Project.NameKey key) throws IOException, ConfigInvalidException {
-    try (MetaDataUpdate md = metaDataUpdateFactory.create(key)) {
+  public ProjectState lock(Project.NameKey key) throws IOException, ConfigInvalidException {
+    MetaDataUpdate md = metaDataUpdateFactory.create(key);
 
-      ProjectConfig projectConfig = projectConfigFactory.read(md);
-      projectConfig.updateProject(project -> project.setState(ProjectState.READ_ONLY));
+    ProjectConfig projectConfig = projectConfigFactory.read(md);
+    ProjectState projectState = projectConfig.getProject().getState();
+    projectConfig.updateProject(project -> project.setState(ProjectState.READ_ONLY));
 
-      md.setMessage(String.format("Lock project while renaming the project %s\n", key.get()));
-      projectConfig.commit(md);
-      Project p = projectConfig.getProject();
-      projectCache.evict(p.getNameKey());
-    }
+    md.setMessage(String.format("Lock project while renaming the project %s\n", key.get()));
+    projectConfig.commit(md);
+    Project p = projectConfig.getProject();
+    projectCache.evict(p.getNameKey());
+    return projectState;
   }
 
-  public void unlock(Project.NameKey key) throws IOException, ConfigInvalidException {
-    try (MetaDataUpdate md = metaDataUpdateFactory.create(key)) {
+  public void unlock(Project.NameKey key, ProjectState projectState)
+      throws IOException, ConfigInvalidException {
+    MetaDataUpdate md = metaDataUpdateFactory.create(key);
 
-      ProjectConfig projectConfig = projectConfigFactory.read(md);
-      projectConfig.updateProject(project -> project.setState(ProjectState.ACTIVE));
+    ProjectConfig projectConfig = projectConfigFactory.read(md);
+    projectConfig.updateProject(project -> project.setState(projectState));
 
       md.setMessage(String.format("Unlock project after renaming the project to %s\n", key.get()));
       projectConfig.commit(md);
