@@ -29,8 +29,7 @@ import com.google.gerrit.server.project.ProjectResource;
 import com.google.gerrit.server.project.ProjectState;
 import com.googlesource.gerrit.plugins.renameproject.RenameProject.Step;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
-import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -46,8 +45,9 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   private RevertRenameProject revertRenameProject;
   private Project.NameKey oldProjectKey;
   private Project.NameKey newProjectKey;
-  private Optional<ProgressMonitor> pm;
+  private ProgressMonitor pm;
   private ProjectResource oldRsrc;
+  private com.google.gerrit.extensions.client.ProjectState oldProjectState;
 
   @Before
   public void init() {
@@ -57,23 +57,30 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
     oldProjectKey = project;
     newProjectKey = Project.nameKey(NEW_PROJECT_NAME);
 
-    pm = Optional.of(Mockito.mock(ProgressMonitor.class));
+    pm = Mockito.mock(ProgressMonitor.class);
 
     oldRsrc = Mockito.mock(ProjectResource.class);
     when(oldRsrc.getNameKey()).thenReturn(oldProjectKey);
+
+    oldProjectState = com.google.gerrit.extensions.client.ProjectState.ACTIVE;
   }
 
   @Test
   @UseLocalDisk
   public void testRevertFromFsHandler() throws Exception {
     Result result = createChange();
-    List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
+    Set<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
     renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
     assertRenamed(result);
 
     revertRenameProject.performRevert(
-        renameProject.getStepsPerformed(), changeIds, oldProjectKey, newProjectKey, pm);
+        renameProject.getStepsPerformed(),
+        changeIds,
+        oldProjectKey,
+        newProjectKey,
+        oldProjectState,
+        pm);
     assertReverted();
   }
 
@@ -81,14 +88,19 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   @UseLocalDisk
   public void testRevertFromCacheHandler() throws Exception {
     Result result = createChange();
-    List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
+    Set<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
     renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
     renameProject.cacheRenameStep(oldProjectKey, newProjectKey);
     assertRenamed(result);
 
     revertRenameProject.performRevert(
-        renameProject.getStepsPerformed(), changeIds, oldProjectKey, newProjectKey, pm);
+        renameProject.getStepsPerformed(),
+        changeIds,
+        oldProjectKey,
+        newProjectKey,
+        oldProjectState,
+        pm);
     assertReverted();
   }
 
@@ -96,15 +108,20 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   @UseLocalDisk
   public void testRevertFromDbHandler() throws Exception {
     Result result = createChange();
-    List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
+    Set<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
     renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
     renameProject.cacheRenameStep(oldProjectKey, newProjectKey);
-    renameProject.dbRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
+    renameProject.dbRenameStep(oldProjectKey, newProjectKey, pm);
     assertRenamed(result);
 
     revertRenameProject.performRevert(
-        renameProject.getStepsPerformed(), changeIds, oldProjectKey, newProjectKey, pm);
+        renameProject.getStepsPerformed(),
+        changeIds,
+        oldProjectKey,
+        newProjectKey,
+        oldProjectState,
+        pm);
     assertReverted();
   }
 
@@ -112,27 +129,34 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   @UseLocalDisk
   public void testRevertFromIndexHandler() throws Exception {
     Result result = createChange();
-    List<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
+    Set<Change.Id> changeIds = renameProject.getChanges(oldRsrc, pm);
 
     renameProject.fsRenameStep(oldProjectKey, newProjectKey, pm);
     renameProject.cacheRenameStep(oldProjectKey, newProjectKey);
-    renameProject.dbRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
+    renameProject.dbRenameStep(oldProjectKey, newProjectKey, pm);
     renameProject.indexRenameStep(changeIds, oldProjectKey, newProjectKey, pm);
     assertRenamed(result);
 
     revertRenameProject.performRevert(
-        renameProject.getStepsPerformed(), changeIds, oldProjectKey, newProjectKey, pm);
+        renameProject.getStepsPerformed(),
+        changeIds,
+        oldProjectKey,
+        newProjectKey,
+        oldProjectState,
+        pm);
     assertReverted();
   }
 
   private void assertReverted() throws Exception {
     evictCaches();
 
-    Optional<ProjectState> oldProjectState = projectCache.get(oldProjectKey);
-    assertThat(oldProjectState.isPresent()).isTrue();
+    ProjectState oldProjectState = projectCache.get(oldProjectKey).orElse(null);
+    assertThat(oldProjectState).isNotNull();
+    assertThat(oldProjectState.getProject().getState())
+        .isEqualTo(com.google.gerrit.extensions.client.ProjectState.ACTIVE);
 
-    Optional<ProjectState> newProjectState = projectCache.get(newProjectKey);
-    assertThat(newProjectState.isPresent()).isFalse();
+    ProjectState newProjectState = projectCache.get(newProjectKey).orElse(null);
+    assertThat(newProjectState).isNull();
 
     assertThat(queryProvider.get().byProject(oldProjectKey)).isNotEmpty();
     assertThat(queryProvider.get().byProject(newProjectKey)).isEmpty();
@@ -141,11 +165,13 @@ public class RevertRenameProjectTest extends LightweightPluginDaemonTest {
   private void assertRenamed(Result result) throws Exception {
     evictCaches();
 
-    Optional<ProjectState> oldProjectState = projectCache.get(oldProjectKey);
-    assertThat(oldProjectState.isPresent()).isFalse();
+    ProjectState oldProjectState = projectCache.get(oldProjectKey).orElse(null);
+    assertThat(oldProjectState).isNull();
 
-    Optional<ProjectState> newProjectState = projectCache.get(newProjectKey);
-    assertThat(newProjectState.isPresent()).isTrue();
+    ProjectState newProjectState = projectCache.get(newProjectKey).orElse(null);
+    assertThat(newProjectState).isNotNull();
+    assertThat(newProjectState.getProject().getState())
+        .isEqualTo(com.google.gerrit.extensions.client.ProjectState.ACTIVE);
 
     if (renameProject.getStepsPerformed().contains(Step.DATABASE)) {
       ChangeApi changeApi = gApi.changes().id(NEW_PROJECT_NAME, result.getChange().getId().get());

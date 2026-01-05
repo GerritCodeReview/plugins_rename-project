@@ -14,9 +14,9 @@
 
 package com.googlesource.gerrit.plugins.renameproject;
 
-import com.google.gerrit.entities.Change;
 import com.google.gerrit.entities.Change.Id;
 import com.google.gerrit.entities.Project;
+import com.google.gerrit.extensions.client.ProjectState;
 import com.google.inject.Inject;
 import com.googlesource.gerrit.plugins.renameproject.RenameProject.Step;
 import com.googlesource.gerrit.plugins.renameproject.cache.CacheRenameHandler;
@@ -25,9 +25,8 @@ import com.googlesource.gerrit.plugins.renameproject.database.IndexUpdateHandler
 import com.googlesource.gerrit.plugins.renameproject.fs.FilesystemRenameHandler;
 import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,31 +38,34 @@ public class RevertRenameProject {
   private final FilesystemRenameHandler fsHandler;
   private final CacheRenameHandler cacheHandler;
   private final IndexUpdateHandler indexHandler;
+  private final LockUnlockProject lockUnlockProject;
 
   @Inject
   RevertRenameProject(
       DatabaseRenameHandler dbHandler,
       FilesystemRenameHandler fsHandler,
       CacheRenameHandler cacheHandler,
-      IndexUpdateHandler indexHandler) {
+      IndexUpdateHandler indexHandler,
+      LockUnlockProject lockUnlockProject) {
     this.dbHandler = dbHandler;
     this.fsHandler = fsHandler;
     this.cacheHandler = cacheHandler;
     this.indexHandler = indexHandler;
+    this.lockUnlockProject = lockUnlockProject;
   }
 
   void performRevert(
       List<Step> stepsPerformed,
-      List<Id> changeIds,
+      Set<Id> changeIds,
       Project.NameKey oldProjectKey,
       Project.NameKey newProjectKey,
-      Optional<ProgressMonitor> opm)
+      ProjectState oldProjectState,
+      ProgressMonitor pm)
       throws IOException, RenameRevertException, ConfigInvalidException {
-    opm.ifPresent(pm -> pm.beginTask("Reverting the rename procedure."));
-    List<Change.Id> updatedChangeIds = Collections.emptyList();
+    pm.beginTask("Reverting the rename procedure.");
     if (stepsPerformed.contains(Step.FILESYSTEM)) {
       try {
-        fsHandler.rename(newProjectKey, oldProjectKey, opm);
+        fsHandler.rename(newProjectKey, oldProjectKey, pm);
         log.debug("Reverted the git repo name to {} successfully.", oldProjectKey.get());
       } catch (IOException e) {
         log.error(
@@ -77,14 +79,14 @@ public class RevertRenameProject {
     }
     if (stepsPerformed.contains(Step.DATABASE)) {
       try {
-        updatedChangeIds = dbHandler.rename(changeIds, newProjectKey, opm);
+        dbHandler.updateWatchEntries(newProjectKey, oldProjectKey);
         log.debug(
-            "Reverted the changes in DB successfully from project {} to project {}.",
+            "Reverted project watches successfully from project {} to project {}.",
             newProjectKey.get(),
             oldProjectKey.get());
-      } catch (RenameRevertException | ConfigInvalidException e) {
+      } catch (IOException | ConfigInvalidException e) {
         log.error(
-            "Failed to revert changes in DB for project {}. Secondary indexes not reverted."
+            "Failed to revert project watches for project {}. Secondary indexes not reverted."
                 + " Exception caught: {}",
             oldProjectKey.get(),
             e.toString());
@@ -93,7 +95,7 @@ public class RevertRenameProject {
     }
     if (stepsPerformed.contains(Step.INDEX)) {
       try {
-        indexHandler.updateIndex(updatedChangeIds, oldProjectKey, opm);
+        indexHandler.updateIndex(changeIds, oldProjectKey, pm);
         log.debug(
             "Reverted the secondary index successfully from project {} to project {}.",
             newProjectKey.get(),
@@ -105,5 +107,6 @@ public class RevertRenameProject {
             e.toString());
       }
     }
+    lockUnlockProject.unlock(oldProjectKey, oldProjectState);
   }
 }
