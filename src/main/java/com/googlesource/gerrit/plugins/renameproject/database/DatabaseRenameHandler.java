@@ -26,7 +26,6 @@ import com.google.gerrit.server.account.AccountsUpdate;
 import com.google.gerrit.server.account.ProjectWatches.ProjectWatchKey;
 import com.google.gerrit.server.git.GitRepositoryManager;
 import com.google.gerrit.server.notedb.ChangeNotes;
-import com.google.gerrit.server.notedb.ChangeNotes.Factory.ChangeNotesResult;
 import com.google.gerrit.server.query.account.InternalAccountQuery;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -36,12 +35,9 @@ import com.googlesource.gerrit.plugins.renameproject.monitor.ProgressMonitor;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Stream;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Repository;
 import org.slf4j.Logger;
@@ -51,38 +47,25 @@ import org.slf4j.LoggerFactory;
 public class DatabaseRenameHandler {
   private static final Logger log = LoggerFactory.getLogger(DatabaseRenameHandler.class);
 
-  private final ChangeNotes.Factory schemaFactory;
   private final GitRepositoryManager repoManager;
   private final Provider<InternalAccountQuery> accountQueryProvider;
   private final Provider<AccountsUpdate> accountsUpdateProvider;
 
-  private Project.NameKey oldProjectKey;
-
   @Inject
   public DatabaseRenameHandler(
-      ChangeNotes.Factory schemaFactory,
       GitRepositoryManager repoManager,
       Provider<InternalAccountQuery> accountQueryProvider,
       @ServerInitiated Provider<AccountsUpdate> accountsUpdateProvider) {
     this.accountQueryProvider = accountQueryProvider;
-    this.schemaFactory = schemaFactory;
     this.repoManager = repoManager;
     this.accountsUpdateProvider = accountsUpdateProvider;
   }
 
-  public List<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws IOException {
+  public Set<Change.Id> getChangeIds(Project.NameKey oldProjectKey) throws IOException {
     log.debug("Starting to retrieve changes from the DB for project {}", oldProjectKey.get());
-    this.oldProjectKey = oldProjectKey;
-
-    List<Change.Id> changeIds = new ArrayList<>();
+    Set<Change.Id> changeIds;
     try (Repository repo = repoManager.openRepository(oldProjectKey)) {
-      Stream<ChangeNotesResult> changes = schemaFactory.scan(repo, oldProjectKey);
-      Iterator<ChangeNotesResult> iterator = changes.iterator();
-      while (iterator.hasNext()) {
-        ChangeNotesResult change = iterator.next();
-        Change.Id changeId = change.id();
-        changeIds.add(changeId);
-      }
+      changeIds = ChangeNotes.Factory.scanChangeIds(repo).keySet();
     }
     log.debug(
         "Number of changes in noteDb related to project {} are {}",
@@ -91,21 +74,24 @@ public class DatabaseRenameHandler {
     return changeIds;
   }
 
-  public List<Change.Id> rename(
-      List<Change.Id> changes, Project.NameKey newProjectKey, Optional<ProgressMonitor> opm)
+  public void updateWatchEntriesWithRollback(
+      Project.NameKey oldProjectKey, Project.NameKey newProjectKey, ProgressMonitor pm)
       throws RenameRevertException, IOException, ConfigInvalidException {
-    opm.ifPresent(pm -> pm.beginTask("Updating changes in the database"));
-    log.debug("Updating the changes in noteDb related to project {}", oldProjectKey.get());
+    pm.beginTask("Updating project watch entries");
+    log.debug(
+        "Updating watch entries from project {} to project {}",
+        oldProjectKey.get(),
+        newProjectKey.get());
     try {
-      updateWatchEntries(newProjectKey);
+      updateWatchEntries(oldProjectKey, newProjectKey);
     } catch (Exception e) {
       log.error(
-          "Failed to update changes in noteDb for project {}, exception caught: {}. Rolling back"
-              + " the operation.",
+          "Failed to update watch entries for project {}, exception caught: {}. Rolling back the"
+              + " operation.",
           oldProjectKey.get(),
           e.toString());
       try {
-        updateWatchEntries(newProjectKey);
+        updateWatchEntries(newProjectKey, oldProjectKey);
       } catch (Exception revertEx) {
         log.error(
             "Failed to rollback changes in noteDb from project {} to project {}, exception caught:"
@@ -117,13 +103,13 @@ public class DatabaseRenameHandler {
       }
       throw e;
     }
-
     log.debug(
-        "Successfully updated the changes in noteDb related to project {}", oldProjectKey.get());
-    return changes;
+        "Successfully updated watch entries from project {} to project {}",
+        oldProjectKey.get(),
+        newProjectKey.get());
   }
 
-  private void updateWatchEntries(Project.NameKey newProjectKey)
+  public void updateWatchEntries(Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
       throws IOException, ConfigInvalidException {
     for (AccountState a : accountQueryProvider.get().byWatchedProject(oldProjectKey)) {
       Account.Id accountId = a.account().id();
@@ -137,20 +123,18 @@ public class DatabaseRenameHandler {
               projectWatches.get(watchKey));
           oldProjectWatches.add(watchKey);
           try {
+            String updateMessage =
+                String.format(
+                    "Remove watch entries for %s and Add watch entries for %s",
+                    oldProjectKey.get(), newProjectKey.get());
             accountsUpdateProvider
                 .get()
                 .update(
-                    "Add watch entry",
+                    updateMessage,
                     accountId,
-                    (accountState, update) ->
-                        update.updateProjectWatches(newProjectWatches).build());
-            accountsUpdateProvider
-                .get()
-                .update(
-                    "Remove watch entry",
-                    accountId,
-                    (accountState, update) ->
-                        update.deleteProjectWatches(oldProjectWatches).build());
+                    u ->
+                        u.deleteProjectWatches(oldProjectWatches)
+                            .updateProjectWatches(newProjectWatches));
           } catch (ConfigInvalidException e) {
             log.error(
                 "Updating watch entry for user {} in project {} failed. Watch config found"
