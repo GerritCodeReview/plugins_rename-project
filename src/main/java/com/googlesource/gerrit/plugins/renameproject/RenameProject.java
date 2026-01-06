@@ -428,10 +428,11 @@ public class RenameProject implements RestModifyView<ProjectResource, Input> {
   void sshReplicateRename(Input input, Project.NameKey oldProjectKey, String url)
       throws RenameReplicationException, URISyntaxException, IOException {
     OutputStream errStream = sshHelper.newErrorBufferStream();
-    sshHelper.executeRemoteSsh(
-        new URIish(url), pluginName + " " + oldProjectKey.get() + " " + input.name, errStream);
-    String errorMessage = errStream.toString();
-    if (!errorMessage.isEmpty()) {
+    int status =
+        sshHelper.executeRemoteSsh(
+            new URIish(url), pluginName + " " + oldProjectKey.get() + " " + input.name, errStream);
+    if (status != 0) {
+      String errorMessage = errStream.toString();
       throw new RenameReplicationException(errorMessage);
     }
   }

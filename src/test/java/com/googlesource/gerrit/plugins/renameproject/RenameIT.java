@@ -261,11 +261,12 @@ public class RenameIT extends LightweightPluginDaemonTest {
     URIish urish = new URIish(URL);
     Input input = new Input();
     input.name = NEW_PROJECT_NAME;
+    String expectedCommand = PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME;
     when(sshHelper.connect(eq(urish))).thenReturn(session);
+    when(sshHelper.executeRemoteSsh(any(), any(), any())).thenReturn(1);
     renameProject.setSshHelper(sshHelper);
     renameProject.setHttpSession(httpSession);
     renameProject.replicateRename(input, project, NoopMonitor.INSTANCE);
-    String expectedCommand = PLUGIN_NAME + " " + project.get() + " " + NEW_PROJECT_NAME;
     verify(sshHelper, times(3)).executeRemoteSsh(eq(urish), eq(expectedCommand), eq(errStream));
   }
 
