@@ -262,6 +262,7 @@ public class RenameIT extends LightweightPluginDaemonTest {
     Input input = new Input();
     input.name = NEW_PROJECT_NAME;
     when(sshHelper.connect(eq(urish))).thenReturn(session);
+    when(sshHelper.executeRemoteSsh(any(), any(), any())).thenReturn(1);
     renameProject.setSshHelper(sshHelper);
     renameProject.setHttpSession(httpSession);
     renameProject.replicateRename(input, project, NoopMonitor.INSTANCE);
