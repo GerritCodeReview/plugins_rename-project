@@ -44,13 +44,10 @@ public class SshHelper {
     RemoteSession ssh = connect(uri);
     Process proc = ssh.exec(cmd, commandTimeout);
     proc.getOutputStream().close();
-    StreamCopyThread out = new StreamCopyThread(proc.getInputStream(), errStream);
     StreamCopyThread err = new StreamCopyThread(proc.getErrorStream(), errStream);
-    out.start();
     err.start();
     try {
       proc.waitFor();
-      out.halt();
       err.halt();
     } catch (InterruptedException interrupted) {
       // Don't wait, drop out immediately.
