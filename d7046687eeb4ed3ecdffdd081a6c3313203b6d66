@@ -22,6 +22,30 @@
       },
       "revId": "d7046687eeb4ed3ecdffdd081a6c3313203b6d66",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd035b3d_dce7d1ea",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/SshHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2026-01-07T05:14:17Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "bd94a37d_d1c76afe",
+      "range": {
+        "startLine": 47,
+        "startChar": 21,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "d7046687eeb4ed3ecdffdd081a6c3313203b6d66",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
