@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd94a37d_d1c76afe",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/renameproject/SshHelper.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2026-01-07T00:27:24Z",
+      "side": 0,
+      "message": "You can probably leave the stdout stream as-is since you now only rely on the exit code. Unread stdout or stderr can apparently cause issues.\n\n_Because some native platforms only provide limited buffer size for standard input and output streams, failure to promptly write the input stream or read the output stream of the process may cause the process to block, or even deadlock_ \n\nhttps://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Process.html",
+      "range": {
+        "startLine": 47,
+        "startChar": 21,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "d7046687eeb4ed3ecdffdd081a6c3313203b6d66",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
