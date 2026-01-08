@@ -33,7 +33,6 @@ public class CacheRenameHandler {
   public void update(Project.NameKey oldProjectKey, Project.NameKey newProjectKey)
       throws IOException {
     projectCache.remove(oldProjectKey);
-    projectCache.evict(newProjectKey);
     projectCache.onCreateProject(newProjectKey);
   }
 }
